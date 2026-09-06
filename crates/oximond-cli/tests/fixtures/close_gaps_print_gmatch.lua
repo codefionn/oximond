@@ -1,0 +1,7 @@
+print("a\0b", "c")
+print("x\0")
+print(1, "\0y", setmetatable({}, {__tostring=function() return "T\0U" end}))
+io.write("w\0z\n")
+print("-- gmatch")
+local n = 0 for w in string.gmatch("aaa", "^a") do n = n + 1 end print(n)
+for w in string.gmatch("a^a^", "^a") do io.write(w, ";") end print()

@@ -1,0 +1,11 @@
+local co = coroutine.create(function()
+  print("a", pcall(coroutine.yield, 1, 2))
+  print("b", select("#", pcall(coroutine.yield)))
+  print("c", xpcall(coroutine.yield, print, "x"))
+  return "end"
+end)
+print(coroutine.resume(co))
+print(coroutine.resume(co, "r1", "r2"))
+print(coroutine.resume(co, "q"))
+print(coroutine.resume(co, "z"))
+print(coroutine.status(co))

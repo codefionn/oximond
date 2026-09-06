@@ -1,0 +1,42 @@
+[a	false	malformed pattern (missing ']')
+[a	false	malformed pattern (missing ']')
+[a	false	malformed pattern (missing ']')
+[a	false	case.lua:8: malformed pattern (missing ']')
+%	false	malformed pattern (ends with '%')
+%	false	malformed pattern (ends with '%')
+%	false	malformed pattern (ends with '%')
+%	false	case.lua:8: malformed pattern (ends with '%')
+%b	false	unbalanced pattern
+%b	false	unbalanced pattern
+%b	false	unbalanced pattern
+%b	false	case.lua:8: unbalanced pattern
+%bx	false	unbalanced pattern
+%bx	false	unbalanced pattern
+%bx	false	unbalanced pattern
+%bx	false	case.lua:8: unbalanced pattern
+%f	false	missing '[' after '%f' in pattern
+%f	false	missing '[' after '%f' in pattern
+%f	false	missing '[' after '%f' in pattern
+%f	false	case.lua:8: missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	case.lua:8: missing '[' after '%f' in pattern
+%1	false	invalid capture index
+%1	false	invalid capture index
+%1	false	invalid capture index
+%1	false	case.lua:8: invalid capture index
+(a)%2	false	invalid capture index
+(a)%2	false	invalid capture index
+(a)%2	false	invalid capture index
+(a)%2	false	case.lua:8: invalid capture index
+[%	false	malformed pattern (missing ']')
+[%	false	malformed pattern (missing ']')
+[%	false	malformed pattern (missing ']')
+[%	false	case.lua:8: malformed pattern (missing ']')
+false	unfinished capture
+false	unfinished capture
+2	function
+true	created
+false	malformed pattern (missing ']')
+false	case.lua:16: malformed pattern (missing ']')

@@ -1,0 +1,11 @@
+lines 27,15,16,17,16,17,16,19,20,19,22,22,24,25,28
+calls return:nil:main,call:for iterator:Lua,return:for iterator:Lua,call:nil:C
+count>0 true
+getinfo for iterator/for iterator,51,for iterator/for iterator,51
+locals ary),(*temporary),(*temporary)
+traceback generic_for_hooks.lua:71: attempt to call a number value (for iterator 'for iterator')
+stack traceback:
+	generic_for_hooks.lua:71: in function <generic_for_hooks.lua:71>
+lines2 79,80,81,80,81,80,81,80,83,84 6
+yield_hooked true 1 2 end
+lines 107,101,103,101,103,101,105,108

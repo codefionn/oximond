@@ -1,0 +1,727 @@
+number:0 number:0 number:-1 number:0 number:0 number:1 number:85
+number:1 number:1 number:-2 number:16777216 number:1 number:1 number:84
+number:-1 number:-1 number:0 number:-1 number:255 number:-1 number:-86
+number:0.5 number:0 number:-1 number:0 number:0 number:1 number:85
+number:1.5 number:2 number:-3 number:33554432 number:2 number:3 number:87
+number:2.5 number:2 number:-3 number:33554432 number:2 number:3 number:87
+number:-0.5 number:0 number:-1 number:0 number:0 number:1 number:85
+number:-1.5 number:-2 number:1 number:-16777217 number:254 number:-1 number:-85
+number:-2.5 number:-2 number:1 number:-16777217 number:254 number:-1 number:-85
+number:255 number:255 number:-256 number:-16777216 number:255 number:255 number:170
+number:65535 number:65535 number:-65536 number:-65536 number:255 number:65535 number:65450
+number:4294967295 number:-1 number:0 number:-1 number:255 number:-1 number:-86
+number:4294967296 number:0 number:-1 number:0 number:0 number:1 number:85
+number:4294967297 number:1 number:-2 number:16777216 number:1 number:1 number:84
+number:2147483647 number:2147483647 number:-2147483648 number:-129 number:255 number:2147483647 number:2147483562
+number:2147483648 number:-2147483648 number:2147483647 number:128 number:0 number:-2147483647 number:-2147483563
+number:-2147483648 number:-2147483648 number:2147483647 number:128 number:0 number:-2147483647 number:-2147483563
+number:-2147483649 number:2147483647 number:-2147483648 number:-129 number:255 number:2147483647 number:2147483562
+number:10000000000 number:1410065408 number:-1410065409 number:14945108 number:0 number:1410065409 number:1410065493
+number:-10000000000 number:-1410065408 number:1410065407 number:1897643 number:0 number:-1410065407 number:-1410065323
+number:1.1258999068426e+15 number:0 number:-1 number:0 number:0 number:1 number:85
+number:-1.1258999068426e+15 number:0 number:-1 number:0 number:0 number:1 number:85
+number:1e+15 number:-1530494976 number:1530494975 number:8439460 number:0 number:-1530494975 number:-1530494891
+number:-1e+15 number:1530494976 number:-1530494977 number:8403291 number:0 number:1530494977 number:1530495061
+number:2.2517998136852e+15 number:0 number:-1 number:0 number:0 number:1 number:85
+number:0.5 number:0 number:-1 number:0 number:0 number:1 number:85
+number:4294967295.5 number:0 number:-1 number:0 number:0 number:1 number:85
+number:0 number:0 number:0 number:0 number:0 number:0 number:0
+number:0 number:1 number:0 number:0 number:0 number:0 number:0
+number:0 number:5 number:0 number:0 number:0 number:0 number:0
+number:0 number:31 number:0 number:0 number:0 number:0 number:0
+number:0 number:32 number:0 number:0 number:0 number:0 number:0
+number:0 number:33 number:0 number:0 number:0 number:0 number:0
+number:0 number:63 number:0 number:0 number:0 number:0 number:0
+number:0 number:64 number:0 number:0 number:0 number:0 number:0
+number:0 number:65 number:0 number:0 number:0 number:0 number:0
+number:0 number:-1 number:0 number:0 number:0 number:0 number:0
+number:0 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:0 number:4294967299 number:0 number:0 number:0 number:0 number:0
+number:1 number:0 number:1 number:1 number:1 number:1 number:1
+number:1 number:1 number:2 number:0 number:0 number:2 number:-2147483648
+number:1 number:5 number:32 number:0 number:0 number:32 number:134217728
+number:1 number:31 number:-2147483648 number:0 number:0 number:-2147483648 number:2
+number:1 number:32 number:1 number:1 number:1 number:1 number:1
+number:1 number:33 number:2 number:0 number:0 number:2 number:-2147483648
+number:1 number:63 number:-2147483648 number:0 number:0 number:-2147483648 number:2
+number:1 number:64 number:1 number:1 number:1 number:1 number:1
+number:1 number:65 number:2 number:0 number:0 number:2 number:-2147483648
+number:1 number:-1 number:-2147483648 number:0 number:0 number:-2147483648 number:2
+number:1 number:1.5 number:4 number:0 number:0 number:4 number:1073741824
+number:1 number:4294967299 number:8 number:0 number:0 number:8 number:536870912
+number:-1 number:0 number:-1 number:-1 number:-1 number:-1 number:-1
+number:-1 number:1 number:-2 number:2147483647 number:-1 number:-1 number:-1
+number:-1 number:5 number:-32 number:134217727 number:-1 number:-1 number:-1
+number:-1 number:31 number:-2147483648 number:1 number:-1 number:-1 number:-1
+number:-1 number:32 number:-1 number:-1 number:-1 number:-1 number:-1
+number:-1 number:33 number:-2 number:2147483647 number:-1 number:-1 number:-1
+number:-1 number:63 number:-2147483648 number:1 number:-1 number:-1 number:-1
+number:-1 number:64 number:-1 number:-1 number:-1 number:-1 number:-1
+number:-1 number:65 number:-2 number:2147483647 number:-1 number:-1 number:-1
+number:-1 number:-1 number:-2147483648 number:1 number:-1 number:-1 number:-1
+number:-1 number:1.5 number:-4 number:1073741823 number:-1 number:-1 number:-1
+number:-1 number:4294967299 number:-8 number:536870911 number:-1 number:-1 number:-1
+number:0.5 number:0 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:1 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:5 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:31 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:32 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:33 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:63 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:64 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:65 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:-1 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:4294967299 number:0 number:0 number:0 number:0 number:0
+number:1.5 number:0 number:2 number:2 number:2 number:2 number:2
+number:1.5 number:1 number:4 number:1 number:1 number:4 number:1
+number:1.5 number:5 number:64 number:0 number:0 number:64 number:268435456
+number:1.5 number:31 number:0 number:0 number:0 number:1 number:4
+number:1.5 number:32 number:2 number:2 number:2 number:2 number:2
+number:1.5 number:33 number:4 number:1 number:1 number:4 number:1
+number:1.5 number:63 number:0 number:0 number:0 number:1 number:4
+number:1.5 number:64 number:2 number:2 number:2 number:2 number:2
+number:1.5 number:65 number:4 number:1 number:1 number:4 number:1
+number:1.5 number:-1 number:0 number:0 number:0 number:1 number:4
+number:1.5 number:1.5 number:8 number:0 number:0 number:8 number:-2147483648
+number:1.5 number:4294967299 number:16 number:0 number:0 number:16 number:1073741824
+number:2.5 number:0 number:2 number:2 number:2 number:2 number:2
+number:2.5 number:1 number:4 number:1 number:1 number:4 number:1
+number:2.5 number:5 number:64 number:0 number:0 number:64 number:268435456
+number:2.5 number:31 number:0 number:0 number:0 number:1 number:4
+number:2.5 number:32 number:2 number:2 number:2 number:2 number:2
+number:2.5 number:33 number:4 number:1 number:1 number:4 number:1
+number:2.5 number:63 number:0 number:0 number:0 number:1 number:4
+number:2.5 number:64 number:2 number:2 number:2 number:2 number:2
+number:2.5 number:65 number:4 number:1 number:1 number:4 number:1
+number:2.5 number:-1 number:0 number:0 number:0 number:1 number:4
+number:2.5 number:1.5 number:8 number:0 number:0 number:8 number:-2147483648
+number:2.5 number:4294967299 number:16 number:0 number:0 number:16 number:1073741824
+number:-0.5 number:0 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:1 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:5 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:31 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:32 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:33 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:63 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:64 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:65 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:-1 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:-0.5 number:4294967299 number:0 number:0 number:0 number:0 number:0
+number:-1.5 number:0 number:-2 number:-2 number:-2 number:-2 number:-2
+number:-1.5 number:1 number:-4 number:2147483647 number:-1 number:-3 number:2147483647
+number:-1.5 number:5 number:-64 number:134217727 number:-1 number:-33 number:-134217729
+number:-1.5 number:31 number:0 number:1 number:-1 number:2147483647 number:-3
+number:-1.5 number:32 number:-2 number:-2 number:-2 number:-2 number:-2
+number:-1.5 number:33 number:-4 number:2147483647 number:-1 number:-3 number:2147483647
+number:-1.5 number:63 number:0 number:1 number:-1 number:2147483647 number:-3
+number:-1.5 number:64 number:-2 number:-2 number:-2 number:-2 number:-2
+number:-1.5 number:65 number:-4 number:2147483647 number:-1 number:-3 number:2147483647
+number:-1.5 number:-1 number:0 number:1 number:-1 number:2147483647 number:-3
+number:-1.5 number:1.5 number:-8 number:1073741823 number:-1 number:-5 number:-1073741825
+number:-1.5 number:4294967299 number:-16 number:536870911 number:-1 number:-9 number:-536870913
+number:-2.5 number:0 number:-2 number:-2 number:-2 number:-2 number:-2
+number:-2.5 number:1 number:-4 number:2147483647 number:-1 number:-3 number:2147483647
+number:-2.5 number:5 number:-64 number:134217727 number:-1 number:-33 number:-134217729
+number:-2.5 number:31 number:0 number:1 number:-1 number:2147483647 number:-3
+number:-2.5 number:32 number:-2 number:-2 number:-2 number:-2 number:-2
+number:-2.5 number:33 number:-4 number:2147483647 number:-1 number:-3 number:2147483647
+number:-2.5 number:63 number:0 number:1 number:-1 number:2147483647 number:-3
+number:-2.5 number:64 number:-2 number:-2 number:-2 number:-2 number:-2
+number:-2.5 number:65 number:-4 number:2147483647 number:-1 number:-3 number:2147483647
+number:-2.5 number:-1 number:0 number:1 number:-1 number:2147483647 number:-3
+number:-2.5 number:1.5 number:-8 number:1073741823 number:-1 number:-5 number:-1073741825
+number:-2.5 number:4294967299 number:-16 number:536870911 number:-1 number:-9 number:-536870913
+number:255 number:0 number:255 number:255 number:255 number:255 number:255
+number:255 number:1 number:510 number:127 number:127 number:510 number:-2147483521
+number:255 number:5 number:8160 number:7 number:7 number:8160 number:-134217721
+number:255 number:31 number:-2147483648 number:0 number:0 number:-2147483521 number:510
+number:255 number:32 number:255 number:255 number:255 number:255 number:255
+number:255 number:33 number:510 number:127 number:127 number:510 number:-2147483521
+number:255 number:63 number:-2147483648 number:0 number:0 number:-2147483521 number:510
+number:255 number:64 number:255 number:255 number:255 number:255 number:255
+number:255 number:65 number:510 number:127 number:127 number:510 number:-2147483521
+number:255 number:-1 number:-2147483648 number:0 number:0 number:-2147483521 number:510
+number:255 number:1.5 number:1020 number:63 number:63 number:1020 number:-1073741761
+number:255 number:4294967299 number:2040 number:31 number:31 number:2040 number:-536870881
+number:65535 number:0 number:65535 number:65535 number:65535 number:65535 number:65535
+number:65535 number:1 number:131070 number:32767 number:32767 number:131070 number:-2147450881
+number:65535 number:5 number:2097120 number:2047 number:2047 number:2097120 number:-134215681
+number:65535 number:31 number:-2147483648 number:0 number:0 number:-2147450881 number:131070
+number:65535 number:32 number:65535 number:65535 number:65535 number:65535 number:65535
+number:65535 number:33 number:131070 number:32767 number:32767 number:131070 number:-2147450881
+number:65535 number:63 number:-2147483648 number:0 number:0 number:-2147450881 number:131070
+number:65535 number:64 number:65535 number:65535 number:65535 number:65535 number:65535
+number:65535 number:65 number:131070 number:32767 number:32767 number:131070 number:-2147450881
+number:65535 number:-1 number:-2147483648 number:0 number:0 number:-2147450881 number:131070
+number:65535 number:1.5 number:262140 number:16383 number:16383 number:262140 number:-1073725441
+number:65535 number:4294967299 number:524280 number:8191 number:8191 number:524280 number:-536862721
+number:4294967295 number:0 number:-1 number:-1 number:-1 number:-1 number:-1
+number:4294967295 number:1 number:-2 number:2147483647 number:-1 number:-1 number:-1
+number:4294967295 number:5 number:-32 number:134217727 number:-1 number:-1 number:-1
+number:4294967295 number:31 number:-2147483648 number:1 number:-1 number:-1 number:-1
+number:4294967295 number:32 number:-1 number:-1 number:-1 number:-1 number:-1
+number:4294967295 number:33 number:-2 number:2147483647 number:-1 number:-1 number:-1
+number:4294967295 number:63 number:-2147483648 number:1 number:-1 number:-1 number:-1
+number:4294967295 number:64 number:-1 number:-1 number:-1 number:-1 number:-1
+number:4294967295 number:65 number:-2 number:2147483647 number:-1 number:-1 number:-1
+number:4294967295 number:-1 number:-2147483648 number:1 number:-1 number:-1 number:-1
+number:4294967295 number:1.5 number:-4 number:1073741823 number:-1 number:-1 number:-1
+number:4294967295 number:4294967299 number:-8 number:536870911 number:-1 number:-1 number:-1
+number:4294967296 number:0 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:1 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:5 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:31 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:32 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:33 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:63 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:64 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:65 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:-1 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:4294967296 number:4294967299 number:0 number:0 number:0 number:0 number:0
+number:4294967297 number:0 number:1 number:1 number:1 number:1 number:1
+number:4294967297 number:1 number:2 number:0 number:0 number:2 number:-2147483648
+number:4294967297 number:5 number:32 number:0 number:0 number:32 number:134217728
+number:4294967297 number:31 number:-2147483648 number:0 number:0 number:-2147483648 number:2
+number:4294967297 number:32 number:1 number:1 number:1 number:1 number:1
+number:4294967297 number:33 number:2 number:0 number:0 number:2 number:-2147483648
+number:4294967297 number:63 number:-2147483648 number:0 number:0 number:-2147483648 number:2
+number:4294967297 number:64 number:1 number:1 number:1 number:1 number:1
+number:4294967297 number:65 number:2 number:0 number:0 number:2 number:-2147483648
+number:4294967297 number:-1 number:-2147483648 number:0 number:0 number:-2147483648 number:2
+number:4294967297 number:1.5 number:4 number:0 number:0 number:4 number:1073741824
+number:4294967297 number:4294967299 number:8 number:0 number:0 number:8 number:536870912
+number:2147483647 number:0 number:2147483647 number:2147483647 number:2147483647 number:2147483647 number:2147483647
+number:2147483647 number:1 number:-2 number:1073741823 number:1073741823 number:-2 number:-1073741825
+number:2147483647 number:5 number:-32 number:67108863 number:67108863 number:-17 number:-67108865
+number:2147483647 number:31 number:-2147483648 number:0 number:0 number:-1073741825 number:-2
+number:2147483647 number:32 number:2147483647 number:2147483647 number:2147483647 number:2147483647 number:2147483647
+number:2147483647 number:33 number:-2 number:1073741823 number:1073741823 number:-2 number:-1073741825
+number:2147483647 number:63 number:-2147483648 number:0 number:0 number:-1073741825 number:-2
+number:2147483647 number:64 number:2147483647 number:2147483647 number:2147483647 number:2147483647 number:2147483647
+number:2147483647 number:65 number:-2 number:1073741823 number:1073741823 number:-2 number:-1073741825
+number:2147483647 number:-1 number:-2147483648 number:0 number:0 number:-1073741825 number:-2
+number:2147483647 number:1.5 number:-4 number:536870911 number:536870911 number:-3 number:-536870913
+number:2147483647 number:4294967299 number:-8 number:268435455 number:268435455 number:-5 number:-268435457
+number:2147483648 number:0 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648
+number:2147483648 number:1 number:0 number:1073741824 number:-1073741824 number:1 number:1073741824
+number:2147483648 number:5 number:0 number:67108864 number:-67108864 number:16 number:67108864
+number:2147483648 number:31 number:0 number:1 number:-1 number:1073741824 number:1
+number:2147483648 number:32 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648
+number:2147483648 number:33 number:0 number:1073741824 number:-1073741824 number:1 number:1073741824
+number:2147483648 number:63 number:0 number:1 number:-1 number:1073741824 number:1
+number:2147483648 number:64 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648
+number:2147483648 number:65 number:0 number:1073741824 number:-1073741824 number:1 number:1073741824
+number:2147483648 number:-1 number:0 number:1 number:-1 number:1073741824 number:1
+number:2147483648 number:1.5 number:0 number:536870912 number:-536870912 number:2 number:536870912
+number:2147483648 number:4294967299 number:0 number:268435456 number:-268435456 number:4 number:268435456
+number:-2147483648 number:0 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648
+number:-2147483648 number:1 number:0 number:1073741824 number:-1073741824 number:1 number:1073741824
+number:-2147483648 number:5 number:0 number:67108864 number:-67108864 number:16 number:67108864
+number:-2147483648 number:31 number:0 number:1 number:-1 number:1073741824 number:1
+number:-2147483648 number:32 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648
+number:-2147483648 number:33 number:0 number:1073741824 number:-1073741824 number:1 number:1073741824
+number:-2147483648 number:63 number:0 number:1 number:-1 number:1073741824 number:1
+number:-2147483648 number:64 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648 number:-2147483648
+number:-2147483648 number:65 number:0 number:1073741824 number:-1073741824 number:1 number:1073741824
+number:-2147483648 number:-1 number:0 number:1 number:-1 number:1073741824 number:1
+number:-2147483648 number:1.5 number:0 number:536870912 number:-536870912 number:2 number:536870912
+number:-2147483648 number:4294967299 number:0 number:268435456 number:-268435456 number:4 number:268435456
+number:-2147483649 number:0 number:2147483647 number:2147483647 number:2147483647 number:2147483647 number:2147483647
+number:-2147483649 number:1 number:-2 number:1073741823 number:1073741823 number:-2 number:-1073741825
+number:-2147483649 number:5 number:-32 number:67108863 number:67108863 number:-17 number:-67108865
+number:-2147483649 number:31 number:-2147483648 number:0 number:0 number:-1073741825 number:-2
+number:-2147483649 number:32 number:2147483647 number:2147483647 number:2147483647 number:2147483647 number:2147483647
+number:-2147483649 number:33 number:-2 number:1073741823 number:1073741823 number:-2 number:-1073741825
+number:-2147483649 number:63 number:-2147483648 number:0 number:0 number:-1073741825 number:-2
+number:-2147483649 number:64 number:2147483647 number:2147483647 number:2147483647 number:2147483647 number:2147483647
+number:-2147483649 number:65 number:-2 number:1073741823 number:1073741823 number:-2 number:-1073741825
+number:-2147483649 number:-1 number:-2147483648 number:0 number:0 number:-1073741825 number:-2
+number:-2147483649 number:1.5 number:-4 number:536870911 number:536870911 number:-3 number:-536870913
+number:-2147483649 number:4294967299 number:-8 number:268435455 number:268435455 number:-5 number:-268435457
+number:10000000000 number:0 number:1410065408 number:1410065408 number:1410065408 number:1410065408 number:1410065408
+number:10000000000 number:1 number:-1474836480 number:705032704 number:705032704 number:-1474836480 number:705032704
+number:10000000000 number:5 number:-2122547200 number:44064544 number:44064544 number:-2122547190 number:44064544
+number:10000000000 number:31 number:0 number:0 number:0 number:705032704 number:-1474836480
+number:10000000000 number:32 number:1410065408 number:1410065408 number:1410065408 number:1410065408 number:1410065408
+number:10000000000 number:33 number:-1474836480 number:705032704 number:705032704 number:-1474836480 number:705032704
+number:10000000000 number:63 number:0 number:0 number:0 number:705032704 number:-1474836480
+number:10000000000 number:64 number:1410065408 number:1410065408 number:1410065408 number:1410065408 number:1410065408
+number:10000000000 number:65 number:-1474836480 number:705032704 number:705032704 number:-1474836480 number:705032704
+number:10000000000 number:-1 number:0 number:0 number:0 number:705032704 number:-1474836480
+number:10000000000 number:1.5 number:1345294336 number:352516352 number:352516352 number:1345294337 number:352516352
+number:10000000000 number:4294967299 number:-1604378624 number:176258176 number:176258176 number:-1604378622 number:176258176
+number:-10000000000 number:0 number:-1410065408 number:-1410065408 number:-1410065408 number:-1410065408 number:-1410065408
+number:-10000000000 number:1 number:1474836480 number:1442450944 number:-705032704 number:1474836481 number:1442450944
+number:-10000000000 number:5 number:2122547200 number:90153184 number:-44064544 number:2122547221 number:90153184
+number:-10000000000 number:31 number:0 number:1 number:-1 number:1442450944 number:1474836481
+number:-10000000000 number:32 number:-1410065408 number:-1410065408 number:-1410065408 number:-1410065408 number:-1410065408
+number:-10000000000 number:33 number:1474836480 number:1442450944 number:-705032704 number:1474836481 number:1442450944
+number:-10000000000 number:63 number:0 number:1 number:-1 number:1442450944 number:1474836481
+number:-10000000000 number:64 number:-1410065408 number:-1410065408 number:-1410065408 number:-1410065408 number:-1410065408
+number:-10000000000 number:65 number:1474836480 number:1442450944 number:-705032704 number:1474836481 number:1442450944
+number:-10000000000 number:-1 number:0 number:1 number:-1 number:1442450944 number:1474836481
+number:-10000000000 number:1.5 number:-1345294336 number:721225472 number:-352516352 number:-1345294334 number:721225472
+number:-10000000000 number:4294967299 number:1604378624 number:360612736 number:-176258176 number:1604378629 number:360612736
+number:1.1258999068426e+15 number:0 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:1 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:5 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:31 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:32 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:33 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:63 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:64 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:65 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:-1 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:1.1258999068426e+15 number:4294967299 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:0 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:1 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:5 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:31 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:32 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:33 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:63 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:64 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:65 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:-1 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:-1.1258999068426e+15 number:4294967299 number:0 number:0 number:0 number:0 number:0
+number:1e+15 number:0 number:-1530494976 number:-1530494976 number:-1530494976 number:-1530494976 number:-1530494976
+number:1e+15 number:1 number:1233977344 number:1382236160 number:-765247488 number:1233977345 number:1382236160
+number:1e+15 number:5 number:-1731198976 number:86389760 number:-47827968 number:-1731198956 number:86389760
+number:1e+15 number:31 number:0 number:1 number:-1 number:1382236160 number:1233977345
+number:1e+15 number:32 number:-1530494976 number:-1530494976 number:-1530494976 number:-1530494976 number:-1530494976
+number:1e+15 number:33 number:1233977344 number:1382236160 number:-765247488 number:1233977345 number:1382236160
+number:1e+15 number:63 number:0 number:1 number:-1 number:1382236160 number:1233977345
+number:1e+15 number:64 number:-1530494976 number:-1530494976 number:-1530494976 number:-1530494976 number:-1530494976
+number:1e+15 number:65 number:1233977344 number:1382236160 number:-765247488 number:1233977345 number:1382236160
+number:1e+15 number:-1 number:0 number:1 number:-1 number:1382236160 number:1233977345
+number:1e+15 number:1.5 number:-1827012608 number:691118080 number:-382623744 number:-1827012606 number:691118080
+number:1e+15 number:4294967299 number:640942080 number:345559040 number:-191311872 number:640942085 number:345559040
+number:-1e+15 number:0 number:1530494976 number:1530494976 number:1530494976 number:1530494976 number:1530494976
+number:-1e+15 number:1 number:-1233977344 number:765247488 number:765247488 number:-1233977344 number:765247488
+number:-1e+15 number:5 number:1731198976 number:47827968 number:47827968 number:1731198987 number:47827968
+number:-1e+15 number:31 number:0 number:0 number:0 number:765247488 number:-1233977344
+number:-1e+15 number:32 number:1530494976 number:1530494976 number:1530494976 number:1530494976 number:1530494976
+number:-1e+15 number:33 number:-1233977344 number:765247488 number:765247488 number:-1233977344 number:765247488
+number:-1e+15 number:63 number:0 number:0 number:0 number:765247488 number:-1233977344
+number:-1e+15 number:64 number:1530494976 number:1530494976 number:1530494976 number:1530494976 number:1530494976
+number:-1e+15 number:65 number:-1233977344 number:765247488 number:765247488 number:-1233977344 number:765247488
+number:-1e+15 number:-1 number:0 number:0 number:0 number:765247488 number:-1233977344
+number:-1e+15 number:1.5 number:1827012608 number:382623744 number:382623744 number:1827012609 number:382623744
+number:-1e+15 number:4294967299 number:-640942080 number:191311872 number:191311872 number:-640942078 number:191311872
+number:2.2517998136852e+15 number:0 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:1 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:5 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:31 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:32 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:33 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:63 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:64 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:65 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:-1 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:2.2517998136852e+15 number:4294967299 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:0 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:1 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:5 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:31 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:32 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:33 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:63 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:64 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:65 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:-1 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:0.5 number:4294967299 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:0 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:1 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:5 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:31 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:32 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:33 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:63 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:64 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:65 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:-1 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:1.5 number:0 number:0 number:0 number:0 number:0
+number:4294967295.5 number:4294967299 number:0 number:0 number:0 number:0 number:0
+cdata:0LL number:0 cdata:-1LL cdata:0LL
+cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL cdata:1LL cdata:0LL cdata:1LL cdata:1LL
+cdata:0LL cdata:-1LL cdata:0LL cdata:-1LL cdata:-1LL
+cdata:0LL cdata:4294967295LL cdata:0LL cdata:4294967295LL cdata:4294967295LL
+cdata:0LL cdata:4294967296LL cdata:0LL cdata:4294967296LL cdata:4294967296LL
+cdata:0LL cdata:9223372036854775807LL cdata:0LL cdata:9223372036854775807LL cdata:9223372036854775807LL
+cdata:0LL cdata:-9223372036854775808LL cdata:0LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL
+cdata:0LL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0LL cdata:1ULL cdata:0ULL cdata:1ULL cdata:1ULL
+cdata:0LL cdata:4294967295ULL cdata:0ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:0LL cdata:4294967296ULL cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:0LL cdata:18446744073709551615ULL cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:0LL cdata:9223372036854775808ULL cdata:0ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+cdata:0LL number:0 cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:1 cdata:0LL cdata:1LL cdata:1LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:7 cdata:0LL cdata:7LL cdata:7LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:31 cdata:0LL cdata:31LL cdata:31LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:32 cdata:0LL cdata:32LL cdata:32LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:33 cdata:0LL cdata:33LL cdata:33LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:63 cdata:0LL cdata:63LL cdata:63LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:64 cdata:0LL cdata:64LL cdata:64LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:65 cdata:0LL cdata:65LL cdata:65LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:-1 cdata:0LL cdata:-1LL cdata:-1LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:2.5 cdata:0LL cdata:2LL cdata:2LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:0LL number:4294967296 cdata:0LL cdata:4294967296LL cdata:4294967296LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL cdata:0LL
+cdata:1LL number:1 cdata:-2LL cdata:72057594037927936LL
+cdata:1LL cdata:0LL cdata:0LL cdata:1LL cdata:1LL
+cdata:1LL cdata:1LL cdata:1LL cdata:1LL cdata:0LL
+cdata:1LL cdata:-1LL cdata:1LL cdata:-1LL cdata:-2LL
+cdata:1LL cdata:4294967295LL cdata:1LL cdata:4294967295LL cdata:4294967294LL
+cdata:1LL cdata:4294967296LL cdata:0LL cdata:4294967297LL cdata:4294967297LL
+cdata:1LL cdata:9223372036854775807LL cdata:1LL cdata:9223372036854775807LL cdata:9223372036854775806LL
+cdata:1LL cdata:-9223372036854775808LL cdata:0LL cdata:-9223372036854775807LL cdata:-9223372036854775807LL
+cdata:1LL cdata:0ULL cdata:0ULL cdata:1ULL cdata:1ULL
+cdata:1LL cdata:1ULL cdata:1ULL cdata:1ULL cdata:0ULL
+cdata:1LL cdata:4294967295ULL cdata:1ULL cdata:4294967295ULL cdata:4294967294ULL
+cdata:1LL cdata:4294967296ULL cdata:0ULL cdata:4294967297ULL cdata:4294967297ULL
+cdata:1LL cdata:18446744073709551615ULL cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551614ULL
+cdata:1LL cdata:9223372036854775808ULL cdata:0ULL cdata:9223372036854775809ULL cdata:9223372036854775809ULL
+cdata:1LL number:0 cdata:0LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL
+cdata:1LL number:1 cdata:1LL cdata:1LL cdata:0LL cdata:2LL cdata:0LL cdata:0LL cdata:2LL cdata:-9223372036854775808LL
+cdata:1LL number:7 cdata:1LL cdata:7LL cdata:6LL cdata:128LL cdata:0LL cdata:0LL cdata:128LL cdata:144115188075855872LL
+cdata:1LL number:31 cdata:1LL cdata:31LL cdata:30LL cdata:2147483648LL cdata:0LL cdata:0LL cdata:2147483648LL cdata:8589934592LL
+cdata:1LL number:32 cdata:0LL cdata:33LL cdata:33LL cdata:4294967296LL cdata:0LL cdata:0LL cdata:4294967296LL cdata:4294967296LL
+cdata:1LL number:33 cdata:1LL cdata:33LL cdata:32LL cdata:8589934592LL cdata:0LL cdata:0LL cdata:8589934592LL cdata:2147483648LL
+cdata:1LL number:63 cdata:1LL cdata:63LL cdata:62LL cdata:-9223372036854775808LL cdata:0LL cdata:0LL cdata:-9223372036854775808LL cdata:2LL
+cdata:1LL number:64 cdata:0LL cdata:65LL cdata:65LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL
+cdata:1LL number:65 cdata:1LL cdata:65LL cdata:64LL cdata:2LL cdata:0LL cdata:0LL cdata:2LL cdata:-9223372036854775808LL
+cdata:1LL number:-1 cdata:1LL cdata:-1LL cdata:-2LL cdata:-9223372036854775808LL cdata:0LL cdata:0LL cdata:-9223372036854775808LL cdata:2LL
+cdata:1LL number:2.5 cdata:0LL cdata:3LL cdata:3LL cdata:4LL cdata:0LL cdata:0LL cdata:4LL cdata:4611686018427387904LL
+cdata:1LL number:4294967296 cdata:0LL cdata:4294967297LL cdata:4294967297LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL
+cdata:-1LL number:-1 cdata:0LL cdata:-1LL
+cdata:-1LL cdata:0LL cdata:0LL cdata:-1LL cdata:-1LL
+cdata:-1LL cdata:1LL cdata:1LL cdata:-1LL cdata:-2LL
+cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:0LL
+cdata:-1LL cdata:4294967295LL cdata:4294967295LL cdata:-1LL cdata:-4294967296LL
+cdata:-1LL cdata:4294967296LL cdata:4294967296LL cdata:-1LL cdata:-4294967297LL
+cdata:-1LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:-1LL cdata:-9223372036854775808LL
+cdata:-1LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-1LL cdata:9223372036854775807LL
+cdata:-1LL cdata:0ULL cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:-1LL cdata:1ULL cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551614ULL
+cdata:-1LL cdata:4294967295ULL cdata:4294967295ULL cdata:18446744073709551615ULL cdata:18446744069414584320ULL
+cdata:-1LL cdata:4294967296ULL cdata:4294967296ULL cdata:18446744073709551615ULL cdata:18446744069414584319ULL
+cdata:-1LL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:0ULL
+cdata:-1LL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:18446744073709551615ULL cdata:9223372036854775807ULL
+cdata:-1LL number:0 cdata:0LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:1 cdata:1LL cdata:-1LL cdata:-2LL cdata:-2LL cdata:9223372036854775807LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:7 cdata:7LL cdata:-1LL cdata:-8LL cdata:-128LL cdata:144115188075855871LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:31 cdata:31LL cdata:-1LL cdata:-32LL cdata:-2147483648LL cdata:8589934591LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:32 cdata:32LL cdata:-1LL cdata:-33LL cdata:-4294967296LL cdata:4294967295LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:33 cdata:33LL cdata:-1LL cdata:-34LL cdata:-8589934592LL cdata:2147483647LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:63 cdata:63LL cdata:-1LL cdata:-64LL cdata:-9223372036854775808LL cdata:1LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:64 cdata:64LL cdata:-1LL cdata:-65LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:65 cdata:65LL cdata:-1LL cdata:-66LL cdata:-2LL cdata:9223372036854775807LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:-1 cdata:-1LL cdata:-1LL cdata:0LL cdata:-9223372036854775808LL cdata:1LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:2.5 cdata:2LL cdata:-1LL cdata:-3LL cdata:-4LL cdata:4611686018427387903LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:-1LL number:4294967296 cdata:4294967296LL cdata:-1LL cdata:-4294967297LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL cdata:-1LL
+cdata:4294967295LL number:-1 cdata:-4294967296LL cdata:-4294967296LL
+cdata:4294967295LL cdata:0LL cdata:0LL cdata:4294967295LL cdata:4294967295LL
+cdata:4294967295LL cdata:1LL cdata:1LL cdata:4294967295LL cdata:4294967294LL
+cdata:4294967295LL cdata:-1LL cdata:4294967295LL cdata:-1LL cdata:-4294967296LL
+cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:0LL
+cdata:4294967295LL cdata:4294967296LL cdata:0LL cdata:8589934591LL cdata:8589934591LL
+cdata:4294967295LL cdata:9223372036854775807LL cdata:4294967295LL cdata:9223372036854775807LL cdata:9223372032559808512LL
+cdata:4294967295LL cdata:-9223372036854775808LL cdata:0LL cdata:-9223372032559808513LL cdata:-9223372032559808513LL
+cdata:4294967295LL cdata:0ULL cdata:0ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:4294967295LL cdata:1ULL cdata:1ULL cdata:4294967295ULL cdata:4294967294ULL
+cdata:4294967295LL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:0ULL
+cdata:4294967295LL cdata:4294967296ULL cdata:0ULL cdata:8589934591ULL cdata:8589934591ULL
+cdata:4294967295LL cdata:18446744073709551615ULL cdata:4294967295ULL cdata:18446744073709551615ULL cdata:18446744069414584320ULL
+cdata:4294967295LL cdata:9223372036854775808ULL cdata:0ULL cdata:9223372041149743103ULL cdata:9223372041149743103ULL
+cdata:4294967295LL number:0 cdata:0LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL
+cdata:4294967295LL number:1 cdata:1LL cdata:4294967295LL cdata:4294967294LL cdata:8589934590LL cdata:2147483647LL cdata:2147483647LL cdata:8589934590LL cdata:-9223372034707292161LL
+cdata:4294967295LL number:7 cdata:7LL cdata:4294967295LL cdata:4294967288LL cdata:549755813760LL cdata:33554431LL cdata:33554431LL cdata:549755813760LL cdata:-144115188042301441LL
+cdata:4294967295LL number:31 cdata:31LL cdata:4294967295LL cdata:4294967264LL cdata:9223372034707292160LL cdata:1LL cdata:1LL cdata:9223372034707292160LL cdata:-8589934591LL
+cdata:4294967295LL number:32 cdata:32LL cdata:4294967295LL cdata:4294967263LL cdata:-4294967296LL cdata:0LL cdata:0LL cdata:-4294967296LL cdata:-4294967296LL
+cdata:4294967295LL number:33 cdata:33LL cdata:4294967295LL cdata:4294967262LL cdata:-8589934592LL cdata:0LL cdata:0LL cdata:-8589934591LL cdata:9223372034707292160LL
+cdata:4294967295LL number:63 cdata:63LL cdata:4294967295LL cdata:4294967232LL cdata:-9223372036854775808LL cdata:0LL cdata:0LL cdata:-9223372034707292161LL cdata:8589934590LL
+cdata:4294967295LL number:64 cdata:64LL cdata:4294967295LL cdata:4294967231LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL
+cdata:4294967295LL number:65 cdata:65LL cdata:4294967295LL cdata:4294967230LL cdata:8589934590LL cdata:2147483647LL cdata:2147483647LL cdata:8589934590LL cdata:-9223372034707292161LL
+cdata:4294967295LL number:-1 cdata:4294967295LL cdata:-1LL cdata:-4294967296LL cdata:-9223372036854775808LL cdata:0LL cdata:0LL cdata:-9223372034707292161LL cdata:8589934590LL
+cdata:4294967295LL number:2.5 cdata:2LL cdata:4294967295LL cdata:4294967293LL cdata:17179869180LL cdata:1073741823LL cdata:1073741823LL cdata:17179869180LL cdata:-4611686017353646081LL
+cdata:4294967295LL number:4294967296 cdata:0LL cdata:8589934591LL cdata:8589934591LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL cdata:4294967295LL
+cdata:4294967296LL number:0 cdata:-4294967297LL cdata:16777216LL
+cdata:4294967296LL cdata:0LL cdata:0LL cdata:4294967296LL cdata:4294967296LL
+cdata:4294967296LL cdata:1LL cdata:0LL cdata:4294967297LL cdata:4294967297LL
+cdata:4294967296LL cdata:-1LL cdata:4294967296LL cdata:-1LL cdata:-4294967297LL
+cdata:4294967296LL cdata:4294967295LL cdata:0LL cdata:8589934591LL cdata:8589934591LL
+cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:0LL
+cdata:4294967296LL cdata:9223372036854775807LL cdata:4294967296LL cdata:9223372036854775807LL cdata:9223372032559808511LL
+cdata:4294967296LL cdata:-9223372036854775808LL cdata:0LL cdata:-9223372032559808512LL cdata:-9223372032559808512LL
+cdata:4294967296LL cdata:0ULL cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:4294967296LL cdata:1ULL cdata:0ULL cdata:4294967297ULL cdata:4294967297ULL
+cdata:4294967296LL cdata:4294967295ULL cdata:0ULL cdata:8589934591ULL cdata:8589934591ULL
+cdata:4294967296LL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:0ULL
+cdata:4294967296LL cdata:18446744073709551615ULL cdata:4294967296ULL cdata:18446744073709551615ULL cdata:18446744069414584319ULL
+cdata:4294967296LL cdata:9223372036854775808ULL cdata:0ULL cdata:9223372041149743104ULL cdata:9223372041149743104ULL
+cdata:4294967296LL number:0 cdata:0LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL
+cdata:4294967296LL number:1 cdata:0LL cdata:4294967297LL cdata:4294967297LL cdata:8589934592LL cdata:2147483648LL cdata:2147483648LL cdata:8589934592LL cdata:2147483648LL
+cdata:4294967296LL number:7 cdata:0LL cdata:4294967303LL cdata:4294967303LL cdata:549755813888LL cdata:33554432LL cdata:33554432LL cdata:549755813888LL cdata:33554432LL
+cdata:4294967296LL number:31 cdata:0LL cdata:4294967327LL cdata:4294967327LL cdata:-9223372036854775808LL cdata:2LL cdata:2LL cdata:-9223372036854775808LL cdata:2LL
+cdata:4294967296LL number:32 cdata:0LL cdata:4294967328LL cdata:4294967328LL cdata:0LL cdata:1LL cdata:1LL cdata:1LL cdata:1LL
+cdata:4294967296LL number:33 cdata:0LL cdata:4294967329LL cdata:4294967329LL cdata:0LL cdata:0LL cdata:0LL cdata:2LL cdata:-9223372036854775808LL
+cdata:4294967296LL number:63 cdata:0LL cdata:4294967359LL cdata:4294967359LL cdata:0LL cdata:0LL cdata:0LL cdata:2147483648LL cdata:8589934592LL
+cdata:4294967296LL number:64 cdata:0LL cdata:4294967360LL cdata:4294967360LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL
+cdata:4294967296LL number:65 cdata:0LL cdata:4294967361LL cdata:4294967361LL cdata:8589934592LL cdata:2147483648LL cdata:2147483648LL cdata:8589934592LL cdata:2147483648LL
+cdata:4294967296LL number:-1 cdata:4294967296LL cdata:-1LL cdata:-4294967297LL cdata:0LL cdata:0LL cdata:0LL cdata:2147483648LL cdata:8589934592LL
+cdata:4294967296LL number:2.5 cdata:0LL cdata:4294967298LL cdata:4294967298LL cdata:17179869184LL cdata:1073741824LL cdata:1073741824LL cdata:17179869184LL cdata:1073741824LL
+cdata:4294967296LL number:4294967296 cdata:4294967296LL cdata:4294967296LL cdata:0LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL cdata:4294967296LL
+cdata:9223372036854775807LL number:-1 cdata:-9223372036854775808LL cdata:-129LL
+cdata:9223372036854775807LL cdata:0LL cdata:0LL cdata:9223372036854775807LL cdata:9223372036854775807LL
+cdata:9223372036854775807LL cdata:1LL cdata:1LL cdata:9223372036854775807LL cdata:9223372036854775806LL
+cdata:9223372036854775807LL cdata:-1LL cdata:9223372036854775807LL cdata:-1LL cdata:-9223372036854775808LL
+cdata:9223372036854775807LL cdata:4294967295LL cdata:4294967295LL cdata:9223372036854775807LL cdata:9223372032559808512LL
+cdata:9223372036854775807LL cdata:4294967296LL cdata:4294967296LL cdata:9223372036854775807LL cdata:9223372032559808511LL
+cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:0LL
+cdata:9223372036854775807LL cdata:-9223372036854775808LL cdata:0LL cdata:-1LL cdata:-1LL
+cdata:9223372036854775807LL cdata:0ULL cdata:0ULL cdata:9223372036854775807ULL cdata:9223372036854775807ULL
+cdata:9223372036854775807LL cdata:1ULL cdata:1ULL cdata:9223372036854775807ULL cdata:9223372036854775806ULL
+cdata:9223372036854775807LL cdata:4294967295ULL cdata:4294967295ULL cdata:9223372036854775807ULL cdata:9223372032559808512ULL
+cdata:9223372036854775807LL cdata:4294967296ULL cdata:4294967296ULL cdata:9223372036854775807ULL cdata:9223372032559808511ULL
+cdata:9223372036854775807LL cdata:18446744073709551615ULL cdata:9223372036854775807ULL cdata:18446744073709551615ULL cdata:9223372036854775808ULL
+cdata:9223372036854775807LL cdata:9223372036854775808ULL cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:9223372036854775807LL number:0 cdata:0LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL
+cdata:9223372036854775807LL number:1 cdata:1LL cdata:9223372036854775807LL cdata:9223372036854775806LL cdata:-2LL cdata:4611686018427387903LL cdata:4611686018427387903LL cdata:-2LL cdata:-4611686018427387905LL
+cdata:9223372036854775807LL number:7 cdata:7LL cdata:9223372036854775807LL cdata:9223372036854775800LL cdata:-128LL cdata:72057594037927935LL cdata:72057594037927935LL cdata:-65LL cdata:-72057594037927937LL
+cdata:9223372036854775807LL number:31 cdata:31LL cdata:9223372036854775807LL cdata:9223372036854775776LL cdata:-2147483648LL cdata:4294967295LL cdata:4294967295LL cdata:-1073741825LL cdata:-4294967297LL
+cdata:9223372036854775807LL number:32 cdata:32LL cdata:9223372036854775807LL cdata:9223372036854775775LL cdata:-4294967296LL cdata:2147483647LL cdata:2147483647LL cdata:-2147483649LL cdata:-2147483649LL
+cdata:9223372036854775807LL number:33 cdata:33LL cdata:9223372036854775807LL cdata:9223372036854775774LL cdata:-8589934592LL cdata:1073741823LL cdata:1073741823LL cdata:-4294967297LL cdata:-1073741825LL
+cdata:9223372036854775807LL number:63 cdata:63LL cdata:9223372036854775807LL cdata:9223372036854775744LL cdata:-9223372036854775808LL cdata:0LL cdata:0LL cdata:-4611686018427387905LL cdata:-2LL
+cdata:9223372036854775807LL number:64 cdata:64LL cdata:9223372036854775807LL cdata:9223372036854775743LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL
+cdata:9223372036854775807LL number:65 cdata:65LL cdata:9223372036854775807LL cdata:9223372036854775742LL cdata:-2LL cdata:4611686018427387903LL cdata:4611686018427387903LL cdata:-2LL cdata:-4611686018427387905LL
+cdata:9223372036854775807LL number:-1 cdata:9223372036854775807LL cdata:-1LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:0LL cdata:0LL cdata:-4611686018427387905LL cdata:-2LL
+cdata:9223372036854775807LL number:2.5 cdata:2LL cdata:9223372036854775807LL cdata:9223372036854775805LL cdata:-4LL cdata:2305843009213693951LL cdata:2305843009213693951LL cdata:-3LL cdata:-2305843009213693953LL
+cdata:9223372036854775807LL number:4294967296 cdata:4294967296LL cdata:9223372036854775807LL cdata:9223372032559808511LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL cdata:9223372036854775807LL
+cdata:-9223372036854775808LL number:0 cdata:9223372036854775807LL cdata:128LL
+cdata:-9223372036854775808LL cdata:0LL cdata:0LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL
+cdata:-9223372036854775808LL cdata:1LL cdata:0LL cdata:-9223372036854775807LL cdata:-9223372036854775807LL
+cdata:-9223372036854775808LL cdata:-1LL cdata:-9223372036854775808LL cdata:-1LL cdata:9223372036854775807LL
+cdata:-9223372036854775808LL cdata:4294967295LL cdata:0LL cdata:-9223372032559808513LL cdata:-9223372032559808513LL
+cdata:-9223372036854775808LL cdata:4294967296LL cdata:0LL cdata:-9223372032559808512LL cdata:-9223372032559808512LL
+cdata:-9223372036854775808LL cdata:9223372036854775807LL cdata:0LL cdata:-1LL cdata:-1LL
+cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:0LL
+cdata:-9223372036854775808LL cdata:0ULL cdata:0ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+cdata:-9223372036854775808LL cdata:1ULL cdata:0ULL cdata:9223372036854775809ULL cdata:9223372036854775809ULL
+cdata:-9223372036854775808LL cdata:4294967295ULL cdata:0ULL cdata:9223372041149743103ULL cdata:9223372041149743103ULL
+cdata:-9223372036854775808LL cdata:4294967296ULL cdata:0ULL cdata:9223372041149743104ULL cdata:9223372041149743104ULL
+cdata:-9223372036854775808LL cdata:18446744073709551615ULL cdata:9223372036854775808ULL cdata:18446744073709551615ULL cdata:9223372036854775807ULL
+cdata:-9223372036854775808LL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:0ULL
+cdata:-9223372036854775808LL number:0 cdata:0LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL
+cdata:-9223372036854775808LL number:1 cdata:0LL cdata:-9223372036854775807LL cdata:-9223372036854775807LL cdata:0LL cdata:4611686018427387904LL cdata:-4611686018427387904LL cdata:1LL cdata:4611686018427387904LL
+cdata:-9223372036854775808LL number:7 cdata:0LL cdata:-9223372036854775801LL cdata:-9223372036854775801LL cdata:0LL cdata:72057594037927936LL cdata:-72057594037927936LL cdata:64LL cdata:72057594037927936LL
+cdata:-9223372036854775808LL number:31 cdata:0LL cdata:-9223372036854775777LL cdata:-9223372036854775777LL cdata:0LL cdata:4294967296LL cdata:-4294967296LL cdata:1073741824LL cdata:4294967296LL
+cdata:-9223372036854775808LL number:32 cdata:0LL cdata:-9223372036854775776LL cdata:-9223372036854775776LL cdata:0LL cdata:2147483648LL cdata:-2147483648LL cdata:2147483648LL cdata:2147483648LL
+cdata:-9223372036854775808LL number:33 cdata:0LL cdata:-9223372036854775775LL cdata:-9223372036854775775LL cdata:0LL cdata:1073741824LL cdata:-1073741824LL cdata:4294967296LL cdata:1073741824LL
+cdata:-9223372036854775808LL number:63 cdata:0LL cdata:-9223372036854775745LL cdata:-9223372036854775745LL cdata:0LL cdata:1LL cdata:-1LL cdata:4611686018427387904LL cdata:1LL
+cdata:-9223372036854775808LL number:64 cdata:0LL cdata:-9223372036854775744LL cdata:-9223372036854775744LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL
+cdata:-9223372036854775808LL number:65 cdata:0LL cdata:-9223372036854775743LL cdata:-9223372036854775743LL cdata:0LL cdata:4611686018427387904LL cdata:-4611686018427387904LL cdata:1LL cdata:4611686018427387904LL
+cdata:-9223372036854775808LL number:-1 cdata:-9223372036854775808LL cdata:-1LL cdata:9223372036854775807LL cdata:0LL cdata:1LL cdata:-1LL cdata:4611686018427387904LL cdata:1LL
+cdata:-9223372036854775808LL number:2.5 cdata:0LL cdata:-9223372036854775806LL cdata:-9223372036854775806LL cdata:0LL cdata:2305843009213693952LL cdata:-2305843009213693952LL cdata:2LL cdata:2305843009213693952LL
+cdata:-9223372036854775808LL number:4294967296 cdata:0LL cdata:-9223372032559808512LL cdata:-9223372032559808512LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL cdata:-9223372036854775808LL
+cdata:0ULL number:0 cdata:18446744073709551615ULL cdata:0ULL
+cdata:0ULL cdata:0LL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL cdata:1LL cdata:0ULL cdata:1ULL cdata:1ULL
+cdata:0ULL cdata:-1LL cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:0ULL cdata:4294967295LL cdata:0ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:0ULL cdata:4294967296LL cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:0ULL cdata:9223372036854775807LL cdata:0ULL cdata:9223372036854775807ULL cdata:9223372036854775807ULL
+cdata:0ULL cdata:-9223372036854775808LL cdata:0ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL cdata:1ULL cdata:0ULL cdata:1ULL cdata:1ULL
+cdata:0ULL cdata:4294967295ULL cdata:0ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:0ULL cdata:4294967296ULL cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:0ULL cdata:18446744073709551615ULL cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:0ULL cdata:9223372036854775808ULL cdata:0ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+cdata:0ULL number:0 cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:1 cdata:0ULL cdata:1ULL cdata:1ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:7 cdata:0ULL cdata:7ULL cdata:7ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:31 cdata:0ULL cdata:31ULL cdata:31ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:32 cdata:0ULL cdata:32ULL cdata:32ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:33 cdata:0ULL cdata:33ULL cdata:33ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:63 cdata:0ULL cdata:63ULL cdata:63ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:64 cdata:0ULL cdata:64ULL cdata:64ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:65 cdata:0ULL cdata:65ULL cdata:65ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:-1 cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:2.5 cdata:0ULL cdata:2ULL cdata:2ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:0ULL number:4294967296 cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:0ULL
+cdata:1ULL number:1 cdata:18446744073709551614ULL cdata:72057594037927936ULL
+cdata:1ULL cdata:0LL cdata:0ULL cdata:1ULL cdata:1ULL
+cdata:1ULL cdata:1LL cdata:1ULL cdata:1ULL cdata:0ULL
+cdata:1ULL cdata:-1LL cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551614ULL
+cdata:1ULL cdata:4294967295LL cdata:1ULL cdata:4294967295ULL cdata:4294967294ULL
+cdata:1ULL cdata:4294967296LL cdata:0ULL cdata:4294967297ULL cdata:4294967297ULL
+cdata:1ULL cdata:9223372036854775807LL cdata:1ULL cdata:9223372036854775807ULL cdata:9223372036854775806ULL
+cdata:1ULL cdata:-9223372036854775808LL cdata:0ULL cdata:9223372036854775809ULL cdata:9223372036854775809ULL
+cdata:1ULL cdata:0ULL cdata:0ULL cdata:1ULL cdata:1ULL
+cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:0ULL
+cdata:1ULL cdata:4294967295ULL cdata:1ULL cdata:4294967295ULL cdata:4294967294ULL
+cdata:1ULL cdata:4294967296ULL cdata:0ULL cdata:4294967297ULL cdata:4294967297ULL
+cdata:1ULL cdata:18446744073709551615ULL cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551614ULL
+cdata:1ULL cdata:9223372036854775808ULL cdata:0ULL cdata:9223372036854775809ULL cdata:9223372036854775809ULL
+cdata:1ULL number:0 cdata:0ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL
+cdata:1ULL number:1 cdata:1ULL cdata:1ULL cdata:0ULL cdata:2ULL cdata:0ULL cdata:0ULL cdata:2ULL cdata:9223372036854775808ULL
+cdata:1ULL number:7 cdata:1ULL cdata:7ULL cdata:6ULL cdata:128ULL cdata:0ULL cdata:0ULL cdata:128ULL cdata:144115188075855872ULL
+cdata:1ULL number:31 cdata:1ULL cdata:31ULL cdata:30ULL cdata:2147483648ULL cdata:0ULL cdata:0ULL cdata:2147483648ULL cdata:8589934592ULL
+cdata:1ULL number:32 cdata:0ULL cdata:33ULL cdata:33ULL cdata:4294967296ULL cdata:0ULL cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:1ULL number:33 cdata:1ULL cdata:33ULL cdata:32ULL cdata:8589934592ULL cdata:0ULL cdata:0ULL cdata:8589934592ULL cdata:2147483648ULL
+cdata:1ULL number:63 cdata:1ULL cdata:63ULL cdata:62ULL cdata:9223372036854775808ULL cdata:0ULL cdata:0ULL cdata:9223372036854775808ULL cdata:2ULL
+cdata:1ULL number:64 cdata:0ULL cdata:65ULL cdata:65ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL
+cdata:1ULL number:65 cdata:1ULL cdata:65ULL cdata:64ULL cdata:2ULL cdata:0ULL cdata:0ULL cdata:2ULL cdata:9223372036854775808ULL
+cdata:1ULL number:-1 cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551614ULL cdata:9223372036854775808ULL cdata:0ULL cdata:0ULL cdata:9223372036854775808ULL cdata:2ULL
+cdata:1ULL number:2.5 cdata:0ULL cdata:3ULL cdata:3ULL cdata:4ULL cdata:0ULL cdata:0ULL cdata:4ULL cdata:4611686018427387904ULL
+cdata:1ULL number:4294967296 cdata:0ULL cdata:4294967297ULL cdata:4294967297ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL
+cdata:4294967295ULL number:-1 cdata:18446744069414584320ULL cdata:18446744069414584320ULL
+cdata:4294967295ULL cdata:0LL cdata:0ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:4294967295ULL cdata:1LL cdata:1ULL cdata:4294967295ULL cdata:4294967294ULL
+cdata:4294967295ULL cdata:-1LL cdata:4294967295ULL cdata:18446744073709551615ULL cdata:18446744069414584320ULL
+cdata:4294967295ULL cdata:4294967295LL cdata:4294967295ULL cdata:4294967295ULL cdata:0ULL
+cdata:4294967295ULL cdata:4294967296LL cdata:0ULL cdata:8589934591ULL cdata:8589934591ULL
+cdata:4294967295ULL cdata:9223372036854775807LL cdata:4294967295ULL cdata:9223372036854775807ULL cdata:9223372032559808512ULL
+cdata:4294967295ULL cdata:-9223372036854775808LL cdata:0ULL cdata:9223372041149743103ULL cdata:9223372041149743103ULL
+cdata:4294967295ULL cdata:0ULL cdata:0ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:4294967295ULL cdata:1ULL cdata:1ULL cdata:4294967295ULL cdata:4294967294ULL
+cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:0ULL
+cdata:4294967295ULL cdata:4294967296ULL cdata:0ULL cdata:8589934591ULL cdata:8589934591ULL
+cdata:4294967295ULL cdata:18446744073709551615ULL cdata:4294967295ULL cdata:18446744073709551615ULL cdata:18446744069414584320ULL
+cdata:4294967295ULL cdata:9223372036854775808ULL cdata:0ULL cdata:9223372041149743103ULL cdata:9223372041149743103ULL
+cdata:4294967295ULL number:0 cdata:0ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:4294967295ULL number:1 cdata:1ULL cdata:4294967295ULL cdata:4294967294ULL cdata:8589934590ULL cdata:2147483647ULL cdata:2147483647ULL cdata:8589934590ULL cdata:9223372039002259455ULL
+cdata:4294967295ULL number:7 cdata:7ULL cdata:4294967295ULL cdata:4294967288ULL cdata:549755813760ULL cdata:33554431ULL cdata:33554431ULL cdata:549755813760ULL cdata:18302628885667250175ULL
+cdata:4294967295ULL number:31 cdata:31ULL cdata:4294967295ULL cdata:4294967264ULL cdata:9223372034707292160ULL cdata:1ULL cdata:1ULL cdata:9223372034707292160ULL cdata:18446744065119617025ULL
+cdata:4294967295ULL number:32 cdata:32ULL cdata:4294967295ULL cdata:4294967263ULL cdata:18446744069414584320ULL cdata:0ULL cdata:0ULL cdata:18446744069414584320ULL cdata:18446744069414584320ULL
+cdata:4294967295ULL number:33 cdata:33ULL cdata:4294967295ULL cdata:4294967262ULL cdata:18446744065119617024ULL cdata:0ULL cdata:0ULL cdata:18446744065119617025ULL cdata:9223372034707292160ULL
+cdata:4294967295ULL number:63 cdata:63ULL cdata:4294967295ULL cdata:4294967232ULL cdata:9223372036854775808ULL cdata:0ULL cdata:0ULL cdata:9223372039002259455ULL cdata:8589934590ULL
+cdata:4294967295ULL number:64 cdata:64ULL cdata:4294967295ULL cdata:4294967231ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:4294967295ULL number:65 cdata:65ULL cdata:4294967295ULL cdata:4294967230ULL cdata:8589934590ULL cdata:2147483647ULL cdata:2147483647ULL cdata:8589934590ULL cdata:9223372039002259455ULL
+cdata:4294967295ULL number:-1 cdata:4294967295ULL cdata:18446744073709551615ULL cdata:18446744069414584320ULL cdata:9223372036854775808ULL cdata:0ULL cdata:0ULL cdata:9223372039002259455ULL cdata:8589934590ULL
+cdata:4294967295ULL number:2.5 cdata:2ULL cdata:4294967295ULL cdata:4294967293ULL cdata:17179869180ULL cdata:1073741823ULL cdata:1073741823ULL cdata:17179869180ULL cdata:13835058056355905535ULL
+cdata:4294967295ULL number:4294967296 cdata:0ULL cdata:8589934591ULL cdata:8589934591ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL cdata:4294967295ULL
+cdata:4294967296ULL number:0 cdata:18446744069414584319ULL cdata:16777216ULL
+cdata:4294967296ULL cdata:0LL cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:4294967296ULL cdata:1LL cdata:0ULL cdata:4294967297ULL cdata:4294967297ULL
+cdata:4294967296ULL cdata:-1LL cdata:4294967296ULL cdata:18446744073709551615ULL cdata:18446744069414584319ULL
+cdata:4294967296ULL cdata:4294967295LL cdata:0ULL cdata:8589934591ULL cdata:8589934591ULL
+cdata:4294967296ULL cdata:4294967296LL cdata:4294967296ULL cdata:4294967296ULL cdata:0ULL
+cdata:4294967296ULL cdata:9223372036854775807LL cdata:4294967296ULL cdata:9223372036854775807ULL cdata:9223372032559808511ULL
+cdata:4294967296ULL cdata:-9223372036854775808LL cdata:0ULL cdata:9223372041149743104ULL cdata:9223372041149743104ULL
+cdata:4294967296ULL cdata:0ULL cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:4294967296ULL cdata:1ULL cdata:0ULL cdata:4294967297ULL cdata:4294967297ULL
+cdata:4294967296ULL cdata:4294967295ULL cdata:0ULL cdata:8589934591ULL cdata:8589934591ULL
+cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:0ULL
+cdata:4294967296ULL cdata:18446744073709551615ULL cdata:4294967296ULL cdata:18446744073709551615ULL cdata:18446744069414584319ULL
+cdata:4294967296ULL cdata:9223372036854775808ULL cdata:0ULL cdata:9223372041149743104ULL cdata:9223372041149743104ULL
+cdata:4294967296ULL number:0 cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:4294967296ULL number:1 cdata:0ULL cdata:4294967297ULL cdata:4294967297ULL cdata:8589934592ULL cdata:2147483648ULL cdata:2147483648ULL cdata:8589934592ULL cdata:2147483648ULL
+cdata:4294967296ULL number:7 cdata:0ULL cdata:4294967303ULL cdata:4294967303ULL cdata:549755813888ULL cdata:33554432ULL cdata:33554432ULL cdata:549755813888ULL cdata:33554432ULL
+cdata:4294967296ULL number:31 cdata:0ULL cdata:4294967327ULL cdata:4294967327ULL cdata:9223372036854775808ULL cdata:2ULL cdata:2ULL cdata:9223372036854775808ULL cdata:2ULL
+cdata:4294967296ULL number:32 cdata:0ULL cdata:4294967328ULL cdata:4294967328ULL cdata:0ULL cdata:1ULL cdata:1ULL cdata:1ULL cdata:1ULL
+cdata:4294967296ULL number:33 cdata:0ULL cdata:4294967329ULL cdata:4294967329ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:2ULL cdata:9223372036854775808ULL
+cdata:4294967296ULL number:63 cdata:0ULL cdata:4294967359ULL cdata:4294967359ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:2147483648ULL cdata:8589934592ULL
+cdata:4294967296ULL number:64 cdata:0ULL cdata:4294967360ULL cdata:4294967360ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:4294967296ULL number:65 cdata:0ULL cdata:4294967361ULL cdata:4294967361ULL cdata:8589934592ULL cdata:2147483648ULL cdata:2147483648ULL cdata:8589934592ULL cdata:2147483648ULL
+cdata:4294967296ULL number:-1 cdata:4294967296ULL cdata:18446744073709551615ULL cdata:18446744069414584319ULL cdata:0ULL cdata:0ULL cdata:0ULL cdata:2147483648ULL cdata:8589934592ULL
+cdata:4294967296ULL number:2.5 cdata:0ULL cdata:4294967298ULL cdata:4294967298ULL cdata:17179869184ULL cdata:1073741824ULL cdata:1073741824ULL cdata:17179869184ULL cdata:1073741824ULL
+cdata:4294967296ULL number:4294967296 cdata:4294967296ULL cdata:4294967296ULL cdata:0ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL cdata:4294967296ULL
+cdata:18446744073709551615ULL number:-1 cdata:0ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL cdata:0LL cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL cdata:1LL cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551614ULL
+cdata:18446744073709551615ULL cdata:-1LL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:0ULL
+cdata:18446744073709551615ULL cdata:4294967295LL cdata:4294967295ULL cdata:18446744073709551615ULL cdata:18446744069414584320ULL
+cdata:18446744073709551615ULL cdata:4294967296LL cdata:4294967296ULL cdata:18446744073709551615ULL cdata:18446744069414584319ULL
+cdata:18446744073709551615ULL cdata:9223372036854775807LL cdata:9223372036854775807ULL cdata:18446744073709551615ULL cdata:9223372036854775808ULL
+cdata:18446744073709551615ULL cdata:-9223372036854775808LL cdata:9223372036854775808ULL cdata:18446744073709551615ULL cdata:9223372036854775807ULL
+cdata:18446744073709551615ULL cdata:0ULL cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL cdata:1ULL cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551614ULL
+cdata:18446744073709551615ULL cdata:4294967295ULL cdata:4294967295ULL cdata:18446744073709551615ULL cdata:18446744069414584320ULL
+cdata:18446744073709551615ULL cdata:4294967296ULL cdata:4294967296ULL cdata:18446744073709551615ULL cdata:18446744069414584319ULL
+cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:0ULL
+cdata:18446744073709551615ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:18446744073709551615ULL cdata:9223372036854775807ULL
+cdata:18446744073709551615ULL number:0 cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:1 cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551614ULL cdata:18446744073709551614ULL cdata:9223372036854775807ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:7 cdata:7ULL cdata:18446744073709551615ULL cdata:18446744073709551608ULL cdata:18446744073709551488ULL cdata:144115188075855871ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:31 cdata:31ULL cdata:18446744073709551615ULL cdata:18446744073709551584ULL cdata:18446744071562067968ULL cdata:8589934591ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:32 cdata:32ULL cdata:18446744073709551615ULL cdata:18446744073709551583ULL cdata:18446744069414584320ULL cdata:4294967295ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:33 cdata:33ULL cdata:18446744073709551615ULL cdata:18446744073709551582ULL cdata:18446744065119617024ULL cdata:2147483647ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:63 cdata:63ULL cdata:18446744073709551615ULL cdata:18446744073709551552ULL cdata:9223372036854775808ULL cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:64 cdata:64ULL cdata:18446744073709551615ULL cdata:18446744073709551551ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:65 cdata:65ULL cdata:18446744073709551615ULL cdata:18446744073709551550ULL cdata:18446744073709551614ULL cdata:9223372036854775807ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:-1 cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:0ULL cdata:9223372036854775808ULL cdata:1ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:2.5 cdata:2ULL cdata:18446744073709551615ULL cdata:18446744073709551613ULL cdata:18446744073709551612ULL cdata:4611686018427387903ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:18446744073709551615ULL number:4294967296 cdata:4294967296ULL cdata:18446744073709551615ULL cdata:18446744069414584319ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:9223372036854775808ULL number:0 cdata:9223372036854775807ULL cdata:128ULL
+cdata:9223372036854775808ULL cdata:0LL cdata:0ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+cdata:9223372036854775808ULL cdata:1LL cdata:0ULL cdata:9223372036854775809ULL cdata:9223372036854775809ULL
+cdata:9223372036854775808ULL cdata:-1LL cdata:9223372036854775808ULL cdata:18446744073709551615ULL cdata:9223372036854775807ULL
+cdata:9223372036854775808ULL cdata:4294967295LL cdata:0ULL cdata:9223372041149743103ULL cdata:9223372041149743103ULL
+cdata:9223372036854775808ULL cdata:4294967296LL cdata:0ULL cdata:9223372041149743104ULL cdata:9223372041149743104ULL
+cdata:9223372036854775808ULL cdata:9223372036854775807LL cdata:0ULL cdata:18446744073709551615ULL cdata:18446744073709551615ULL
+cdata:9223372036854775808ULL cdata:-9223372036854775808LL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:0ULL
+cdata:9223372036854775808ULL cdata:0ULL cdata:0ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+cdata:9223372036854775808ULL cdata:1ULL cdata:0ULL cdata:9223372036854775809ULL cdata:9223372036854775809ULL
+cdata:9223372036854775808ULL cdata:4294967295ULL cdata:0ULL cdata:9223372041149743103ULL cdata:9223372041149743103ULL
+cdata:9223372036854775808ULL cdata:4294967296ULL cdata:0ULL cdata:9223372041149743104ULL cdata:9223372041149743104ULL
+cdata:9223372036854775808ULL cdata:18446744073709551615ULL cdata:9223372036854775808ULL cdata:18446744073709551615ULL cdata:9223372036854775807ULL
+cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:0ULL
+cdata:9223372036854775808ULL number:0 cdata:0ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+cdata:9223372036854775808ULL number:1 cdata:0ULL cdata:9223372036854775809ULL cdata:9223372036854775809ULL cdata:0ULL cdata:4611686018427387904ULL cdata:13835058055282163712ULL cdata:1ULL cdata:4611686018427387904ULL
+cdata:9223372036854775808ULL number:7 cdata:0ULL cdata:9223372036854775815ULL cdata:9223372036854775815ULL cdata:0ULL cdata:72057594037927936ULL cdata:18374686479671623680ULL cdata:64ULL cdata:72057594037927936ULL
+cdata:9223372036854775808ULL number:31 cdata:0ULL cdata:9223372036854775839ULL cdata:9223372036854775839ULL cdata:0ULL cdata:4294967296ULL cdata:18446744069414584320ULL cdata:1073741824ULL cdata:4294967296ULL
+cdata:9223372036854775808ULL number:32 cdata:0ULL cdata:9223372036854775840ULL cdata:9223372036854775840ULL cdata:0ULL cdata:2147483648ULL cdata:18446744071562067968ULL cdata:2147483648ULL cdata:2147483648ULL
+cdata:9223372036854775808ULL number:33 cdata:0ULL cdata:9223372036854775841ULL cdata:9223372036854775841ULL cdata:0ULL cdata:1073741824ULL cdata:18446744072635809792ULL cdata:4294967296ULL cdata:1073741824ULL
+cdata:9223372036854775808ULL number:63 cdata:0ULL cdata:9223372036854775871ULL cdata:9223372036854775871ULL cdata:0ULL cdata:1ULL cdata:18446744073709551615ULL cdata:4611686018427387904ULL cdata:1ULL
+cdata:9223372036854775808ULL number:64 cdata:0ULL cdata:9223372036854775872ULL cdata:9223372036854775872ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+cdata:9223372036854775808ULL number:65 cdata:0ULL cdata:9223372036854775873ULL cdata:9223372036854775873ULL cdata:0ULL cdata:4611686018427387904ULL cdata:13835058055282163712ULL cdata:1ULL cdata:4611686018427387904ULL
+cdata:9223372036854775808ULL number:-1 cdata:9223372036854775808ULL cdata:18446744073709551615ULL cdata:9223372036854775807ULL cdata:0ULL cdata:1ULL cdata:18446744073709551615ULL cdata:4611686018427387904ULL cdata:1ULL
+cdata:9223372036854775808ULL number:2.5 cdata:0ULL cdata:9223372036854775810ULL cdata:9223372036854775810ULL cdata:0ULL cdata:2305843009213693952ULL cdata:16140901064495857664ULL cdata:2ULL cdata:2305843009213693952ULL
+cdata:9223372036854775808ULL number:4294967296 cdata:0ULL cdata:9223372041149743104ULL cdata:9223372041149743104ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL cdata:9223372036854775808ULL
+number:0 cdata:0LL cdata:1099511627776ULL cdata:-1LL
+number:1 cdata:1LL cdata:1099511627777ULL cdata:-2LL
+number:-1 cdata:34359738367LL cdata:18446744073709551615ULL cdata:0LL
+number:0.5 cdata:0LL cdata:1099511627776ULL cdata:-1LL
+number:1.5 cdata:1LL cdata:1099511627777ULL cdata:-2LL
+number:2.5 cdata:2LL cdata:1099511627778ULL cdata:-3LL
+number:-0.5 cdata:0LL cdata:1099511627776ULL cdata:-1LL
+number:-1.5 cdata:34359738367LL cdata:18446744073709551615ULL cdata:0LL
+number:-2.5 cdata:34359738366LL cdata:18446744073709551614ULL cdata:1LL
+number:255 cdata:255LL cdata:1099511628031ULL cdata:-256LL
+number:65535 cdata:65535LL cdata:1099511693311ULL cdata:-65536LL
+number:4294967295 cdata:4294967295LL cdata:1103806595071ULL cdata:-4294967296LL
+number:4294967296 cdata:4294967296LL cdata:1103806595072ULL cdata:-4294967297LL
+number:4294967297 cdata:4294967297LL cdata:1103806595073ULL cdata:-4294967298LL
+number:2147483647 cdata:2147483647LL cdata:1101659111423ULL cdata:-2147483648LL
+number:2147483648 cdata:2147483648LL cdata:1101659111424ULL cdata:-2147483649LL
+number:-2147483648 cdata:32212254720LL cdata:18446744071562067968ULL cdata:2147483647LL
+number:-2147483649 cdata:32212254719LL cdata:18446744071562067967ULL cdata:2147483648LL
+number:10000000000 cdata:10000000000LL cdata:1109511627776ULL cdata:-10000000001LL
+number:-10000000000 cdata:24359738368LL cdata:18446744063709551616ULL cdata:9999999999LL
+number:1.1258999068426e+15 cdata:0LL cdata:1126999418470400ULL cdata:-1125899906842625LL
+number:-1.1258999068426e+15 cdata:0LL cdata:18445619273314336768ULL cdata:1125899906842623LL
+number:1e+15 cdata:28534276096LL cdata:1000000000000000ULL cdata:-1000000000000001LL
+number:-1e+15 cdata:5825462272LL cdata:18445745173221179392ULL cdata:999999999999999LL
+number:2.2517998136852e+15 cdata:34359738367LL cdata:2251799813685247ULL cdata:-2251799813685248LL
+number:0.5 cdata:0LL cdata:1099511627776ULL cdata:-1LL
+number:4294967295.5 cdata:4294967295LL cdata:1103806595071ULL cdata:-4294967296LL
+number:8 number:17 number:7 number:6
+number:0 number:31 number:10 number:5
+boolean:false
+boolean:false
+boolean:false
+boolean:false
+boolean:false
+boolean:false
+boolean:false
+number:5.5340231254117e+22 cdata:11979925568031100966ULL
+1/16,2/32,3/48,4/64,5LL/80LL,6/96,7/112,8/128,9/144,10LL/160LL,12/192,12/192,13/208,14/224,15LL/240LL,16/256,17/272,18/288,19/304,20LL/320LL,21/336,22/352,23/368,24/384,25LL/400LL,26/416,27/432,28/448,29/464,30LL/480LL,31/496,32/512,34/544,34/544,35/560,36/576,37/592,38/608,39/624,40LL/640LL,41/656,42/672,43/688,44/704,45LL/720LL,46/736,47/752,48/768,49/784,50LL/800LL,51/816,52/832,53/848,54/864,55LL/880LL,56/896,57/912,58/928,59/944,60LL/960LL,61/976,62/992,63/1008,64/1024,65LL/1040LL,66/1056,67/1072,68/1088,69/1104,70/1120,71/1136,72/1152,73/1168,74/1184,75LL/1200LL,76/1216,78/1248,78/1248,79/1264,80LL/1280LL,81/1296,82/1312,83/1328,84/1344,85LL/1360LL,86/1376,87/1392,88/1408,89/1424,90LL/1440LL,91/1456,92/1472,93/1488,94/1504,95LL/1520LL,96/1536,97/1552,98/1568,100/1600,100LL/1600LL,101/1616,102/1632,103/1648,104/1664,105/1680,106/1696,107/1712,108/1728,109/1744,110LL/1760LL,111/1776,112/1792,113/1808,114/1824,115LL/1840LL,116/1856,117/1872,118/1888,119/1904,120LL/1920LL,122/1952,122/1952,123/1968,124/1984,125LL/2000LL,126/2016,127/2032,128/2048,129/2064,130LL/2080LL,131/2096,132/2112,133/2128,134/2144,135LL/2160LL,136/2176,137/2192,138/2208,139/2224,140/2240,141/2256,142/2272,144/2304,144/2304,145LL/2320LL,146/2336,147/2352,148/2368,149/2384,150LL/2400LL,151/2416,152/2432,153/2448,154/2464,155LL/2480LL,156/2496,157/2512,158/2528,159/2544,160LL/2560LL,161/2576,162/2592,163/2608,164/2624,165LL/2640LL,166/2656,167/2672,168/2688,169/2704,170LL/2720LL,171/2736,172/2752,173/2768,174/2784,175/2800,176/2816,177/2832,178/2848,179/2864,180LL/2880LL,181/2896,182/2912,183/2928,184/2944,185LL/2960LL,186/2976,188/3008,188/3008,189/3024,190LL/3040LL,191/3056,192/3072,193/3088,194/3104,195LL/3120LL,196/3136,197/3152,198/3168,199/3184,200LL/3200LL,201/3216,202/3232,203/3248,204/3264,205LL/3280LL,206/3296,207/3312,208/3328,210/3360,210/3360,211/3376,212/3392,213/3408,214/3424,215LL/3440LL,216/3456,217/3472,218/3488,219/3504,220LL/3520LL,221/3536,222/3552,223/3568,224/3584,225LL/3600LL,226/3616,227/3632,228/3648,229/3664,230LL/3680LL,232/3712,232/3712,233/3728,234/3744,235LL/3760LL,236/3776,237/3792,238/3808,239/3824,240LL/3840LL,241/3856,242/3872,243/3888,244/3904,245/3920,246/3936,247/3952,248/3968,249/3984,250LL/4000LL,251/4016,252/4032,254/4064,254/4064,255LL/4080LL,0/4096,1/4112,2/4128,3/4144,4LL/4160LL,5/4176,6/4192,7/4208,8/4224,9LL/4240LL,10/4256,11/4272,12/4288,13/4304,14LL/4320LL,15/4336,16/4352,17/4368,18/4384,19LL/4400LL,20/4416,21/4432,22/4448,23/4464,24/4480,25/4496,26/4512,27/4528,28/4544,29LL/4560LL,30/4576,31/4592,32/4608,33/4624,34LL/4640LL,35/4656,36/4672,37/4688,38/4704,39LL/4720LL,40/4736,42/4768,42/4768,43/4784,44LL/4800LL,45/4816,46/4832,47/4848,48/4864,49LL/4880LL,50/4896,51/4912,52/4928,53/4944,54LL/4960LL,55/4976,56/4992,57/5008,58/5024,59/5040,60/5056,61/5072,62/5088,64/5120,64LL/5120LL,65/5136,66/5152,67/5168,68/5184,69LL/5200LL,70/5216,71/5232,72/5248,73/5264,74LL/5280LL,75/5296,76/5312,77/5328,78/5344,79LL/5360LL,80/5376,81/5392,82/5408,83/5424,84LL/5440LL,86/5472,86/5472,87/5488,88/5504,89LL/5520LL,90/5536,91/5552,92/5568,93/5584,94/5600,95/5616,96/5632,97/5648,98/5664,99LL/5680LL,100/5696,101/5712,102/5728,103/5744,104LL/5760LL,105/5776,106/5792,108/5824,108/5824,109LL/5840LL,110/5856,111/5872,112/5888,113/5904,114LL/5920LL,115/5936,116/5952,117/5968,118/5984,119LL/6000LL,120/6016,121/6032,122/6048,123/6064,124LL/6080LL,125/6096,126/6112,127/6128,128/6144,130/6176,130/6176,131/6192,132/6208,133/6224,134LL/6240LL,135/6256,136/6272,137/6288,138/6304,139LL/6320LL,140/6336,141/6352,142/6368,143/6384,144LL/6400LL

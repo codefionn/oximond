@@ -1,0 +1,20 @@
+kept 1 message 2
+kept 2 message 4
+kept 3 message 6
+one x
+padded true nil nil
+count 3
+false false assert_in_window.lua:7: said so
+nil false assert_in_window.lua:7: assertion failed!
+default false assert_in_window.lua:7: assertion failed!
+none false bad argument #1 to '?' (value expected)
+object false table 7
+stopped assert_in_window.lua:7: stop 50
+stopped assert_in_window.lua:7: stop 100
+stopped assert_in_window.lua:7: stop 150
+stopped assert_in_window.lua:7: stop 200
+sum 19600
+hooked 5 6
+hook saw calls true
+global replaced false 1
+restored 1 2

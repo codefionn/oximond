@@ -1,0 +1,7 @@
+tostring	true:ts | true:r1
+pcall-tostring	true:ts | true:true
+tostring-twice	true:ts | true:ts | true:r1
+tostring-error	true:e | true:false
+sort	false:attempt to yield across C-call boundary
+gsub	false:attempt to yield across C-call boundary
+false	true	attempt to yield across C-call boundary

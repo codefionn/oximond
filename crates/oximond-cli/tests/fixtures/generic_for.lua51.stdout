@@ -1,0 +1,48 @@
+ipairs 1=10,2=20,3=30
+ipairs1 1,2,3
+ipairs3 110nil,220nil
+ipairs_index 
+pairs 4 106
+next1 4
+next3 15nil,26nil
+next_bad invalid key to 'next'
+next_nontable bad argument #1 to '(for generator)' (table expected, got number)
+clear 3 true
+closure 1/1,2/4,3/9,4/16
+stateless 1v0,2v1,3v2
+false_first 2
+callable 1,2,3
+gmatch one,two,three
+gmatch2 k1v1,k2v2
+nil_iter attempt to call a nil value
+num_iter attempt to call a number value
+nil_iter2 attempt to call a nil value
+string_iter attempt to call a string value
+err_in_iter boom
+err_in_iter_nonstr true
+tb generic_for.lua:90: attempt to call a nil value
+captured 1a 2b 3c
+captured2 x!1 x!!1
+captured3 11 21 12 13
+capbreak 2 1 2
+assign 100x,200x,300x
+assign_nilkey 10,20,30
+assign_closure 6,7,8
+break 1,2,3
+return 3 nil
+nested 11a,12b,21a,22b,31a,32b
+goto no goto
+vararg 1,2,3
+many 8nil,16nil
+mid 1nil1,2nil2
+empty 0
+sum 6
+co_wrap a1,a2,b1,b2 done
+co_yield_iter falseattempt to yield across metamethod/C-call boundary|falsecannot resume dead coroutine|falsecannot resume dead coroutine|falsecannot resume dead coroutine
+co_yield_builtin false attempt to yield across metamethod/C-call boundary
+co_yield_builtin2 false cannot resume dead coroutine
+co_yield_builtin3 false cannot resume dead coroutine
+co_pcall false generic_for.lua:233: cannot resume dead coroutine
+gc 20100
+gc2 20100
+sorted x,y,z

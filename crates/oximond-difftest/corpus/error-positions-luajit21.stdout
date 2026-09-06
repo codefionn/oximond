@@ -1,0 +1,3 @@
+o1#	false	caller
+o2#	case.lua:5: caller
+o3#	false	case.lua:6: 42

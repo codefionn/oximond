@@ -1,0 +1,28 @@
+true	add
+suspended	true	dead
+false	cannot resume dead coroutine
+true	idx
+guard closed
+true
+dead
+a
+closing	late
+false	late
+closing-normal
+closing-1
+closing-2
+closing-return
+ret
+unwind-close
+false	oops
+len	true:len | true:r1
+band	true:band | true:r1
+bor-bxor	true:bor | true:bxor | true:r1
+shifts	true:shl | true:shr | true:r1
+bnot	true:bnot | true:r1
+idiv	true:idiv | true:r1
+pairs	true:pairs | true:30
+tostring	false:attempt to yield across a C-call boundary
+format	false:attempt to yield across a C-call boundary
+sort	false:attempt to yield across a C-call boundary
+false	true	attempt to yield across a C-call boundary

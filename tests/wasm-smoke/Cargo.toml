@@ -1,0 +1,13 @@
+[package]
+name = "oximond-wasm-smoke"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+oximond = { path = "../../crates/oximond" }

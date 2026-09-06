@@ -1,0 +1,64 @@
+[package]
+name = "oximond-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Command line Lua interpreter over the Oximond runtime: Lua 5.1 through 5.5 and LuaJIT 2.1 profiles"
+repository.workspace = true
+
+[[bin]]
+name = "oximond"
+path = "src/main.rs"
+
+[dependencies]
+oximond.workspace = true
+# The interactive session's line editor: editing keys and history.
+rustyline.workspace = true
+
+# The lazy bridge opens an embedded shared object through a memfd, which only
+# Linux offers. Windows links the bridge into the executable instead.
+[target.'cfg(not(windows))'.dependencies]
+oximond-capi = { workspace = true, features = ["luajit", "lazy-bridge"] }
+
+[target.'cfg(windows)'.dependencies]
+oximond-capi = { workspace = true, features = ["luajit", "bundled-bridge"] }
+
+[target.'cfg(unix)'.dependencies]
+signal-hook.workspace = true
+
+[features]
+default = ["small-blocks"]
+# The C API's small-block global allocator (see oximond::alloc).
+small-blocks = ["oximond-capi/small-blocks"]
+# Installs a counting global allocator and adds alloc_* keys to OXIMOND_COUNTERS.
+# It replaces small-blocks, so build it with --no-default-features.
+alloc-stats = []
+# Splits the alloc-stats counts by allocation phase (see
+# oximond::runtime::alloc_phase) and writes them as JSON to the file
+# OXIMOND_ALLOC_PHASES names.
+alloc-phases = ["alloc-stats", "oximond/alloc-phases"]
+# Operation counters written as JSON to the file OXIMOND_OP_STATS names.
+op-stats = ["oximond/op-stats"]
+
+# The workspace forbids unsafe code. The allocator wrapper needs it, so this
+# crate denies it instead and main.rs forbids it again without the feature.
+[lints.rust]
+unsafe_code = "deny"
+
+# Kept in step with the workspace lint policy (see the root Cargo.toml): the
+# families a Lua VM and its FFI legitimately violate everywhere are allowed
+# once, everything else pedantic reports is fixed at the site it reports it.
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+cast_possible_truncation = "allow"
+cast_possible_wrap = "allow"
+cast_precision_loss = "allow"
+cast_sign_loss = "allow"
+cast_ptr_alignment = "allow"
+checked_conversions = "allow"
+inline_always = "allow"
+too_many_lines = "allow"
+too_many_arguments = "allow"
+unnecessary_wraps = "allow"

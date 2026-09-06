@@ -1,0 +1,25 @@
+iter	dead:false,attempt to yield across metamethod/C-call boundary
+iter_tbl	dead:false,attempt to yield across metamethod/C-call boundary
+iter_pcall	dead:true,falseattempt to yield across metamethod/C-call boundary
+iter_pcall_error	dead:true,falseclose_gaps_for_iterator.lua:17: e
+iter_next	dead:true,2
+iter_nested_call	dead:false,attempt to yield across metamethod/C-call boundary
+iter_tail	dead:false,attempt to yield across metamethod/C-call boundary
+call_yield	suspended:true,call ; dead:true,r2
+call_yield_builtin	suspended:true,table: ADDR,1 ; dead:true,r2
+call_in_pcall	dead:true,false,attempt to yield across metamethod/C-call boundary
+-- for loops
+A	false	close_gaps_for_iterator.lua:25: e0
+B	false	x
+C	false	close_gaps_for_iterator.lua:27: e
+D	true	1
+nil
+E	true	nil
+F	false	f
+F	false
+F	false
+P	false	1
+2	false	7
+2	false	7
+2	false	7
+603

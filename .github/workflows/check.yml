@@ -1,0 +1,103 @@
+# =============================================================================
+# oximond checks for GitHub Actions — the counterpart of the `check` stage in
+# .gitlab-ci.yml: formatting, clippy, the conformance manifest gate and crate
+# packaging, each driven by scripts/ci.sh (the same entry point a local run
+# uses).
+#
+# Branches and pull requests run this workflow and ci.yml; version tags run
+# only release.yml, which re-checks everything after its version gate.
+#
+# --- Runner requirements -----------------------------------------------------
+# GitHub-hosted ubuntu-latest runners. The toolchain is pinned through
+# dtolnay/rust-toolchain to the same version the GitLab and Forgejo pipelines
+# take from the rust:1.97.1-trixie image. The runner image already carries
+# git, node and a C/C++ toolchain, so no job installs prerequisites (the
+# corpora downloads live in ci.yml).
+#
+# --- Secrets ---------------------------------------------------------------
+# None.
+# =============================================================================
+
+name: check
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: "0"
+  # Keep each job within its runner's memory budget (the thin-LTO release
+  # build is the peak consumer); parallelism lives at the workflow level.
+  CARGO_BUILD_JOBS: "2"
+
+# A newer push to the same ref supersedes an in-flight run
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fmt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain
+        uses: dtolnay/rust-toolchain@1.97.1
+        with:
+          components: rustfmt
+      - name: Format
+        run: scripts/ci.sh fmt
+
+  # Lints are reported in the log but do not fail the job while the workspace
+  # still carries warnings (clippy is configured pedantic); add `-- -D warnings`
+  # to scripts/ci.sh's clippy target once they are fixed.
+  clippy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain
+        uses: dtolnay/rust-toolchain@1.97.1
+        with:
+          components: clippy
+      - name: Clippy
+        run: scripts/ci.sh clippy
+
+  ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain
+        uses: dtolnay/rust-toolchain@1.97.1
+      - name: Validate conformance manifests
+        run: scripts/ci.sh ledger
+
+  # Packages every publishable crate without building or uploading: catches a
+  # crate that stops being publishable (missing metadata, a workspace path
+  # edge whose version requirement no longer matches) long before a release
+  # tag would find it.
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain
+        uses: dtolnay/rust-toolchain@1.97.1
+      - name: Package publishable crates
+        run: scripts/ci.sh package

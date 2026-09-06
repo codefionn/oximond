@@ -1,0 +1,30 @@
+-- coroutine.close with pending to-be-closed variables (Lua 5.4 and later).
+local function show(...)
+  local n = select("#", ...)
+  local parts = {}
+  for i = 1, n do parts[i] = tostring((select(i, ...))) end
+  print(table.concat(parts, " "))
+end
+local log = {}
+local closing = coroutine.create(function()
+  local x <close> = setmetatable({}, {__close = function() log[#log + 1] = "closed x" end})
+  local y <close> = setmetatable({}, {__close = function() log[#log + 1] = "closed y" end})
+  coroutine.yield("suspended")
+end)
+show(coroutine.resume(closing))
+show(coroutine.close(closing))
+show(table.concat(log, ","))
+show(coroutine.status(closing))
+local failing = coroutine.create(function()
+  local z <close> = setmetatable({}, {__close = function() error("close failed") end})
+  coroutine.yield()
+end)
+coroutine.resume(failing)
+show(coroutine.close(failing))
+show(coroutine.close(coroutine.create(print)))
+local wrapped = coroutine.wrap(function()
+  local q <close> = setmetatable({}, {__close = function() log[#log + 1] = "closed q" end})
+  error("wrapped failure")
+end)
+show(pcall(wrapped))
+show(table.concat(log, ","))

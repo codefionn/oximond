@@ -1,0 +1,24 @@
+next tostring: true	nil
+next format: true	nil
+pcall tostring: true	false
+pcall format: true	false
+ipairs tostring: true	function
+ipairs format: true	function
+pairs tostring: true	function
+pairs format: true	function
+load tostring: false	bad argument #1 to '?' (function expected, got table)
+load format: false	bad argument #1 to '?' (function expected, got table)
+coroutine.wrap tostring: false	bad argument #1 to '?' (function expected, got table)
+coroutine.wrap format: false	bad argument #1 to '?' (function expected, got table)
+coroutine.running tostring: true	nil
+coroutine.running format: true	nil
+table.sort tostring: true	nil
+table.sort format: true	nil
+string.gsub tostring: false	bad argument #1 to '?' (string expected, got table)
+string.gsub format: false	bad argument #1 to '?' (string expected, got table)
+rawget tostring: false	bad argument #2 to '?' (value expected)
+rawget format: false	bad argument #2 to '?' (value expected)
+select tostring: false	bad argument #1 to '?' (number expected, got table)
+select format: false	bad argument #1 to '?' (number expected, got table)
+type tostring: true	table
+type format: true	table

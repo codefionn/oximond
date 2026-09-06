@@ -1,0 +1,26 @@
+next tostring: false	'__tostring' must return a string
+next format: false	'__tostring' must return a string
+pcall tostring: false	'__tostring' must return a string
+pcall format: false	'__tostring' must return a string
+ipairs tostring: false	'__tostring' must return a string
+ipairs format: false	'__tostring' must return a string
+pairs tostring: false	'__tostring' must return a string
+pairs format: false	'__tostring' must return a string
+load tostring: false	bad argument #1 to 'load' (function expected, got table)
+load format: false	bad argument #1 to 'load' (function expected, got table)
+coroutine.wrap tostring: false	bad argument #1 to 'coroutine.wrap' (function expected, got table)
+coroutine.wrap format: false	bad argument #1 to 'coroutine.wrap' (function expected, got table)
+coroutine.running tostring: false	'__tostring' must return a string
+coroutine.running format: false	'__tostring' must return a string
+table.sort tostring: false	'__tostring' must return a string
+table.sort format: false	'__tostring' must return a string
+string.gsub tostring: false	bad argument #1 to 'string.gsub' (string expected, got table)
+string.gsub format: false	bad argument #1 to 'string.gsub' (string expected, got table)
+rawget tostring: false	bad argument #2 to 'rawget' (value expected)
+rawget format: false	bad argument #2 to 'rawget' (value expected)
+select tostring: false	bad argument #1 to 'select' (number expected, got table)
+select format: false	bad argument #1 to 'select' (number expected, got table)
+type tostring: true	table
+type format: true	table
+tostring tostring: false	C stack overflow
+tostring format: false	C stack overflow

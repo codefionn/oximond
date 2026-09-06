@@ -1,0 +1,45 @@
+gsub ok pcall	true	aBc	1
+gsub lua pcall	false	protected_natives.lua:13: x
+gsub native pcall	false	bad argument #2 to '?' (number expected, got no value)
+gsub later pcall	false	protected_natives.lua:27: late
+gsub level0 pcall	false	y
+gsub tbl pcall	false	protected_natives.lua:29: idx
+gsub badret pcall	false	invalid replacement value (a table)
+gsub nested pcall	false	protected_natives.lua:13: x
+gsub inner pcall pcall	true	false	1
+sort ok pcall	true
+sort lua pcall	false	protected_natives.lua:13: x
+sort native pcall	true
+sort lt pcall	false	protected_natives.lua:13: x
+tostring ok pcall	true	ok
+tostring lua pcall	false	protected_natives.lua:13: x
+format ok pcall	false	bad argument #2 to '?' (string expected, got table)
+format lua pcall	false	bad argument #2 to '?' (string expected, got table)
+load ok pcall	true	function
+load lua pcall	true	nil	protected_natives.lua:13: x
+load tbl pcall	true	nil	table
+next pcall	false	invalid key to 'next'
+select pcall	false	bad argument #1 to '?' (index out of range)
+setmetatable pcall	false	bad argument #1 to '?' (table expected, got number)
+tostring nil pcall	false	bad argument #1 to '?' (value expected)
+string.rep pcall	false	bad argument #1 to '?' (string expected, got no value)
+coroutine.wrap err pcall	false	protected_natives.lua:13: x
+string.find idx pcall	false	bad argument #2 to '?' (string expected, got table)
+tostring tbl pcall	false	table
+error pcall	false	direct
+error tbl pcall	false	table
+foreach lua pcall	false	protected_natives.lua:13: x
+foreach native pcall	true	1111111111
+foreachi lua pcall	false	protected_natives.lua:13: x
+foreachi native pcall	true	1111111111
+gsub second pcall	false	protected_natives.lua:72: second
+gsub second badret pcall	false	invalid replacement value (a table)
+sort second pcall	false	protected_natives.lua:81: later
+gsub native index pcall	false	bad argument #1 to '?' (string expected, got table)
+dofile err pcall	false	pn_errfile.lua:1: in file
+require err pcall	false	./pn_errmod.lua:1: in module
+concat pcall	false
+index pcall	false
+nested pcall	true	false	protected_natives.lua:13: x
+nested sort	true	false	protected_natives.lua:13: x
+gmatch ok pcall	true	a

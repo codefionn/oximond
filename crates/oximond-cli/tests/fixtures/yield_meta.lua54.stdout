@@ -1,0 +1,56 @@
+index	true:index foo | true:r1
+index2	true:index a | true:index b | true:r1
+newindex	true:newindex x | true:1
+add	true:add | true:r1
+add-right	true:add | true:r1
+sub-mul	true:sub | true:mul | true:r1
+div-mod-pow	true:div | true:mod | true:pow | true:r1
+unm	true:unm | true:r1
+concat	true:concat | true:r1
+concat-chain	true:concat | true:ar1
+concat-nums	true:concat | true:12r1
+eq	true:eq | true:true
+ne	true:eq | true:false
+eq-if	true:eq | true:T
+lt	true:lt | true:true
+gt	true:lt | true:true
+le	true:le | true:true
+lt-if	true:lt | true:T
+le-not	true:le | true:false
+call	true:call | true:r1
+call-nontail	true:call | true:r1
+callable-hop	true:hop | true:r1
+index-chain	true:chain | true:r1
+newindex-chain	true:ni | true:ok
+for-once	true:once | true:r1
+for-many	true:it1 | true:it2 | true:it3 | true:r1,r2,r3
+for-wrap	true:2
+multi-result	true:a | true:a | true:r1
+error-after	true:a | false:boom
+error-after-pcall	true:a | true:false
+error-table	true:a | true:false
+type-error-after	true:a | true:false
+pcall-around	true:index foo | true:true
+xpcall-around	true:add | true:true
+nested-coroutine	true:inner
+index k
+fin
+false	cannot resume dead coroutine
+40	40
+hot-add	600	180300
+hot-index	600	180300
+hot-newindex	600	ni
+hot-concat	600	600
+hot-lt	600	600
+hot-eq	600	600
+hot-call	600	180300
+hot-for	600	600
+hot-mixed	400	140300
+warm-add	7	12482928
+warm-index	7	12483628
+warm-lt	7	5000
+warm-concat	7	5000
+sort-comparator	false:attempt to yield across a C-call boundary
+gsub-callback	false:attempt to yield across a C-call boundary
+gsub-table-index	false:attempt to yield across a C-call boundary
+3

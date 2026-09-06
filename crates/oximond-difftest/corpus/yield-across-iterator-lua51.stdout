@@ -1,0 +1,16 @@
+1	false	attempt to yield across metamethod/C-call boundary
+2	false	attempt to yield across metamethod/C-call boundary
+3	false	attempt to yield across metamethod/C-call boundary
+4	false	attempt to yield across metamethod/C-call boundary
+5	false	attempt to yield across metamethod/C-call boundary
+6	false	attempt to yield across metamethod/C-call boundary
+7	false	attempt to yield across metamethod/C-call boundary
+8	false	attempt to yield across metamethod/C-call boundary
+9	true	false	attempt to yield across metamethod/C-call boundary
+10	true	call
+false	attempt to yield across metamethod/C-call boundary
+false	attempt to yield across metamethod/C-call boundary
+false	attempt to yield across metamethod/C-call boundary
+false	attempt to yield across metamethod/C-call boundary
+false	attempt to yield across metamethod/C-call boundary
+false	attempt to yield across metamethod/C-call boundary

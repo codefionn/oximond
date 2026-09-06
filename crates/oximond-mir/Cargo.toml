@@ -1,0 +1,48 @@
+[package]
+name = "oximond-mir"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Prototype of a target-neutral machine IR with a fused backward register allocator and x86-64 emitter"
+repository.workspace = true
+# The oximond crate depends on it for the opt-in MIR trace backend, so it is
+# published ahead of oximond.
+
+# Executable memory needs mmap and mprotect; `deny` keeps unsafe confined to
+# the `exec` module (and the bench example), which allow it explicitly.
+[lints.rust]
+unsafe_code = "deny"
+
+# Kept in step with the workspace lint policy (see the root Cargo.toml).
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+cast_possible_truncation = "allow"
+cast_possible_wrap = "allow"
+cast_precision_loss = "allow"
+cast_sign_loss = "allow"
+cast_ptr_alignment = "allow"
+checked_conversions = "allow"
+inline_always = "allow"
+too_many_lines = "allow"
+too_many_arguments = "allow"
+unnecessary_wraps = "allow"
+# Allowed for this prototype only: MIR operands are named a, b, c, d on purpose
+# (they are the instruction's fields), and the docs name registers and ops.
+many_single_char_names = "allow"
+similar_names = "allow"
+doc_markdown = "allow"
+missing_panics_doc = "allow"
+must_use_candidate = "allow"
+float_cmp = "allow"
+items_after_statements = "allow"
+if_not_else = "allow"
+match_same_arms = "allow"
+semicolon_if_nothing_returned = "allow"
+
+[dev-dependencies]
+cranelift-codegen.workspace = true
+cranelift-frontend.workspace = true
+cranelift-jit.workspace = true
+cranelift-module.workspace = true

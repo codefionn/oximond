@@ -1,0 +1,4 @@
+gsub-tail	false	attempt to yield across C-call boundary
+gsub-call	false	FILE:11: attempt to yield across C-call boundary
+sort-tail	false	attempt to yield across C-call boundary
+sort-call	false	FILE:13: attempt to yield across C-call boundary

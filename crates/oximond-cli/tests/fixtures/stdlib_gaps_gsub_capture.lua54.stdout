@@ -1,0 +1,9 @@
+false	invalid capture index %2
+true	abc	1
+false	invalid capture index %2
+false	invalid capture index %9
+false	invalid capture index %3
+false	invalid use of '%' in replacement string
+false	40	nil
+true	aabc	1
+true	%bc	1

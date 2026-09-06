@@ -1,0 +1,1184 @@
+{
+  "generated_at": "2026-10-05T20:17:17.165071+00:00",
+  "host": {
+    "platform": "Linux-7.2.7-1-cachyos-gcc-x86_64-with-glibc2.44",
+    "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+    "cpu_affinity": 7,
+    "uptime": "22:17:09 up 1 day, 47 min,  1 user,  load average: 2,99, 8,13, 14,62",
+    "loadavg": [
+      2.99,
+      8.13,
+      14.62
+    ],
+    "sibling_cpu": 15,
+    "pinned_cpu_busy_percent": 7.692307692307687,
+    "sibling_cpu_busy_percent": 3.8461538461538436
+  },
+  "git": {
+    "revision": "96de3954f6c10fe350981e0713bf873ce09a6310",
+    "dirty": true
+  },
+  "scale": 1,
+  "repeat": 21,
+  "warmed": false,
+  "binaries": {
+    "oximond": {
+      "path": "/tmp/claude-1000/-home-user-Documents-prog-oximond/9f095a74-e11a-41d2-b33a-9a2e6143e5ea/scratchpad/oximond-virtual",
+      "sha256": "51f51778bae0d71c58ccf37a61a0ae6728c8bfaef2a536c7792b6d64e9c4fc69"
+    },
+    "before": {
+      "path": "/tmp/claude-1000/-home-user-Documents-prog-oximond/9f095a74-e11a-41d2-b33a-9a2e6143e5ea/scratchpad/oximond-96de395",
+      "sha256": "79d2ea76522d2a6ef780371d75889c88f92b7531fb1d46e5e3987828a0e4cc61"
+    }
+  },
+  "results": [
+    {
+      "benchmark": "numeric/for_sum",
+      "modes": {
+        "tiered": {
+          "instructions": 34545094,
+          "instructions_samples": [
+            34678494,
+            34366553,
+            34401911,
+            34479983,
+            34744557,
+            33357914,
+            34480176,
+            34668808,
+            34727196,
+            34611164,
+            34274492,
+            35191572,
+            35129539,
+            34545094,
+            34711240,
+            34476312,
+            34459511,
+            34749932,
+            34116021,
+            29213084,
+            34701636
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 7,
+            "iterations": 1902716,
+            "native_entries": 8,
+            "recording_starts": 1,
+            "tables_created": 22,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 8,
+            "iterations": 1902716,
+            "exits": {
+              "LoopComplete": 1,
+              "Poll": 7
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-tiered": {
+          "instructions": 34616891,
+          "instructions_samples": [
+            34616891,
+            34955066,
+            34897006,
+            34235993,
+            35208467,
+            33820549,
+            33553996,
+            34484656,
+            34422682,
+            34828166,
+            34309301,
+            34445169,
+            34736150,
+            34764481,
+            34290261,
+            35497468,
+            35426370,
+            35367238,
+            34821343,
+            34388362,
+            34343116
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 7,
+            "iterations": 1901924,
+            "native_entries": 8,
+            "recording_starts": 1,
+            "tables_created": 22,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 8,
+            "iterations": 1901924,
+            "exits": {
+              "LoopComplete": 1,
+              "Poll": 7
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        }
+      },
+      "checksum": "2000001000000"
+    },
+    {
+      "benchmark": "table/array_read",
+      "modes": {
+        "tiered": {
+          "instructions": 69224441,
+          "instructions_samples": [
+            62330164,
+            66118965,
+            66996293,
+            72497529,
+            71689910,
+            64044043,
+            69224441,
+            62393279,
+            63088359,
+            76017039,
+            68577268,
+            67820487,
+            71028858,
+            70409981,
+            70619248,
+            66225996,
+            74337036,
+            81256878,
+            77773173,
+            81636065,
+            69148733
+          ],
+          "counters": {
+            "abort.InnerLoop": 0,
+            "abort.ShortLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 53,
+            "exit.Poll": 1,
+            "iterations": 1557220,
+            "native_entries": 54,
+            "recording_starts": 4,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 54,
+            "iterations": 1557220,
+            "exits": {
+              "LoopComplete": 53,
+              "Poll": 1
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 0,
+              "ShortLoop": 3
+            }
+          }
+        },
+        "before-tiered": {
+          "instructions": 69816224,
+          "instructions_samples": [
+            65714629,
+            72669984,
+            70677722,
+            66332262,
+            68798352,
+            63583734,
+            75206127,
+            74144619,
+            72208482,
+            73436081,
+            70396295,
+            62845139,
+            67261688,
+            62370263,
+            62648255,
+            68851998,
+            73664559,
+            67752463,
+            72678507,
+            70977163,
+            69816224
+          ],
+          "counters": {
+            "abort.InnerLoop": 0,
+            "abort.ShortLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 54,
+            "exit.Poll": 1,
+            "iterations": 1553658,
+            "native_entries": 55,
+            "recording_starts": 4,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 55,
+            "iterations": 1553658,
+            "exits": {
+              "LoopComplete": 54,
+              "Poll": 1
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 0,
+              "ShortLoop": 3
+            }
+          }
+        }
+      },
+      "checksum": "79992240"
+    },
+    {
+      "benchmark": "table/hash_read",
+      "modes": {
+        "tiered": {
+          "instructions": 146543596,
+          "instructions_samples": [
+            143081486,
+            149936818,
+            148373044,
+            149557543,
+            146329240,
+            153589541,
+            145021067,
+            148236287,
+            141863480,
+            146488175,
+            156675000,
+            146543596,
+            145281354,
+            142480666,
+            149914014,
+            141846184,
+            142498241,
+            150917108,
+            157275920,
+            149720484,
+            141728674
+          ],
+          "counters": {
+            "abort.InnerLoop": 0,
+            "abort.UnsupportedOpcode": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 1,
+            "iterations": 571009,
+            "native_entries": 19,
+            "recording_starts": 4,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 19,
+            "iterations": 571009,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 1
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 0,
+              "UnsupportedOpcode": 3
+            }
+          }
+        },
+        "before-tiered": {
+          "instructions": 147170738,
+          "instructions_samples": [
+            150155752,
+            143121429,
+            147524760,
+            148459508,
+            142951784,
+            149276518,
+            141799272,
+            148725334,
+            145301736,
+            150289737,
+            143191608,
+            144616551,
+            141984091,
+            147170738,
+            147966722,
+            153382494,
+            147972453,
+            147820205,
+            143245319,
+            145325508,
+            142602431
+          ],
+          "counters": {
+            "abort.InnerLoop": 0,
+            "abort.UnsupportedOpcode": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 40,
+            "exit.Poll": 1,
+            "iterations": 567117,
+            "native_entries": 41,
+            "recording_starts": 4,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 41,
+            "iterations": 567117,
+            "exits": {
+              "LoopComplete": 40,
+              "Poll": 1
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 0,
+              "UnsupportedOpcode": 3
+            }
+          }
+        }
+      },
+      "checksum": "31455900"
+    },
+    {
+      "benchmark": "table/metamethod_index",
+      "modes": {
+        "tiered": {
+          "instructions": 17393356,
+          "instructions_samples": [
+            17493983,
+            17344514,
+            17642369,
+            17493297,
+            16199956,
+            17094481,
+            17791786,
+            17144467,
+            17245420,
+            17544457,
+            17145240,
+            16448326,
+            17692806,
+            21127987,
+            17643872,
+            17593474,
+            16597132,
+            16048865,
+            17742334,
+            17393356,
+            17344490
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 194687,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 194687,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-tiered": {
+          "instructions": 17489214,
+          "instructions_samples": [
+            17537540,
+            16194640,
+            17488713,
+            17339594,
+            17438815,
+            17488337,
+            14252817,
+            17389317,
+            17589779,
+            17536833,
+            17289865,
+            17887087,
+            17637809,
+            17637457,
+            18184061,
+            17489214,
+            17688518,
+            17736757,
+            16641448,
+            16990699,
+            17935886
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 194621,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 194621,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        }
+      },
+      "checksum": "2600000"
+    },
+    {
+      "benchmark": "table/iteration",
+      "modes": {
+        "tiered": {
+          "instructions": 32756312,
+          "instructions_samples": [
+            37537069,
+            46878698,
+            48933372,
+            42602065,
+            42602436,
+            32512898,
+            32959642,
+            32111619,
+            32454041,
+            44354865,
+            46191285,
+            32112634,
+            32112973,
+            32112540,
+            32374387,
+            49194568,
+            32292831,
+            32212276,
+            32111794,
+            32756312,
+            32758221
+          ],
+          "counters": {
+            "abort.ShortLoop": 3,
+            "abort.UnsupportedOperand": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 80,
+            "iterations": 796339,
+            "native_entries": 80,
+            "recording_starts": 5,
+            "side_exit.ArrayBounds": 80,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 80,
+            "iterations": 796339,
+            "exits": {
+              "GuardFail": 80
+            },
+            "side_exits": {
+              "ArrayBounds": 80
+            },
+            "aborts": {
+              "ShortLoop": 3,
+              "UnsupportedOperand": 1
+            }
+          }
+        },
+        "before-tiered": {
+          "instructions": 32639442,
+          "instructions_samples": [
+            47406418,
+            32095479,
+            34920979,
+            45529185,
+            32095049,
+            32196809,
+            37964007,
+            50491022,
+            32135867,
+            40809503,
+            45428758,
+            49380186,
+            46014013,
+            32639442,
+            32136674,
+            32094730,
+            32095491,
+            32337726,
+            32095297,
+            32096133,
+            36596768
+          ],
+          "counters": {
+            "abort.ShortLoop": 3,
+            "abort.UnsupportedOperand": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 80,
+            "iterations": 796504,
+            "native_entries": 80,
+            "recording_starts": 5,
+            "side_exit.ArrayBounds": 80,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 80,
+            "iterations": 796504,
+            "exits": {
+              "GuardFail": 80
+            },
+            "side_exits": {
+              "ArrayBounds": 80
+            },
+            "aborts": {
+              "ShortLoop": 3,
+              "UnsupportedOperand": 1
+            }
+          }
+        }
+      },
+      "checksum": "44676800"
+    },
+    {
+      "benchmark": "algorithm/nbody",
+      "modes": {
+        "tiered": {
+          "instructions": 109514598,
+          "instructions_samples": [
+            120304725,
+            109849277,
+            109534288,
+            109141177,
+            107928117,
+            109058484,
+            118361588,
+            108645153,
+            120861113,
+            109112366,
+            105451379,
+            119824407,
+            110293654,
+            104100901,
+            105412611,
+            109514598,
+            109604671,
+            110505378,
+            109126643,
+            109765055,
+            109299139
+          ],
+          "counters": {
+            "abort.InnerLoop": 6,
+            "abort.LoopNotClosed": 2,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 2560,
+            "iterations": 5195,
+            "native_entries": 2560,
+            "recording_starts": 10,
+            "tables_created": 28,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 28,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 2560,
+            "iterations": 5195,
+            "exits": {
+              "LoopComplete": 2560
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 6,
+              "LoopNotClosed": 2
+            }
+          }
+        },
+        "before-tiered": {
+          "instructions": 109876421,
+          "instructions_samples": [
+            110009691,
+            109876421,
+            109979244,
+            118649316,
+            121648949,
+            109413783,
+            106967376,
+            108857312,
+            120234388,
+            109145851,
+            109146272,
+            110963487,
+            118368854,
+            110110846,
+            109149244,
+            106845538,
+            110498280,
+            109581680,
+            110478596,
+            107714098,
+            109697710
+          ],
+          "counters": {
+            "abort.InnerLoop": 6,
+            "abort.LoopNotClosed": 2,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 2544,
+            "iterations": 5179,
+            "native_entries": 2544,
+            "recording_starts": 10,
+            "tables_created": 28,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 28,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 2544,
+            "iterations": 5179,
+            "exits": {
+              "LoopComplete": 2544
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 6,
+              "LoopNotClosed": 2
+            }
+          }
+        }
+      },
+      "checksum": "16.834996880"
+    },
+    {
+      "benchmark": "algorithm/spectral_norm",
+      "modes": {
+        "tiered": {
+          "instructions": 102502077,
+          "instructions_samples": [
+            100764058,
+            101137345,
+            101672381,
+            101517731,
+            103967728,
+            102566984,
+            100599496,
+            104124949,
+            101638666,
+            102756343,
+            102314169,
+            102418680,
+            102017094,
+            103438951,
+            121874645,
+            102502077,
+            102899040,
+            102805474,
+            104627015,
+            116347451,
+            102339407
+          ],
+          "counters": {
+            "abort.InnerLoop": 0,
+            "abort.ShortLoop": 4,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 4606,
+            "exit.LoopComplete": 71,
+            "iterations": 546176,
+            "native_entries": 4688,
+            "recording_starts": 6,
+            "side_exit.ArrayBounds": 4606,
+            "tables_created": 44,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 44,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 4688,
+            "iterations": 546176,
+            "exits": {
+              "GuardFail": 4606,
+              "LoopComplete": 71
+            },
+            "side_exits": {
+              "ArrayBounds": 4606
+            },
+            "aborts": {
+              "InnerLoop": 0,
+              "ShortLoop": 4
+            }
+          }
+        },
+        "before-tiered": {
+          "instructions": 101894694,
+          "instructions_samples": [
+            100179350,
+            101167393,
+            100990386,
+            102843971,
+            99539933,
+            102590120,
+            115211685,
+            100744085,
+            101527350,
+            111947417,
+            98407096,
+            103540314,
+            100545917,
+            102640584,
+            101894694,
+            102691786,
+            98654974,
+            100673220,
+            103588862,
+            103989669,
+            102924777
+          ],
+          "counters": {
+            "abort.InnerLoop": 2,
+            "abort.ShortLoop": 4,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 4611,
+            "exit.LoopComplete": 269,
+            "iterations": 546631,
+            "native_entries": 4866,
+            "recording_starts": 8,
+            "side_exit.ArrayBounds": 4611,
+            "tables_created": 44,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 44,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 4866,
+            "iterations": 546631,
+            "exits": {
+              "GuardFail": 4611,
+              "LoopComplete": 269
+            },
+            "side_exits": {
+              "ArrayBounds": 4611
+            },
+            "aborts": {
+              "InnerLoop": 2,
+              "ShortLoop": 4
+            }
+          }
+        }
+      },
+      "checksum": "1.274221700"
+    },
+    {
+      "benchmark": "mineclonia/module_calls",
+      "modes": {
+        "tiered": {
+          "instructions": 116377672,
+          "instructions_samples": [
+            114697195,
+            115537485,
+            117161890,
+            116378524,
+            122253154,
+            116377672,
+            115482119,
+            111285276,
+            116321376,
+            116321692,
+            118053164,
+            115536980,
+            114644939,
+            153309977,
+            116319365,
+            156669019,
+            149951555,
+            117216385,
+            149952202,
+            117214131,
+            115483304
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 7558,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 7558,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-tiered": {
+          "instructions": 118869869,
+          "instructions_samples": [
+            117138135,
+            118031406,
+            122231554,
+            118031683,
+            151608737,
+            115459799,
+            117137324,
+            123068183,
+            114622895,
+            118869869,
+            145729415,
+            151606370,
+            117186674,
+            117141825,
+            149088800,
+            149090608,
+            150767169,
+            149929288,
+            117978295,
+            116297884,
+            150768538
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 7459,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 7459,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        }
+      },
+      "checksum": "186121621"
+    },
+    {
+      "benchmark": "mineclonia/open_results",
+      "modes": {
+        "tiered": {
+          "instructions": 63733924,
+          "instructions_samples": [
+            65597774,
+            64057739,
+            44771613,
+            63043314,
+            63387293,
+            63733924,
+            77914228,
+            64583508,
+            42381186,
+            63204875,
+            64423474,
+            64422504,
+            64423112,
+            60327262,
+            66123473,
+            65435834,
+            32590567,
+            36397165,
+            66124914,
+            63732847,
+            45791922
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.CommittedEffect": 591,
+            "exit.LoopComplete": 591,
+            "iterations": 23620,
+            "native_entries": 1182,
+            "recording_starts": 2,
+            "side_exit.Branch": 591,
+            "tables_created": 23,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 1182,
+            "iterations": 23620,
+            "exits": {
+              "CommittedEffect": 591,
+              "LoopComplete": 591
+            },
+            "side_exits": {
+              "Branch": 591
+            },
+            "aborts": {}
+          }
+        },
+        "before-tiered": {
+          "instructions": 65080829,
+          "instructions_samples": [
+            78050809,
+            64721649,
+            58581173,
+            64721214,
+            65935323,
+            66421814,
+            63545150,
+            51593761,
+            66950855,
+            67280474,
+            66421731,
+            33952397,
+            65080829,
+            66948694,
+            64397580,
+            65937183,
+            64890176,
+            48157504,
+            65409927,
+            64032878,
+            66612543
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.CommittedEffect": 584,
+            "exit.LoopComplete": 585,
+            "iterations": 23369,
+            "native_entries": 1169,
+            "recording_starts": 2,
+            "side_exit.Branch": 584,
+            "tables_created": 23,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 1169,
+            "iterations": 23369,
+            "exits": {
+              "CommittedEffect": 584,
+              "LoopComplete": 585
+            },
+            "side_exits": {
+              "Branch": 584
+            },
+            "aborts": {}
+          }
+        }
+      },
+      "checksum": "869523979"
+    },
+    {
+      "benchmark": "mineclonia/ull_arith",
+      "modes": {
+        "tiered": {
+          "instructions": 45767155,
+          "instructions_samples": [
+            45588429,
+            46739698,
+            32060580,
+            46826082,
+            46826784,
+            19681895,
+            34095458,
+            46828882,
+            31528847,
+            46738671,
+            45767155,
+            38163409,
+            47180778,
+            46651880,
+            46826855,
+            45767042,
+            28787985,
+            46121956,
+            45678286,
+            20035158,
+            45856991
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 38153,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 30,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 30,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 38153,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-tiered": {
+          "instructions": 46108853,
+          "instructions_samples": [
+            18254196,
+            46554323,
+            46903686,
+            46731492,
+            46726689,
+            46374228,
+            18700557,
+            24713673,
+            46994203,
+            46728682,
+            45842517,
+            39833086,
+            32227593,
+            46821149,
+            46289523,
+            29577417,
+            41157069,
+            22061462,
+            46108853,
+            45669985,
+            46820337
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 38021,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 30,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 30,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 38021,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        }
+      },
+      "checksum": "760782068"
+    }
+  ]
+}

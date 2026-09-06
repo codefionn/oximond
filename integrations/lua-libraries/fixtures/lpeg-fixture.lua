@@ -1,0 +1,26 @@
+local lpeg = require("lpeg")
+local P, R, C, Ct, Cmt = lpeg.P, lpeg.R, lpeg.C, lpeg.Ct, lpeg.Cmt
+local number = C(R("09")^1) / tonumber
+local values = Ct(number * (P(",") * number)^0) * -P(1)
+assert(type(values) == "userdata" and lpeg.type(values) == "pattern")
+local result = values:match("12,3,456")
+assert(result[1] == 12 and result[2] == 3 and result[3] == 456 and #result == 3)
+assert(values:match("12,x") == nil)
+local calls = 0
+local callback = Cmt(C(P(1)^1), function(subject, position, captured)
+   calls = calls + 1
+   assert(subject == "a\0b" and captured == subject and position == 4)
+   return position, captured:reverse()
+end)
+assert(callback:match("a\0b") == "b\0a" and calls == 1)
+local grammar = P({"balanced", balanced = P("(") * (lpeg.V("balanced") + (1 - lpeg.S("()")))^0 * P(")")})
+assert(grammar:match("(a(b)c)") == 8)
+assert(grammar:match("(a(b)c") == nil)
+local named = Ct(lpeg.Cg(C(P("key")), "name") * lpeg.Cb("name"))
+local capture = named:match("key")
+assert(capture.name == "key" and capture[1] == "key")
+local transformed = lpeg.Cs((P("a") / "A" + P(1))^0)
+assert(transformed:match("a\0aba") == "A\0AbA")
+local ok, err = pcall(function() return P({"missing"}) end)
+assert(not ok and type(err) == "string")
+print("lpeg captures callbacks binary grammar ok")

@@ -1,0 +1,9 @@
+nil	nil
+false
+5
+string
+false	case.lua:13: bad argument #1 to '__index' (function expected, got table)
+false	case.lua:14: bad argument #1 to '__index' (function expected, got table)
+false	case.lua:16: bad argument #1 to '__newindex' (function expected, got table)
+true
+true

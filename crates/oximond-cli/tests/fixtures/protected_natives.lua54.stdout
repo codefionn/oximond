@@ -1,0 +1,74 @@
+gsub ok pcall	true	aBc	1
+gsub ok xpcall	true	aBc	1
+gsub lua pcall	false	protected_natives.lua:13: x
+gsub lua xpcall	false	H:protected_natives.lua:13: x
+gsub native pcall	false	bad argument #2 to 'string.rep' (number expected, got no value)
+gsub native xpcall	false	H:bad argument #2 to 'string.rep' (number expected, got no value)
+gsub later pcall	false	protected_natives.lua:27: late
+gsub later xpcall	false	H:protected_natives.lua:27: late
+gsub level0 pcall	false	y
+gsub level0 xpcall	false	H:y
+gsub tbl pcall	false	protected_natives.lua:29: idx
+gsub tbl xpcall	false	H:protected_natives.lua:29: idx
+gsub badret pcall	false	invalid replacement value (a table)
+gsub badret xpcall	false	H:invalid replacement value (a table)
+gsub nested pcall	false	protected_natives.lua:13: x
+gsub nested xpcall	false	H:protected_natives.lua:13: x
+gsub inner pcall pcall	true	false	1
+gsub inner pcall xpcall	true	false	1
+sort ok pcall	true
+sort ok xpcall	true
+sort lua pcall	false	protected_natives.lua:13: x
+sort lua xpcall	false	H:protected_natives.lua:13: x
+sort native pcall	true
+sort native xpcall	true
+sort lt pcall	false	protected_natives.lua:13: x
+sort lt xpcall	false	H:protected_natives.lua:13: x
+tostring ok pcall	true	ok
+tostring ok xpcall	true	ok
+tostring lua pcall	false	protected_natives.lua:13: x
+tostring lua xpcall	false	H:protected_natives.lua:13: x
+format ok pcall	true	ok
+format ok xpcall	true	ok
+format lua pcall	false	protected_natives.lua:13: x
+format lua xpcall	false	H:protected_natives.lua:13: x
+load ok pcall	true	function
+load lua pcall	true	nil	protected_natives.lua:13: x
+load tbl pcall	true	nil	table
+load xpcall ok	true	function
+next pcall	false	invalid key to 'next'
+next xpcall	false	H:invalid key to 'next'
+select pcall	false	bad argument #1 to 'select' (index out of range)
+select xpcall	false	H:bad argument #1 to 'select' (index out of range)
+setmetatable pcall	false	bad argument #1 to 'setmetatable' (table expected, got number)
+setmetatable xpcall	false	H:bad argument #1 to 'setmetatable' (table expected, got number)
+tostring nil pcall	false	bad argument #1 to 'tostring' (value expected)
+tostring nil xpcall	false	H:bad argument #1 to 'tostring' (value expected)
+string.rep pcall	false	bad argument #1 to 'string.rep' (string expected, got no value)
+string.rep xpcall	false	H:bad argument #1 to 'string.rep' (string expected, got no value)
+coroutine.wrap err pcall	false	protected_natives.lua:13: x
+coroutine.wrap err xpcall	false	H:cannot resume dead coroutine
+string.find idx pcall	false	bad argument #2 to 'string.find' (string expected, got table)
+string.find idx xpcall	false	H:bad argument #2 to 'string.find' (string expected, got table)
+tostring tbl pcall	false	table
+error pcall	false	direct
+error xpcall	false	H:direct
+error tbl pcall	false	table
+gsub second pcall	false	protected_natives.lua:72: second
+gsub second xpcall	false	H:protected_natives.lua:72: second
+gsub second badret pcall	false	invalid replacement value (a table)
+gsub second badret xpcall	false	H:invalid replacement value (a table)
+sort second pcall	false	protected_natives.lua:81: later
+sort second xpcall	false	H:protected_natives.lua:81: later
+gsub native index pcall	false	bad argument #1 to 'string.rep' (string expected, got table)
+gsub native index xpcall	false	H:bad argument #1 to 'string.rep' (string expected, got table)
+dofile err pcall	false	pn_errfile.lua:1: in file
+dofile err xpcall	false	H:pn_errfile.lua:1: in file
+require err pcall	false	./pn_errmod.lua:1: in module
+require err xpcall	false	H:./pn_errmod2.lua:1: in module two
+concat pcall	false
+index pcall	false
+nested pcall	true	false	protected_natives.lua:13: x
+nested sort	true	false	protected_natives.lua:13: x
+gmatch ok pcall	true	a
+gmatch ok xpcall	true	b

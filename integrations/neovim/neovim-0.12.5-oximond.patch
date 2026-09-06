@@ -1,0 +1,66 @@
+diff --git a/runtime/lua/vim/loader.lua b/runtime/lua/vim/loader.lua
+index 6aa79a0..0a96f8b 100644
+--- a/runtime/lua/vim/loader.lua
++++ b/runtime/lua/vim/loader.lua
+@@ -261,9 +261,12 @@ local function loadfile_cached(filename, mode, env)
+   local cname = cache_filename(modpath)
+   if stat then
+     local e_hash, e_chunk = read_cachefile(cname)
+-    if hash_eq(e_hash, stat) and e_chunk then
++    if hash_eq(e_hash, stat) and e_chunk and (not mode or mode:find('b', 1, true)) then
+       -- found in cache and up to date
+-      local chunk, err = load(e_chunk, '@' .. modpath, mode, env)
++      local chunk, err = loadstring(e_chunk, '@' .. modpath)
++      if chunk and env then
++        setfenv(chunk, env)
++      end
+       if not (err and err:find('cannot load incompatible bytecode', 1, true)) then
+         return chunk, err
+       end
+diff --git a/src/nvim/CMakeLists.txt b/src/nvim/CMakeLists.txt
+index c87ceb2..57ac0e5 100644
+--- a/src/nvim/CMakeLists.txt
++++ b/src/nvim/CMakeLists.txt
+@@ -60,7 +60,23 @@ endif()
+ 
+ # The unit test lib requires LuaJIT; it will be skipped if LuaJIT is missing.
+ option(PREFER_LUA "Prefer Lua over LuaJIT in the nvim executable." OFF)
+-if(PREFER_LUA)
++option(ENABLE_OXIMOND "Use the Oximond Lua 5.1 C API." OFF)
++if(ENABLE_OXIMOND)
++  set(PREFER_LUA ON)
++  set(COMPILE_LUA OFF CACHE BOOL "Oximond needs embedded Lua source" FORCE)
++  foreach(required_path OXIMOND_LIBRARY OXIMOND_BRIDGE OXIMOND_LAUXLIB_SOURCE OXIMOND_LUA_INCLUDE_DIR)
++    if(NOT EXISTS "${${required_path}}")
++      message(FATAL_ERROR "ENABLE_OXIMOND requires ${required_path} to exist: ${${required_path}}")
++    endif()
++  endforeach()
++  enable_language(CXX)
++  add_library(oximond_lua_aux STATIC "${OXIMOND_LAUXLIB_SOURCE}" "${OXIMOND_BRIDGE}")
++  target_include_directories(oximond_lua_aux PRIVATE "${OXIMOND_LUA_INCLUDE_DIR}")
++  target_include_directories(main_lib SYSTEM BEFORE INTERFACE "${OXIMOND_LUA_INCLUDE_DIR}")
++  target_include_directories(nlua0 SYSTEM BEFORE PUBLIC "${OXIMOND_LUA_INCLUDE_DIR}")
++  target_link_libraries(main_lib INTERFACE oximond_lua_aux "${OXIMOND_LIBRARY}" ffi stdc++ dl m)
++  target_compile_definitions(nvim_bin PRIVATE NVIM_OXIMOND)
++elseif(PREFER_LUA)
+   find_package(Lua 5.1 EXACT REQUIRED)
+   target_include_directories(main_lib SYSTEM BEFORE INTERFACE ${LUA_INCLUDE_DIR})
+   target_include_directories(nlua0 SYSTEM BEFORE PUBLIC ${LUA_INCLUDE_DIR})
+diff --git a/src/nvim/version.c b/src/nvim/version.c
+index 1282a53..993ae85 100644
+--- a/src/nvim/version.c
++++ b/src/nvim/version.c
+@@ -4154,8 +4154,13 @@ void list_in_columns(char **items, int size, int current)
+ void list_lua_version(void)
+ {
+   Error err = ERROR_INIT;
++#ifdef NVIM_OXIMOND
++  Object ret = NLUA_EXEC_STATIC("return 'Oximond (' .. _VERSION .. ')'",
++                                (Array)ARRAY_DICT_INIT, kRetObject, NULL, &err);
++#else
+   Object ret = NLUA_EXEC_STATIC("return ((jit and jit.version) and jit.version or _VERSION)",
+                                 (Array)ARRAY_DICT_INIT, kRetObject, NULL, &err);
++#endif
+   assert(!ERROR_SET(&err));
+   assert(ret.type == kObjectTypeString);
+   msg_puts(ret.data.string.data);

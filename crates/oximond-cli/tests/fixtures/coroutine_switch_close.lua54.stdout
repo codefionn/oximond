@@ -1,0 +1,8 @@
+true suspended
+true
+closed y,closed x
+dead
+false close failed
+true
+false coroutine_switch_close.lua:27: wrapped failure
+closed y,closed x,closed q

@@ -1,0 +1,43 @@
+[package]
+name = "oximond-capi"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Selectable Lua 5.1 through 5.5 C interfaces over the embeddable Oximond runtime"
+repository.workspace = true
+
+[lib]
+crate-type = ["staticlib", "rlib"]
+
+# Select exactly one native ABI. The default LuaJIT and lua51 use the
+# Lua 5.1 ABI; lua52 through lua55 use their matching official interfaces.
+[features]
+default = ["luajit", "small-blocks"]
+luajit = []
+lua51 = []
+lua52 = []
+lua53 = []
+lua54 = []
+lua55 = []
+bundled-bridge = []
+# Builds the bridge as a shared object that is embedded and loaded on the first call into
+# native code, so the executable does not link libstdc++.so. Not for the crate's own tests,
+# which call bridge-defined lua_* functions directly.
+lazy-bridge = ["bundled-bridge"]
+# Installs `oximond::alloc::SmallBlocks` as the Rust global allocator. A Rust
+# program with its own turns it off with default-features = false. It does
+# nothing on Windows, where a thread a C++ host creates may exit without
+# running Rust's thread-local destructors.
+small-blocks = []
+
+[dependencies]
+oximond.workspace = true
+
+[build-dependencies]
+cc.workspace = true
+
+# Raw pointers are confined to this foreign-function boundary. The `oximond`
+# crate denies unsafe code outside its own `ffi_native` module.
+[lints.rust]
+unsafe_op_in_unsafe_fn = "allow"

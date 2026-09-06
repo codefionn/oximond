@@ -1,0 +1,40 @@
+index	false	case.lua:16: bad argument #1 to '?' (string expected, got table)
+index2	false	case.lua:17: bad argument #1 to '?' (string expected, got table)
+newindex	false	case.lua:18: bad argument #2 to '?' (nil or table expected)
+add	false	case.lua:19: bad argument #1 to '?' (string expected, got table)
+add2	false	case.lua:20: bad argument #1 to '?' (string expected, got table)
+concat	false	case.lua:21: bad argument #1 to '?' (string expected, got table)
+eq	false	case.lua:22: bad argument #1 to '?' (string expected, got table)
+lt	false	case.lua:23: bad argument #1 to '?' (string expected, got table)
+call	false	case.lua:24: bad argument #1 to 't' (string expected, got table)
+call2	false	case.lua:25: bad argument #1 to 't' (string expected, got table)
+tostring	false	bad argument #1 to '?' (string expected, got table)
+tostring2	false	bad argument #1 to '?' (string expected, got table)
+len	true	0
+unm	false	case.lua:29: bad argument #1 to '?' (string expected, got table)
+idxf	false	case.lua:30: bad argument #1 to 'rep' (string expected, got no value)
+addf	false	case.lua:31: bad argument #1 to 'rep' (string expected, got no value)
+tsf	false	case.lua:32: bad argument #1 to 'rep' (string expected, got no value)
+callf	false	case.lua:33: bad argument #1 to 'rep' (string expected, got no value)
+false	case.lua:38: bad argument #1 to 't' (string expected, got table)
+false	case.lua:39: bad argument #1 to 't' (string expected, got table)
+false	case.lua:40: bad argument #1 to 't' (string expected, got table)
+false	case.lua:41: bad argument #1 to 'rep' (string expected, got no value)
+false	case.lua:44: bad argument #1 to 'u' (string expected, got table)
+false	case.lua:45: bad argument #1 to 'u' (string expected, got table)
+false	case.lua:46: attempt to call method 'foo' (a nil value)
+false	bad argument #1 to '?' (string expected, got table)
+false	case.lua:54: bad argument #1 to 't' (string expected, got table)
+false	case.lua:58: bad argument #1 to '(for generator)' (table expected, got nil)
+false	case.lua:59: attempt to call a nil value
+false	case.lua:60: attempt to call a number value
+false	case.lua:61: bad argument #1 to '(for generator)' (string expected, got nil)
+false	case.lua:62: bad argument #1 to '(for generator)' (string expected, got nil)
+false	case.lua:63: x
+false	case.lua:64: x
+false	case.lua:68: x
+false	x
+table
+false	case.lua:75: case.lua:74: x
+false	case.lua:77: case.lua:76: attempt to perform arithmetic on a nil value
+false	case.lua:80: cannot resume dead coroutine

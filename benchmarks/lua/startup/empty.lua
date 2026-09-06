@@ -1,0 +1,1 @@
+-- Intentionally empty. The checksum is empty output.

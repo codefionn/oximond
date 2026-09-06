@@ -1,0 +1,11 @@
+/target/
+__pycache__/
+/.oximond/
+/luac.out
+/nvim.log
+
+/tests/wasm-smoke/target/
+/.zvec-grep
+/graphify-out
+/docs/impl/
+/crates/oximond/a.o

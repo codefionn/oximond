@@ -1,0 +1,19 @@
+[package]
+name = "oximond-conformance"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Acquire and account for Oximond's external conformance corpora"
+repository.workspace = true
+# Repository harness, not a product: the binary embeds the repo-root
+# conformance ledgers and test fixtures from sibling crates with include_str,
+# so it only builds inside a checkout and is never published.
+publish = false
+
+[[bin]]
+name = "oximond-conformance"
+path = "src/main.rs"
+
+[lints]
+workspace = true

@@ -1,0 +1,13 @@
+# Build and profile Oximond through the shared-machine gate.
+prefix_rule(pattern=["scripts/heavy.sh", "--status"], decision="allow")
+prefix_rule(pattern=["scripts/heavy.sh", "cargo", "build", "--release", "-p", "oximond-cli"], decision="allow")
+prefix_rule(pattern=["scripts/heavy.sh", "-x", "python3", "benchmarks/check_nested_calls.py"], decision="allow")
+prefix_rule(pattern=["scripts/heavy.sh", "-x", "python3", "benchmarks/run.py"], decision="allow")
+prefix_rule(pattern=["scripts/heavy.sh", "-x", "perf", ["stat", "record"], "-e", "instructions:u"], decision="allow")
+prefix_rule(pattern=["scripts/heavy.sh", "-x", "env", "OXIMOND_JIT_TRACE=1", "taskset", "-c", "7", "target/release/examples/perf_probe"], decision="allow")
+prefix_rule(pattern=["cargo", ["test", "check"], "-p", ["oximond-cli", "oximond"]], decision="allow")
+
+# Search and inspect project files and machine status.
+prefix_rule(pattern=[["rg", "zg", "cat", "head", "tail", "ls", "wc", "stat", "file", "readlink", "realpath", "pwd", "du", "df", "uptime", "free", "uname"]], decision="allow")
+prefix_rule(pattern=["sed", "-n"], decision="allow")
+prefix_rule(pattern=["git", ["status", "diff", "log", "show", "rev-parse", "ls-files", "ls-tree"]], decision="allow")

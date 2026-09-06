@@ -1,0 +1,452 @@
+--- a/crates/oximond/src/jit/broker.rs
++++ b/crates/oximond/src/jit/broker.rs
+@@ -510,6 +510,7 @@
+         // On whichever thread compiles. `compile_trace_with` moves on to
+         // code generation itself.
+         let _phase = alloc_phase::enter(Phase::Optimization);
++        crate::jit::lat::ev(&format!("compile_begin id={}", format!("{:?}", self.id).trim_start_matches("CompilationId(").trim_end_matches(')')));
+         let started = std::time::Instant::now();
+         let Payload {
+             ir,
+@@ -540,6 +541,7 @@
+             )
+             .map(|tree| CompileOutput::Tree(Box::new(tree))),
+         };
++        crate::jit::lat::ev("compile_end");
+         if crate::jit::debug_env::trace() {
+             eprintln!(
+                 "jit-trace: compiled {} tier={:?} body={} in {:?} at {:?}",
+--- a/crates/oximond/src/jit_ir/trace/mod.rs
++++ b/crates/oximond/src/jit_ir/trace/mod.rs
+@@ -33,13 +33,13 @@
+ )]
+ 
+ mod helper;
+-mod ir;
++pub mod ir;
+ mod loop_build;
+ pub mod opportunity;
+ mod optimize;
+ pub mod range;
+ mod semantics;
+-mod snapshot;
++pub mod snapshot;
+ mod tree;
+ mod verify;
+ 
+--- a/crates/oximond/src/jit_ir/trace/optimize.rs
++++ b/crates/oximond/src/jit_ir/trace/optimize.rs
+@@ -431,7 +431,10 @@
+     writes: &TreeWrites,
+     always_rebuild: bool,
+ ) -> (TraceIr, OptimizeStats) {
+-    if ir.verify().is_err() {
++    crate::jit::lat::ev("opt:verify_in:b");
++    let verified_in = ir.verify();
++    crate::jit::lat::ev("opt:verify_in:e");
++    if verified_in.is_err() {
+         return (ir.clone(), OptimizeStats::default());
+     }
+     let mut stats = OptimizeStats::default();
+@@ -440,6 +443,7 @@
+     // and the next one sees the same finished trace the old pipeline, which
+     // rebuilt after every pass, handed it.
+     let mut current = Draft::new(ir).finish();
++    crate::jit::lat::ev("opt:normalised");
+     debug_assert!(
+         Draft::new(&current).finish() == current,
+         "Draft::finish is not idempotent"
+@@ -449,8 +453,11 @@
+                     pass: &dyn Fn(&TraceIr, &mut OptimizeStats) -> Option<TraceIr>|
+      -> u32 {
+         let mut local = OptimizeStats::default();
++        crate::jit::lat::ev(&format!("pass:{name}:b"));
+         // `None` means the pass changed nothing, so `current` stays as it is.
+-        let Some(next) = pass(current, &mut local) else {
++        let result = pass(current, &mut local);
++        crate::jit::lat::ev(&format!("pass:{name}:e changed={}", result.is_some()));
++        let Some(next) = result else {
+             debug_assert_eq!(
+                 local.total(),
+                 0,
+@@ -509,7 +516,10 @@
+             step("invariant code motion", &mut current, &hoist);
+         }
+     }
+-    if current.verify().is_err() {
++    crate::jit::lat::ev("opt:rounds_done");
++    let verified_out = current.verify();
++    crate::jit::lat::ev("opt:verify_out:e");
++    if verified_out.is_err() {
+         return (ir.clone(), OptimizeStats::default());
+     }
+     (current, stats)
+--- a/crates/oximond/src/jit/mod.rs
++++ b/crates/oximond/src/jit/mod.rs
+@@ -10,9 +10,9 @@
+ //! crate.
+ 
+ mod broker;
+-mod debug_env;
++pub mod debug_env;
+ mod inline_table;
+-mod trace;
++pub mod trace;
+ 
+ pub use broker::{
+     CompilationId, CompileOutput, CompletedTrace, DEFAULT_PENDING_TRACE_BYTES, JitBroker, SideJob,
+@@ -102,3 +102,93 @@
+         assert_eq!(payload, 1);
+     }
+ }
++
++/// Instrumentation for the latency study: exact per-thread user instruction
++/// counts at named points, printed when `OXIMOND_JIT_TRACE` is set.
++#[allow(unsafe_code)]
++pub mod lat {
++    use std::cell::Cell;
++    thread_local! {
++        static FD: Cell<i32> = const { Cell::new(-2) };
++        static OVER: Cell<u64> = const { Cell::new(0) };
++        static TID: Cell<i64> = const { Cell::new(0) };
++        static NATIVE: Cell<u64> = const { Cell::new(0) };
++    }
++    unsafe extern "C" {
++        fn syscall(number: i64, ...) -> i64;
++        fn read(fd: i32, buf: *mut u8, count: usize) -> isize;
++        fn getrusage(who: i32, usage: *mut [i64; 18]) -> i32;
++    }
++    /// Thread CPU time in microseconds, voluntary and involuntary switches.
++    #[allow(unsafe_code)]
++    fn usage() -> (i64, i64, i64) {
++        let mut ru = [0i64; 18];
++        // SAFETY: RUSAGE_THREAD = 1; struct rusage is 18 words on x86-64 Linux.
++        unsafe { getrusage(1, &mut ru) };
++        (ru[0] * 1_000_000 + ru[1] + ru[2] * 1_000_000 + ru[3], ru[16], ru[17])
++    }
++    #[allow(unsafe_code)]
++    fn raw() -> u64 {
++        FD.with(|fd| {
++            if fd.get() == -2 {
++                let mut attr = [0u64; 16];
++                attr[0] = 0 | (128u64 << 32); // PERF_TYPE_HARDWARE, size 128
++                attr[1] = 1; // PERF_COUNT_HW_INSTRUCTIONS
++                attr[5] = (1 << 5) | (1 << 6); // exclude_kernel, exclude_hv
++                // SAFETY: perf_event_open(attr, pid 0, cpu -1, group -1, flags 0).
++                let n = unsafe { syscall(298, attr.as_ptr(), 0i32, -1i32, -1i32, 0u64) };
++                fd.set(n as i32);
++                TID.with(|t| t.set(unsafe { syscall(186) }));
++            }
++            if fd.get() < 0 {
++                return 0;
++            }
++            let mut value = 0u64;
++            // SAFETY: reads 8 bytes into a local.
++            unsafe { read(fd.get(), (&raw mut value).cast(), 8) };
++            value
++        })
++    }
++    /// Runs `f`, a call into native trace code, and adds the instructions it
++    /// took (generated code plus the helpers it calls) to the thread's
++    /// native total.
++    pub fn around<R>(f: impl FnOnce() -> R) -> R {
++        if !super::debug_env::trace() {
++            return f();
++        }
++        let a = raw();
++        let r = f();
++        let b = raw();
++        NATIVE.with(|n| n.set(n.get() + (b - a)));
++        r
++    }
++    /// Prints `name` with the thread's instruction count so far, minus what
++    /// earlier calls to this function spent printing.
++    pub fn ev(name: &str) {
++        if !super::debug_env::trace() {
++            return;
++        }
++        let before = raw();
++        let adjusted = before - OVER.with(Cell::get);
++        let tid = TID.with(Cell::get);
++        let (cpu, vcs, ivcs) = usage();
++        eprintln!(
++            "jit-lat: ev {name} tid={tid} ic={adjusted} nat={} cpu={cpu} vcs={vcs} ivcs={ivcs} t={:?}",
++            NATIVE.with(Cell::get),
++            std::time::Instant::now()
++        );
++        let after = raw();
++        OVER.with(|o| o.set(o.get() + (after - before)));
++    }
++    /// Prints a start event now and an end event when dropped.
++    pub struct Span(&'static str);
++    pub fn span(name: &'static str) -> Span {
++        ev(&format!("{name}:b"));
++        Span(name)
++    }
++    impl Drop for Span {
++        fn drop(&mut self) {
++            ev(&format!("{}:e", self.0));
++        }
++    }
++}
+--- a/crates/oximond/src/jit/trace/compile.rs
++++ b/crates/oximond/src/jit/trace/compile.rs
+@@ -1377,6 +1377,11 @@
+         control: &mut TraceControl,
+         exit_area: &mut [i64],
+     ) -> TraceOutcome {
++        if crate::jit::debug_env::trace()
++            && LAT_FIRST_ENTRY.swap(false, std::sync::atomic::Ordering::Relaxed)
++        {
++            crate::jit::lat::ev("first_entry");
++        }
+         // The code calls the store entry to put a string or a table into an
+         // array. A host without one (`control.store_entry` is zero) cannot
+         // run it, and a call through zero is no answer. The host chooses its
+@@ -1714,6 +1719,8 @@
+ /// [`compile`] with the members `planned` already holds, which the caller
+ /// planned from `ir` (`plan_tree`) and verified as it grew. Release builds
+ /// then skip the verify and the plan.
++pub static LAT_FIRST_ENTRY: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
++
+ fn compile_with_plan(
+     ir: &TraceIr,
+     tier: OptimizationTier,
+@@ -1722,6 +1729,7 @@
+     planned: Option<&[TreeMember]>,
+ ) -> Result<CompiledTrace, TraceCompileError> {
+     let optimization = alloc_phase::enter(Phase::Optimization);
++    crate::jit::lat::ev("tree:start");
+     // A tree that comes with its plan was verified as it grew: the root when
+     // it was recorded and installed, each side when it was recorded, and the
+     // tree-wide checks and the fit of every side in `verify_grown_tree`. Debug
+@@ -1729,6 +1737,7 @@
+     if planned.is_none() || cfg!(debug_assertions) {
+         ir.verify().map_err(TraceCompileError::Invalid)?;
+     }
++    crate::jit::lat::ev("tree:verified");
+     let level = match tier {
+         OptimizationTier::Baseline => OptimizeLevel::Baseline,
+         OptimizationTier::Optimized | OptimizationTier::Peak => OptimizeLevel::Optimized,
+@@ -1754,6 +1763,7 @@
+         .iter()
+         .enumerate()
+         .map(|(index, member)| {
++            crate::jit::lat::ev(&format!("tree:member_opt:b n={}", member.ir.preheader.len() + member.ir.body.len()));
+             let (ir, stats) = optimize_tree_member(
+                 &member.ir,
+                 level,
+@@ -1761,6 +1771,7 @@
+                 &writes.for_member(index),
+             );
+             optimize_stats.accumulate(stats);
++            crate::jit::lat::ev("tree:member_opt:e");
+             ir
+         })
+         .collect();
+@@ -1856,10 +1867,17 @@
+             }
+         })
+         .collect();
++    if crate::jit::debug_env::trace() {
++        let pre: usize = planned.iter().map(|m| m.ir.preheader.len() + m.ir.body.len()).sum();
++        let post: usize = lowered.iter().map(|m| m.preheader.len() + m.body.len()).sum();
++        crate::jit::lat::ev(&format!("tree:ir members={} pre_opt={} post_opt={} guards={} snapshots={}", lowered.len(), pre, post, lowered.iter().map(|m| m.guards.len()).sum::<usize>(), lowered.iter().map(|m| m.snapshots.len()).sum::<usize>()));
++    }
+     optimization.end();
+     let _codegen = alloc_phase::enter(Phase::Codegen);
++    crate::jit::lat::ev("tree:opt_done");
+     let refs: Vec<&TraceIr> = lowered.iter().collect();
+     let plan = plan_exits(&refs, 0)?;
++    crate::jit::lat::ev("tree:exits_planned");
+     let counted = lowered[0].counted;
+     // A tree counts as a whole: one budget runs through the root and sides.
+     if lowered.iter().any(|member| member.counted != counted)
+@@ -1889,7 +1907,9 @@
+         Box::new([])
+     };
+     let trusted_key = emit::has_trusted_key(&members);
++    crate::jit::lat::ev("tree:lower:b");
+     let code = emit::lower(&members, &plan, tier, forced_guard, options, None)?;
++    crate::jit::lat::ev(&format!("tree:lower:e clif={}", code.clif_insts()));
+     let exit_area_len = plan.area_len;
+     let stride = plan.stride;
+     #[cfg(feature = "op-stats")]
+@@ -1931,6 +1951,7 @@
+     let link_slots = link_slots_of(&lowered[0]);
+     let own_exits = plan.descriptors.len();
+     let clif_insts = code.clif_insts();
++    crate::jit::lat::ev("tree:end");
+     Ok(CompiledTrace {
+         code,
+         tier,
+@@ -2051,6 +2072,7 @@
+     planned: Option<&[TreeMember]>,
+ ) -> Result<CompiledSide, TraceCompileError> {
+     let optimization = alloc_phase::enter(Phase::Optimization);
++    crate::jit::lat::ev("side:start");
+     let level = match tier {
+         OptimizationTier::Baseline => OptimizeLevel::Baseline,
+         OptimizationTier::Optimized | OptimizationTier::Peak => OptimizeLevel::Optimized,
+@@ -2070,20 +2092,24 @@
+     // are compiled together.
+     let writes = TreeWrites::of_members(planned.iter().map(|member| &member.ir))
+         .with_continued_guards(planned.iter().filter_map(|member| member.parent));
++    crate::jit::lat::ev(&format!("side:opt:b n={}", member.ir.preheader.len() + member.ir.body.len()));
+     let (child, optimize_stats) = optimize_tree_member(
+         &member.ir,
+         level,
+         options.opt_flags,
+         &writes.for_member(side + 1),
+     );
++    crate::jit::lat::ev(&format!("side:opt:e post_opt={}", child.preheader.len() + child.body.len()));
+     check_supported(&child)?;
+     if child.function.is_some() || child.counted || child.loop_tail.is_some() {
+         return Err(TraceCompileError::NativeBackendRejected);
+     }
+     optimization.end();
+     let _codegen = alloc_phase::enter(Phase::Codegen);
++    crate::jit::lat::ev("side:opt_done");
+     let root: &TraceIr = &context.root;
+     let plan = plan_exits(&[root, &child], 1)?;
++    crate::jit::lat::ev(&format!("side:exits_planned guards={} snapshots={}", child.guards.len(), child.snapshots.len()));
+     let members = [
+         LoweredMember {
+             ir: root,
+@@ -2121,7 +2147,9 @@
+         guest_registers: usize::from(root.frames[0].register_count)
+             .saturating_sub(root.external.len()),
+     };
++    crate::jit::lat::ev("side:lower:b");
+     let code = emit::lower(&members, &plan, tier, None, options, Some(&spec))?;
++    crate::jit::lat::ev(&format!("side:lower:e clif={}", code.clif_insts()));
+     let extras = code.side_extras().to_vec();
+     let writebacks = code.side_writebacks().to_vec();
+     drop(members);
+--- a/crates/oximond/src/jit/trace/emit.rs
++++ b/crates/oximond/src/jit/trace/emit.rs
+@@ -390,7 +390,7 @@
+         // module owns the executable memory. `CompiledTrace::run` checked that
+         // `inputs` and `exit_area` cover every slot the generated code
+         // reads or writes. The code retains none of the pointers.
+-        unsafe { (self.entry)(inputs, control, exit_area.as_mut_ptr()) }
++        unsafe { crate::jit::lat::around(|| (self.entry)(inputs, control, exit_area.as_mut_ptr())) }
+     }
+ }
+ 
+@@ -411,7 +411,7 @@
+     // the run's, which covers the words the side reads and writes.
+     unsafe {
+         let entry = mem::transmute::<usize, TraceEntry>(address);
+-        entry(inputs, control, exit_area)
++        crate::jit::lat::around(|| entry(inputs, control, exit_area))
+     }
+ }
+ 
+@@ -1344,6 +1344,7 @@
+     options: TraceCompileOptions,
+     detached: Option<&DetachedSpec<'_>>,
+ ) -> Result<TraceCode, TraceCompileError> {
++    crate::jit::lat::ev("lw:start");
+     // A side compiled apart from its tree lowers its own trace, the last
+     // member, where the tree's code lowers the root.
+     let ir = members[usize::from(detached.is_some())].ir;
+@@ -1458,7 +1459,9 @@
+         RESERVE_ARRAY_SYMBOL,
+         crate::runtime::native_table_reserve as *const u8,
+     );
++    crate::jit::lat::ev("lw:builder_ready");
+     let mut module = JITModule::new(jit_builder);
++    crate::jit::lat::ev("lw:module_new");
+     let pointer = module.target_config().pointer_type();
+ 
+     let mut signature = module.make_signature();
+@@ -1649,6 +1652,7 @@
+     };
+     let hash_get_id = hash_get_id.map(|(id, _)| id);
+ 
++    crate::jit::lat::ev("lw:declared");
+     let mut context = module.make_context();
+     let mut function_context = FunctionBuilderContext::new();
+     let lowered_id = if let Some((id, body_signature)) = &activation {
+@@ -1836,6 +1840,7 @@
+         builder.seal_all_blocks();
+         builder.finalize();
+     }
++    crate::jit::lat::ev("lw:clif_built");
+     // The size of what Cranelift is asked to compile, which its time follows.
+     let clif_insts: usize = context
+         .func
+@@ -1849,9 +1854,11 @@
+     if crate::jit::debug_env::disasm() {
+         context.set_disasm(true);
+     }
++    crate::jit::lat::ev("lw:define:b");
+     module
+         .define_function(lowered_id, &mut context)
+         .map_err(|error| rejected(&error))?;
++    crate::jit::lat::ev("lw:define:e");
+     if let Some(vcode) = context
+         .compiled_code()
+         .and_then(|code| code.vcode.as_deref())
+@@ -1894,6 +1901,7 @@
+     module
+         .finalize_definitions()
+         .map_err(|error| rejected(&error))?;
++    crate::jit::lat::ev("lw:finalized");
+     let entry = trace_entry(module.get_finalized_function(function_id));
+     Ok(TraceCode {
+         module: Some(module),
+--- a/crates/oximond/src/jit/trace/mod.rs
++++ b/crates/oximond/src/jit/trace/mod.rs
+@@ -25,7 +25,7 @@
+ //! lowered as one function: see [`emit`]. Its exits come from every member,
+ //! each naming a snapshot of its own member.
+ 
+-mod compile;
++pub mod compile;
+ #[cfg(not(target_arch = "wasm32"))]
+ mod emit;
+ #[cfg(target_arch = "wasm32")]
+--- a/crates/oximond/src/vm/jit/completions.rs
++++ b/crates/oximond/src/vm/jit/completions.rs
+@@ -135,6 +135,7 @@
+             };
+             match submitted {
+                 Ok(id) => {
++                    crate::jit::lat::ev(&format!("submit id={} side={} tier={:?} awaited={}", format!("{id:?}").trim_start_matches("CompilationId(").trim_end_matches(')'), request.side.is_some(), request.tier, awaits));
+                     if awaits {
+                         awaited.push(id);
+                     }
+@@ -157,6 +158,9 @@
+         // time on instructions the compile exists to remove. The bound is
+         // for all of them together: unrelated results that finish first do
+         // not restart it.
++        if !awaited.is_empty() {
++            crate::jit::lat::ev(&format!("service_submitted_awaiting={}", awaited.len()));
++        }
+         let deadline = (!awaited.is_empty()).then(|| Instant::now() + STEPPING_STONE_WAIT);
+         while !awaited.is_empty()
+             && let Some(deadline) = deadline
+@@ -168,7 +172,7 @@
+                 .broker
+                 .as_mut()
+                 .filter(|broker| broker.is_background())
+-            && let Some(done) = broker.wait_trace(remaining)
++            && let Some(done) = { crate::jit::lat::ev("wait:b"); let d = broker.wait_trace(remaining); crate::jit::lat::ev("wait:e"); d }
+         {
+             awaited.retain(|id| *id != done.id());
+             let (id, epoch) = (done.id(), done.epoch());
+--- a/crates/oximond/src/vm/jit/trace/mod.rs
++++ b/crates/oximond/src/vm/jit/trace/mod.rs
+@@ -4583,6 +4583,10 @@
+     ) {
+         use crate::jit::CompileOutput;
+         let _phase = alloc_phase::enter(Phase::Installation);
++        let _lat = crate::jit::lat::span("complete");
++        if crate::jit::debug_env::trace() {
++            crate::jit::trace::compile::LAT_FIRST_ENTRY.store(true, std::sync::atomic::Ordering::Relaxed);
++        }
+         // Every completion frees room in the broker.
+         self.broker_full_skips = 0;
+         let Some(mut pending) = self.pending.remove(&id) else {

@@ -1,0 +1,3897 @@
+{
+  "generated_at": "2026-10-05T21:02:16.258815+00:00",
+  "host": {
+    "platform": "Linux-7.2.7-1-cachyos-gcc-x86_64-with-glibc2.44",
+    "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+    "cpu_affinity": 7
+  },
+  "git": {
+    "revision": "ce82cff9b5f4e38e529aa96a315088a4b3a0ae1d",
+    "dirty": true
+  },
+  "scale": 3,
+  "warmup": 1,
+  "repeat": 7,
+  "runtimes": [
+    {
+      "name": "lua",
+      "command": [
+        "/usr/bin/lua5.1"
+      ],
+      "version": "Lua 5.1.5  Copyright (C) 1994-2012 Lua.org, PUC-Rio",
+      "sha256": "b0062e923c7415bb9007d3ee51e9d7aa614d1aa617bd807d2ddbcf0bdf367b2f"
+    },
+    {
+      "name": "luajit",
+      "command": [
+        "/usr/bin/luajit"
+      ],
+      "version": "LuaJIT 2.1.1788856981 -- Copyright (C) 2005-2026 Mike Pall. https://luajit.org/",
+      "sha256": "15ee6c6af829fd9e8bbe80c1d28af31a472fe8945a261892948ce277c0567b67"
+    },
+    {
+      "name": "oximond-interpreter",
+      "command": [
+        "/home/user/Documents/prog/oximond/.claude/worktrees/trace-alloc-hashload/target/release/oximond",
+        "--compat=lua51",
+        "--execution=interpreter",
+        "-E"
+      ],
+      "version": "Lua 5.1",
+      "sha256": "7d11c2e8d985b7e8b5b0fbd07a9a25642bc0a17264b86943d0be79e32b1bf1a0"
+    },
+    {
+      "name": "oximond-tiered",
+      "command": [
+        "/home/user/Documents/prog/oximond/.claude/worktrees/trace-alloc-hashload/target/release/oximond",
+        "--compat=lua51",
+        "--execution=tiered",
+        "-E"
+      ],
+      "version": "Lua 5.1",
+      "sha256": "7d11c2e8d985b7e8b5b0fbd07a9a25642bc0a17264b86943d0be79e32b1bf1a0"
+    },
+    {
+      "name": "before-interpreter",
+      "command": [
+        "/home/user/Documents/prog/oximond/.oximond/perf-verification/a881ecd/target-normal/release/oximond",
+        "--compat=lua51",
+        "--execution=interpreter",
+        "-E"
+      ],
+      "version": "Lua 5.1",
+      "sha256": "2a650d22a558c1714d361f4c843797f1d1e397b124695ff883ea190c23428fe8"
+    },
+    {
+      "name": "before-tiered",
+      "command": [
+        "/home/user/Documents/prog/oximond/.oximond/perf-verification/a881ecd/target-normal/release/oximond",
+        "--compat=lua51",
+        "--execution=tiered",
+        "-E"
+      ],
+      "version": "Lua 5.1",
+      "sha256": "2a650d22a558c1714d361f4c843797f1d1e397b124695ff883ea190c23428fe8"
+    }
+  ],
+  "results": [
+    {
+      "benchmark": "startup/empty",
+      "median_ms": {
+        "lua": 1.243024,
+        "luajit": 1.147818,
+        "oximond-interpreter": 2.008139,
+        "oximond-tiered": 1.989043,
+        "before-interpreter": 2.009492,
+        "before-tiered": 1.875111
+      },
+      "oximond_gap": 1.7328905802139363,
+      "gap_vs_lua": 1.6001645985918214,
+      "gap_vs_luajit": 1.7328905802139363,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.009600596869952
+    },
+    {
+      "benchmark": "numeric/for_sum",
+      "median_ms": {
+        "lua": 25.060876,
+        "luajit": 5.368715,
+        "oximond-interpreter": 24.068639,
+        "oximond-tiered": 7.644312,
+        "before-interpreter": 24.500463,
+        "before-tiered": 7.741192
+      },
+      "oximond_gap": 1.4238625071362514,
+      "gap_vs_lua": 0.3050297204295652,
+      "gap_vs_luajit": 1.4238625071362514,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 3.1485683734520515
+    },
+    {
+      "benchmark": "numeric/while_mix",
+      "median_ms": {
+        "lua": 61.901793,
+        "luajit": 22.537648,
+        "oximond-interpreter": 106.694133,
+        "oximond-tiered": 25.086043,
+        "before-interpreter": 105.76348,
+        "before-tiered": 25.078619
+      },
+      "oximond_gap": 1.113072801562967,
+      "gap_vs_lua": 0.40525551497353235,
+      "gap_vs_luajit": 1.113072801562967,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 4.253127246891827
+    },
+    {
+      "benchmark": "control/branching",
+      "median_ms": {
+        "lua": 47.914663,
+        "luajit": 12.895497,
+        "oximond-interpreter": 69.154545,
+        "oximond-tiered": 11.148916,
+        "before-interpreter": 69.375948,
+        "before-tiered": 11.185434
+      },
+      "oximond_gap": 0.8645588456187457,
+      "gap_vs_lua": 0.2326827593465491,
+      "gap_vs_luajit": 0.8645588456187457,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 6.202804380264413
+    },
+    {
+      "benchmark": "control/nested_loops",
+      "median_ms": {
+        "lua": 18.486677,
+        "luajit": 3.291187,
+        "oximond-interpreter": 23.719168,
+        "oximond-tiered": 6.175737,
+        "before-interpreter": 23.656802,
+        "before-tiered": 6.327209
+      },
+      "oximond_gap": 1.8764467044868613,
+      "gap_vs_lua": 0.33406420201964904,
+      "gap_vs_luajit": 1.8764467044868613,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 3.840702413331397
+    },
+    {
+      "benchmark": "control/nested_calls",
+      "median_ms": {
+        "lua": 314.911381,
+        "luajit": 28.210219,
+        "oximond-interpreter": 455.635607,
+        "oximond-tiered": 31.340737,
+        "before-interpreter": 448.807456,
+        "before-tiered": 31.593598
+      },
+      "oximond_gap": 1.1109710633582817,
+      "gap_vs_lua": 0.09952240182770657,
+      "gap_vs_luajit": 1.1109710633582817,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 14.538126751773577
+    },
+    {
+      "benchmark": "calls/function",
+      "median_ms": {
+        "lua": 25.912111,
+        "luajit": 3.015144,
+        "oximond-interpreter": 42.67095,
+        "oximond-tiered": 5.370297,
+        "before-interpreter": 43.802097,
+        "before-tiered": 5.579297
+      },
+      "oximond_gap": 1.7811079669826715,
+      "gap_vs_lua": 0.2072504629206011,
+      "gap_vs_luajit": 1.7811079669826715,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 7.945733727575961
+    },
+    {
+      "benchmark": "calls/builtin",
+      "median_ms": {
+        "lua": 12.887843,
+        "luajit": 1.986048,
+        "oximond-interpreter": 10.067954,
+        "oximond-tiered": 5.227402,
+        "before-interpreter": 9.959131,
+        "before-tiered": 5.358496
+      },
+      "oximond_gap": 2.6320622663701982,
+      "gap_vs_lua": 0.4056072067296288,
+      "gap_vs_luajit": 2.6320622663701982,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.925995743200925
+    },
+    {
+      "benchmark": "calls/method",
+      "median_ms": {
+        "lua": 29.104965,
+        "luajit": 3.666085,
+        "oximond-interpreter": 50.576779,
+        "oximond-tiered": 5.716372,
+        "before-interpreter": 51.225276,
+        "before-tiered": 5.920582
+      },
+      "oximond_gap": 1.5592579004578453,
+      "gap_vs_lua": 0.19640538993948284,
+      "gap_vs_luajit": 1.5592579004578453,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 8.84770602752935
+    },
+    {
+      "benchmark": "calls/closure",
+      "median_ms": {
+        "lua": 23.149598,
+        "luajit": 4.080857,
+        "oximond-interpreter": 43.791918,
+        "oximond-tiered": 5.067795,
+        "before-interpreter": 43.021934,
+        "before-tiered": 4.83992
+      },
+      "oximond_gap": 1.2418457691607425,
+      "gap_vs_lua": 0.21891503256341643,
+      "gap_vs_luajit": 1.2418457691607425,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 8.641217334166043
+    },
+    {
+      "benchmark": "calls/recursive_fib",
+      "median_ms": {
+        "lua": 15.510456,
+        "luajit": 2.847541,
+        "oximond-interpreter": 32.131218,
+        "oximond-tiered": 7.94464,
+        "before-interpreter": 31.626509,
+        "before-tiered": 8.020261
+      },
+      "oximond_gap": 2.790000214219918,
+      "gap_vs_lua": 0.512211891126863,
+      "gap_vs_luajit": 2.790000214219918,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 4.0443894248197525
+    },
+    {
+      "benchmark": "calls/tail_call",
+      "median_ms": {
+        "lua": 17.938355,
+        "luajit": 2.26662,
+        "oximond-interpreter": 42.68169,
+        "oximond-tiered": 10.856852,
+        "before-interpreter": 43.207059,
+        "before-tiered": 10.939015
+      },
+      "oximond_gap": 4.789886262364225,
+      "gap_vs_lua": 0.6052311931612457,
+      "gap_vs_luajit": 4.789886262364225,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 3.9313136072961115
+    },
+    {
+      "benchmark": "calls/varargs",
+      "median_ms": {
+        "lua": 29.266776,
+        "luajit": 2.069884,
+        "oximond-interpreter": 53.461459,
+        "oximond-tiered": 4.723835,
+        "before-interpreter": 49.201749,
+        "before-tiered": 4.503805
+      },
+      "oximond_gap": 2.2821737836516442,
+      "gap_vs_lua": 0.1614060598953571,
+      "gap_vs_luajit": 2.2821737836516442,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 11.317384921361562
+    },
+    {
+      "benchmark": "calls/varargs_forward",
+      "median_ms": {
+        "lua": 36.786776,
+        "luajit": 2.24551,
+        "oximond-interpreter": 66.380521,
+        "oximond-tiered": 4.307018,
+        "before-interpreter": 65.899986,
+        "before-tiered": 4.439114
+      },
+      "oximond_gap": 1.9180578131471249,
+      "gap_vs_lua": 0.11708060526967626,
+      "gap_vs_luajit": 1.9180578131471249,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 15.412176359606576
+    },
+    {
+      "benchmark": "table/array_read",
+      "median_ms": {
+        "lua": 45.228922,
+        "luajit": 4.817539,
+        "oximond-interpreter": 43.822775,
+        "oximond-tiered": 10.442491,
+        "before-interpreter": 44.03518,
+        "before-tiered": 10.592179
+      },
+      "oximond_gap": 2.1675986432076626,
+      "gap_vs_lua": 0.23088082886432715,
+      "gap_vs_luajit": 2.1675986432076626,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 4.196582501244196
+    },
+    {
+      "benchmark": "table/array_write",
+      "median_ms": {
+        "lua": 48.534366,
+        "luajit": 7.616299,
+        "oximond-interpreter": 76.884606,
+        "oximond-tiered": 11.265913,
+        "before-interpreter": 77.067567,
+        "before-tiered": 11.072223
+      },
+      "oximond_gap": 1.4791847063777301,
+      "gap_vs_lua": 0.23212238931894155,
+      "gap_vs_luajit": 1.4791847063777301,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 6.824533972524021
+    },
+    {
+      "benchmark": "table/hash_read",
+      "median_ms": {
+        "lua": 34.335832,
+        "luajit": 4.217732,
+        "oximond-interpreter": 33.682066,
+        "oximond-tiered": 26.228048,
+        "before-interpreter": 33.760522,
+        "before-tiered": 33.765341
+      },
+      "oximond_gap": 6.218519336932741,
+      "gap_vs_lua": 0.7638681363538824,
+      "gap_vs_luajit": 6.218519336932741,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.284200257678345
+    },
+    {
+      "benchmark": "table/field_read",
+      "median_ms": {
+        "lua": 57.075999,
+        "luajit": 9.015384,
+        "oximond-interpreter": 57.053215,
+        "oximond-tiered": 8.856939,
+        "before-interpreter": 57.018682,
+        "before-tiered": 8.542363
+      },
+      "oximond_gap": 0.9824250414624603,
+      "gap_vs_lua": 0.15517799346797242,
+      "gap_vs_luajit": 0.9824250414624603,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 6.441640277752844
+    },
+    {
+      "benchmark": "table/metamethod_index",
+      "median_ms": {
+        "lua": 16.570309,
+        "luajit": 3.815322,
+        "oximond-interpreter": 44.763636,
+        "oximond-tiered": 5.024865,
+        "before-interpreter": 44.193085,
+        "before-tiered": 5.16736
+      },
+      "oximond_gap": 1.3170225212970228,
+      "gap_vs_lua": 0.3032450994124491,
+      "gap_vs_luajit": 1.3170225212970228,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 8.908425599493716
+    },
+    {
+      "benchmark": "table/iteration",
+      "median_ms": {
+        "lua": 42.355454,
+        "luajit": 3.248557,
+        "oximond-interpreter": 69.677759,
+        "oximond-tiered": 6.809557,
+        "before-interpreter": 70.013945,
+        "before-tiered": 7.098876
+      },
+      "oximond_gap": 2.0961790111732688,
+      "gap_vs_lua": 0.16077166827204825,
+      "gap_vs_luajit": 2.0961790111732688,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 10.232348301071568
+    },
+    {
+      "benchmark": "allocation/table_churn",
+      "median_ms": {
+        "lua": 24.645082,
+        "luajit": 1.633591,
+        "oximond-interpreter": 13.601742,
+        "oximond-tiered": 3.819801,
+        "before-interpreter": 13.860023,
+        "before-tiered": 13.725984
+      },
+      "oximond_gap": 2.338284797112619,
+      "gap_vs_lua": 0.1549924240463067,
+      "gap_vs_luajit": 2.338284797112619,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 3.5608509448528864
+    },
+    {
+      "benchmark": "allocation/gc_cycles",
+      "median_ms": {
+        "lua": 21.540953,
+        "luajit": 12.793037,
+        "oximond-interpreter": 28.798234,
+        "oximond-tiered": 28.958622,
+        "before-interpreter": 30.084989,
+        "before-tiered": 29.947193
+      },
+      "oximond_gap": 2.2636237196843876,
+      "gap_vs_lua": 1.3443519420890988,
+      "gap_vs_luajit": 2.2636237196843876,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 0.9944614767926458
+    },
+    {
+      "benchmark": "string/naive_concat",
+      "median_ms": {
+        "lua": 31.907803,
+        "luajit": 24.935262,
+        "oximond-interpreter": 33.696343,
+        "oximond-tiered": 33.38898,
+        "before-interpreter": 32.845659,
+        "before-tiered": 33.078943
+      },
+      "oximond_gap": 1.339026636255115,
+      "gap_vs_lua": 1.0464205260387247,
+      "gap_vs_luajit": 1.339026636255115,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.0092055223010707
+    },
+    {
+      "benchmark": "string/table_concat",
+      "median_ms": {
+        "lua": 60.990716,
+        "luajit": 8.336189,
+        "oximond-interpreter": 32.72281,
+        "oximond-tiered": 32.821513,
+        "before-interpreter": 33.208274,
+        "before-tiered": 33.006168
+      },
+      "oximond_gap": 3.9372323492185703,
+      "gap_vs_lua": 0.5381394932304123,
+      "gap_vs_luajit": 3.9372323492185703,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 0.9969927346128132
+    },
+    {
+      "benchmark": "string/plain_find",
+      "median_ms": {
+        "lua": 4.459542,
+        "luajit": 1.533836,
+        "oximond-interpreter": 6.052919,
+        "oximond-tiered": 6.124913,
+        "before-interpreter": 6.107049,
+        "before-tiered": 6.149038
+      },
+      "oximond_gap": 3.9931994033260403,
+      "gap_vs_lua": 1.373439918269634,
+      "gap_vs_luajit": 3.9931994033260403,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 0.9882457105921341
+    },
+    {
+      "benchmark": "string/pattern_gsub",
+      "median_ms": {
+        "lua": 22.090355,
+        "luajit": 11.44674,
+        "oximond-interpreter": 13.642448,
+        "oximond-tiered": 13.68121,
+        "before-interpreter": 13.720303,
+        "before-tiered": 14.003981
+      },
+      "oximond_gap": 1.1952057965848792,
+      "gap_vs_lua": 0.6193295671346161,
+      "gap_vs_luajit": 1.1952057965848792,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 0.9971667710677637
+    },
+    {
+      "benchmark": "string/format",
+      "median_ms": {
+        "lua": 83.476568,
+        "luajit": 31.012866,
+        "oximond-interpreter": 39.535232,
+        "oximond-tiered": 39.804724,
+        "before-interpreter": 40.424769,
+        "before-tiered": 39.679691
+      },
+      "oximond_gap": 1.283490664809889,
+      "gap_vs_lua": 0.4768370927755439,
+      "gap_vs_luajit": 1.283490664809889,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 0.9932296478176812
+    },
+    {
+      "benchmark": "stdlib/math",
+      "median_ms": {
+        "lua": 62.069665,
+        "luajit": 11.258541,
+        "oximond-interpreter": 62.922593,
+        "oximond-tiered": 14.204194,
+        "before-interpreter": 62.919437,
+        "before-tiered": 14.132571
+      },
+      "oximond_gap": 1.261637187269647,
+      "gap_vs_lua": 0.22884276884690774,
+      "gap_vs_luajit": 1.261637187269647,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 4.429860152571839
+    },
+    {
+      "benchmark": "stdlib/native_calls",
+      "median_ms": {
+        "lua": 19.967133,
+        "luajit": 4.478948,
+        "oximond-interpreter": 23.593935,
+        "oximond-tiered": 23.370919,
+        "before-interpreter": 23.583756,
+        "before-tiered": 23.565522
+      },
+      "oximond_gap": 5.217948277140079,
+      "gap_vs_lua": 1.1704694409557947,
+      "gap_vs_luajit": 5.217948277140079,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.0095424574446559
+    },
+    {
+      "benchmark": "stdlib/sort",
+      "median_ms": {
+        "lua": 36.191277,
+        "luajit": 41.81675,
+        "oximond-interpreter": 15.223842,
+        "oximond-tiered": 16.306097,
+        "before-interpreter": 15.139715,
+        "before-tiered": 15.885995
+      },
+      "oximond_gap": 0.45055323690291454,
+      "gap_vs_lua": 0.45055323690291454,
+      "gap_vs_luajit": 0.38994175778844603,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 0.9336288138111773
+    },
+    {
+      "benchmark": "algorithm/sieve",
+      "median_ms": {
+        "lua": 42.702429,
+        "luajit": 7.156203,
+        "oximond-interpreter": 40.832077,
+        "oximond-tiered": 27.081978,
+        "before-interpreter": 41.072905,
+        "before-tiered": 27.041623
+      },
+      "oximond_gap": 3.7844060600293203,
+      "gap_vs_lua": 0.6342022839028665,
+      "gap_vs_luajit": 3.7844060600293203,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.5077213710165482
+    },
+    {
+      "benchmark": "algorithm/nbody",
+      "median_ms": {
+        "lua": 9.709516,
+        "luajit": 2.101813,
+        "oximond-interpreter": 13.302936,
+        "oximond-tiered": 13.72945,
+        "before-interpreter": 13.363949,
+        "before-tiered": 14.323547
+      },
+      "oximond_gap": 6.532193872623302,
+      "gap_vs_lua": 1.4140200191235073,
+      "gap_vs_luajit": 6.532193872623302,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 0.9689343710053936
+    },
+    {
+      "benchmark": "algorithm/mandelbrot",
+      "median_ms": {
+        "lua": 99.784619,
+        "luajit": 6.971117,
+        "oximond-interpreter": 121.113096,
+        "oximond-tiered": 16.435918,
+        "before-interpreter": 122.416583,
+        "before-tiered": 17.090888
+      },
+      "oximond_gap": 2.357716561061879,
+      "gap_vs_lua": 0.1647139425365747,
+      "gap_vs_luajit": 2.357716561061879,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 7.368806293630815
+    },
+    {
+      "benchmark": "algorithm/spectral_norm",
+      "median_ms": {
+        "lua": 80.339447,
+        "luajit": 3.812919,
+        "oximond-interpreter": 108.575665,
+        "oximond-tiered": 18.362605,
+        "before-interpreter": 104.621393,
+        "before-tiered": 18.330846
+      },
+      "oximond_gap": 4.81589170921281,
+      "gap_vs_lua": 0.22856275074932986,
+      "gap_vs_luajit": 4.81589170921281,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 5.91286829945969
+    },
+    {
+      "benchmark": "algorithm/binary_trees",
+      "median_ms": {
+        "lua": 36.203149,
+        "luajit": 14.549687,
+        "oximond-interpreter": 58.806239,
+        "oximond-tiered": 59.342157,
+        "before-interpreter": 60.244827,
+        "before-tiered": 60.58474
+      },
+      "oximond_gap": 4.078586501551546,
+      "gap_vs_lua": 1.6391435175984275,
+      "gap_vs_luajit": 4.078586501551546,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 0.9909690171862138
+    },
+    {
+      "benchmark": "mineclonia/captured_call",
+      "median_ms": {
+        "lua": 6.362445,
+        "luajit": 2.024588,
+        "oximond-interpreter": 16.383281,
+        "oximond-tiered": 6.976779,
+        "before-interpreter": 16.343015,
+        "before-tiered": 6.708379
+      },
+      "oximond_gap": 3.4460240799609596,
+      "gap_vs_lua": 1.0965562767143762,
+      "gap_vs_luajit": 3.4460240799609596,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 2.348258558856458
+    },
+    {
+      "benchmark": "mineclonia/module_calls",
+      "median_ms": {
+        "lua": 25.81511,
+        "luajit": 2.536332,
+        "oximond-interpreter": 41.694672,
+        "oximond-tiered": 12.424861,
+        "before-interpreter": 42.012204,
+        "before-tiered": 12.037911
+      },
+      "oximond_gap": 4.898751819556746,
+      "gap_vs_lua": 0.48130188095266685,
+      "gap_vs_luajit": 4.898751819556746,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 3.3557455491856203
+    },
+    {
+      "benchmark": "mineclonia/open_results",
+      "median_ms": {
+        "lua": 12.95613,
+        "luajit": 2.615179,
+        "oximond-interpreter": 26.634736,
+        "oximond-tiered": 8.577468,
+        "before-interpreter": 27.296548,
+        "before-tiered": 8.957065
+      },
+      "oximond_gap": 3.2798779739360095,
+      "gap_vs_lua": 0.6620393589752496,
+      "gap_vs_luajit": 3.2798779739360095,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 3.105197944195187
+    },
+    {
+      "benchmark": "mineclonia/ull_kernel",
+      "median_ms": {
+        "lua": 11.383363,
+        "luajit": 2.291376,
+        "oximond-interpreter": 23.480394,
+        "oximond-tiered": 11.511681,
+        "before-interpreter": 23.445067,
+        "before-tiered": 11.100034
+      },
+      "oximond_gap": 5.023916197079833,
+      "gap_vs_lua": 1.0112724157175697,
+      "gap_vs_luajit": 5.023916197079833,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 2.03970158658844
+    },
+    {
+      "benchmark": "mineclonia/ull_arith",
+      "median_ms": {
+        "lua": 12.034234,
+        "luajit": 2.298149,
+        "oximond-interpreter": 25.940093,
+        "oximond-tiered": 4.63006,
+        "before-interpreter": 25.892143,
+        "before-tiered": 4.640569
+      },
+      "oximond_gap": 2.0146909534586315,
+      "gap_vs_lua": 0.38474073214797055,
+      "gap_vs_luajit": 2.0146909534586315,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 5.602539275948907
+    },
+    {
+      "benchmark": "mineclonia/bit_wide",
+      "median_ms": {
+        "lua": 35.356442,
+        "luajit": 2.108836,
+        "oximond-interpreter": 32.090803,
+        "oximond-tiered": 6.667363,
+        "before-interpreter": 31.699605,
+        "before-tiered": 6.130994
+      },
+      "oximond_gap": 3.1616318196388904,
+      "gap_vs_lua": 0.18857562081614432,
+      "gap_vs_luajit": 3.1616318196388904,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 4.813117719854161
+    },
+    {
+      "benchmark": "table/hash_read_small",
+      "median_ms": {
+        "lua": 47.091429,
+        "luajit": 5.56511,
+        "oximond-interpreter": 53.497566,
+        "oximond-tiered": 38.946707,
+        "before-interpreter": 52.664134,
+        "before-tiered": 51.883711
+      },
+      "oximond_gap": 6.998371460761783,
+      "gap_vs_lua": 0.827044492533875,
+      "gap_vs_luajit": 6.998371460761783,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.3736094812842583
+    },
+    {
+      "benchmark": "table/hash_read_shaped",
+      "median_ms": {
+        "lua": 48.615327,
+        "luajit": 5.820386,
+        "oximond-interpreter": 52.261445,
+        "oximond-tiered": 36.275394,
+        "before-interpreter": 52.054189,
+        "before-tiered": 51.479499
+      },
+      "oximond_gap": 6.232472210605963,
+      "gap_vs_lua": 0.7461719634221529,
+      "gap_vs_luajit": 6.232472210605963,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.440685799305171
+    },
+    {
+      "benchmark": "table/hash_read_indexed",
+      "median_ms": {
+        "lua": 43.34239,
+        "luajit": 6.339492,
+        "oximond-interpreter": 49.152547,
+        "oximond-tiered": 37.903355,
+        "before-interpreter": 49.425816,
+        "before-tiered": 49.007988
+      },
+      "oximond_gap": 5.978926229420275,
+      "gap_vs_lua": 0.8745100350949727,
+      "gap_vs_luajit": 5.978926229420275,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 1.296786181592632
+    },
+    {
+      "benchmark": "table/heap_redundancy",
+      "median_ms": {
+        "lua": 54.317152,
+        "luajit": 5.275712,
+        "oximond-interpreter": 61.29906,
+        "oximond-tiered": 7.761931,
+        "before-interpreter": 61.06755,
+        "before-tiered": 7.930775
+      },
+      "oximond_gap": 1.4712575288416045,
+      "gap_vs_lua": 0.1429001837209727,
+      "gap_vs_luajit": 1.4712575288416045,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 7.897398211862487
+    },
+    {
+      "benchmark": "allocation/ctor_array",
+      "median_ms": {
+        "lua": 36.051647,
+        "luajit": 11.742782,
+        "oximond-interpreter": 58.281162,
+        "oximond-tiered": 4.54467,
+        "before-interpreter": 61.54634,
+        "before-tiered": 61.102184
+      },
+      "oximond_gap": 0.3870181699702847,
+      "gap_vs_lua": 0.1260599827797049,
+      "gap_vs_luajit": 0.3870181699702847,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 12.824069074322228
+    },
+    {
+      "benchmark": "allocation/ctor_fields",
+      "median_ms": {
+        "lua": 53.23685,
+        "luajit": 3.058334,
+        "oximond-interpreter": 51.210949,
+        "oximond-tiered": 4.755593,
+        "before-interpreter": 50.802047,
+        "before-tiered": 50.336061
+      },
+      "oximond_gap": 1.5549619498720546,
+      "gap_vs_lua": 0.08932897044058768,
+      "gap_vs_luajit": 1.5549619498720546,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 10.768572710070016
+    },
+    {
+      "benchmark": "allocation/ctor_mixed",
+      "median_ms": {
+        "lua": 48.906669,
+        "luajit": 3.138462,
+        "oximond-interpreter": 56.847723,
+        "oximond-tiered": 5.135831,
+        "before-interpreter": 57.16862,
+        "before-tiered": 56.484346
+      },
+      "oximond_gap": 1.636416499546593,
+      "gap_vs_lua": 0.10501289711634214,
+      "gap_vs_luajit": 1.636416499546593,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 11.068846112732293
+    },
+    {
+      "benchmark": "allocation/ctor_side_exit",
+      "median_ms": {
+        "lua": 51.435396,
+        "luajit": 3.675783,
+        "oximond-interpreter": 72.543805,
+        "oximond-tiered": 15.088941,
+        "before-interpreter": 75.731378,
+        "before-tiered": 76.370678
+      },
+      "oximond_gap": 4.1049596779788144,
+      "gap_vs_lua": 0.29335714650665856,
+      "gap_vs_luajit": 4.1049596779788144,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 4.807746613894243
+    },
+    {
+      "benchmark": "opt/field_reload",
+      "median_ms": {
+        "lua": 77.91828,
+        "luajit": 12.822572,
+        "oximond-interpreter": 97.818358,
+        "oximond-tiered": 13.383396,
+        "before-interpreter": 97.79302,
+        "before-tiered": 13.331679
+      },
+      "oximond_gap": 1.0437372470983202,
+      "gap_vs_lua": 0.17176195367762226,
+      "gap_vs_luajit": 1.0437372470983202,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 7.308933995526996
+    },
+    {
+      "benchmark": "opt/store_load",
+      "median_ms": {
+        "lua": 67.401451,
+        "luajit": 9.583442,
+        "oximond-interpreter": 109.898186,
+        "oximond-tiered": 10.604072,
+        "before-interpreter": 107.568699,
+        "before-tiered": 10.589274
+      },
+      "oximond_gap": 1.1064993141295163,
+      "gap_vs_lua": 0.15732705813707187,
+      "gap_vs_luajit": 1.1064993141295163,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 10.363772143380391
+    },
+    {
+      "benchmark": "opt/alias_holder",
+      "median_ms": {
+        "lua": 52.735557,
+        "luajit": 10.271482,
+        "oximond-interpreter": 128.944224,
+        "oximond-tiered": 10.933104,
+        "before-interpreter": 124.262679,
+        "before-tiered": 10.941139
+      },
+      "oximond_gap": 1.0644134896989548,
+      "gap_vs_lua": 0.2073193993191349,
+      "gap_vs_luajit": 1.0644134896989548,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 11.793926409188094
+    },
+    {
+      "benchmark": "opt/invariant_field",
+      "median_ms": {
+        "lua": 60.181469,
+        "luajit": 10.621504,
+        "oximond-interpreter": 59.662012,
+        "oximond-tiered": 12.693641,
+        "before-interpreter": 60.219971,
+        "before-tiered": 13.06337
+      },
+      "oximond_gap": 1.1950888499406487,
+      "gap_vs_lua": 0.21092275098834826,
+      "gap_vs_luajit": 1.1950888499406487,
+      "gap_vs_luajit_interpreter": null,
+      "tiered_speedup": 4.7001496261001865
+    }
+  ],
+  "samples_ms": {
+    "startup/empty": {
+      "lua": [
+        1.204231,
+        1.067438,
+        1.243024,
+        1.285594,
+        1.210213,
+        1.267761,
+        1.367757
+      ],
+      "luajit": [
+        1.147818,
+        0.911216,
+        1.350404,
+        1.381111,
+        1.31618,
+        1.01563,
+        1.146284
+      ],
+      "oximond-interpreter": [
+        1.736893,
+        2.142789,
+        2.008139,
+        2.241764,
+        1.854092,
+        2.060465,
+        1.986918
+      ],
+      "oximond-tiered": [
+        1.839034,
+        1.746331,
+        2.087626,
+        1.989043,
+        2.457255,
+        1.977572,
+        2.314339
+      ],
+      "before-interpreter": [
+        2.009492,
+        2.038876,
+        1.994513,
+        1.787969,
+        1.863048,
+        2.386343,
+        2.181682
+      ],
+      "before-tiered": [
+        2.05233,
+        1.714932,
+        1.875111,
+        2.127271,
+        1.792708,
+        2.294682,
+        1.852058
+      ]
+    },
+    "numeric/for_sum": {
+      "lua": [
+        25.13831,
+        24.666642,
+        24.873197,
+        25.857267,
+        25.060876,
+        24.890518,
+        25.065083
+      ],
+      "luajit": [
+        5.980715,
+        6.086491,
+        5.314404,
+        4.96325,
+        5.523463,
+        5.044783,
+        5.368715
+      ],
+      "oximond-interpreter": [
+        24.240369,
+        23.863757,
+        24.932477,
+        23.938556,
+        24.068639,
+        25.033375,
+        23.832499
+      ],
+      "oximond-tiered": [
+        7.811503,
+        7.621379,
+        7.735421,
+        7.644312,
+        7.538033,
+        7.366154,
+        8.258064
+      ],
+      "before-interpreter": [
+        24.754406,
+        24.202307,
+        24.500463,
+        24.529688,
+        24.597302,
+        24.151633,
+        24.167944
+      ],
+      "before-tiered": [
+        8.260589,
+        7.741192,
+        7.661263,
+        7.770757,
+        7.581906,
+        7.811563,
+        7.704364
+      ]
+    },
+    "numeric/while_mix": {
+      "lua": [
+        61.171022,
+        61.940776,
+        61.960412,
+        61.725615,
+        61.905951,
+        61.901793,
+        61.300063
+      ],
+      "luajit": [
+        22.537648,
+        22.826556,
+        22.490982,
+        22.539082,
+        22.368975,
+        22.672259,
+        22.202515
+      ],
+      "oximond-interpreter": [
+        105.894343,
+        106.216503,
+        107.978063,
+        106.2411,
+        106.71938,
+        106.694133,
+        106.739467
+      ],
+      "oximond-tiered": [
+        25.086043,
+        25.051588,
+        26.033567,
+        25.335737,
+        24.893704,
+        24.7516,
+        25.17005
+      ],
+      "before-interpreter": [
+        105.553599,
+        107.029166,
+        108.079061,
+        108.270587,
+        105.2962,
+        105.76348,
+        105.518785
+      ],
+      "before-tiered": [
+        25.438239,
+        24.916858,
+        24.831028,
+        24.384046,
+        25.078619,
+        25.300462,
+        25.193502
+      ]
+    },
+    "control/branching": {
+      "lua": [
+        48.10086,
+        48.022213,
+        47.844122,
+        44.300254,
+        47.914663,
+        48.829646,
+        47.709551
+      ],
+      "luajit": [
+        12.707738,
+        12.459767,
+        12.998489,
+        12.819416,
+        13.64839,
+        12.895497,
+        13.012165
+      ],
+      "oximond-interpreter": [
+        68.95288,
+        69.316085,
+        69.093601,
+        69.041524,
+        69.479951,
+        69.154545,
+        69.241316
+      ],
+      "oximond-tiered": [
+        11.180355,
+        10.919017,
+        11.148916,
+        11.242981,
+        10.672699,
+        11.104052,
+        11.15696
+      ],
+      "before-interpreter": [
+        69.119399,
+        69.136291,
+        69.375948,
+        69.424708,
+        70.065241,
+        69.325143,
+        69.428234
+      ],
+      "before-tiered": [
+        11.187788,
+        11.185434,
+        11.342065,
+        10.981745,
+        12.74106,
+        10.913478,
+        10.89337
+      ]
+    },
+    "control/nested_loops": {
+      "lua": [
+        18.486677,
+        18.576013,
+        18.705444,
+        18.328752,
+        18.462211,
+        18.361704,
+        19.184145
+      ],
+      "luajit": [
+        3.290015,
+        3.224333,
+        3.529932,
+        3.75447,
+        3.291187,
+        3.704727,
+        3.286128
+      ],
+      "oximond-interpreter": [
+        23.303875,
+        23.609042,
+        23.586511,
+        24.295451,
+        23.819354,
+        24.46181,
+        23.719168
+      ],
+      "oximond-tiered": [
+        6.210622,
+        6.796713,
+        6.175737,
+        6.465016,
+        5.91948,
+        5.904843,
+        6.05859
+      ],
+      "before-interpreter": [
+        23.331186,
+        23.470044,
+        23.791683,
+        23.656802,
+        23.658665,
+        23.411265,
+        24.258111
+      ],
+      "before-tiered": [
+        6.817181,
+        6.327209,
+        6.197608,
+        6.081552,
+        6.911688,
+        6.280452,
+        6.331036
+      ]
+    },
+    "control/nested_calls": {
+      "lua": [
+        384.709965,
+        314.697944,
+        313.829577,
+        314.149152,
+        438.4595,
+        320.846841,
+        314.911381
+      ],
+      "luajit": [
+        28.331855,
+        28.03921,
+        28.210219,
+        28.060279,
+        28.47383,
+        28.17299,
+        28.57062
+      ],
+      "oximond-interpreter": [
+        458.722555,
+        456.479107,
+        454.986098,
+        453.562828,
+        453.584568,
+        455.635607,
+        480.842575
+      ],
+      "oximond-tiered": [
+        51.747388,
+        31.904908,
+        31.249528,
+        31.206828,
+        31.340737,
+        31.385731,
+        30.902531
+      ],
+      "before-interpreter": [
+        448.807456,
+        449.909577,
+        446.172651,
+        445.951248,
+        468.010085,
+        449.031953,
+        444.527777
+      ],
+      "before-tiered": [
+        60.291515,
+        31.658709,
+        31.593598,
+        31.754948,
+        30.972091,
+        30.943948,
+        31.082075
+      ]
+    },
+    "calls/function": {
+      "lua": [
+        25.898415,
+        25.998952,
+        26.678227,
+        25.807847,
+        26.211428,
+        25.912111,
+        25.632079
+      ],
+      "luajit": [
+        3.425978,
+        3.003532,
+        3.07228,
+        3.189999,
+        2.990277,
+        2.704966,
+        3.015144
+      ],
+      "oximond-interpreter": [
+        42.828023,
+        42.45061,
+        42.67095,
+        42.722727,
+        42.75154,
+        42.435483,
+        42.592604
+      ],
+      "oximond-tiered": [
+        5.369446,
+        6.339412,
+        5.417125,
+        5.318972,
+        5.526989,
+        5.051815,
+        5.370297
+      ],
+      "before-interpreter": [
+        79.486339,
+        44.471011,
+        43.369501,
+        43.802097,
+        43.860245,
+        43.329757,
+        43.761241
+      ],
+      "before-tiered": [
+        5.788857,
+        5.855421,
+        5.579297,
+        4.878763,
+        5.438655,
+        5.079686,
+        6.025307
+      ]
+    },
+    "calls/builtin": {
+      "lua": [
+        13.22474,
+        12.718989,
+        12.944138,
+        13.081204,
+        12.887843,
+        12.603604,
+        12.67661
+      ],
+      "luajit": [
+        2.636348,
+        1.848822,
+        2.07352,
+        2.882507,
+        1.986048,
+        1.688523,
+        1.962464
+      ],
+      "oximond-interpreter": [
+        10.147812,
+        10.032246,
+        10.067954,
+        10.53357,
+        9.823519,
+        10.075437,
+        9.784776
+      ],
+      "oximond-tiered": [
+        5.445367,
+        5.217033,
+        5.227402,
+        5.221611,
+        5.208727,
+        5.487155,
+        5.35036
+      ],
+      "before-interpreter": [
+        11.245907,
+        9.959131,
+        10.305276,
+        10.114159,
+        9.938442,
+        9.845951,
+        9.913997
+      ],
+      "before-tiered": [
+        5.066743,
+        5.495751,
+        4.913117,
+        5.431953,
+        5.422344,
+        5.196174,
+        5.358496
+      ]
+    },
+    "calls/method": {
+      "lua": [
+        28.925722,
+        29.104965,
+        28.751095,
+        28.863224,
+        29.329984,
+        29.130342,
+        29.301491
+      ],
+      "luajit": [
+        3.318989,
+        3.763647,
+        3.647821,
+        3.666085,
+        3.70133,
+        3.647831,
+        3.70096
+      ],
+      "oximond-interpreter": [
+        50.452818,
+        50.610472,
+        49.999344,
+        50.332023,
+        50.66364,
+        50.576779,
+        50.584363
+      ],
+      "oximond-tiered": [
+        5.824193,
+        5.716372,
+        5.628709,
+        5.40894,
+        5.989,
+        5.573235,
+        6.170447
+      ],
+      "before-interpreter": [
+        50.983426,
+        51.225276,
+        51.043598,
+        51.806268,
+        51.029321,
+        51.927153,
+        51.351722
+      ],
+      "before-tiered": [
+        6.664457,
+        5.920582,
+        6.059962,
+        5.690934,
+        5.635411,
+        5.769962,
+        7.500904
+      ]
+    },
+    "calls/closure": {
+      "lua": [
+        23.074588,
+        24.105136,
+        23.491735,
+        23.116516,
+        23.149598,
+        22.904411,
+        23.39249
+      ],
+      "luajit": [
+        4.080857,
+        4.906285,
+        3.888109,
+        4.126382,
+        4.038509,
+        3.867931,
+        4.251996
+      ],
+      "oximond-interpreter": [
+        44.182024,
+        43.583369,
+        43.25595,
+        43.797838,
+        43.791918,
+        43.579803,
+        45.031666
+      ],
+      "oximond-tiered": [
+        5.372902,
+        5.597841,
+        4.394421,
+        5.067795,
+        4.278095,
+        5.713426,
+        4.735766
+      ],
+      "before-interpreter": [
+        42.804509,
+        44.476793,
+        42.78917,
+        42.975167,
+        43.190718,
+        43.021934,
+        43.252643
+      ],
+      "before-tiered": [
+        4.761375,
+        5.421794,
+        4.83992,
+        5.729316,
+        4.49013,
+        4.924728,
+        4.583413
+      ]
+    },
+    "calls/recursive_fib": {
+      "lua": [
+        15.510456,
+        15.548346,
+        15.428763,
+        15.418014,
+        15.560519,
+        15.435937,
+        15.923575
+      ],
+      "luajit": [
+        2.877617,
+        3.076267,
+        2.769927,
+        2.753837,
+        3.65212,
+        2.73938,
+        2.847541
+      ],
+      "oximond-interpreter": [
+        31.872517,
+        31.378007,
+        32.457676,
+        31.255489,
+        33.29203,
+        32.52403,
+        32.131218
+      ],
+      "oximond-tiered": [
+        7.94464,
+        8.358912,
+        7.776478,
+        8.591435,
+        7.81023,
+        7.96601,
+        7.777049
+      ],
+      "before-interpreter": [
+        31.341839,
+        32.570417,
+        32.489937,
+        31.515082,
+        31.877365,
+        31.626509,
+        31.551229
+      ],
+      "before-tiered": [
+        7.964608,
+        8.020261,
+        7.864682,
+        7.418681,
+        8.086745,
+        8.140014,
+        8.129585
+      ]
+    },
+    "calls/tail_call": {
+      "lua": [
+        17.691266,
+        17.392079,
+        17.773619,
+        17.979081,
+        18.999381,
+        17.94088,
+        17.938355
+      ],
+      "luajit": [
+        2.26662,
+        2.227958,
+        2.475939,
+        2.211086,
+        2.488253,
+        3.151437,
+        2.214413
+      ],
+      "oximond-interpreter": [
+        42.68169,
+        42.443808,
+        43.587738,
+        42.828624,
+        42.48803,
+        43.478774,
+        42.542902
+      ],
+      "oximond-tiered": [
+        11.137315,
+        11.020797,
+        11.205822,
+        10.856852,
+        10.568836,
+        10.776573,
+        10.736308
+      ],
+      "before-interpreter": [
+        44.791518,
+        42.986959,
+        43.873269,
+        43.207059,
+        42.864971,
+        43.412801,
+        42.814938
+      ],
+      "before-tiered": [
+        10.979301,
+        10.736228,
+        11.029884,
+        10.939015,
+        11.151321,
+        10.814454,
+        10.718384
+      ]
+    },
+    "calls/varargs": {
+      "lua": [
+        29.266776,
+        28.905344,
+        28.718305,
+        29.309295,
+        29.008916,
+        45.78059,
+        55.013769
+      ],
+      "luajit": [
+        2.038164,
+        2.969559,
+        2.069884,
+        1.974406,
+        1.922159,
+        2.803329,
+        2.234881
+      ],
+      "oximond-interpreter": [
+        52.879165,
+        53.461459,
+        53.817983,
+        53.054662,
+        53.2468,
+        55.677585,
+        53.803856
+      ],
+      "oximond-tiered": [
+        4.631603,
+        4.351902,
+        4.723835,
+        4.770431,
+        4.836785,
+        16.899772,
+        4.554519
+      ],
+      "before-interpreter": [
+        48.870061,
+        49.047973,
+        48.860113,
+        49.201749,
+        50.872319,
+        51.139456,
+        60.344063
+      ],
+      "before-tiered": [
+        5.147653,
+        4.503805,
+        4.444685,
+        3.991902,
+        3.925067,
+        5.126544,
+        5.010909
+      ]
+    },
+    "calls/varargs_forward": {
+      "lua": [
+        37.498791,
+        36.769313,
+        36.642697,
+        36.629152,
+        37.554846,
+        36.786776,
+        36.965098
+      ],
+      "luajit": [
+        2.373639,
+        2.041651,
+        2.19642,
+        2.350907,
+        1.980888,
+        2.296055,
+        2.24551
+      ],
+      "oximond-interpreter": [
+        67.523028,
+        66.380521,
+        66.291945,
+        66.60608,
+        66.237495,
+        66.30474,
+        67.086735
+      ],
+      "oximond-tiered": [
+        3.982644,
+        4.380545,
+        4.251786,
+        4.357302,
+        4.307018,
+        4.940077,
+        4.236637
+      ],
+      "before-interpreter": [
+        65.899986,
+        65.962693,
+        66.846028,
+        65.792185,
+        65.197228,
+        65.842078,
+        65.964416
+      ],
+      "before-tiered": [
+        4.439114,
+        5.338559,
+        4.275199,
+        4.598401,
+        5.308433,
+        4.236146,
+        4.252046
+      ]
+    },
+    "table/array_read": {
+      "lua": [
+        45.847544,
+        45.42601,
+        41.84868,
+        41.381891,
+        42.426526,
+        45.67893,
+        45.228922
+      ],
+      "luajit": [
+        5.154656,
+        4.938244,
+        4.809063,
+        4.714527,
+        5.004587,
+        4.733192,
+        4.817539
+      ],
+      "oximond-interpreter": [
+        43.53537,
+        44.85119,
+        43.813638,
+        43.822775,
+        43.948409,
+        44.122653,
+        43.719632
+      ],
+      "oximond-tiered": [
+        10.310515,
+        10.860889,
+        10.442491,
+        10.340701,
+        11.037148,
+        11.388092,
+        10.235215
+      ],
+      "before-interpreter": [
+        44.386414,
+        44.358101,
+        44.006237,
+        43.456733,
+        44.26075,
+        44.03518,
+        43.77181
+      ],
+      "before-tiered": [
+        10.193577,
+        10.592179,
+        10.788946,
+        10.653203,
+        9.865787,
+        10.065488,
+        10.918326
+      ]
+    },
+    "table/array_write": {
+      "lua": [
+        46.07099,
+        49.953789,
+        48.57414,
+        45.718304,
+        48.447535,
+        48.534366,
+        49.800704
+      ],
+      "luajit": [
+        7.616299,
+        7.611239,
+        7.228056,
+        7.393774,
+        8.049064,
+        7.823024,
+        7.776117
+      ],
+      "oximond-interpreter": [
+        77.726333,
+        77.34898,
+        76.864157,
+        76.397218,
+        76.657093,
+        77.59621,
+        76.884606
+      ],
+      "oximond-tiered": [
+        11.265913,
+        11.249814,
+        10.956458,
+        11.524876,
+        11.615394,
+        12.115345,
+        10.761445
+      ],
+      "before-interpreter": [
+        77.534155,
+        77.067567,
+        77.503809,
+        76.501442,
+        76.554552,
+        77.288498,
+        76.962441
+      ],
+      "before-tiered": [
+        10.616315,
+        10.886748,
+        11.599264,
+        10.955095,
+        11.351523,
+        11.072223,
+        11.108231
+      ]
+    },
+    "table/hash_read": {
+      "lua": [
+        34.273296,
+        34.335832,
+        34.077181,
+        34.507723,
+        34.189009,
+        34.420651,
+        34.345791
+      ],
+      "luajit": [
+        4.890294,
+        3.986812,
+        4.234444,
+        4.376748,
+        3.972034,
+        4.011238,
+        4.217732
+      ],
+      "oximond-interpreter": [
+        33.621213,
+        34.290218,
+        33.745354,
+        33.60902,
+        34.026778,
+        33.682066,
+        33.506128
+      ],
+      "oximond-tiered": [
+        26.104408,
+        25.835477,
+        26.452867,
+        26.447718,
+        26.399868,
+        26.228048,
+        25.896571
+      ],
+      "before-interpreter": [
+        33.760522,
+        34.213355,
+        33.940407,
+        33.587921,
+        33.278665,
+        33.671476,
+        34.666138
+      ],
+      "before-tiered": [
+        34.041866,
+        34.210019,
+        33.379182,
+        33.743139,
+        33.331964,
+        33.765341,
+        35.254082
+      ]
+    },
+    "table/field_read": {
+      "lua": [
+        56.596506,
+        56.4968,
+        57.595456,
+        57.652993,
+        57.075999,
+        57.132784,
+        57.017018
+      ],
+      "luajit": [
+        8.85759,
+        9.015384,
+        9.489026,
+        9.142701,
+        8.989856,
+        9.911652,
+        8.807247
+      ],
+      "oximond-interpreter": [
+        57.217541,
+        57.25436,
+        57.053215,
+        56.534761,
+        56.613618,
+        56.692365,
+        58.041516
+      ],
+      "oximond-tiered": [
+        8.807577,
+        8.972033,
+        8.875744,
+        8.934724,
+        8.513871,
+        8.294923,
+        8.856939
+      ],
+      "before-interpreter": [
+        57.690533,
+        56.790106,
+        57.018682,
+        57.010536,
+        57.439426,
+        56.381485,
+        57.242999
+      ],
+      "before-tiered": [
+        8.448138,
+        8.542363,
+        8.942899,
+        9.307668,
+        8.535571,
+        8.813849,
+        8.368711
+      ]
+    },
+    "table/metamethod_index": {
+      "lua": [
+        16.625401,
+        16.368483,
+        16.464302,
+        16.46391,
+        17.421994,
+        16.570309,
+        16.671458
+      ],
+      "luajit": [
+        3.51277,
+        4.720368,
+        3.585385,
+        3.736115,
+        3.815322,
+        3.918726,
+        3.869524
+      ],
+      "oximond-interpreter": [
+        44.714114,
+        44.397675,
+        44.865706,
+        44.391163,
+        44.763636,
+        45.293223,
+        45.161096
+      ],
+      "oximond-tiered": [
+        5.120111,
+        4.678259,
+        5.005368,
+        5.024865,
+        5.847967,
+        4.662731,
+        5.745256
+      ],
+      "before-interpreter": [
+        44.193085,
+        44.144303,
+        44.288602,
+        44.057402,
+        45.05022,
+        44.353092,
+        44.065095
+      ],
+      "before-tiered": [
+        5.081951,
+        4.994508,
+        5.140009,
+        5.16736,
+        5.424578,
+        5.483198,
+        5.176007
+      ]
+    },
+    "table/iteration": {
+      "lua": [
+        42.355454,
+        44.082438,
+        42.33776,
+        42.641676,
+        42.575864,
+        42.093365,
+        42.102943
+      ],
+      "luajit": [
+        3.21211,
+        2.913384,
+        3.417722,
+        3.590916,
+        3.248557,
+        4.307509,
+        2.932559
+      ],
+      "oximond-interpreter": [
+        69.677759,
+        69.739995,
+        69.844469,
+        69.335272,
+        69.567353,
+        69.905733,
+        69.63546
+      ],
+      "oximond-tiered": [
+        6.608593,
+        6.613562,
+        7.181861,
+        7.689796,
+        6.809557,
+        6.685506,
+        6.855102
+      ],
+      "before-interpreter": [
+        70.481145,
+        69.820104,
+        70.427845,
+        70.094465,
+        69.499437,
+        70.013945,
+        69.622576
+      ],
+      "before-tiered": [
+        7.321,
+        6.68232,
+        7.098876,
+        6.539855,
+        6.779412,
+        7.114034,
+        7.564352
+      ]
+    },
+    "allocation/table_churn": {
+      "lua": [
+        24.666392,
+        24.575842,
+        24.645082,
+        24.437605,
+        24.600929,
+        25.400328,
+        24.661121
+      ],
+      "luajit": [
+        1.630756,
+        1.79969,
+        1.633591,
+        1.984155,
+        1.603895,
+        1.518046,
+        1.914504
+      ],
+      "oximond-interpreter": [
+        13.530209,
+        13.601742,
+        13.104747,
+        14.479085,
+        13.707579,
+        13.525892,
+        14.036582
+      ],
+      "oximond-tiered": [
+        3.825151,
+        3.799394,
+        3.966204,
+        3.717802,
+        3.701311,
+        3.819801,
+        4.154033
+      ],
+      "before-interpreter": [
+        15.019923,
+        13.857518,
+        13.525029,
+        14.166073,
+        14.619167,
+        13.860023,
+        13.373608
+      ],
+      "before-tiered": [
+        13.725984,
+        13.788571,
+        13.62716,
+        13.659099,
+        14.998473,
+        13.484614,
+        14.038165
+      ]
+    },
+    "allocation/gc_cycles": {
+      "lua": [
+        21.527308,
+        21.660906,
+        21.643433,
+        21.540953,
+        21.511017,
+        21.897707,
+        21.393168
+      ],
+      "luajit": [
+        12.811942,
+        12.731803,
+        12.505532,
+        13.086924,
+        13.293158,
+        12.748985,
+        12.793037
+      ],
+      "oximond-interpreter": [
+        28.867643,
+        28.771173,
+        29.009697,
+        29.046436,
+        28.71008,
+        28.798234,
+        28.68337
+      ],
+      "oximond-tiered": [
+        28.890195,
+        29.224898,
+        29.160248,
+        28.831316,
+        28.676887,
+        28.958622,
+        28.996673
+      ],
+      "before-interpreter": [
+        30.088316,
+        30.084989,
+        30.030878,
+        29.694843,
+        30.723167,
+        30.184034,
+        29.925492
+      ],
+      "before-tiered": [
+        30.084068,
+        29.947193,
+        29.817742,
+        30.080872,
+        29.759422,
+        29.587633,
+        30.312032
+      ]
+    },
+    "string/naive_concat": {
+      "lua": [
+        32.689458,
+        31.379389,
+        32.016876,
+        31.907803,
+        31.514591,
+        31.775957,
+        32.140004
+      ],
+      "luajit": [
+        25.45531,
+        25.23456,
+        24.786735,
+        24.935262,
+        24.854191,
+        24.701827,
+        25.10624
+      ],
+      "oximond-interpreter": [
+        34.300888,
+        33.696343,
+        34.126603,
+        33.035221,
+        33.194648,
+        33.454142,
+        34.077031
+      ],
+      "oximond-tiered": [
+        33.505848,
+        33.38898,
+        33.143133,
+        33.3405,
+        34.017399,
+        33.655897,
+        33.132903
+      ],
+      "before-interpreter": [
+        33.164682,
+        32.845659,
+        32.941928,
+        32.84129,
+        32.728911,
+        32.77138,
+        33.086908
+      ],
+      "before-tiered": [
+        33.279036,
+        33.078943,
+        33.254831,
+        32.947698,
+        33.251254,
+        33.006518,
+        32.7067
+      ]
+    },
+    "string/table_concat": {
+      "lua": [
+        60.541901,
+        60.634553,
+        74.462106,
+        60.259245,
+        60.990716,
+        66.316972,
+        61.93252
+      ],
+      "luajit": [
+        8.336189,
+        8.785897,
+        7.821491,
+        8.370313,
+        8.082728,
+        8.329617,
+        8.397724
+      ],
+      "oximond-interpreter": [
+        41.960197,
+        32.72281,
+        32.649283,
+        32.666415,
+        32.204085,
+        33.465393,
+        33.641541
+      ],
+      "oximond-tiered": [
+        32.516876,
+        32.325531,
+        33.310294,
+        33.82365,
+        32.821513,
+        33.751154,
+        32.794875
+      ],
+      "before-interpreter": [
+        33.208274,
+        32.866657,
+        33.269287,
+        31.966983,
+        33.026947,
+        33.835202,
+        33.452128
+      ],
+      "before-tiered": [
+        33.224834,
+        32.460672,
+        32.838175,
+        33.006168,
+        32.898858,
+        33.182375,
+        33.425538
+      ]
+    },
+    "string/plain_find": {
+      "lua": [
+        4.542346,
+        4.300947,
+        4.459542,
+        4.518412,
+        4.321947,
+        5.144016,
+        4.019142
+      ],
+      "luajit": [
+        1.249546,
+        1.346526,
+        1.533836,
+        1.460769,
+        1.60651,
+        1.655191,
+        1.641817
+      ],
+      "oximond-interpreter": [
+        6.052919,
+        6.158194,
+        5.840794,
+        5.487336,
+        6.053961,
+        6.052568,
+        6.141182
+      ],
+      "oximond-tiered": [
+        5.991675,
+        6.124913,
+        6.884467,
+        6.100778,
+        6.278398,
+        5.977709,
+        6.229749
+      ],
+      "before-interpreter": [
+        5.938526,
+        5.956299,
+        6.534114,
+        6.20936,
+        6.179034,
+        5.861272,
+        6.107049
+      ],
+      "before-tiered": [
+        6.077785,
+        6.05345,
+        6.149038,
+        6.318994,
+        6.301843,
+        6.223606,
+        6.054522
+      ]
+    },
+    "string/pattern_gsub": {
+      "lua": [
+        22.090355,
+        21.887638,
+        22.703747,
+        22.879866,
+        21.976513,
+        21.630179,
+        22.092218
+      ],
+      "luajit": [
+        11.44674,
+        11.648586,
+        11.422635,
+        11.556785,
+        11.144147,
+        11.558118,
+        11.39285
+      ],
+      "oximond-interpreter": [
+        14.654973,
+        13.67612,
+        13.493742,
+        13.814678,
+        13.580473,
+        13.637709,
+        13.642448
+      ],
+      "oximond-tiered": [
+        13.638621,
+        13.628352,
+        13.881573,
+        13.946755,
+        13.651936,
+        13.68121,
+        13.732286
+      ],
+      "before-interpreter": [
+        13.720303,
+        13.763804,
+        13.811553,
+        14.639925,
+        13.380741,
+        13.665491,
+        13.50388
+      ],
+      "before-tiered": [
+        14.202391,
+        14.115008,
+        14.003981,
+        14.014281,
+        13.865062,
+        13.845025,
+        13.432828
+      ]
+    },
+    "string/format": {
+      "lua": [
+        83.422518,
+        83.476568,
+        82.990784,
+        84.060355,
+        83.862186,
+        83.361114,
+        88.26883
+      ],
+      "luajit": [
+        31.012866,
+        32.070305,
+        31.059083,
+        30.95024,
+        30.764133,
+        31.152376,
+        30.872265
+      ],
+      "oximond-interpreter": [
+        39.632133,
+        40.217583,
+        39.535232,
+        39.273977,
+        39.918216,
+        39.377609,
+        39.456466
+      ],
+      "oximond-tiered": [
+        39.665365,
+        39.546513,
+        40.094955,
+        39.679621,
+        44.215105,
+        40.028311,
+        39.804724
+      ],
+      "before-interpreter": [
+        40.424769,
+        40.540033,
+        40.567734,
+        39.681405,
+        39.629789,
+        39.436398,
+        40.428776
+      ],
+      "before-tiered": [
+        40.316518,
+        39.547204,
+        39.679691,
+        39.985922,
+        39.513432,
+        40.08691,
+        39.172468
+      ]
+    },
+    "stdlib/math": {
+      "lua": [
+        62.698225,
+        62.069665,
+        61.771018,
+        61.958307,
+        62.930908,
+        61.825069,
+        62.081687
+      ],
+      "luajit": [
+        11.303303,
+        11.440419,
+        11.262157,
+        10.695993,
+        11.066613,
+        11.241888,
+        11.258541
+      ],
+      "oximond-interpreter": [
+        62.922593,
+        62.713223,
+        62.789775,
+        63.166296,
+        63.423195,
+        62.728351,
+        63.059989
+      ],
+      "oximond-tiered": [
+        14.385702,
+        14.204194,
+        14.087667,
+        13.691059,
+        14.414336,
+        13.840477,
+        14.893858
+      ],
+      "before-interpreter": [
+        63.63569,
+        62.946507,
+        62.928053,
+        62.919437,
+        62.633545,
+        62.444062,
+        62.557624
+      ],
+      "before-tiered": [
+        14.133513,
+        14.582028,
+        13.809229,
+        14.132571,
+        13.621038,
+        13.48779,
+        14.61572
+      ]
+    },
+    "stdlib/native_calls": {
+      "lua": [
+        20.947828,
+        19.967133,
+        19.505974,
+        19.806794,
+        20.135707,
+        20.563743,
+        19.80515
+      ],
+      "luajit": [
+        4.075688,
+        4.00706,
+        4.478948,
+        4.547637,
+        5.122377,
+        4.499206,
+        4.210118
+      ],
+      "oximond-interpreter": [
+        23.904543,
+        23.593935,
+        23.285191,
+        23.23163,
+        23.617528,
+        23.49491,
+        23.627507
+      ],
+      "oximond-tiered": [
+        23.379005,
+        23.293185,
+        23.422956,
+        23.281003,
+        23.370919,
+        23.068206,
+        23.606148
+      ],
+      "before-interpreter": [
+        23.792886,
+        23.01152,
+        23.583756,
+        23.803255,
+        23.815788,
+        23.512684,
+        23.314595
+      ],
+      "before-tiered": [
+        23.692448,
+        23.043711,
+        23.275733,
+        23.772237,
+        24.086301,
+        23.092921,
+        23.565522
+      ]
+    },
+    "stdlib/sort": {
+      "lua": [
+        35.998328,
+        35.97267,
+        36.191277,
+        35.977068,
+        36.682682,
+        36.628311,
+        36.323222
+      ],
+      "luajit": [
+        42.215021,
+        41.81675,
+        41.929319,
+        41.676228,
+        41.662683,
+        41.683311,
+        42.097102
+      ],
+      "oximond-interpreter": [
+        15.291959,
+        14.847552,
+        15.561511,
+        14.856769,
+        15.348635,
+        15.223842,
+        14.851909
+      ],
+      "oximond-tiered": [
+        16.969422,
+        16.306097,
+        15.989528,
+        16.187987,
+        16.940047,
+        16.25404,
+        16.539461
+      ],
+      "before-interpreter": [
+        15.230495,
+        15.594652,
+        14.635547,
+        15.101093,
+        15.139715,
+        15.080255,
+        15.228982
+      ],
+      "before-tiered": [
+        15.866659,
+        15.867681,
+        16.013532,
+        15.885995,
+        16.079796,
+        16.647412,
+        15.849247
+      ]
+    },
+    "algorithm/sieve": {
+      "lua": [
+        43.245119,
+        43.07325,
+        41.497706,
+        42.702429,
+        41.814676,
+        41.480244,
+        42.734949
+      ],
+      "luajit": [
+        7.249817,
+        6.669476,
+        6.979573,
+        7.328423,
+        7.275164,
+        7.155091,
+        7.156203
+      ],
+      "oximond-interpreter": [
+        41.511673,
+        40.948614,
+        40.735397,
+        41.179884,
+        40.670556,
+        40.832077,
+        40.715439
+      ],
+      "oximond-tiered": [
+        27.215177,
+        27.52349,
+        27.089432,
+        27.081978,
+        26.734551,
+        26.252604,
+        26.612915
+      ],
+      "before-interpreter": [
+        41.051646,
+        41.072905,
+        40.95216,
+        41.144338,
+        41.769162,
+        40.762276,
+        41.148906
+      ],
+      "before-tiered": [
+        27.407695,
+        27.069455,
+        26.979438,
+        27.041623,
+        26.890662,
+        26.688856,
+        27.423835
+      ]
+    },
+    "algorithm/nbody": {
+      "lua": [
+        9.690701,
+        9.760762,
+        9.64178,
+        9.709516,
+        9.779867,
+        9.733842,
+        9.676284
+      ],
+      "luajit": [
+        2.035509,
+        2.136878,
+        2.786288,
+        2.025781,
+        1.749406,
+        2.101813,
+        2.314459
+      ],
+      "oximond-interpreter": [
+        13.750649,
+        13.340205,
+        13.302936,
+        13.516704,
+        13.069021,
+        13.290122,
+        13.294861
+      ],
+      "oximond-tiered": [
+        14.260058,
+        15.318207,
+        12.701005,
+        15.459902,
+        13.72945,
+        13.63834,
+        13.681962
+      ],
+      "before-interpreter": [
+        13.328714,
+        13.545147,
+        13.333323,
+        13.520731,
+        13.363949,
+        12.803746,
+        13.428299
+      ],
+      "before-tiered": [
+        14.764748,
+        14.956395,
+        13.565775,
+        14.323547,
+        14.458758,
+        13.582436,
+        14.195698
+      ]
+    },
+    "algorithm/mandelbrot": {
+      "lua": [
+        100.059731,
+        100.899595,
+        99.558156,
+        100.650711,
+        99.784619,
+        99.596058,
+        99.423165
+      ],
+      "luajit": [
+        6.991827,
+        6.767839,
+        6.73055,
+        6.491275,
+        7.62215,
+        7.030899,
+        6.971117
+      ],
+      "oximond-interpreter": [
+        120.590493,
+        121.815934,
+        122.04521,
+        121.00832,
+        118.616438,
+        121.113096,
+        124.517755
+      ],
+      "oximond-tiered": [
+        17.643527,
+        16.176956,
+        16.435918,
+        16.341844,
+        16.673171,
+        16.89843,
+        15.964691
+      ],
+      "before-interpreter": [
+        119.892483,
+        122.961657,
+        119.068189,
+        122.082501,
+        123.325625,
+        204.935367,
+        122.416583
+      ],
+      "before-tiered": [
+        16.481964,
+        17.70969,
+        17.340071,
+        17.090888,
+        15.92684,
+        15.655716,
+        17.385666
+      ]
+    },
+    "algorithm/spectral_norm": {
+      "lua": [
+        80.713424,
+        79.849104,
+        80.197162,
+        80.339447,
+        80.387166,
+        80.0726,
+        80.436649
+      ],
+      "luajit": [
+        4.582662,
+        3.402865,
+        3.688126,
+        3.812919,
+        3.708785,
+        3.944013,
+        4.584956
+      ],
+      "oximond-interpreter": [
+        108.368209,
+        108.994806,
+        108.575665,
+        108.506917,
+        108.611632,
+        108.923642,
+        108.105749
+      ],
+      "oximond-tiered": [
+        18.362605,
+        18.460849,
+        18.384246,
+        19.088727,
+        18.152254,
+        18.301001,
+        18.047859
+      ],
+      "before-interpreter": [
+        104.477786,
+        104.498143,
+        104.97937,
+        104.802119,
+        104.79172,
+        104.289425,
+        104.621393
+      ],
+      "before-tiered": [
+        18.548331,
+        18.335435,
+        18.113782,
+        18.330846,
+        18.61186,
+        18.181048,
+        17.875278
+      ]
+    },
+    "algorithm/binary_trees": {
+      "lua": [
+        36.020649,
+        36.577466,
+        35.933026,
+        36.212707,
+        36.203149,
+        36.113282,
+        36.209932
+      ],
+      "luajit": [
+        14.834628,
+        14.811013,
+        14.388117,
+        14.553624,
+        14.549687,
+        14.382786,
+        13.920085
+      ],
+      "oximond-interpreter": [
+        60.06326,
+        58.734275,
+        58.519405,
+        58.806239,
+        58.742892,
+        65.056826,
+        59.323062
+      ],
+      "oximond-tiered": [
+        59.647886,
+        59.930482,
+        63.549199,
+        58.438835,
+        59.342157,
+        59.280221,
+        58.952261
+      ],
+      "before-interpreter": [
+        63.634057,
+        59.357486,
+        60.684336,
+        60.542231,
+        60.244827,
+        59.785101,
+        59.544804
+      ],
+      "before-tiered": [
+        59.92388,
+        62.791208,
+        60.033324,
+        60.58474,
+        60.886251,
+        66.48211,
+        60.150672
+      ]
+    },
+    "mineclonia/captured_call": {
+      "lua": [
+        6.254524,
+        6.362445,
+        6.110777,
+        6.35464,
+        7.433609,
+        6.367234,
+        6.576984
+      ],
+      "luajit": [
+        2.1589,
+        1.9503,
+        1.805642,
+        1.705264,
+        2.767582,
+        2.049115,
+        2.024588
+      ],
+      "oximond-interpreter": [
+        16.426952,
+        16.158222,
+        16.267105,
+        16.706852,
+        19.016232,
+        16.383281,
+        16.37761
+      ],
+      "oximond-tiered": [
+        6.156161,
+        6.799609,
+        7.115928,
+        6.940241,
+        7.38031,
+        6.976779,
+        7.666543
+      ],
+      "before-interpreter": [
+        16.301398,
+        16.047436,
+        16.074275,
+        16.615102,
+        16.343015,
+        16.382078,
+        16.803442
+      ],
+      "before-tiered": [
+        6.688552,
+        6.647676,
+        7.136606,
+        7.83144,
+        6.708379,
+        7.062548,
+        6.437595
+      ]
+    },
+    "mineclonia/module_calls": {
+      "lua": [
+        25.517265,
+        25.755629,
+        26.254788,
+        25.81511,
+        25.558011,
+        26.01916,
+        26.060477
+      ],
+      "luajit": [
+        2.495286,
+        2.436286,
+        2.623364,
+        2.345857,
+        2.605831,
+        2.536332,
+        2.672476
+      ],
+      "oximond-interpreter": [
+        43.600921,
+        41.694672,
+        41.434338,
+        41.492256,
+        41.514658,
+        41.813905,
+        41.867164
+      ],
+      "oximond-tiered": [
+        12.372283,
+        13.216745,
+        12.522854,
+        13.205635,
+        12.424861,
+        12.144961,
+        11.970004
+      ],
+      "before-interpreter": [
+        42.997698,
+        42.012204,
+        42.232284,
+        42.142988,
+        41.986546,
+        41.942715,
+        41.678312
+      ],
+      "before-tiered": [
+        11.987998,
+        12.037911,
+        12.369408,
+        12.317531,
+        11.998297,
+        11.716602,
+        12.951211
+      ]
+    },
+    "mineclonia/open_results": {
+      "lua": [
+        13.768683,
+        12.95613,
+        12.990073,
+        12.808856,
+        12.586823,
+        12.624944,
+        13.141746
+      ],
+      "luajit": [
+        2.600061,
+        2.503611,
+        2.492049,
+        2.849714,
+        2.649582,
+        2.947076,
+        2.615179
+      ],
+      "oximond-interpreter": [
+        26.666585,
+        26.934904,
+        26.421889,
+        26.741264,
+        26.363602,
+        26.402513,
+        26.634736
+      ],
+      "oximond-tiered": [
+        8.577468,
+        8.37411,
+        8.244568,
+        9.141659,
+        9.74916,
+        8.349082,
+        9.006958
+      ],
+      "before-interpreter": [
+        27.018501,
+        27.696432,
+        26.972946,
+        27.296548,
+        27.009483,
+        29.017502,
+        27.654755
+      ],
+      "before-tiered": [
+        7.429281,
+        8.957065,
+        8.481079,
+        8.522086,
+        9.086085,
+        9.214975,
+        9.076507
+      ]
+    },
+    "mineclonia/ull_kernel": {
+      "lua": [
+        11.429197,
+        11.600787,
+        11.586049,
+        11.157842,
+        10.973899,
+        11.383363,
+        11.086901
+      ],
+      "luajit": [
+        2.427249,
+        2.291376,
+        1.958817,
+        1.907922,
+        2.466793,
+        2.995175,
+        2.243376
+      ],
+      "oximond-interpreter": [
+        24.273139,
+        23.342557,
+        23.306389,
+        23.417395,
+        23.492636,
+        23.480394,
+        23.948544
+      ],
+      "oximond-tiered": [
+        12.673594,
+        11.511681,
+        10.501671,
+        11.822521,
+        11.179874,
+        10.557004,
+        12.5696
+      ],
+      "before-interpreter": [
+        23.313592,
+        23.653055,
+        23.518674,
+        23.652082,
+        23.445067,
+        23.260644,
+        23.179263
+      ],
+      "before-tiered": [
+        11.492305,
+        11.100034,
+        12.552308,
+        11.567504,
+        10.401104,
+        10.879274,
+        10.724727
+      ]
+    },
+    "mineclonia/ull_arith": {
+      "lua": [
+        12.221433,
+        12.085009,
+        12.586392,
+        11.719318,
+        11.677871,
+        11.813914,
+        12.034234
+      ],
+      "luajit": [
+        2.355386,
+        2.257312,
+        2.298149,
+        1.922679,
+        2.360915,
+        2.169108,
+        2.990548
+      ],
+      "oximond-interpreter": [
+        26.11094,
+        25.940093,
+        25.884949,
+        25.609386,
+        26.104859,
+        26.006917,
+        25.791857
+      ],
+      "oximond-tiered": [
+        4.296037,
+        6.163394,
+        5.266154,
+        4.187325,
+        4.990712,
+        4.360127,
+        4.63006
+      ],
+      "before-interpreter": [
+        25.929142,
+        26.863081,
+        25.871605,
+        25.850806,
+        25.892143,
+        26.136407,
+        25.54663
+      ],
+      "before-tiered": [
+        4.836644,
+        4.335261,
+        4.933865,
+        4.029321,
+        4.244381,
+        4.640569,
+        4.728352
+      ]
+    },
+    "mineclonia/bit_wide": {
+      "lua": [
+        34.602209,
+        39.196382,
+        36.581032,
+        35.290109,
+        35.356442,
+        35.507394,
+        34.789296
+      ],
+      "luajit": [
+        1.981519,
+        2.193524,
+        1.930754,
+        2.873269,
+        2.108836,
+        2.175239,
+        1.9173
+      ],
+      "oximond-interpreter": [
+        31.031741,
+        33.420008,
+        33.285056,
+        32.090803,
+        32.552503,
+        31.661634,
+        31.876874
+      ],
+      "oximond-tiered": [
+        6.422717,
+        5.149476,
+        6.904695,
+        6.667363,
+        6.738766,
+        6.862756,
+        6.544644
+      ],
+      "before-interpreter": [
+        31.130425,
+        36.448316,
+        33.889912,
+        31.521934,
+        32.841051,
+        31.524308,
+        31.699605
+      ],
+      "before-tiered": [
+        5.282735,
+        6.966089,
+        6.687831,
+        6.829304,
+        4.873153,
+        6.130994,
+        4.981545
+      ]
+    },
+    "table/hash_read_small": {
+      "lua": [
+        48.287066,
+        47.393812,
+        46.890065,
+        47.283637,
+        47.091429,
+        46.867001,
+        46.702075
+      ],
+      "luajit": [
+        4.973569,
+        5.258189,
+        5.374786,
+        6.156702,
+        5.719007,
+        5.56511,
+        6.544844
+      ],
+      "oximond-interpreter": [
+        54.212036,
+        52.580058,
+        52.42523,
+        54.231753,
+        52.709689,
+        53.497566,
+        53.512224
+      ],
+      "oximond-tiered": [
+        38.741335,
+        39.169402,
+        39.461415,
+        39.750904,
+        38.592036,
+        38.614558,
+        38.946707
+      ],
+      "before-interpreter": [
+        52.609944,
+        52.664134,
+        62.569935,
+        51.709698,
+        53.050062,
+        52.899773,
+        52.290598
+      ],
+      "before-tiered": [
+        52.177139,
+        51.050961,
+        51.755863,
+        56.387315,
+        54.219281,
+        51.622105,
+        51.883711
+      ]
+    },
+    "table/hash_read_shaped": {
+      "lua": [
+        48.834525,
+        48.172141,
+        48.464356,
+        48.615327,
+        48.751901,
+        48.422739,
+        48.989644
+      ],
+      "luajit": [
+        6.046797,
+        5.820386,
+        6.295891,
+        6.681609,
+        5.587492,
+        5.734366,
+        5.368385
+      ],
+      "oximond-interpreter": [
+        52.085227,
+        52.261445,
+        52.230987,
+        54.744207,
+        52.659987,
+        51.713665,
+        52.53274
+      ],
+      "oximond-tiered": [
+        36.275394,
+        35.68218,
+        36.297244,
+        37.730132,
+        35.892641,
+        36.126175,
+        37.569292
+      ],
+      "before-interpreter": [
+        52.206312,
+        52.054189,
+        52.099553,
+        52.227923,
+        51.977846,
+        51.656549,
+        52.008955
+      ],
+      "before-tiered": [
+        51.300857,
+        51.355648,
+        52.067414,
+        51.282032,
+        51.479499,
+        52.449906,
+        52.137744
+      ]
+    },
+    "table/hash_read_indexed": {
+      "lua": [
+        42.025809,
+        47.512043,
+        42.109204,
+        42.384046,
+        43.34239,
+        43.641106,
+        49.012436
+      ],
+      "luajit": [
+        6.692169,
+        6.331407,
+        6.994602,
+        6.300339,
+        6.338791,
+        6.339492,
+        6.475595
+      ],
+      "oximond-interpreter": [
+        49.152547,
+        48.980086,
+        48.408311,
+        53.063368,
+        49.319417,
+        48.826771,
+        53.110595
+      ],
+      "oximond-tiered": [
+        38.112804,
+        37.903355,
+        36.986337,
+        39.010986,
+        37.072969,
+        37.156954,
+        44.643572
+      ],
+      "before-interpreter": [
+        48.838943,
+        48.661222,
+        48.715734,
+        49.889479,
+        49.598006,
+        49.425816,
+        49.885742
+      ],
+      "before-tiered": [
+        48.998751,
+        48.945151,
+        49.118695,
+        48.707839,
+        49.007988,
+        49.644994,
+        50.621251
+      ]
+    },
+    "table/heap_redundancy": {
+      "lua": [
+        53.837139,
+        52.446078,
+        69.235745,
+        54.317152,
+        55.203552,
+        81.400774,
+        54.245609
+      ],
+      "luajit": [
+        5.31201,
+        6.549823,
+        4.99049,
+        5.193169,
+        5.275712,
+        5.433575,
+        5.145208
+      ],
+      "oximond-interpreter": [
+        61.433299,
+        61.579582,
+        62.079122,
+        61.160973,
+        60.694304,
+        61.29906,
+        60.786125
+      ],
+      "oximond-tiered": [
+        8.279664,
+        7.761931,
+        8.334736,
+        7.655723,
+        7.669989,
+        7.817142,
+        7.150212
+      ],
+      "before-interpreter": [
+        61.030059,
+        61.06755,
+        61.910649,
+        60.46638,
+        60.616579,
+        61.21325,
+        61.137469
+      ],
+      "before-tiered": [
+        7.930775,
+        8.167195,
+        8.367167,
+        7.702159,
+        10.187135,
+        7.538484,
+        7.427698
+      ]
+    },
+    "allocation/ctor_array": {
+      "lua": [
+        36.123621,
+        36.051647,
+        36.052609,
+        35.744175,
+        35.583596,
+        36.003778,
+        36.17151
+      ],
+      "luajit": [
+        11.659056,
+        11.335042,
+        12.148346,
+        12.206294,
+        11.742782,
+        12.017964,
+        11.718005
+      ],
+      "oximond-interpreter": [
+        57.951628,
+        58.030374,
+        58.476435,
+        58.54939,
+        58.655799,
+        57.770751,
+        58.281162
+      ],
+      "oximond-tiered": [
+        4.458019,
+        5.097329,
+        4.893049,
+        4.54467,
+        4.424337,
+        4.43671,
+        4.782504
+      ],
+      "before-interpreter": [
+        61.598818,
+        60.8743,
+        61.54634,
+        61.307004,
+        61.586715,
+        60.75098,
+        61.723239
+      ],
+      "before-tiered": [
+        60.820118,
+        61.166884,
+        61.563954,
+        60.534888,
+        60.864732,
+        61.121109,
+        61.102184
+      ]
+    },
+    "allocation/ctor_fields": {
+      "lua": [
+        54.146684,
+        53.38214,
+        53.824204,
+        52.809195,
+        53.23685,
+        52.747059,
+        52.873063
+      ],
+      "luajit": [
+        3.082288,
+        3.058334,
+        3.250532,
+        3.046692,
+        3.012298,
+        3.061449,
+        3.03501
+      ],
+      "oximond-interpreter": [
+        51.908398,
+        50.741585,
+        50.457577,
+        51.239252,
+        51.210949,
+        52.145459,
+        50.903376
+      ],
+      "oximond-tiered": [
+        4.755593,
+        5.354278,
+        4.624088,
+        4.816747,
+        4.565079,
+        4.027508,
+        4.763007
+      ],
+      "before-interpreter": [
+        51.443852,
+        51.578153,
+        50.224513,
+        50.426108,
+        50.802047,
+        50.370304,
+        50.990669
+      ],
+      "before-tiered": [
+        50.336061,
+        49.938029,
+        49.985207,
+        49.6163,
+        50.568654,
+        50.357099,
+        50.810083
+      ]
+    },
+    "allocation/ctor_mixed": {
+      "lua": [
+        49.794261,
+        49.22953,
+        48.297464,
+        48.389355,
+        48.906669,
+        49.018377,
+        48.531941
+      ],
+      "luajit": [
+        3.1363,
+        3.269276,
+        3.256913,
+        3.393547,
+        2.835699,
+        2.80957,
+        3.138462
+      ],
+      "oximond-interpreter": [
+        56.420197,
+        56.847723,
+        57.424708,
+        57.460314,
+        56.804842,
+        56.917733,
+        56.171203
+      ],
+      "oximond-tiered": [
+        5.839802,
+        5.056433,
+        5.135831,
+        5.239043,
+        5.027089,
+        5.26904,
+        5.118469
+      ],
+      "before-interpreter": [
+        57.16862,
+        57.681565,
+        56.870506,
+        57.139487,
+        60.569211,
+        58.219527,
+        56.526415
+      ],
+      "before-tiered": [
+        56.270057,
+        57.067442,
+        56.484346,
+        56.363852,
+        57.985672,
+        56.672566,
+        56.322996
+      ]
+    },
+    "allocation/ctor_side_exit": {
+      "lua": [
+        54.50369,
+        57.755914,
+        49.772641,
+        51.435396,
+        51.019293,
+        51.972417,
+        50.760511
+      ],
+      "luajit": [
+        3.930507,
+        3.715357,
+        3.556141,
+        3.675783,
+        3.399399,
+        3.833787,
+        3.594482
+      ],
+      "oximond-interpreter": [
+        73.85762,
+        70.920793,
+        72.805251,
+        73.42802,
+        72.543805,
+        72.370972,
+        69.838348
+      ],
+      "oximond-tiered": [
+        15.022768,
+        15.087809,
+        15.395461,
+        15.691573,
+        15.088941,
+        14.526825,
+        15.096875
+      ],
+      "before-interpreter": [
+        77.055954,
+        75.028019,
+        75.731378,
+        76.100927,
+        78.587185,
+        73.330288,
+        73.008139
+      ],
+      "before-tiered": [
+        76.370678,
+        77.012313,
+        72.57889,
+        78.704845,
+        73.735032,
+        77.501243,
+        72.24122
+      ]
+    },
+    "opt/field_reload": {
+      "lua": [
+        78.918452,
+        77.91828,
+        77.546929,
+        79.758185,
+        91.504183,
+        76.514126,
+        76.507804
+      ],
+      "luajit": [
+        12.624854,
+        12.98838,
+        13.281316,
+        12.700906,
+        13.177662,
+        12.822572,
+        12.598134
+      ],
+      "oximond-interpreter": [
+        97.818358,
+        97.942628,
+        97.119586,
+        97.08374,
+        108.115768,
+        107.505392,
+        96.800753
+      ],
+      "oximond-tiered": [
+        13.726333,
+        13.209321,
+        13.243425,
+        13.383396,
+        14.031401,
+        13.299459,
+        13.589609
+      ],
+      "before-interpreter": [
+        103.194156,
+        97.906552,
+        97.423622,
+        97.326651,
+        97.79302,
+        101.685106,
+        96.434972
+      ],
+      "before-tiered": [
+        13.519298,
+        13.271629,
+        13.033555,
+        13.547,
+        13.978143,
+        13.331679,
+        12.756468
+      ]
+    },
+    "opt/store_load": {
+      "lua": [
+        67.505915,
+        67.401451,
+        67.208452,
+        67.326401,
+        67.668718,
+        68.081757,
+        67.000424
+      ],
+      "luajit": [
+        10.282854,
+        9.583442,
+        9.582389,
+        9.381114,
+        9.569937,
+        10.430899,
+        9.68449
+      ],
+      "oximond-interpreter": [
+        110.843315,
+        110.383489,
+        109.548596,
+        109.898186,
+        109.881796,
+        110.191933,
+        109.293531
+      ],
+      "oximond-tiered": [
+        10.676305,
+        10.191633,
+        10.909279,
+        10.803924,
+        10.475282,
+        10.330231,
+        10.604072
+      ],
+      "before-interpreter": [
+        108.070344,
+        107.568699,
+        107.951572,
+        107.729229,
+        106.951861,
+        107.313945,
+        107.475185
+      ],
+      "before-tiered": [
+        10.355197,
+        10.589274,
+        10.787413,
+        10.720538,
+        10.422944,
+        10.535453,
+        10.700511
+      ]
+    },
+    "opt/alias_holder": {
+      "lua": [
+        52.735557,
+        52.454283,
+        51.396795,
+        51.476914,
+        53.711915,
+        53.423788,
+        52.915241
+      ],
+      "luajit": [
+        10.202384,
+        10.256825,
+        10.51725,
+        10.271482,
+        9.994457,
+        11.055702,
+        10.383601
+      ],
+      "oximond-interpreter": [
+        128.944224,
+        128.918266,
+        129.287924,
+        129.301329,
+        129.686717,
+        128.709156,
+        128.730085
+      ],
+      "oximond-tiered": [
+        10.822849,
+        10.981284,
+        10.983839,
+        11.020146,
+        10.773136,
+        10.933104,
+        10.545192
+      ],
+      "before-interpreter": [
+        124.262679,
+        124.349058,
+        124.209519,
+        124.514266,
+        125.185706,
+        124.135161,
+        123.562726
+      ],
+      "before-tiered": [
+        10.941139,
+        11.53277,
+        11.640481,
+        10.547516,
+        10.88769,
+        11.136753,
+        10.64077
+      ]
+    },
+    "opt/invariant_field": {
+      "lua": [
+        93.69409,
+        80.914828,
+        105.968279,
+        59.56416,
+        60.181469,
+        59.006201,
+        59.196846
+      ],
+      "luajit": [
+        9.950245,
+        13.833574,
+        10.381537,
+        10.621504,
+        10.875768,
+        10.974822,
+        9.970783
+      ],
+      "oximond-interpreter": [
+        59.34382,
+        104.356499,
+        79.539207,
+        60.678675,
+        59.662012,
+        59.559732,
+        59.435179
+      ],
+      "oximond-tiered": [
+        12.66579,
+        26.636749,
+        19.267731,
+        12.693641,
+        12.468633,
+        12.697549,
+        12.539304
+      ],
+      "before-interpreter": [
+        59.037569,
+        95.695235,
+        108.517375,
+        60.599177,
+        59.751829,
+        60.219971,
+        59.012963
+      ],
+      "before-tiered": [
+        12.799238,
+        13.623913,
+        13.06337,
+        13.534747,
+        13.400508,
+        12.807964,
+        12.561816
+      ]
+    }
+  }
+}

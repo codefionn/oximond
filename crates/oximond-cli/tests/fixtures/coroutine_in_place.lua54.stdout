@@ -1,0 +1,102 @@
+values 1 true 1 s1 extra 1 nil false
+fewer 1 true nil!
+values 2 true
+fewer 2 true nil
+values 3 true 3!
+fewer 3 true nil
+values 4 true 4 s4 extra 7 nil false
+fewer 4 true nil!
+values 5 true
+fewer 5 true nil
+values 6 true 6!
+fewer 6 true nil
+values 7 true 7 s7 extra 13 nil false
+fewer 7 true nil!
+values 8 true
+fewer 8 true nil
+values 9 true 9!
+fewer 9 true nil
+inner running normal true
+yieldable true
+outer running suspended true 1
+main suspended suspended true 1
+inner running normal true
+yieldable true
+outer running suspended true 2
+main suspended suspended true 2
+inner running normal true
+yieldable true
+outer running suspended true 3
+main suspended suspended true 3
+inner running normal true
+yieldable true
+outer running suspended true 4
+main suspended suspended true 4
+outer running suspended true inner done
+main suspended suspended true 5
+outer running dead false cannot resume dead coroutine
+main suspended dead true 6
+after suspended dead false cannot resume dead coroutine
+ending 1 suspended true 1
+ending 2 suspended true 2
+ending 3 suspended true 3
+ending 4 suspended true 4
+ending 5 suspended true done 4
+ending 6 dead false cannot resume dead coroutine
+ending 7 dead false cannot resume dead coroutine
+error 1 true 1
+error 2 true 2
+error 3 false coroutine_in_place.lua:78: failed at 3
+error 4 false cannot resume dead coroutine
+error 5 false cannot resume dead coroutine
+wrapped error 1 true 1
+wrapped error 2 true 2
+wrapped error 3 false coroutine_in_place.lua:85: attempt to index a nil value (local 't')
+wrapped error 4 false cannot resume dead coroutine
+wrapped error 5 false cannot resume dead coroutine
+object 1
+object error false table 7
+object dead false cannot resume dead coroutine
+deep 1 true 0
+deep 2 true 2
+deep 3 true 7
+deep 4 true 14
+deep 5 true 21
+deep 6 true 28
+deep 7 true 35
+deep 8 true 46
+deep 9 true 57
+deep 10 true 68
+deep 11 true 79
+deep 12 true 94
+guarded true 1
+pcall in thread true plain
+guarded true 2
+pcall in thread false raised 2
+guarded true 3
+pcall in thread true plain
+guarded true 4
+pcall in thread false raised 4
+guarded true guarded done
+guarded false cannot resume dead coroutine
+resume resumer false
+resume self false
+resume resumer false
+resume self false
+resume resumer false
+resume self false
+generator 8400 400
+globals 70300
+collected item1:1:1 item2:2:2 item3:3:3 item4:4:4 item5:5:5 item6:6:6 item7:7:7 item8:8:8 item9:9:9 item10:10:10 item11:11:11 item12:12:12 item13:13:13 item14:14:14 item15:15:15 item16:16:16 item17:17:17 item18:18:18 item19:19:19 item20:20:20
+hooked 1 true 1
+hooked 2 true 2
+hooked 3 true 3
+hooked 4 true 4
+hooked 5 true 5
+hooked 6 true 6
+hooked 7 true
+hook calls true
+traceback true trace 1 true
+traceback true trace 2 true
+traceback true trace 3 true
+driver 1480309

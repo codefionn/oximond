@@ -1,0 +1,27 @@
+concat	true	
+concat-ij	false	
+unpack	true	
+unpack-ij	true	
+insert	true	
+insert-pos	true	
+remove	true	
+remove-pos	true	
+move	true	
+ipairs	nil	
+ipairs-index-only	nil	
+unpack-index-only	true	
+concat-index-only	false	
+concat-len-only	true	
+unpack-len-only	true	
+insert-len-only	true	
+3	9
+0	0
+451500	0
+0	0
+1600	0
+100	1,2,3,4,5
+100	200	200	99
+false	wrong number of arguments to 'insert'
+false	wrong number of arguments to 'insert'
+false	invalid value (table) at index 1 in table for 'concat'
+true	nil

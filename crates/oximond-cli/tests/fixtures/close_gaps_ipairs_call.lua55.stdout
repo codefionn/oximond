@@ -1,0 +1,12 @@
+true	1	10
+true	1	10
+true	nil
+false	C stack overflow
+false	C stack overflow
+2	true	nil
+true	false	attempt to yield across a C-call boundary
+false	bad argument #2 to '?' (number expected, got string)
+false	bad argument #2 to '?' (number expected, got no value)
+false	bad argument #2 to '?' (number has no integer representation)
+true	3	3
+false	close_gaps_ipairs_call.lua:18: bad argument #2 to 'index' (number expected, got string)

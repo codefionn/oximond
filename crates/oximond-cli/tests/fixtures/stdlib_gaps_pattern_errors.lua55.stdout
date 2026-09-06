@@ -1,0 +1,42 @@
+[a	false	malformed pattern (missing ']')
+[a	false	malformed pattern (missing ']')
+[a	false	malformed pattern (missing ']')
+[a	false	stdlib_gaps_pattern_errors.lua:7: malformed pattern (missing ']')
+%	false	malformed pattern (ends with '%')
+%	false	malformed pattern (ends with '%')
+%	false	malformed pattern (ends with '%')
+%	false	stdlib_gaps_pattern_errors.lua:7: malformed pattern (ends with '%')
+%b	false	malformed pattern (missing arguments to '%b')
+%b	false	malformed pattern (missing arguments to '%b')
+%b	false	malformed pattern (missing arguments to '%b')
+%b	false	stdlib_gaps_pattern_errors.lua:7: malformed pattern (missing arguments to '%b')
+%bx	false	malformed pattern (missing arguments to '%b')
+%bx	false	malformed pattern (missing arguments to '%b')
+%bx	false	malformed pattern (missing arguments to '%b')
+%bx	false	stdlib_gaps_pattern_errors.lua:7: malformed pattern (missing arguments to '%b')
+%f	false	missing '[' after '%f' in pattern
+%f	false	missing '[' after '%f' in pattern
+%f	false	missing '[' after '%f' in pattern
+%f	false	stdlib_gaps_pattern_errors.lua:7: missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	stdlib_gaps_pattern_errors.lua:7: missing '[' after '%f' in pattern
+%1	false	invalid capture index %1
+%1	false	invalid capture index %1
+%1	false	invalid capture index %1
+%1	false	stdlib_gaps_pattern_errors.lua:7: invalid capture index %1
+(a)%2	false	invalid capture index %2
+(a)%2	false	invalid capture index %2
+(a)%2	false	invalid capture index %2
+(a)%2	false	stdlib_gaps_pattern_errors.lua:7: invalid capture index %2
+[%	false	malformed pattern (missing ']')
+[%	false	malformed pattern (missing ']')
+[%	false	malformed pattern (missing ']')
+[%	false	stdlib_gaps_pattern_errors.lua:7: malformed pattern (missing ']')
+false	unfinished capture
+false	unfinished capture
+2	function
+true	created
+false	stdlib_gaps_pattern_errors.lua:14: malformed pattern (missing ']')
+false	stdlib_gaps_pattern_errors.lua:15: malformed pattern (missing ']')

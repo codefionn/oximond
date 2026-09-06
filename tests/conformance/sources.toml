@@ -1,0 +1,55 @@
+# Machine-readable source manifest. These inputs stay outside released packages.
+format = 1
+
+[[source]]
+corpus = "lua51"
+kind = "archive"
+url = "https://www.lua.org/tests/lua5.1-tests.tar.gz"
+pin = "49e4ca6561f82ea605908c5041ab5fad66ed9930fa0686675bd51b02767f18ad"
+archive = "lua5.1-tests.tar.gz"
+directory = "lua51"
+patches = "patches/lua51-no-testc.patch"
+
+[[source]]
+corpus = "lua52"
+kind = "archive"
+url = "https://www.lua.org/tests/lua-5.2.2-tests.tar.gz"
+pin = "07c1071c66d9cb4dc80200ed430fc21ebbbccf1f55148b87eb0b9522932e4eb6"
+archive = "lua-5.2.2-tests.tar.gz"
+directory = "lua52"
+patches = "patches/lua52-no-testc.patch"
+
+[[source]]
+corpus = "lua53"
+kind = "archive"
+url = "https://www.lua.org/tests/lua-5.3.4-tests.tar.gz"
+pin = "b80771238271c72565e5a1183292ef31bd7166414cd0d43a8eb79845fa7f599f"
+archive = "lua-5.3.4-tests.tar.gz"
+directory = "lua53"
+patches = "patches/lua53-no-testc.patch"
+
+[[source]]
+corpus = "lua54"
+kind = "archive"
+url = "https://www.lua.org/tests/lua-5.4.9-tests.tar.gz"
+pin = "7d971845f545ffc09fbb3128a86b2c6524161c70d0fdf0154a16e8c00c343fca"
+archive = "lua-5.4.9-tests.tar.gz"
+directory = "lua54"
+patches = "patches/lua54-no-testc.patch"
+
+[[source]]
+corpus = "lua55"
+kind = "archive"
+url = "https://www.lua.org/tests/lua-5.5.1-tests.tar.gz"
+pin = "da07b543872dc0bb2ff12aabd0c248578d78df3eb6b67efdc537a46d455c7f31"
+archive = "lua-5.5.1-tests.tar.gz"
+directory = "lua55"
+patches = "patches/lua55-no-testc.patch"
+
+[[source]]
+corpus = "luajit"
+kind = "git"
+url = "https://github.com/LuaJIT/LuaJIT-test-cleanup.git"
+pin = "014708bceb70550a3ab8d539cff14d9085ca9cb8"
+archive = "git-checkout"
+directory = "luajit"

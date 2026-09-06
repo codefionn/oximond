@@ -1,0 +1,69 @@
+[package]
+name = "oximond"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Embed the Oximond Lua runtime: one builder wires the VM, compiler, and standard library."
+repository.workspace = true
+build = "build.rs"
+
+# One library crate: the Lua front end (syntax, compiler, bytecode), the engine
+# (runtime, stdlib, VM), and the trace engine (jit_ir, jit) are modules of it.
+# The public embedder API stays at the crate root; the modules are public so
+# tools and tests can reach loader seams, counters, and values.
+
+[dependencies]
+bincode.workspace = true
+chrono.workspace = true
+hashbrown.workspace = true
+memchr.workspace = true
+rustc-hash.workspace = true
+serde.workspace = true
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+cranelift-codegen.workspace = true
+cranelift-frontend.workspace = true
+cranelift-jit.workspace = true
+cranelift-module.workspace = true
+
+# The opt-in second native backend (`OXIMOND_JIT_BACKEND=mir`). Its machine
+# code emitter is x86-64 only, and it maps its code region with Linux's mmap.
+[target.'cfg(all(any(target_os = "linux", windows), target_arch = "x86_64"))'.dependencies]
+oximond-mir.workspace = true
+
+# Compiles the libffi shims of the `ffi_native` module; see build.rs.
+[build-dependencies]
+cc.workspace = true
+
+[features]
+# Process-wide operation counters for performance measurements; see
+# runtime/op_stats.rs.
+op-stats = []
+# Per-thread allocation phases for the CLI's counting allocator; see
+# runtime/alloc_phase.rs.
+alloc-phases = []
+
+# The workspace forbids unsafe code. This crate is `deny` instead, because the
+# `ffi_native` module (libffi shims) declares native ABIs and follows pointers
+# a C declaration vouches for. Every other module tightens to `forbid` or
+# `deny` on its own, so unsafe stays confined to `ffi_native`.
+[lints.rust]
+unsafe_code = "deny"
+
+# Kept in step with the workspace lint policy (see the root Cargo.toml): the
+# families a Lua VM and its FFI legitimately violate everywhere are allowed
+# once, everything else pedantic reports is fixed at the site it reports it.
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+cast_possible_truncation = "allow"
+cast_possible_wrap = "allow"
+cast_precision_loss = "allow"
+cast_sign_loss = "allow"
+cast_ptr_alignment = "allow"
+checked_conversions = "allow"
+inline_always = "allow"
+too_many_lines = "allow"
+too_many_arguments = "allow"
+unnecessary_wraps = "allow"

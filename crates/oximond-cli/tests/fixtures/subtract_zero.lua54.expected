@@ -1,0 +1,38 @@
+0	0	-0	0	0	0	0	0
+-0	0	0	-127	-128	127	128
+0	0	-0	0	0
+0	0	-1	0
+-0	-0	-0	0
+0	0	-0
+0	0	-0	0
+0 0 0 
+0
+-0	-0	0	0
+-65535	-65535	-255	-256	-32767	-32768
+-65536
+-0
+sub
+false	subtract_zero.lua:26: attempt to perform arithmetic on a nil value (local 'n')
+false	subtract_zero.lua:27: attempt to perform arithmetic on a table value
+-0.0	5	integer	0	integer	5	5.5	integer
+inf	inf	inf	-nan
+inf	inf	inf	inf
+inf	3	-9223372036854775808	9.2233720368548e+18
+inf	inf	inf	inf	-inf
+0	0	0
+0	0	0
+-0	0
+0
+-0
+0
+0	0	0	0	0	0	0
+0	0	0	0	0
+-0
+0
+0
+0
+-0	-0	0
+0
+-0
+-0
+-0

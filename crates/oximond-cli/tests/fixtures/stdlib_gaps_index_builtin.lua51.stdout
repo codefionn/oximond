@@ -1,0 +1,9 @@
+nil	nil
+false
+5
+string
+false	stdlib_gaps_index_builtin.lua:12: bad argument #1 to '?' (function expected, got table)
+false	stdlib_gaps_index_builtin.lua:13: bad argument #1 to '?' (function expected, got table)
+false	stdlib_gaps_index_builtin.lua:15: bad argument #1 to '?' (function expected, got table)
+false
+false	bad argument #1 to '?' (function expected, got string)

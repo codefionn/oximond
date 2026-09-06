@@ -1,0 +1,62 @@
+false	t:4: p
+pcall	3
+false	t:6: x
+lua handler	12
+false	t:8: y
+c handler	2
+true	2
+ok path	2
+false	table
+table error	6
+false	t:15: deep
+nested	20
+pcall	0	s	false	s
+xpcall	0	s	false	s
+direct	0	s	false	s
+pcall	1	s	false	t:19: s
+xpcall	1	s	false	t:19: s
+direct	1	s	false	s
+pcall	2	s	false	t:20: s
+xpcall	2	s	false	t:20: s
+direct	2	s	false	t:25: s
+pcall	3	s	false	t:20: s
+xpcall	3	s	false	t:20: s
+pcall	0	42	false	42
+xpcall	0	42	false	42
+direct	0	42	false	42
+pcall	1	42	false	t:19: 42
+xpcall	1	42	false	t:19: 42
+direct	1	42	false	42
+pcall	2	42	false	t:20: 42
+xpcall	2	42	false	t:20: 42
+direct	2	42	false	t:25: 42
+pcall	3	42	false	t:20: 42
+xpcall	3	42	false	t:20: 42
+2
+require	1	false	t:35: m
+require	2	false	m
+require	3	false	t:42: m
+tostring	1	false	t:35: m
+tostring	2	false	m
+tostring	3	false	t:44: m
+format	1	false	t:45: bad argument #2 to 'format' (string expected, got table)
+format	2	false	t:45: bad argument #2 to 'format' (string expected, got table)
+format	3	false	t:45: bad argument #2 to 'format' (string expected, got table)
+sort	1	false	t:35: m
+sort	2	false	t:46: m
+sort	3	false	m
+gsub	1	false	t:35: m
+gsub	2	false	t:47: m
+gsub	3	false	m
+gc	1	false	t:35: m
+gc	2	false	m
+gc	3	false	t:53: m
+tail	1	msg	false	t:57: msg
+tail	2	msg	false	msg
+tail	3	msg	false	t:59: msg
+tail	4	msg	false	msg
+tail	1	42	false	t:57: 42
+tail	2	42	false	42
+tail	3	42	false	t:59: 42
+tail	4	42	false	42
+loop	160400	800

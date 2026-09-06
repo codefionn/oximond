@@ -1,0 +1,142 @@
+diff --git a/cmake/Modules/FindLua.cmake b/cmake/Modules/FindLua.cmake
+index a239046..24200de 100644
+--- a/cmake/Modules/FindLua.cmake
++++ b/cmake/Modules/FindLua.cmake
+@@ -2,12 +2,31 @@
+ # This selects LuaJIT by default
+ 
+ option(ENABLE_LUAJIT "Enable LuaJIT support" TRUE)
++option(ENABLE_OXIMOND "Use the Oximond Lua 5.1 engine" FALSE)
+ set(USE_LUAJIT FALSE)
++set(USE_OXIMOND FALSE)
+ option(REQUIRE_LUAJIT "Require LuaJIT support" FALSE)
+ if(REQUIRE_LUAJIT)
+ 	set(ENABLE_LUAJIT TRUE)
+ endif()
+-if(ENABLE_LUAJIT)
++if(ENABLE_OXIMOND)
++	if(NOT OXIMOND_LIBRARY OR NOT EXISTS "${OXIMOND_LIBRARY}")
++		message(FATAL_ERROR "ENABLE_OXIMOND requires OXIMOND_LIBRARY pointing to liboximond_capi.a")
++	endif()
++	set(USE_OXIMOND TRUE)
++	set(LUA_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/lib/lua/src")
++	set(OXIMOND_BRIDGE "${CMAKE_SOURCE_DIR}/../../../crates/oximond-capi/bridge.cpp" CACHE FILEPATH "Oximond C++ exception bridge")
++	if(NOT EXISTS "${OXIMOND_BRIDGE}")
++		message(FATAL_ERROR "Oximond bridge not found: ${OXIMOND_BRIDGE}")
++	endif()
++	add_library(oximond_lua_aux STATIC
++		"${CMAKE_SOURCE_DIR}/lib/lua/src/lauxlib.c"
++		"${OXIMOND_BRIDGE}")
++	set_source_files_properties("${CMAKE_SOURCE_DIR}/lib/lua/src/lauxlib.c" PROPERTIES LANGUAGE CXX)
++	target_include_directories(oximond_lua_aux PRIVATE "${LUA_INCLUDE_DIR}")
++	set(LUA_LIBRARY oximond_lua_aux "${OXIMOND_LIBRARY}")
++	message(STATUS "Using Oximond: ${OXIMOND_LIBRARY}")
++elseif(ENABLE_LUAJIT)
+ 	find_package(LuaJIT)
+ 	if(LUAJIT_FOUND)
+ 		set(USE_LUAJIT TRUE)
+@@ -20,7 +39,7 @@ else()
+ 	message (STATUS "LuaJIT detection disabled! (ENABLE_LUAJIT=0)")
+ endif()
+ 
+-if(NOT USE_LUAJIT)
++if(NOT USE_LUAJIT AND NOT USE_OXIMOND)
+ 	message(STATUS "LuaJIT not found, using bundled Lua.")
+ 	set(LUA_LIBRARY lua)
+ 	set(LUA_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib/lua/src)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 0d599fb..dcc8cdf 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -620,7 +620,7 @@ endif()
+ # When cross-compiling place the executable in <build dir>/bin so that multiple
+ # targets can be built from the same source folder. Otherwise, place it in
+ # <source dir>/bin/ since Luanti can only run from there.
+-if(CMAKE_CROSSCOMPILING)
++if(CMAKE_CROSSCOMPILING OR OXIMOND_SIDE_BY_SIDE)
+ 	set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}/bin")
+ else()
+ 	set(EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/bin")
+@@ -906,7 +906,7 @@ if(USE_LUAJIT)
+ 			"THIS APPLIES ESPECIALLY ON macOS OR Linux/aarch64!")
+ 		message(WARNING ${explanation_msg})
+ 	endif()
+-elseif(NOT MSVC)
++elseif(NOT MSVC AND NOT USE_OXIMOND)
+ 	set(CMAKE_REQUIRED_LIBRARIES "")
+ 	unset(HAVE_ATCCALL CACHE)
+ 	# Note: we need to check the function without having the library
+diff --git a/src/cmake_config.h.in b/src/cmake_config.h.in
+index eef87e6..1c08e2c 100644
+--- a/src/cmake_config.h.in
++++ b/src/cmake_config.h.in
+@@ -23,6 +23,7 @@
+ #cmakedefine01 USE_CURSES
+ #cmakedefine01 USE_LEVELDB
+ #cmakedefine01 USE_LUAJIT
++#cmakedefine01 USE_OXIMOND
+ #cmakedefine01 USE_POSTGRESQL
+ #cmakedefine01 USE_PROMETHEUS
+ #cmakedefine01 USE_SPATIAL
+diff --git a/src/main.cpp b/src/main.cpp
+index 5c4af8c..c883e00 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -493,6 +493,8 @@ static void print_version(std::ostream &os)
+ 	<< " (OpenResty)"
+ #endif
+ 	<< std::endl;
++#elif USE_OXIMOND
++	os << "Using Oximond (Lua 5.1 compatible)" << std::endl;
+ #else
+ 	os << "Using " << LUA_RELEASE << std::endl;
+ #endif
+diff --git a/src/script/cpp_api/s_base.cpp b/src/script/cpp_api/s_base.cpp
+index 812d530..7c36c8a 100644
+--- a/src/script/cpp_api/s_base.cpp
++++ b/src/script/cpp_api/s_base.cpp
+@@ -79,9 +79,19 @@ ScriptApiBase::ScriptApiBase(ScriptingType type):
+ 		luaL_openlibs(m_luastack);
+ 
+ 	// Load bit library
+-	lua_pushcfunction(m_luastack, luaopen_bit);
+-	lua_pushstring(m_luastack, LUA_BITLIBNAME);
+-	lua_call(m_luastack, 1, 0);
++#if USE_OXIMOND
++	// Oximond's LuaJIT dialect has a native bit library; keep it instead of
++	// replacing it with C functions called through the C API.
++	lua_getglobal(m_luastack, LUA_BITLIBNAME);
++	const bool have_bit = !lua_isnil(m_luastack, -1);
++	lua_pop(m_luastack, 1);
++	if (!have_bit)
++#endif
++	{
++		lua_pushcfunction(m_luastack, luaopen_bit);
++		lua_pushstring(m_luastack, LUA_BITLIBNAME);
++		lua_call(m_luastack, 1, 0);
++	}
+ 
+ 	// Load string.{pack,unpack,packsize}
+ 	setup_lstrpack(m_luastack);
+@@ -107,7 +117,7 @@ ScriptApiBase::ScriptApiBase(ScriptingType type):
+ 	lua_pushlightuserdata(m_luastack, (void*) script_exception_wrapper);
+ 	luaJIT_setmode(m_luastack, -1, LUAJIT_MODE_WRAPCFUNC | LUAJIT_MODE_ON);
+ 	lua_pop(m_luastack, 1);
+-#else
++#elif !USE_OXIMOND
+ 	// (This is a custom API from the bundled Lua.)
+ 	lua_atccall(m_luastack, script_exception_wrapper);
+ #endif
+diff --git a/src/unittest/test_lua.cpp b/src/unittest/test_lua.cpp
+index e32b66e..48448ee 100644
+--- a/src/unittest/test_lua.cpp
++++ b/src/unittest/test_lua.cpp
+@@ -113,7 +113,7 @@ void TestLua::testCxxExceptions()
+ 	lua_pushlightuserdata(L, reinterpret_cast<void*>(wrapper));
+ 	luaJIT_setmode(L, -1, LUAJIT_MODE_WRAPCFUNC | LUAJIT_MODE_ON);
+ 	lua_pop(L, 1);
+-#else
++#elif !USE_OXIMOND
+ 	lua_atccall(L, wrapper);
+ #endif
+ 

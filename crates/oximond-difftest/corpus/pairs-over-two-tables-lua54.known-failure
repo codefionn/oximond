@@ -1,0 +1,2 @@
+# wrong sums when a pairs loop alternates between two tables (found by the stage 8 numbers unit)
+tracing:stdout@o1

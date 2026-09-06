@@ -1,0 +1,35 @@
+-- Error messages and edge cases of concatenation, table.concat, string.format
+-- and plain string.find, which take in-place fast paths when nothing is wrong.
+local function try(f, ...)
+  local ok, err = pcall(f, ...)
+  print(ok, ok and err or (tostring(err):gsub("^.-:%d+: ", "")))
+end
+local t, n = {}, nil
+try(function() return "a" .. n end)
+try(function() return n .. "a" end)
+try(function() return 1 .. t end)
+try(function() local x = {} return "a" .. 1 .. x .. "b" end)
+try(function() return ("x"):rep(40) .. 1.5 .. true end)
+try(table.concat, {1, 2, {}, 4})
+try(table.concat, {1, 2, nil, 4}, ",", 1, 4)
+try(table.concat, {1, 2, 3}, ",", 1, 5)
+try(table.concat, {1, "a", 2.5}, 7)
+try(table.concat, {}, ",")
+try(table.concat, {"a"}, ",", 2, 1)
+try(table.concat, {"a", "b", "c"}, ",", 2)
+try(table.concat, {"a", "b", "c"}, ",", 2, 2)
+try(table.concat, {"a", "b", "c"}, ",", -1, 1)
+try(table.concat, 5)
+try(table.concat, {1, 2}, {})
+try(string.format, "%s", true)
+try(string.format, "%d", "x")
+try(string.format, "%5.2s|%-5s|%5s", "abc", "ab", "ab")
+try(string.format, "%s %s", 1)
+try(string.format, "%s", nil)
+print(table.concat({1, 2.5, "x", -3}, "-"), table.concat({"a", "b", "c"}, ", ", 2, 3))
+print(string.format("[%5.2s][%-5s][%5s][%s]", "abc", "ab", "ab", ("z"):rep(40)))
+print(string.find("haystack", "stack", 1, true), string.find("haystack", "stack", 5, true),
+  string.find("haystack", "", 9, true), string.find("haystack", "hay", -3, true),
+  string.find("a", "ab", 1, true), string.find("", "", 1, true), string.find("abc", "c", 3, true))
+print(string.find(("a"):rep(40) .. "b", "ab", 1, true), string.find(("a"):rep(31) .. "b", "aab", 1, true))
+print(("x"):rep(30) .. 1, 1 .. 2, 1.5 .. 2, -1 .. "", "" .. "", ("p"):rep(21) .. "q" .. "r" .. "s")

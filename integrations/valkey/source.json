@@ -1,0 +1,8 @@
+{
+  "format": 1,
+  "version": "8.1.3",
+  "url": "https://codeload.github.com/valkey-io/valkey/tar.gz/refs/tags/8.1.3",
+  "archive": "valkey-8.1.3.tar.gz",
+  "directory": "valkey-8.1.3",
+  "sha256": "8f862b3b0a72fd40587793964539589f6f83d01361ca1598b370cfaa301e0ec0"
+}

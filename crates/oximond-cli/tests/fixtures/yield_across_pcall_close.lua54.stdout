@@ -1,0 +1,9 @@
+c1	true	c
+c2	true
+c3	dead	inner,outer
+d1	true	d
+d2	false	close-err
+d3	dead	
+x1	true	x
+x2	true
+x3	dead	

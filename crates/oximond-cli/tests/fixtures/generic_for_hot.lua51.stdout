@@ -1,0 +1,17 @@
+sum 180060000
+float 40040000
+mixed false attempt to perform arithmetic on local 'v' (a string value)
+holes 19980
+nested 33489000
+pairs 10010000
+pairs_arr 180060000
+range 10010000
+stateless 10010000
+captured 9 36000
+break 2500
+assign 180060000
+grow 1334500
+proxy 0
+strings 37840
+error false stop 2900
+return 76500

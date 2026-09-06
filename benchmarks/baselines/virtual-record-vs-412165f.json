@@ -1,0 +1,3563 @@
+{
+  "generated_at": "2026-10-05T20:13:53.408446+00:00",
+  "host": {
+    "platform": "Linux-7.2.7-1-cachyos-gcc-x86_64-with-glibc2.44",
+    "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+    "cpu_affinity": 7,
+    "uptime": "22:13:22 up 1 day, 43 min,  1 user,  load average: 5,05, 13,14, 17,64",
+    "loadavg": [
+      5.05,
+      13.14,
+      17.64
+    ],
+    "sibling_cpu": 15,
+    "pinned_cpu_busy_percent": 4.0000000000000036,
+    "sibling_cpu_busy_percent": 0.0
+  },
+  "git": {
+    "revision": "96de3954f6c10fe350981e0713bf873ce09a6310",
+    "dirty": true
+  },
+  "scale": 1,
+  "repeat": 5,
+  "warmed": true,
+  "binaries": {
+    "oximond": {
+      "path": "/tmp/claude-1000/-home-user-Documents-prog-oximond/9f095a74-e11a-41d2-b33a-9a2e6143e5ea/scratchpad/oximond-virtual",
+      "sha256": "51f51778bae0d71c58ccf37a61a0ae6728c8bfaef2a536c7792b6d64e9c4fc69"
+    },
+    "before": {
+      "path": "/tmp/claude-1000/-home-user-Documents-prog-oximond/9f095a74-e11a-41d2-b33a-9a2e6143e5ea/scratchpad/oximond-412165f",
+      "sha256": "828a65dfff3fb38c5d72a7bd94ee4711ea0d393f51bf1641da6667c4545b9a53"
+    }
+  },
+  "results": [
+    {
+      "benchmark": "table/array_read",
+      "modes": {
+        "interpreter": {
+          "instructions": 327967951,
+          "instructions_samples": [
+            327968190,
+            327967081,
+            327969237,
+            327967765,
+            327967951
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 643201974,
+          "warmed_instructions_per_scale": 315234023,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 73713081,
+          "instructions_samples": [
+            72813968,
+            70978101,
+            73713081,
+            76945267,
+            76027729
+          ],
+          "counters": {
+            "abort.ShortLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 4,
+            "iterations": 1528019,
+            "native_entries": 21,
+            "recording_starts": 4,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 118380847,
+          "warmed_instructions_per_scale": 44667766,
+          "counters_double_scale": {
+            "abort.ShortLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 61,
+            "exit.Poll": 7,
+            "iterations": 3117347,
+            "native_entries": 68,
+            "recording_starts": 4,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 21,
+            "iterations": 1528019,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 4
+            },
+            "side_exits": {},
+            "aborts": {
+              "ShortLoop": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 327958906,
+          "instructions_samples": [
+            327958906,
+            327959790,
+            327958293,
+            327958021,
+            327959198
+          ],
+          "counters": {},
+          "instructions_double_scale": 643191933,
+          "warmed_instructions_per_scale": 315233027,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 68405539,
+          "instructions_samples": [
+            65421070,
+            68803609,
+            70027556,
+            63929922,
+            68405539
+          ],
+          "counters": {},
+          "instructions_double_scale": 110044812,
+          "warmed_instructions_per_scale": 41639273,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "79992240"
+    },
+    {
+      "benchmark": "table/array_write",
+      "modes": {
+        "interpreter": {
+          "instructions": 560621046,
+          "instructions_samples": [
+            560621572,
+            560620850,
+            560621046,
+            560621809,
+            560621023
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 1112621107,
+          "warmed_instructions_per_scale": 552000061,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 57985116,
+          "instructions_samples": [
+            58077456,
+            58054074,
+            57927995,
+            57985116,
+            57984347
+          ],
+          "counters": {
+            "abort.ShortLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 3,
+            "iterations": 790859,
+            "native_entries": 4,
+            "recording_starts": 4,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 94760029,
+          "warmed_instructions_per_scale": 36774913,
+          "counters_double_scale": {
+            "abort.ShortLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 6,
+            "iterations": 1590958,
+            "native_entries": 7,
+            "recording_starts": 4,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 4,
+            "iterations": 790859,
+            "exits": {
+              "LoopComplete": 1,
+              "Poll": 3
+            },
+            "side_exits": {},
+            "aborts": {
+              "ShortLoop": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 560612340,
+          "instructions_samples": [
+            560612547,
+            560612075,
+            560611908,
+            560612340,
+            560612345
+          ],
+          "counters": {},
+          "instructions_double_scale": 1112611636,
+          "warmed_instructions_per_scale": 551999296,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 57875466,
+          "instructions_samples": [
+            57851651,
+            84941413,
+            57875466,
+            57737632,
+            58022567
+          ],
+          "counters": {},
+          "instructions_double_scale": 94741913,
+          "warmed_instructions_per_scale": 36866447,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "1020765"
+    },
+    {
+      "benchmark": "table/hash_read",
+      "modes": {
+        "interpreter": {
+          "instructions": 224930929,
+          "instructions_samples": [
+            224930559,
+            224930153,
+            224932022,
+            224930929,
+            224931039
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 436551934,
+          "warmed_instructions_per_scale": 211621005,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 148457155,
+          "instructions_samples": [
+            149855307,
+            148977515,
+            143294075,
+            148457155,
+            147438897
+          ],
+          "counters": {
+            "abort.UnsupportedOpcode": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 49,
+            "exit.Poll": 1,
+            "iterations": 559267,
+            "native_entries": 50,
+            "recording_starts": 4,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 265142544,
+          "warmed_instructions_per_scale": 116685389,
+          "counters_double_scale": {
+            "abort.UnsupportedOpcode": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 44,
+            "exit.Poll": 4,
+            "iterations": 1181636,
+            "native_entries": 48,
+            "recording_starts": 4,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 50,
+            "iterations": 559267,
+            "exits": {
+              "LoopComplete": 49,
+              "Poll": 1
+            },
+            "side_exits": {},
+            "aborts": {
+              "UnsupportedOpcode": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 224920138,
+          "instructions_samples": [
+            224920511,
+            224919710,
+            224920080,
+            224920189,
+            224920138
+          ],
+          "counters": {},
+          "instructions_double_scale": 436541334,
+          "warmed_instructions_per_scale": 211621196,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 223351662,
+          "instructions_samples": [
+            223352103,
+            223351529,
+            223351662,
+            223353055,
+            223351445
+          ],
+          "counters": {},
+          "instructions_double_scale": 433225761,
+          "warmed_instructions_per_scale": 209874099,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "31455900"
+    },
+    {
+      "benchmark": "table/field_read",
+      "modes": {
+        "interpreter": {
+          "instructions": 401302426,
+          "instructions_samples": [
+            401303556,
+            401301900,
+            401300901,
+            401302610,
+            401302426
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 798801061,
+          "warmed_instructions_per_scale": 397498635,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 25138980,
+          "instructions_samples": [
+            25138980,
+            24569365,
+            24853261,
+            25292666,
+            25446955
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 1,
+            "iterations": 489968,
+            "native_entries": 2,
+            "recording_starts": 1,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 36674190,
+          "warmed_instructions_per_scale": 11535210,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 3,
+            "iterations": 989935,
+            "native_entries": 4,
+            "recording_starts": 1,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 2,
+            "iterations": 489968,
+            "exits": {
+              "LoopComplete": 1,
+              "Poll": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 401292244,
+          "instructions_samples": [
+            401293831,
+            401291779,
+            401292244,
+            401289866,
+            401292419
+          ],
+          "counters": {},
+          "instructions_double_scale": 798792412,
+          "warmed_instructions_per_scale": 397500168,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 24662830,
+          "instructions_samples": [
+            25024155,
+            24611006,
+            24713884,
+            24662830,
+            24092925
+          ],
+          "counters": {},
+          "instructions_double_scale": 36484304,
+          "warmed_instructions_per_scale": 11821474,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "13500001"
+    },
+    {
+      "benchmark": "table/metamethod_index",
+      "modes": {
+        "interpreter": {
+          "instructions": 304591376,
+          "instructions_samples": [
+            304591376,
+            304590973,
+            304591666,
+            304591218,
+            304592245
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 25,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 605392127,
+          "warmed_instructions_per_scale": 300800751,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 25,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 16945405,
+          "instructions_samples": [
+            16945405,
+            17143414,
+            17444114,
+            16897113,
+            16747174
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 194984,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 20351457,
+          "warmed_instructions_per_scale": 3406052,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 1,
+            "iterations": 395248,
+            "native_entries": 2,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 194984,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 304582388,
+          "instructions_samples": [
+            304582321,
+            304583145,
+            304582388,
+            304582855,
+            304582076
+          ],
+          "counters": {},
+          "instructions_double_scale": 605382350,
+          "warmed_instructions_per_scale": 300799962,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 16766115,
+          "instructions_samples": [
+            16762904,
+            17163846,
+            16464133,
+            16865920,
+            16766115
+          ],
+          "counters": {},
+          "instructions_double_scale": 20916734,
+          "warmed_instructions_per_scale": 4150619,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "2600000"
+    },
+    {
+      "benchmark": "table/iteration",
+      "modes": {
+        "interpreter": {
+          "instructions": 508406651,
+          "instructions_samples": [
+            508406651,
+            508407112,
+            508406832,
+            508406249,
+            508405234
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 1008612857,
+          "warmed_instructions_per_scale": 500206206,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 41311484,
+          "instructions_samples": [
+            40926171,
+            41330448,
+            39434089,
+            41311484,
+            48733112
+          ],
+          "counters": {
+            "abort.ShortLoop": 3,
+            "abort.UnsupportedOperand": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 79,
+            "iterations": 782349,
+            "native_entries": 79,
+            "recording_starts": 5,
+            "side_exit.ArrayBounds": 79,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 64347792,
+          "warmed_instructions_per_scale": 23036308,
+          "counters_double_scale": {
+            "abort.ShortLoop": 3,
+            "abort.UnsupportedOperand": 2,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 158,
+            "iterations": 1578080,
+            "native_entries": 158,
+            "recording_starts": 6,
+            "side_exit.ArrayBounds": 158,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 79,
+            "iterations": 782349,
+            "exits": {
+              "GuardFail": 79
+            },
+            "side_exits": {
+              "ArrayBounds": 79
+            },
+            "aborts": {
+              "ShortLoop": 3,
+              "UnsupportedOperand": 1
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 508396803,
+          "instructions_samples": [
+            508396492,
+            508397847,
+            508396803,
+            508397027,
+            508396722
+          ],
+          "counters": {},
+          "instructions_double_scale": 1008602972,
+          "warmed_instructions_per_scale": 500206169,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 36232002,
+          "instructions_samples": [
+            52084427,
+            36232002,
+            32053831,
+            32052884,
+            49157893
+          ],
+          "counters": {},
+          "instructions_double_scale": 52526067,
+          "warmed_instructions_per_scale": 16294065,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "44676800"
+    },
+    {
+      "benchmark": "allocation/table_churn",
+      "modes": {
+        "interpreter": {
+          "instructions": 68560134,
+          "instructions_samples": [
+            68560134,
+            68560359,
+            68560669,
+            68559520,
+            68557323
+          ],
+          "counters": {
+            "elided_table_bytes": 17280000,
+            "elided_tables": 80000,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 22,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 133328549,
+          "warmed_instructions_per_scale": 64768415,
+          "counters_double_scale": {
+            "elided_table_bytes": 34560000,
+            "elided_tables": 160000,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 22,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 80000,
+            "elided_table_bytes": 17280000,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 68288615,
+          "instructions_samples": [
+            68288615,
+            68289091,
+            68287495,
+            68287602,
+            68289866
+          ],
+          "counters": {
+            "abort.Divergence": 3,
+            "elided_table_bytes": 17280000,
+            "elided_tables": 80000,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 3,
+            "tables_created": 22,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 132688095,
+          "warmed_instructions_per_scale": 64399480,
+          "counters_double_scale": {
+            "abort.Divergence": 3,
+            "elided_table_bytes": 34560000,
+            "elided_tables": 160000,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 3,
+            "tables_created": 22,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 80000,
+            "elided_table_bytes": 17280000,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {
+              "Divergence": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 68469969,
+          "instructions_samples": [
+            68469969,
+            68470368,
+            68470016,
+            68469485,
+            68468970
+          ],
+          "counters": {},
+          "instructions_double_scale": 133158926,
+          "warmed_instructions_per_scale": 64688957,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 68190767,
+          "instructions_samples": [
+            68189735,
+            68190767,
+            68190529,
+            68191045,
+            68190950
+          ],
+          "counters": {},
+          "instructions_double_scale": 132508945,
+          "warmed_instructions_per_scale": 64318178,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "3200120000"
+    },
+    {
+      "benchmark": "allocation/gc_cycles",
+      "modes": {
+        "interpreter": {
+          "instructions": 144931811,
+          "instructions_samples": [
+            144930826,
+            144932419,
+            144931811,
+            144933470,
+            144930961
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 80042,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 284828576,
+          "warmed_instructions_per_scale": 139896765,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 160062,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 80042,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 144952105,
+          "instructions_samples": [
+            144952105,
+            144950479,
+            144953263,
+            144953088,
+            144951626
+          ],
+          "counters": {
+            "abort.VirtualEscape": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 3,
+            "tables_created": 80042,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 284762025,
+          "warmed_instructions_per_scale": 139809920,
+          "counters_double_scale": {
+            "abort.VirtualEscape": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 3,
+            "tables_created": 160062,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 80042,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {
+              "VirtualEscape": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 144841973,
+          "instructions_samples": [
+            144841973,
+            144840795,
+            144841686,
+            144843951,
+            144843647
+          ],
+          "counters": {},
+          "instructions_double_scale": 284658466,
+          "warmed_instructions_per_scale": 139816493,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 144842295,
+          "instructions_samples": [
+            144842295,
+            144840564,
+            144843793,
+            144839383,
+            144843155
+          ],
+          "counters": {},
+          "instructions_double_scale": 284570470,
+          "warmed_instructions_per_scale": 139728175,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "319560"
+    },
+    {
+      "benchmark": "algorithm/sieve",
+      "modes": {
+        "interpreter": {
+          "instructions": 276557656,
+          "instructions_samples": [
+            276521274,
+            276520288,
+            276559075,
+            276559483,
+            276557656
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 27,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 548455867,
+          "warmed_instructions_per_scale": 271898211,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 32,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 27,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 136157171,
+          "instructions_samples": [
+            136081488,
+            135065011,
+            137400580,
+            136801360,
+            136157171
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 3439,
+            "exit.LoopComplete": 245,
+            "iterations": 703459,
+            "native_entries": 3684,
+            "recording_starts": 2,
+            "side_exit.ArrayBounds": 3251,
+            "side_exit.Branch": 188,
+            "tables_created": 27,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "instructions_double_scale": 250058235,
+          "warmed_instructions_per_scale": 113901064,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 4165,
+            "exit.LoopComplete": 490,
+            "iterations": 1419044,
+            "native_entries": 4655,
+            "recording_starts": 2,
+            "side_exit.ArrayBounds": 3742,
+            "side_exit.Branch": 423,
+            "tables_created": 32,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 27,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 3684,
+            "iterations": 703459,
+            "exits": {
+              "GuardFail": 3439,
+              "LoopComplete": 245
+            },
+            "side_exits": {
+              "ArrayBounds": 3251,
+              "Branch": 188
+            },
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 276549147,
+          "instructions_samples": [
+            276549329,
+            276548537,
+            276550397,
+            276547813,
+            276549147
+          ],
+          "counters": {},
+          "instructions_double_scale": 548448041,
+          "warmed_instructions_per_scale": 271898894,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 136030841,
+          "instructions_samples": [
+            135653270,
+            136030841,
+            135742259,
+            136111982,
+            136373502
+          ],
+          "counters": {},
+          "instructions_double_scale": 247713992,
+          "warmed_instructions_per_scale": 111683151,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "25665"
+    },
+    {
+      "benchmark": "algorithm/nbody",
+      "modes": {
+        "interpreter": {
+          "instructions": 76708404,
+          "instructions_samples": [
+            76707901,
+            76709776,
+            76709517,
+            76707664,
+            76708404
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 28,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 147771010,
+          "warmed_instructions_per_scale": 71062606,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 28,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 28,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 110386666,
+          "instructions_samples": [
+            110556392,
+            108101063,
+            109431143,
+            110386666,
+            110662945
+          ],
+          "counters": {
+            "abort.InnerLoop": 6,
+            "abort.LoopNotClosed": 2,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 2575,
+            "iterations": 5179,
+            "native_entries": 2575,
+            "recording_starts": 10,
+            "tables_created": 28,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "instructions_double_scale": 134458141,
+          "warmed_instructions_per_scale": 24071475,
+          "counters_double_scale": {
+            "abort.InnerLoop": 6,
+            "abort.LoopNotClosed": 2,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 5876,
+            "iterations": 18586,
+            "native_entries": 5876,
+            "recording_starts": 10,
+            "tables_created": 28,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 28,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 2575,
+            "iterations": 5179,
+            "exits": {
+              "LoopComplete": 2575
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 6,
+              "LoopNotClosed": 2
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 76697260,
+          "instructions_samples": [
+            76694306,
+            76698048,
+            76697386,
+            76697260,
+            76696915
+          ],
+          "counters": {},
+          "instructions_double_scale": 147759261,
+          "warmed_instructions_per_scale": 71062001,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 108315322,
+          "instructions_samples": [
+            108054457,
+            117785472,
+            105055310,
+            109816413,
+            108315322
+          ],
+          "counters": {},
+          "instructions_double_scale": 145512129,
+          "warmed_instructions_per_scale": 37196807,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "16.834996880"
+    },
+    {
+      "benchmark": "algorithm/mandelbrot",
+      "modes": {
+        "interpreter": {
+          "instructions": 798500071,
+          "instructions_samples": [
+            798500071,
+            798500179,
+            798500629,
+            798499930,
+            798499833
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 22,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 1592868137,
+          "warmed_instructions_per_scale": 794368066,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 22,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 95751960,
+          "instructions_samples": [
+            96106113,
+            101443673,
+            95470118,
+            95751960,
+            88081182
+          ],
+          "counters": {
+            "abort.InnerLoop": 5,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 5026,
+            "exit.LoopComplete": 685,
+            "iterations": 805275,
+            "native_entries": 5695,
+            "recording_starts": 6,
+            "side_exit.Branch": 5026,
+            "tables_created": 22,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 115457469,
+          "warmed_instructions_per_scale": 19705509,
+          "counters_double_scale": {
+            "abort.InnerLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 16,
+            "exit.LoopComplete": 3115,
+            "exit.Poll": 3,
+            "iterations": 1633023,
+            "native_entries": 3136,
+            "recording_starts": 4,
+            "side_exit.Branch": 16,
+            "tables_created": 22,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 5695,
+            "iterations": 805275,
+            "exits": {
+              "GuardFail": 5026,
+              "LoopComplete": 685
+            },
+            "side_exits": {
+              "Branch": 5026
+            },
+            "aborts": {
+              "InnerLoop": 5
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 798491517,
+          "instructions_samples": [
+            798492078,
+            798491156,
+            798491130,
+            798491774,
+            798491517
+          ],
+          "counters": {},
+          "instructions_double_scale": 1592858601,
+          "warmed_instructions_per_scale": 794367084,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 89289838,
+          "instructions_samples": [
+            84985366,
+            89289838,
+            87280984,
+            115817058,
+            96078052
+          ],
+          "counters": {},
+          "instructions_double_scale": 116718251,
+          "warmed_instructions_per_scale": 27428413,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "790685"
+    },
+    {
+      "benchmark": "algorithm/spectral_norm",
+      "modes": {
+        "interpreter": {
+          "instructions": 763114162,
+          "instructions_samples": [
+            763112816,
+            763114162,
+            763114370,
+            763115367,
+            763113481
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 44,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 1521426956,
+          "warmed_instructions_per_scale": 758312794,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 66,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 44,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 103282458,
+          "instructions_samples": [
+            103795819,
+            103282458,
+            103224892,
+            103504820,
+            101519828
+          ],
+          "counters": {
+            "abort.InnerLoop": 2,
+            "abort.ShortLoop": 4,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 4603,
+            "exit.LoopComplete": 273,
+            "iterations": 545660,
+            "native_entries": 4876,
+            "recording_starts": 8,
+            "side_exit.ArrayBounds": 4603,
+            "tables_created": 44,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "instructions_double_scale": 162058639,
+          "warmed_instructions_per_scale": 58776181,
+          "counters_double_scale": {
+            "abort.InnerLoop": 3,
+            "abort.ShortLoop": 6,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.EntryMismatch": 4,
+            "exit.GuardFail": 9405,
+            "exit.LoopComplete": 343,
+            "iterations": 1117402,
+            "native_entries": 9751,
+            "recording_starts": 12,
+            "side_exit.ArrayBounds": 9405,
+            "tables_created": 66,
+            "traces_compiled": 3,
+            "traces_recorded": 3
+          },
+          "summary": {
+            "tables_created": 44,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 4876,
+            "iterations": 545660,
+            "exits": {
+              "GuardFail": 4603,
+              "LoopComplete": 273
+            },
+            "side_exits": {
+              "ArrayBounds": 4603
+            },
+            "aborts": {
+              "InnerLoop": 2,
+              "ShortLoop": 4
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 763104263,
+          "instructions_samples": [
+            763105177,
+            763104263,
+            763102282,
+            763103784,
+            763104591
+          ],
+          "counters": {},
+          "instructions_double_scale": 1521416969,
+          "warmed_instructions_per_scale": 758312706,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 99904875,
+          "instructions_samples": [
+            101138513,
+            132327667,
+            99904875,
+            88073488,
+            99739550
+          ],
+          "counters": {},
+          "instructions_double_scale": 160305245,
+          "warmed_instructions_per_scale": 60400370,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "1.274221700"
+    },
+    {
+      "benchmark": "algorithm/binary_trees",
+      "modes": {
+        "interpreter": {
+          "instructions": 323382534,
+          "instructions_samples": [
+            323382534,
+            323382122,
+            323382628,
+            323384023,
+            323382422
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 81922,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 650531713,
+          "warmed_instructions_per_scale": 327149179,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 163822,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 81922,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 323266725,
+          "instructions_samples": [
+            323266126,
+            323267674,
+            323266725,
+            323266036,
+            323268193
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 81922,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 650360536,
+          "warmed_instructions_per_scale": 327093811,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 163822,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 81922,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 323291452,
+          "instructions_samples": [
+            323290591,
+            323292672,
+            323291723,
+            323291452,
+            323290740
+          ],
+          "counters": {},
+          "instructions_double_scale": 650357171,
+          "warmed_instructions_per_scale": 327065719,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 323177992,
+          "instructions_samples": [
+            323178266,
+            323176359,
+            323177948,
+            323177992,
+            323179434
+          ],
+          "counters": {},
+          "instructions_double_scale": 650052220,
+          "warmed_instructions_per_scale": 326874228,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "190"
+    },
+    {
+      "benchmark": "mineclonia/captured_call",
+      "modes": {
+        "interpreter": {
+          "instructions": 85981078,
+          "instructions_samples": [
+            85981384,
+            85981001,
+            85980610,
+            85981078,
+            85981639
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 31,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 163810579,
+          "warmed_instructions_per_scale": 77829501,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 31,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 31,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 47888444,
+          "instructions_samples": [
+            47388145,
+            46888349,
+            76412392,
+            48387270,
+            47888444
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 3548,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 31,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 48903638,
+          "warmed_instructions_per_scale": 1015194,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 8581,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 31,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 31,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 3548,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 85970678,
+          "instructions_samples": [
+            85971764,
+            85971674,
+            85970678,
+            85968563,
+            85970300
+          ],
+          "counters": {},
+          "instructions_double_scale": 163800127,
+          "warmed_instructions_per_scale": 77829449,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 48059334,
+          "instructions_samples": [
+            48058795,
+            48058500,
+            79581052,
+            48059334,
+            48061503
+          ],
+          "counters": {},
+          "instructions_double_scale": 50074060,
+          "warmed_instructions_per_scale": 2014726,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "496447666\t0\t0"
+    },
+    {
+      "benchmark": "mineclonia/module_calls",
+      "modes": {
+        "interpreter": {
+          "instructions": 268629320,
+          "instructions_samples": [
+            268629051,
+            268629429,
+            268628518,
+            268629320,
+            268630323
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 25,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 531187585,
+          "warmed_instructions_per_scale": 262558265,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 25,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 115483066,
+          "instructions_samples": [
+            115483066,
+            116373703,
+            148272408,
+            113803607,
+            115482810
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 7591,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 123718898,
+          "warmed_instructions_per_scale": 8235832,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 17591,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 7591,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 268619107,
+          "instructions_samples": [
+            268619337,
+            268619107,
+            268618962,
+            268619215,
+            268617593
+          ],
+          "counters": {},
+          "instructions_double_scale": 531177739,
+          "warmed_instructions_per_scale": 262558632,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 121512441,
+          "instructions_samples": [
+            124868894,
+            146693384,
+            115583850,
+            115584554,
+            121512441
+          ],
+          "counters": {},
+          "instructions_double_scale": 129696381,
+          "warmed_instructions_per_scale": 8183940,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "186121621"
+    },
+    {
+      "benchmark": "mineclonia/open_results",
+      "modes": {
+        "interpreter": {
+          "instructions": 179119119,
+          "instructions_samples": [
+            179118980,
+            179119252,
+            179118554,
+            179120762,
+            179119119
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 353605204,
+          "warmed_instructions_per_scale": 174486085,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 63385487,
+          "instructions_samples": [
+            63894169,
+            62881424,
+            63386374,
+            62882146,
+            63385487
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.CommittedEffect": 592,
+            "exit.LoopComplete": 593,
+            "iterations": 23683,
+            "native_entries": 1185,
+            "recording_starts": 2,
+            "side_exit.Branch": 592,
+            "tables_created": 23,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "instructions_double_scale": 75481527,
+          "warmed_instructions_per_scale": 12096040,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.CommittedEffect": 1342,
+            "exit.LoopComplete": 1340,
+            "iterations": 53651,
+            "native_entries": 2684,
+            "recording_starts": 2,
+            "side_exit.Branch": 1342,
+            "tables_created": 23,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 1185,
+            "iterations": 23683,
+            "exits": {
+              "CommittedEffect": 592,
+              "LoopComplete": 593
+            },
+            "side_exits": {
+              "Branch": 592
+            },
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 179108197,
+          "instructions_samples": [
+            179107754,
+            179108197,
+            179108696,
+            179109167,
+            179108159
+          ],
+          "counters": {},
+          "instructions_double_scale": 353594490,
+          "warmed_instructions_per_scale": 174486293,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 64410703,
+          "instructions_samples": [
+            65955488,
+            64410703,
+            65445067,
+            63913501,
+            49731258
+          ],
+          "counters": {},
+          "instructions_double_scale": 75163051,
+          "warmed_instructions_per_scale": 10752348,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "869523979"
+    },
+    {
+      "benchmark": "mineclonia/ull_kernel",
+      "modes": {
+        "interpreter": {
+          "instructions": 146058769,
+          "instructions_samples": [
+            146057288,
+            146058641,
+            146058991,
+            146059414,
+            146058769
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 32,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 284152927,
+          "warmed_instructions_per_scale": 138094158,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 32,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 32,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 150504792,
+          "instructions_samples": [
+            150504792,
+            149384603,
+            181904895,
+            149383943,
+            154989541
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 1294,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 32,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 163863203,
+          "warmed_instructions_per_scale": 13358411,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 4964,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 32,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 32,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 1294,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 146048679,
+          "instructions_samples": [
+            146049727,
+            146048431,
+            146049301,
+            146048539,
+            146048679
+          ],
+          "counters": {},
+          "instructions_double_scale": 284142855,
+          "warmed_instructions_per_scale": 138094176,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 151787023,
+          "instructions_samples": [
+            157392114,
+            185428851,
+            150664246,
+            147300161,
+            151787023
+          ],
+          "counters": {},
+          "instructions_double_scale": 159535902,
+          "warmed_instructions_per_scale": 7748879,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "305671362"
+    },
+    {
+      "benchmark": "mineclonia/ull_arith",
+      "modes": {
+        "interpreter": {
+          "instructions": 142300565,
+          "instructions_samples": [
+            142300565,
+            142300963,
+            142300406,
+            142301434,
+            142299975
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 30,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 280100473,
+          "warmed_instructions_per_scale": 137799908,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 30,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 30,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 45850688,
+          "instructions_samples": [
+            55050403,
+            45942288,
+            36126376,
+            45850688,
+            28875904
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 38120,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 30,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 50165222,
+          "warmed_instructions_per_scale": 4314534,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 88153,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 30,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 30,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 38120,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 142291091,
+          "instructions_samples": [
+            142290335,
+            142289659,
+            142291091,
+            142291220,
+            142291255
+          ],
+          "counters": {},
+          "instructions_double_scale": 280091154,
+          "warmed_instructions_per_scale": 137800063,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 45955893,
+          "instructions_samples": [
+            45956129,
+            45780261,
+            46488941,
+            45781125,
+            45955893
+          ],
+          "counters": {},
+          "instructions_double_scale": 50356133,
+          "warmed_instructions_per_scale": 4400240,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "760782068"
+    },
+    {
+      "benchmark": "mineclonia/bit_wide",
+      "modes": {
+        "interpreter": {
+          "instructions": 205516229,
+          "instructions_samples": [
+            205515357,
+            205515843,
+            205518212,
+            205516343,
+            205516229
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 29,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 406066244,
+          "warmed_instructions_per_scale": 200550015,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 29,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 29,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 51006183,
+          "instructions_samples": [
+            51397583,
+            15420202,
+            51532018,
+            51006183,
+            15682068
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 40232,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 29,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 36114032,
+          "warmed_instructions_per_scale": -14892151,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 94720,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 29,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 29,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 40232,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 205505428,
+          "instructions_samples": [
+            205505428,
+            205505467,
+            205503032,
+            205504755,
+            205506009
+          ],
+          "counters": {},
+          "instructions_double_scale": 406055765,
+          "warmed_instructions_per_scale": 200550337,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 50914249,
+          "instructions_samples": [
+            51567743,
+            30766338,
+            50520555,
+            52090597,
+            50914249
+          ],
+          "counters": {},
+          "instructions_double_scale": 53419623,
+          "warmed_instructions_per_scale": 2505374,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "1767958516"
+    },
+    {
+      "benchmark": "table/hash_read_small",
+      "modes": {
+        "interpreter": {
+          "instructions": 361175517,
+          "instructions_samples": [
+            361175357,
+            361175504,
+            361177183,
+            361175517,
+            361176165
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 718456951,
+          "warmed_instructions_per_scale": 357281434,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 239925684,
+          "instructions_samples": [
+            240266526,
+            240301133,
+            227023403,
+            226720602,
+            239925684
+          ],
+          "counters": {
+            "abort.InnerLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 2960,
+            "exit.Poll": 3,
+            "iterations": 938900,
+            "native_entries": 2963,
+            "recording_starts": 4,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 438471428,
+          "warmed_instructions_per_scale": 198545744,
+          "counters_double_scale": {
+            "abort.InnerLoop": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 7,
+            "iterations": 1899908,
+            "native_entries": 24,
+            "recording_starts": 2,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 2963,
+            "iterations": 938900,
+            "exits": {
+              "LoopComplete": 2960,
+              "Poll": 3
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 361166076,
+          "instructions_samples": [
+            361164763,
+            361165819,
+            361166076,
+            361166312,
+            361166219
+          ],
+          "counters": {},
+          "instructions_double_scale": 718446426,
+          "warmed_instructions_per_scale": 357280350,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 358259813,
+          "instructions_samples": [
+            358258770,
+            358259127,
+            358260034,
+            358260118,
+            358259813
+          ],
+          "counters": {},
+          "instructions_double_scale": 712548950,
+          "warmed_instructions_per_scale": 354289137,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "19680000"
+    },
+    {
+      "benchmark": "table/hash_read_shaped",
+      "modes": {
+        "interpreter": {
+          "instructions": 366122738,
+          "instructions_samples": [
+            366122640,
+            366122738,
+            366123069,
+            366121651,
+            366123112
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 728283350,
+          "warmed_instructions_per_scale": 362160612,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 231623248,
+          "instructions_samples": [
+            231623248,
+            231729286,
+            236386218,
+            216532046,
+            216807010
+          ],
+          "counters": {
+            "abort.InnerLoop": 3,
+            "abort.LoopNotClosed": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 3278,
+            "exit.Poll": 3,
+            "iterations": 939520,
+            "native_entries": 3281,
+            "recording_starts": 5,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 418172428,
+          "warmed_instructions_per_scale": 186549180,
+          "counters_double_scale": {
+            "abort.InnerLoop": 0,
+            "abort.LoopNotClosed": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 7,
+            "iterations": 1900435,
+            "native_entries": 24,
+            "recording_starts": 2,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 3281,
+            "iterations": 939520,
+            "exits": {
+              "LoopComplete": 3278,
+              "Poll": 3
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 3,
+              "LoopNotClosed": 1
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 366113400,
+          "instructions_samples": [
+            366114510,
+            366113834,
+            366113400,
+            366113223,
+            366112779
+          ],
+          "counters": {},
+          "instructions_double_scale": 728273815,
+          "warmed_instructions_per_scale": 362160415,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 363104976,
+          "instructions_samples": [
+            363104534,
+            363105472,
+            363104715,
+            363104976,
+            363105241
+          ],
+          "counters": {},
+          "instructions_double_scale": 722157377,
+          "warmed_instructions_per_scale": 359052401,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "9240000"
+    },
+    {
+      "benchmark": "table/hash_read_indexed",
+      "modes": {
+        "interpreter": {
+          "instructions": 298319859,
+          "instructions_samples": [
+            298321288,
+            298319472,
+            298319859,
+            298320433,
+            298318911
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 569221276,
+          "warmed_instructions_per_scale": 270901417,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 214959525,
+          "instructions_samples": [
+            209237860,
+            214516420,
+            216235669,
+            214959525,
+            215389244
+          ],
+          "counters": {
+            "abort.UnsupportedOpcode": 6,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 2931,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 2,
+            "iterations": 645778,
+            "native_entries": 2950,
+            "recording_starts": 7,
+            "side_exit.ArrayBounds": 2931,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 371570474,
+          "warmed_instructions_per_scale": 156610949,
+          "counters_double_scale": {
+            "abort.UnsupportedOpcode": 6,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 3052,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 4,
+            "iterations": 1300126,
+            "native_entries": 3073,
+            "recording_starts": 7,
+            "side_exit.ArrayBounds": 3052,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 2950,
+            "iterations": 645778,
+            "exits": {
+              "GuardFail": 2931,
+              "LoopComplete": 17,
+              "Poll": 2
+            },
+            "side_exits": {
+              "ArrayBounds": 2931
+            },
+            "aborts": {
+              "UnsupportedOpcode": 6
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 298308406,
+          "instructions_samples": [
+            298308487,
+            298314763,
+            298307875,
+            298308216,
+            298308406
+          ],
+          "counters": {},
+          "instructions_double_scale": 569208421,
+          "warmed_instructions_per_scale": 270900015,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 296671794,
+          "instructions_samples": [
+            296671794,
+            296672022,
+            296671425,
+            296671259,
+            296671796
+          ],
+          "counters": {},
+          "instructions_double_scale": 565661666,
+          "warmed_instructions_per_scale": 268989872,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "28476960\t81920"
+    },
+    {
+      "benchmark": "table/heap_redundancy",
+      "modes": {
+        "interpreter": {
+          "instructions": 408030197,
+          "instructions_samples": [
+            408030889,
+            408030470,
+            408030197,
+            408030082,
+            408030010
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 811980561,
+          "warmed_instructions_per_scale": 403950364,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 20534312,
+          "instructions_samples": [
+            20711853,
+            20096148,
+            20008459,
+            20534312,
+            20709045
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 147459,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 27442797,
+          "warmed_instructions_per_scale": 6908485,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 1,
+            "iterations": 297459,
+            "native_entries": 2,
+            "recording_starts": 1,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 147459,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 408020518,
+          "instructions_samples": [
+            408020518,
+            408020507,
+            408020994,
+            408020488,
+            408021069
+          ],
+          "counters": {},
+          "instructions_double_scale": 811970704,
+          "warmed_instructions_per_scale": 403950186,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 20674363,
+          "instructions_samples": [
+            20762617,
+            20498746,
+            20675424,
+            20674363,
+            20673696
+          ],
+          "counters": {},
+          "instructions_double_scale": 27669690,
+          "warmed_instructions_per_scale": 6995327,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "699934\t150000"
+    },
+    {
+      "benchmark": "allocation/ctor_array",
+      "modes": {
+        "interpreter": {
+          "instructions": 380178544,
+          "instructions_samples": [
+            380178734,
+            380178223,
+            380178909,
+            380178442,
+            380178544
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 150022,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 756734021,
+          "warmed_instructions_per_scale": 376555477,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 300022,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 150022,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 12141747,
+          "instructions_samples": [
+            12140807,
+            12472095,
+            12141771,
+            12141659,
+            12141747
+          ],
+          "counters": {
+            "elided_table_bytes": 32001048,
+            "elided_tables": 148153,
+            "exit.LoopComplete": 1,
+            "iterations": 148152,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 1869,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 14665819,
+          "warmed_instructions_per_scale": 2524072,
+          "counters_double_scale": {
+            "elided_table_bytes": 64365408,
+            "elided_tables": 297988,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 1,
+            "iterations": 297987,
+            "native_entries": 2,
+            "recording_starts": 1,
+            "tables_created": 2034,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 1869,
+            "elided_tables": 148153,
+            "elided_table_bytes": 32001048,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 148152,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 380018690,
+          "instructions_samples": [
+            380018690,
+            380018988,
+            380017520,
+            380016041,
+            380019013
+          ],
+          "counters": {},
+          "instructions_double_scale": 756424256,
+          "warmed_instructions_per_scale": 376405566,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 379680359,
+          "instructions_samples": [
+            379680359,
+            379679343,
+            379680675,
+            379679726,
+            379680754
+          ],
+          "counters": {},
+          "instructions_double_scale": 755661905,
+          "warmed_instructions_per_scale": 375981546,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "11250675000"
+    },
+    {
+      "benchmark": "allocation/ctor_fields",
+      "modes": {
+        "interpreter": {
+          "instructions": 313049417,
+          "instructions_samples": [
+            313049417,
+            313049150,
+            313049509,
+            313049772,
+            313048169
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 150022,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 622259122,
+          "warmed_instructions_per_scale": 309209705,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 300022,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 150022,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 13403576,
+          "instructions_samples": [
+            13267297,
+            13403576,
+            13740969,
+            13132722,
+            13538026
+          ],
+          "counters": {
+            "elided_table_bytes": 31851360,
+            "elided_tables": 147460,
+            "exit.LoopComplete": 1,
+            "iterations": 147459,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 2562,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 16384922,
+          "warmed_instructions_per_scale": 2981346,
+          "counters_double_scale": {
+            "elided_table_bytes": 64222848,
+            "elided_tables": 297328,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 1,
+            "iterations": 297327,
+            "native_entries": 2,
+            "recording_starts": 1,
+            "tables_created": 2694,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 2562,
+            "elided_tables": 147460,
+            "elided_table_bytes": 31851360,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 147459,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 312888586,
+          "instructions_samples": [
+            312888931,
+            312888586,
+            312888440,
+            312889403,
+            312888475
+          ],
+          "counters": {},
+          "instructions_double_scale": 621948773,
+          "warmed_instructions_per_scale": 309060187,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 312560069,
+          "instructions_samples": [
+            312559531,
+            312559583,
+            312560941,
+            312560069,
+            312560218
+          ],
+          "counters": {},
+          "instructions_double_scale": 621206721,
+          "warmed_instructions_per_scale": 308646652,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "11250524998"
+    },
+    {
+      "benchmark": "allocation/ctor_mixed",
+      "modes": {
+        "interpreter": {
+          "instructions": 357028725,
+          "instructions_samples": [
+            357027629,
+            357060358,
+            357060626,
+            357027747,
+            357028725
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 120022,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 710246405,
+          "warmed_instructions_per_scale": 353217680,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 240022,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 120022,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 12507721,
+          "instructions_samples": [
+            12311833,
+            13280172,
+            11925784,
+            12602602,
+            12507721
+          ],
+          "counters": {
+            "elided_table_bytes": 25578072,
+            "elided_tables": 118417,
+            "exit.LoopComplete": 1,
+            "iterations": 118416,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 1605,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 14593280,
+          "warmed_instructions_per_scale": 2085559,
+          "counters_double_scale": {
+            "elided_table_bytes": 51512328,
+            "elided_tables": 238483,
+            "exit.LoopComplete": 1,
+            "iterations": 238482,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 1539,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 1605,
+            "elided_tables": 118417,
+            "elided_table_bytes": 25578072,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 118416,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 356930512,
+          "instructions_samples": [
+            356898384,
+            356898876,
+            356930946,
+            356930570,
+            356930512
+          ],
+          "counters": {},
+          "instructions_double_scale": 709997358,
+          "warmed_instructions_per_scale": 353066846,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 355808420,
+          "instructions_samples": [
+            355808373,
+            355808556,
+            355807640,
+            355808607,
+            355808420
+          ],
+          "counters": {},
+          "instructions_double_scale": 707663480,
+          "warmed_instructions_per_scale": 351855060,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "7200660003"
+    },
+    {
+      "benchmark": "allocation/ctor_side_exit",
+      "modes": {
+        "interpreter": {
+          "instructions": 346930863,
+          "instructions_samples": [
+            346929373,
+            346931413,
+            346812013,
+            346930863,
+            346935254
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 120023,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "instructions_double_scale": 700334245,
+          "warmed_instructions_per_scale": 353403382,
+          "counters_double_scale": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 240023,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 120023,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 40300352,
+          "instructions_samples": [
+            40300352,
+            40300019,
+            40115804,
+            40907455,
+            40562115
+          ],
+          "counters": {
+            "abort.UnsupportedOperand": 3,
+            "elided_table_bytes": 25171128,
+            "elided_tables": 116533,
+            "exit.GuardFail": 2379,
+            "iterations": 116533,
+            "native_entries": 2379,
+            "recording_starts": 4,
+            "side_exit.Branch": 2379,
+            "tables_created": 3490,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "instructions_double_scale": 89537817,
+          "warmed_instructions_per_scale": 49237465,
+          "counters_double_scale": {
+            "abort.UnsupportedOperand": 3,
+            "elided_table_bytes": 50551776,
+            "elided_tables": 234036,
+            "exit.GuardFail": 4777,
+            "iterations": 234036,
+            "native_entries": 4777,
+            "recording_starts": 4,
+            "side_exit.Branch": 4777,
+            "tables_created": 5987,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 3490,
+            "elided_tables": 116533,
+            "elided_table_bytes": 25171128,
+            "traces_compiled": 1,
+            "native_entries": 2379,
+            "iterations": 116533,
+            "exits": {
+              "GuardFail": 2379
+            },
+            "side_exits": {
+              "Branch": 2379
+            },
+            "aborts": {
+              "UnsupportedOperand": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 346801917,
+          "instructions_samples": [
+            346802602,
+            346800865,
+            346801917,
+            346802537,
+            346799990
+          ],
+          "counters": {},
+          "instructions_double_scale": 700081793,
+          "warmed_instructions_per_scale": 353279876,
+          "counters_double_scale": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 346496446,
+          "instructions_samples": [
+            346487976,
+            346496446,
+            346605853,
+            346586680,
+            346488696
+          ],
+          "counters": {},
+          "instructions_double_scale": 699762440,
+          "warmed_instructions_per_scale": 353265994,
+          "counters_double_scale": {},
+          "summary": {}
+        }
+      },
+      "checksum": "7200300000\t2400\t144062400"
+    }
+  ]
+}

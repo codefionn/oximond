@@ -1,0 +1,5 @@
+original,inner,replacement,outer
+handler1,handler2,close
+inner handler,inner close,outer handler,outer close
+handler1,handler2,handler close2,handler close1,target close
+done

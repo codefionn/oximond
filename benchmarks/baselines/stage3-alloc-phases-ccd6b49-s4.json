@@ -1,0 +1,4564 @@
+{
+  "generated_at": "2026-10-06T17:27:44.848721+00:00",
+  "host": {
+    "platform": "Linux-7.2.7-1-cachyos-gcc-x86_64-with-glibc2.44",
+    "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+    "cpu_affinity": 3,
+    "uptime": "19:27:42 up 1 day, 21:57,  1 user,  load average: 6,40, 7,76, 8,69",
+    "loadavg": [
+      6.4,
+      7.76,
+      8.69
+    ],
+    "sibling_cpu": 11,
+    "pinned_cpu_busy_percent": 4.0000000000000036,
+    "sibling_cpu_busy_percent": 0.0
+  },
+  "git": {
+    "runner_root": "/home/user/Documents/prog/oximond/.claude/worktrees/perf-builds/s13-c7ec/src-ccd6b49",
+    "revision": "ccd6b49",
+    "dirty": null,
+    "source": "given by --source-revision"
+  },
+  "scale": 4,
+  "scales": null,
+  "scale_tolerance": 10.0,
+  "repeat": 1,
+  "warmed": false,
+  "jit_sync": true,
+  "gate": null,
+  "binaries": {
+    "oximond": {
+      "path": "/home/user/Documents/prog/oximond/.claude/worktrees/perf-builds/s13-c7ec/bin/oximond-ccd6b49-normal",
+      "sha256": "47ed62fa1f71f81e366d32e61f487701183e8ab03d7906bb3d00eead43b89e1a"
+    },
+    "alloc_oximond": {
+      "path": "/home/user/Documents/prog/oximond/.claude/worktrees/perf-builds/s13-c7ec/bin/oximond-ccd6b49-alloc",
+      "sha256": "20e3afe7cf7f3a7b25cbc2afc1a0b1ccafafe98c34e2446d4f681129853cff51",
+      "features": [
+        "alloc-stats"
+      ],
+      "features_source": "inferred: the binary printed alloc_* counters"
+    },
+    "alloc_phases_oximond": {
+      "path": "/home/user/Documents/prog/oximond/.claude/worktrees/perf-builds/s13-c7ec/bin/oximond-ccd6b49-phases",
+      "sha256": "d2a0c802c3592879f17ae8369e8c3447b97aec04b016333c21896a2faeaff5fd",
+      "features": [
+        "alloc-stats",
+        "alloc-phases"
+      ],
+      "features_source": "reported: the build field of its alloc-phases report"
+    }
+  },
+  "results": [
+    {
+      "benchmark": "table/hash_read",
+      "compat": "lua51",
+      "oracle": "lua5.1",
+      "modes": {
+        "interpreter": {
+          "instructions": 868812000,
+          "instructions_samples": [
+            868812000
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "alloc": {
+            "alloc_count": 3256,
+            "alloc_bytes": 736577,
+            "alloc_peak_bytes": 439730
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "interpreter",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 3257,
+              "alloc_bytes": 736634,
+              "alloc_peak_bytes": 439731,
+              "live_bytes": 381459
+            },
+            "instrumentation": {
+              "header_bytes": 52112,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 849,
+                "alloc_bytes": 227811,
+                "alloc_count_vm": 819,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 224631,
+                "alloc_bytes_other": 3180,
+                "active_peak_bytes": 73129,
+                "origin_live_bytes": 51098,
+                "origin_peak_bytes": 73009,
+                "released_by": {
+                  "unclassified": {
+                    "count": 453,
+                    "bytes": 174069
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 2644
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 2405,
+                "alloc_bytes": 508474,
+                "alloc_count_vm": 2405,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 508474,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 439731,
+                "origin_live_bytes": 330309,
+                "origin_peak_bytes": 385989,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 68,
+                    "bytes": 178165
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 3,
+                "alloc_bytes": 349,
+                "alloc_count_vm": 3,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 349,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 381703,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 296,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 2,
+                    "bytes": 297
+                  }
+                }
+              }
+            },
+            "instructions": 868660926,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 24,
+              "elided_tables": 0,
+              "elided_table_bytes": 0,
+              "traces_compiled": 0,
+              "native_entries": 0,
+              "iterations": 0,
+              "recording_starts": 0,
+              "traces_recorded": 0,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 3256,
+              "alloc_bytes": 736582,
+              "alloc_peak_bytes": 439731
+            }
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "recording_starts": 0,
+            "traces_recorded": 0,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 503815092,
+          "instructions_samples": [
+            503815092
+          ],
+          "counters": {
+            "abort.UnsupportedOpcode": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 9,
+            "iterations": 2399705,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 26,
+            "recording_starts": 4,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "alloc": {
+            "alloc_count": 6701,
+            "alloc_bytes": 2169874,
+            "alloc_peak_bytes": 842550
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "tiered",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 6703,
+              "alloc_bytes": 2170523,
+              "alloc_peak_bytes": 842551,
+              "live_bytes": 419141
+            },
+            "instrumentation": {
+              "header_bytes": 115408,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 849,
+                "alloc_bytes": 227791,
+                "alloc_count_vm": 819,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 224616,
+                "alloc_bytes_other": 3175,
+                "active_peak_bytes": 73124,
+                "origin_live_bytes": 51098,
+                "origin_peak_bytes": 73004,
+                "released_by": {
+                  "unclassified": {
+                    "count": 453,
+                    "bytes": 174054
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 2639
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 337,
+                "alloc_bytes": 84069,
+                "alloc_count_vm": 337,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 84069,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 448574,
+                "origin_live_bytes": 15228,
+                "origin_peak_bytes": 42624,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 264,
+                    "bytes": 62645
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 22,
+                    "bytes": 6196
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 1629,
+                "alloc_bytes": 359626,
+                "alloc_count_vm": 1629,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 359626,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 458795,
+                "origin_live_bytes": 7988,
+                "origin_peak_bytes": 35929,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 1567,
+                    "bytes": 346970
+                  },
+                  "codegen": {
+                    "count": 3,
+                    "bytes": 160
+                  },
+                  "installation": {
+                    "count": 22,
+                    "bytes": 4508
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 1321,
+                "alloc_bytes": 965490,
+                "alloc_count_vm": 1321,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 965490,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 842551,
+                "origin_live_bytes": 8065,
+                "origin_peak_bytes": 403036,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 1214,
+                    "bytes": 949936
+                  },
+                  "installation": {
+                    "count": 51,
+                    "bytes": 7489
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 97,
+                "alloc_bytes": 22046,
+                "alloc_count_vm": 97,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 22046,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 447299,
+                "origin_live_bytes": 5200,
+                "origin_peak_bytes": 7994,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 79,
+                    "bytes": 16846
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 2466,
+                "alloc_bytes": 510560,
+                "alloc_count_vm": 2466,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 510560,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 440271,
+                "origin_live_bytes": 331510,
+                "origin_peak_bytes": 386370,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 123,
+                    "bytes": 179050
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 4,
+                "alloc_bytes": 941,
+                "alloc_count_vm": 4,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 941,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 419681,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 592,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 3,
+                    "bytes": 889
+                  }
+                }
+              }
+            },
+            "instructions": 504742991,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 24,
+              "elided_tables": 0,
+              "elided_table_bytes": 0,
+              "traces_compiled": 1,
+              "native_entries": 26,
+              "iterations": 2399705,
+              "recording_starts": 4,
+              "traces_recorded": 1,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 6701,
+              "alloc_bytes": 2169879,
+              "alloc_peak_bytes": 842551,
+              "abort.UnsupportedOpcode": 3,
+              "exit.LoopComplete": 17,
+              "exit.Poll": 9
+            }
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 26,
+            "iterations": 2399705,
+            "recording_starts": 4,
+            "traces_recorded": 1,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 9
+            },
+            "side_exits": {},
+            "aborts": {
+              "UnsupportedOpcode": 3
+            }
+          }
+        }
+      },
+      "oracle_path": "/usr/bin/lua5.1",
+      "checksum": "125823600"
+    },
+    {
+      "benchmark": "allocation/table_churn",
+      "compat": "lua51",
+      "oracle": "lua5.1",
+      "modes": {
+        "interpreter": {
+          "instructions": 263846644,
+          "instructions_samples": [
+            263846644
+          ],
+          "counters": {
+            "elided_table_bytes": 69120000,
+            "elided_tables": 320000,
+            "iterations": 0,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 22,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "alloc": {
+            "alloc_count": 1344,
+            "alloc_bytes": 218438,
+            "alloc_peak_bytes": 65159
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "interpreter",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 1345,
+              "alloc_bytes": 218495,
+              "alloc_peak_bytes": 65159,
+              "live_bytes": 54313
+            },
+            "instrumentation": {
+              "header_bytes": 21520,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 727,
+                "alloc_bytes": 166904,
+                "alloc_count_vm": 697,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 163717,
+                "alloc_bytes_other": 3187,
+                "active_peak_bytes": 65159,
+                "origin_live_bytes": 50810,
+                "origin_peak_bytes": 65032,
+                "released_by": {
+                  "unclassified": {
+                    "count": 337,
+                    "bytes": 114255
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 1839
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 615,
+                "alloc_bytes": 51242,
+                "alloc_count_vm": 615,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 51242,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 61732,
+                "origin_live_bytes": 3451,
+                "origin_peak_bytes": 9083,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 585,
+                    "bytes": 47791
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 3,
+                "alloc_bytes": 349,
+                "alloc_count_vm": 3,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 349,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 54557,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 296,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 2,
+                    "bytes": 297
+                  }
+                }
+              }
+            },
+            "instructions": 264106927,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 22,
+              "elided_tables": 320000,
+              "elided_table_bytes": 69120000,
+              "traces_compiled": 0,
+              "native_entries": 0,
+              "iterations": 0,
+              "recording_starts": 0,
+              "traces_recorded": 0,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 1344,
+              "alloc_bytes": 218443,
+              "alloc_peak_bytes": 65159
+            }
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 320000,
+            "elided_table_bytes": 69120000,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "recording_starts": 0,
+            "traces_recorded": 0,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 9491023,
+          "instructions_samples": [
+            9491023
+          ],
+          "counters": {
+            "elided_table_bytes": 69119784,
+            "elided_tables": 319999,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 1,
+            "iterations": 319934,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 2,
+            "recording_starts": 1,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "alloc": {
+            "alloc_count": 1802,
+            "alloc_bytes": 533576,
+            "alloc_peak_bytes": 221583
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "tiered",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 1804,
+              "alloc_bytes": 534225,
+              "alloc_peak_bytes": 221584,
+              "live_bytes": 75393
+            },
+            "instrumentation": {
+              "header_bytes": 32944,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 727,
+                "alloc_bytes": 166884,
+                "alloc_count_vm": 697,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 163702,
+                "alloc_bytes_other": 3182,
+                "active_peak_bytes": 65154,
+                "origin_live_bytes": 50810,
+                "origin_peak_bytes": 65027,
+                "released_by": {
+                  "unclassified": {
+                    "count": 337,
+                    "bytes": 114240
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 1834
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 75,
+                "alloc_bytes": 25459,
+                "alloc_count_vm": 75,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 25459,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 74269,
+                "origin_live_bytes": 7532,
+                "origin_peak_bytes": 12913,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 51,
+                    "bytes": 17927
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 433,
+                "alloc_bytes": 98031,
+                "alloc_count_vm": 433,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 98031,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 85171,
+                "origin_live_bytes": 3044,
+                "origin_peak_bytes": 16283,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 414,
+                    "bytes": 94955
+                  },
+                  "codegen": {
+                    "count": 1,
+                    "bytes": 32
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 444,
+                "alloc_bytes": 224672,
+                "alloc_count_vm": 444,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 224672,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 221584,
+                "origin_live_bytes": 7069,
+                "origin_peak_bytes": 145431,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 399,
+                    "bytes": 217603
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 23,
+                "alloc_bytes": 3846,
+                "alloc_count_vm": 23,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 3846,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 81495,
+                "origin_live_bytes": 2494,
+                "origin_peak_bytes": 2494,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 10,
+                    "bytes": 1352
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 98,
+                "alloc_bytes": 14392,
+                "alloc_count_vm": 98,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 14392,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 82151,
+                "origin_live_bytes": 4392,
+                "origin_peak_bytes": 9368,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 64,
+                    "bytes": 10000
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 4,
+                "alloc_bytes": 941,
+                "alloc_count_vm": 4,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 941,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 75933,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 592,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 3,
+                    "bytes": 889
+                  }
+                }
+              }
+            },
+            "instructions": 9789693,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 23,
+              "elided_tables": 319999,
+              "elided_table_bytes": 69119784,
+              "traces_compiled": 1,
+              "native_entries": 2,
+              "iterations": 319934,
+              "recording_starts": 1,
+              "traces_recorded": 1,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 1802,
+              "alloc_bytes": 533581,
+              "alloc_peak_bytes": 221584,
+              "exit.LoopComplete": 1,
+              "exit.Poll": 1
+            }
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 319999,
+            "elided_table_bytes": 69119784,
+            "traces_compiled": 1,
+            "native_entries": 2,
+            "iterations": 319934,
+            "recording_starts": 1,
+            "traces_recorded": 1,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {
+              "LoopComplete": 1,
+              "Poll": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        }
+      },
+      "oracle_path": "/usr/bin/lua5.1",
+      "checksum": "51200480000"
+    },
+    {
+      "benchmark": "table/hash_read_small",
+      "compat": "lua51",
+      "oracle": "lua5.1",
+      "modes": {
+        "interpreter": {
+          "instructions": 1433021427,
+          "instructions_samples": [
+            1433021427
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "alloc": {
+            "alloc_count": 938,
+            "alloc_bytes": 246559,
+            "alloc_peak_bytes": 73738
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "interpreter",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 939,
+              "alloc_bytes": 246616,
+              "alloc_peak_bytes": 73738,
+              "live_bytes": 55607
+            },
+            "instrumentation": {
+              "header_bytes": 15024,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 856,
+                "alloc_bytes": 231863,
+                "alloc_count_vm": 826,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 228677,
+                "alloc_bytes_other": 3186,
+                "active_peak_bytes": 73738,
+                "origin_live_bytes": 51098,
+                "origin_peak_bytes": 73612,
+                "released_by": {
+                  "unclassified": {
+                    "count": 460,
+                    "bytes": 177883
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 2882
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 80,
+                "alloc_bytes": 14404,
+                "alloc_count_vm": 80,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 14404,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 63717,
+                "origin_live_bytes": 4457,
+                "origin_peak_bytes": 9737,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 44,
+                    "bytes": 9947
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 3,
+                "alloc_bytes": 349,
+                "alloc_count_vm": 3,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 349,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 55851,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 296,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 2,
+                    "bytes": 297
+                  }
+                }
+              }
+            },
+            "instructions": 1433207187,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 24,
+              "elided_tables": 0,
+              "elided_table_bytes": 0,
+              "traces_compiled": 0,
+              "native_entries": 0,
+              "iterations": 0,
+              "recording_starts": 0,
+              "traces_recorded": 0,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 938,
+              "alloc_bytes": 246564,
+              "alloc_peak_bytes": 73738
+            }
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "recording_starts": 0,
+            "traces_recorded": 0,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 858370300,
+          "instructions_samples": [
+            858370300
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 14,
+            "iterations": 3839917,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 31,
+            "recording_starts": 1,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "alloc": {
+            "alloc_count": 4369,
+            "alloc_bytes": 1675342,
+            "alloc_peak_bytes": 517032
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "tiered",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 4371,
+              "alloc_bytes": 1675991,
+              "alloc_peak_bytes": 517033,
+              "live_bytes": 93385
+            },
+            "instrumentation": {
+              "header_bytes": 78096,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 856,
+                "alloc_bytes": 231843,
+                "alloc_count_vm": 826,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 228662,
+                "alloc_bytes_other": 3181,
+                "active_peak_bytes": 73733,
+                "origin_live_bytes": 51098,
+                "origin_peak_bytes": 73607,
+                "released_by": {
+                  "unclassified": {
+                    "count": 460,
+                    "bytes": 177868
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 2877
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 313,
+                "alloc_bytes": 79425,
+                "alloc_count_vm": 313,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 79425,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 123056,
+                "origin_live_bytes": 15324,
+                "origin_peak_bytes": 42720,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 240,
+                    "bytes": 57905
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 22,
+                    "bytes": 6196
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 1629,
+                "alloc_bytes": 359626,
+                "alloc_count_vm": 1629,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 359626,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 133277,
+                "origin_live_bytes": 7988,
+                "origin_peak_bytes": 35929,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 1567,
+                    "bytes": 346970
+                  },
+                  "codegen": {
+                    "count": 3,
+                    "bytes": 160
+                  },
+                  "installation": {
+                    "count": 22,
+                    "bytes": 4508
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 1321,
+                "alloc_bytes": 965490,
+                "alloc_count_vm": 1321,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 965490,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 517033,
+                "origin_live_bytes": 8065,
+                "origin_peak_bytes": 403036,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 1214,
+                    "bytes": 949936
+                  },
+                  "installation": {
+                    "count": 51,
+                    "bytes": 7489
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 97,
+                "alloc_bytes": 22046,
+                "alloc_count_vm": 97,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 22046,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 121781,
+                "origin_live_bytes": 5200,
+                "origin_peak_bytes": 7994,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 79,
+                    "bytes": 16846
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 151,
+                "alloc_bytes": 16620,
+                "alloc_count_vm": 151,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 16620,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 101490,
+                "origin_live_bytes": 5658,
+                "origin_peak_bytes": 10938,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 109,
+                    "bytes": 10962
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 4,
+                "alloc_bytes": 941,
+                "alloc_count_vm": 4,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 941,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 93925,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 592,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 3,
+                    "bytes": 889
+                  }
+                }
+              }
+            },
+            "instructions": 858999291,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 24,
+              "elided_tables": 0,
+              "elided_table_bytes": 0,
+              "traces_compiled": 1,
+              "native_entries": 31,
+              "iterations": 3839917,
+              "recording_starts": 1,
+              "traces_recorded": 1,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 4369,
+              "alloc_bytes": 1675347,
+              "alloc_peak_bytes": 517033,
+              "exit.LoopComplete": 17,
+              "exit.Poll": 14
+            }
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 31,
+            "iterations": 3839917,
+            "recording_starts": 1,
+            "traces_recorded": 1,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 14
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        }
+      },
+      "oracle_path": "/usr/bin/lua5.1",
+      "checksum": "78720000"
+    },
+    {
+      "benchmark": "table/hash_read_shaped",
+      "compat": "lua51",
+      "oracle": "lua5.1",
+      "modes": {
+        "interpreter": {
+          "instructions": 1452604698,
+          "instructions_samples": [
+            1452604698
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "alloc": {
+            "alloc_count": 1033,
+            "alloc_bytes": 254332,
+            "alloc_peak_bytes": 75347
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "interpreter",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 1034,
+              "alloc_bytes": 254389,
+              "alloc_peak_bytes": 75347,
+              "live_bytes": 55273
+            },
+            "instrumentation": {
+              "header_bytes": 16544,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 948,
+                "alloc_bytes": 238257,
+                "alloc_count_vm": 918,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 235070,
+                "alloc_bytes_other": 3187,
+                "active_peak_bytes": 75347,
+                "origin_live_bytes": 51146,
+                "origin_peak_bytes": 75220,
+                "released_by": {
+                  "unclassified": {
+                    "count": 551,
+                    "bytes": 184075
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 3036
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 83,
+                "alloc_bytes": 15783,
+                "alloc_count_vm": 83,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 15783,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 64343,
+                "origin_live_bytes": 4075,
+                "origin_peak_bytes": 10161,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 54,
+                    "bytes": 11708
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 3,
+                "alloc_bytes": 349,
+                "alloc_count_vm": 3,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 349,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 55517,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 296,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 2,
+                    "bytes": 297
+                  }
+                }
+              }
+            },
+            "instructions": 1452809966,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 24,
+              "elided_tables": 0,
+              "elided_table_bytes": 0,
+              "traces_compiled": 0,
+              "native_entries": 0,
+              "iterations": 0,
+              "recording_starts": 0,
+              "traces_recorded": 0,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 1033,
+              "alloc_bytes": 254337,
+              "alloc_peak_bytes": 75347
+            }
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "recording_starts": 0,
+            "traces_recorded": 0,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 817031810,
+          "instructions_samples": [
+            817031810
+          ],
+          "counters": {
+            "abort.LoopNotClosed": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 14,
+            "iterations": 3839884,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 31,
+            "recording_starts": 2,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "alloc": {
+            "alloc_count": 4477,
+            "alloc_bytes": 1689375,
+            "alloc_peak_bytes": 517804
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "tiered",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 4479,
+              "alloc_bytes": 1690024,
+              "alloc_peak_bytes": 517805,
+              "live_bytes": 94003
+            },
+            "instrumentation": {
+              "header_bytes": 79824,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 948,
+                "alloc_bytes": 238237,
+                "alloc_count_vm": 918,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 235055,
+                "alloc_bytes_other": 3182,
+                "active_peak_bytes": 75342,
+                "origin_live_bytes": 51146,
+                "origin_peak_bytes": 75215,
+                "released_by": {
+                  "unclassified": {
+                    "count": 551,
+                    "bytes": 184060
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 3031
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 325,
+                "alloc_bytes": 85365,
+                "alloc_count_vm": 325,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 85365,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 123828,
+                "origin_live_bytes": 16092,
+                "origin_peak_bytes": 43488,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 252,
+                    "bytes": 63077
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 22,
+                    "bytes": 6196
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 1629,
+                "alloc_bytes": 359626,
+                "alloc_count_vm": 1629,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 359626,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 134049,
+                "origin_live_bytes": 7988,
+                "origin_peak_bytes": 35929,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 1567,
+                    "bytes": 346970
+                  },
+                  "codegen": {
+                    "count": 3,
+                    "bytes": 160
+                  },
+                  "installation": {
+                    "count": 22,
+                    "bytes": 4508
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 1321,
+                "alloc_bytes": 965490,
+                "alloc_count_vm": 1321,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 965490,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 517805,
+                "origin_live_bytes": 8065,
+                "origin_peak_bytes": 403036,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 1214,
+                    "bytes": 949936
+                  },
+                  "installation": {
+                    "count": 51,
+                    "bytes": 7489
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 97,
+                "alloc_bytes": 22046,
+                "alloc_count_vm": 97,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 22046,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 122553,
+                "origin_live_bytes": 5200,
+                "origin_peak_bytes": 7994,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 79,
+                    "bytes": 16846
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 155,
+                "alloc_bytes": 18319,
+                "alloc_count_vm": 155,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 18319,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 102262,
+                "origin_live_bytes": 5460,
+                "origin_peak_bytes": 10740,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 120,
+                    "bytes": 12859
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 4,
+                "alloc_bytes": 941,
+                "alloc_count_vm": 4,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 941,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 94543,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 592,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 3,
+                    "bytes": 889
+                  }
+                }
+              }
+            },
+            "instructions": 817689026,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 24,
+              "elided_tables": 0,
+              "elided_table_bytes": 0,
+              "traces_compiled": 1,
+              "native_entries": 31,
+              "iterations": 3839884,
+              "recording_starts": 2,
+              "traces_recorded": 1,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 4477,
+              "alloc_bytes": 1689380,
+              "alloc_peak_bytes": 517805,
+              "abort.LoopNotClosed": 1,
+              "exit.LoopComplete": 17,
+              "exit.Poll": 14
+            }
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 31,
+            "iterations": 3839884,
+            "recording_starts": 2,
+            "traces_recorded": 1,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 14
+            },
+            "side_exits": {},
+            "aborts": {
+              "LoopNotClosed": 1
+            }
+          }
+        }
+      },
+      "oracle_path": "/usr/bin/lua5.1",
+      "checksum": "36960000"
+    },
+    {
+      "benchmark": "table/hash_read_indexed",
+      "compat": "lua51",
+      "oracle": "lua5.1",
+      "modes": {
+        "interpreter": {
+          "instructions": 1115483034,
+          "instructions_samples": [
+            1115483034
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "alloc": {
+            "alloc_count": 8827,
+            "alloc_bytes": 1234271,
+            "alloc_peak_bytes": 700931
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "interpreter",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 8828,
+              "alloc_bytes": 1234328,
+              "alloc_peak_bytes": 700932,
+              "live_bytes": 692043
+            },
+            "instrumentation": {
+              "header_bytes": 141248,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 1148,
+                "alloc_bytes": 380642,
+                "alloc_count_vm": 1118,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 377454,
+                "alloc_bytes_other": 3188,
+                "active_peak_bytes": 93012,
+                "origin_live_bytes": 51626,
+                "origin_peak_bytes": 92884,
+                "released_by": {
+                  "unclassified": {
+                    "count": 741,
+                    "bytes": 325387
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 3629
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 7677,
+                "alloc_bytes": 853337,
+                "alloc_count_vm": 7677,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 853337,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 700932,
+                "origin_live_bytes": 640365,
+                "origin_peak_bytes": 645677,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 88,
+                    "bytes": 212972
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 3,
+                "alloc_bytes": 349,
+                "alloc_count_vm": 3,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 349,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 692287,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 296,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 2,
+                    "bytes": 297
+                  }
+                }
+              }
+            },
+            "instructions": 1116775117,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 24,
+              "elided_tables": 0,
+              "elided_table_bytes": 0,
+              "traces_compiled": 0,
+              "native_entries": 0,
+              "iterations": 0,
+              "recording_starts": 0,
+              "traces_recorded": 0,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 8827,
+              "alloc_bytes": 1234276,
+              "alloc_peak_bytes": 700932
+            }
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "recording_starts": 0,
+            "traces_recorded": 0,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 671446251,
+          "instructions_samples": [
+            671446251
+          ],
+          "counters": {
+            "abort.UnsupportedOpcode": 6,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 16,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 9,
+            "iterations": 2619854,
+            "loads_forwarded": 0,
+            "loads_hoisted": 0,
+            "loads_merged": 0,
+            "native_entries": 42,
+            "recording_starts": 7,
+            "side_exit.ArrayBounds": 16,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "alloc": {
+            "alloc_count": 15276,
+            "alloc_bytes": 4285542,
+            "alloc_peak_bytes": 1435522
+          },
+          "alloc_phases": {
+            "schema": "oximond-alloc-phases/1",
+            "build": [
+              "alloc-stats",
+              "alloc-phases"
+            ],
+            "context": {
+              "execution": "tiered",
+              "jit_sync": "on"
+            },
+            "totals": {
+              "alloc_count": 15278,
+              "alloc_bytes": 4286191,
+              "alloc_peak_bytes": 1435523,
+              "live_bytes": 750003
+            },
+            "instrumentation": {
+              "header_bytes": 256688,
+              "header_bytes_min": 16
+            },
+            "phases": {
+              "unclassified": {
+                "alloc_count": 1148,
+                "alloc_bytes": 380622,
+                "alloc_count_vm": 1118,
+                "alloc_count_other": 30,
+                "alloc_bytes_vm": 377439,
+                "alloc_bytes_other": 3183,
+                "active_peak_bytes": 93007,
+                "origin_live_bytes": 51626,
+                "origin_peak_bytes": 92879,
+                "released_by": {
+                  "unclassified": {
+                    "count": 741,
+                    "bytes": 325372
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 15,
+                    "bytes": 3624
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "recording": {
+                "alloc_count": 677,
+                "alloc_bytes": 170172,
+                "alloc_count_vm": 677,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 170172,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 788269,
+                "origin_live_bytes": 21090,
+                "origin_peak_bytes": 61644,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 547,
+                    "bytes": 132900
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 62,
+                    "bytes": 16182
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "optimization": {
+                "alloc_count": 3211,
+                "alloc_bytes": 744724,
+                "alloc_count_vm": 3211,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 744724,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 798226,
+                "origin_live_bytes": 13214,
+                "origin_peak_bytes": 49555,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 3089,
+                    "bytes": 717420
+                  },
+                  "codegen": {
+                    "count": 6,
+                    "bytes": 384
+                  },
+                  "installation": {
+                    "count": 61,
+                    "bytes": 13706
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "codegen": {
+                "alloc_count": 2283,
+                "alloc_bytes": 2086137,
+                "alloc_count_vm": 2283,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 2086137,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 1435523,
+                "origin_live_bytes": 13601,
+                "origin_peak_bytes": 657236,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 2114,
+                    "bytes": 2056290
+                  },
+                  "installation": {
+                    "count": 108,
+                    "bytes": 16246
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "installation": {
+                "alloc_count": 184,
+                "alloc_bytes": 46900,
+                "alloc_count_vm": 184,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 46900,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 791438,
+                "origin_live_bytes": 8402,
+                "origin_peak_bytes": 13827,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 161,
+                    "bytes": 38498
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "execution": {
+                "alloc_count": 7771,
+                "alloc_bytes": 856695,
+                "alloc_count_vm": 7771,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 856695,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 758887,
+                "origin_live_bytes": 642018,
+                "origin_peak_bytes": 647330,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 176,
+                    "bytes": 214677
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "exit_recovery": {
+                "alloc_count": 0,
+                "alloc_bytes": 0,
+                "alloc_count_vm": 0,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 0,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 0,
+                "origin_live_bytes": 0,
+                "origin_peak_bytes": 0,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 0,
+                    "bytes": 0
+                  }
+                }
+              },
+              "report": {
+                "alloc_count": 4,
+                "alloc_bytes": 941,
+                "alloc_count_vm": 4,
+                "alloc_count_other": 0,
+                "alloc_bytes_vm": 941,
+                "alloc_bytes_other": 0,
+                "active_peak_bytes": 750543,
+                "origin_live_bytes": 52,
+                "origin_peak_bytes": 592,
+                "released_by": {
+                  "unclassified": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "recording": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "optimization": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "codegen": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "installation": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "execution": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "exit_recovery": {
+                    "count": 0,
+                    "bytes": 0
+                  },
+                  "report": {
+                    "count": 3,
+                    "bytes": 889
+                  }
+                }
+              }
+            },
+            "instructions": 673298118,
+            "instructions_label": "diagnostic build overhead: instructions:u of the instrumented build, never compared with normal-build numbers",
+            "oximond_counters": {
+              "tables_created": 24,
+              "elided_tables": 0,
+              "elided_table_bytes": 0,
+              "traces_compiled": 1,
+              "native_entries": 42,
+              "iterations": 2619854,
+              "recording_starts": 7,
+              "traces_recorded": 1,
+              "loads_forwarded": 0,
+              "loads_merged": 0,
+              "loads_hoisted": 0,
+              "alloc_count": 15276,
+              "alloc_bytes": 4285547,
+              "alloc_peak_bytes": 1435523,
+              "abort.UnsupportedOpcode": 6,
+              "exit.GuardFail": 16,
+              "exit.LoopComplete": 17,
+              "exit.Poll": 9,
+              "side_exit.ArrayBounds": 16
+            }
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 42,
+            "iterations": 2619854,
+            "recording_starts": 7,
+            "traces_recorded": 1,
+            "loads_forwarded": 0,
+            "loads_merged": 0,
+            "loads_hoisted": 0,
+            "exits": {
+              "GuardFail": 16,
+              "LoopComplete": 17,
+              "Poll": 9
+            },
+            "side_exits": {
+              "ArrayBounds": 16
+            },
+            "aborts": {
+              "UnsupportedOpcode": 6
+            }
+          }
+        }
+      },
+      "oracle_path": "/usr/bin/lua5.1",
+      "checksum": "113907840\t327680"
+    }
+  ]
+}

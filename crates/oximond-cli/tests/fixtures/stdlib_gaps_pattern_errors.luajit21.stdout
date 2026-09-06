@@ -1,0 +1,42 @@
+[a	false	malformed pattern (missing ']')
+[a	false	malformed pattern (missing ']')
+[a	false	malformed pattern (missing ']')
+[a	false	stdlib_gaps_pattern_errors.lua:7: malformed pattern (missing ']')
+%	false	malformed pattern (ends with '%')
+%	false	malformed pattern (ends with '%')
+%	false	malformed pattern (ends with '%')
+%	false	stdlib_gaps_pattern_errors.lua:7: malformed pattern (ends with '%')
+%b	false	unbalanced pattern
+%b	false	unbalanced pattern
+%b	false	unbalanced pattern
+%b	false	stdlib_gaps_pattern_errors.lua:7: unbalanced pattern
+%bx	false	unbalanced pattern
+%bx	false	unbalanced pattern
+%bx	false	unbalanced pattern
+%bx	false	stdlib_gaps_pattern_errors.lua:7: unbalanced pattern
+%f	false	missing '[' after '%f' in pattern
+%f	false	missing '[' after '%f' in pattern
+%f	false	missing '[' after '%f' in pattern
+%f	false	stdlib_gaps_pattern_errors.lua:7: missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	missing '[' after '%f' in pattern
+%fa	false	stdlib_gaps_pattern_errors.lua:7: missing '[' after '%f' in pattern
+%1	false	invalid capture index
+%1	false	invalid capture index
+%1	false	invalid capture index
+%1	false	stdlib_gaps_pattern_errors.lua:7: invalid capture index
+(a)%2	false	invalid capture index
+(a)%2	false	invalid capture index
+(a)%2	false	invalid capture index
+(a)%2	false	stdlib_gaps_pattern_errors.lua:7: invalid capture index
+[%	false	malformed pattern (missing ']')
+[%	false	malformed pattern (missing ']')
+[%	false	malformed pattern (missing ']')
+[%	false	stdlib_gaps_pattern_errors.lua:7: malformed pattern (missing ']')
+false	unfinished capture
+false	unfinished capture
+2	function
+true	created
+false	malformed pattern (missing ']')
+false	stdlib_gaps_pattern_errors.lua:15: malformed pattern (missing ']')

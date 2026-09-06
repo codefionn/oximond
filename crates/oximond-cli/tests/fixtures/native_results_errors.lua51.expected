@@ -1,0 +1,35 @@
+true	number	10
+false	string	16: bad argument #1 to 'floor' (number expected, got table)
+false	string	16: bad argument #1 to 'floor' (number expected, got string)
+false	string	21: bad argument #1 to 'abs' (number expected, got nil)
+true	number	4
+false	string	25: bad argument #1 to 'floor' (number expected, got table)
+true	string	2
+false	string	29: bad argument #1 to 'sqrt' (number expected, got string)
+true	number	4
+true	number	10
+false	string	16: bad argument #1 to 'floor' (number expected, got table)
+false	string	16: bad argument #1 to 'floor' (number expected, got string)
+false	string	21: bad argument #1 to 'abs' (number expected, got nil)
+true	number	4
+false	string	25: bad argument #1 to 'floor' (number expected, got table)
+true	string	2
+false	string	29: bad argument #1 to 'sqrt' (number expected, got string)
+true	number	4
+true	number	10
+false	string	16: bad argument #1 to 'floor' (number expected, got table)
+false	string	16: bad argument #1 to 'floor' (number expected, got string)
+false	string	21: bad argument #1 to 'abs' (number expected, got nil)
+true	number	4
+false	string	25: bad argument #1 to 'floor' (number expected, got table)
+true	string	2
+false	string	29: bad argument #1 to 'sqrt' (number expected, got string)
+true	number	4
+false	script:48: bad argument #1 to 'floor' (number expected, got table)
+tb
+stack traceback:
+<fn>
+	script:51: in main chunk
+55
+false	kept
+1.5,2,number,4.5,5.5,3

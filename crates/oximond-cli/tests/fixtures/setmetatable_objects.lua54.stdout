@@ -1,0 +1,35 @@
+plain 1 1 x,y,z 2 0 2 nil
+plain 2 1 x,y,z 2 0 2 nil
+plain 3 1 x,y,z 2 0 2 nil
+local-impostor 1 x,z x,y nil nil
+impostor 1 x,z x,y nil nil
+plain 1 300 x,y,z 301 0 301 nil
+plain 2 300 x,y,z 301 0 301 nil
+plain 3 300 x,y,z 301 0 301 nil
+local-impostor 300 x,z x,y nil nil
+impostor 300 x,z x,y nil nil
+late 1 a,b 0
+late 2 a,b 200
+late 3 a,b 0
+late 4 a 200
+tbl a b 200 200
+tbl-removed a,b b
+chain   k0,k1,k2 100
+nilkey 1 3
+nilkey2 52 50
+rawset a,b 2 false blocked
+rawset-after a,b,c
+rawset-meta x,y 1 10
+rawset-meta-removed 7
+self __index,__newindex,a,b 1 n2
+self-removed 3
+pairs a,b,c,d 4
+getmt 1
+getmt-locked locked
+protected false cannot change a protected metatable
+unprotected true
+late-protect now
+late-protect-set false cannot change a protected metatable
+unprotect true true
+cleared nil
+false-protect false false cannot change a protected metatable

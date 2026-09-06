@@ -1,0 +1,11 @@
+M5#4 false "string" true false
+M5#5 false "table" "string" true false
+M5#4 false "number" true false
+M5#5 false "table" "number" true false
+M5#4 false "boolean" true false
+M5#5 false "table" "boolean" true false
+M5#4 false "table" true true
+M5#5 false "table" "table" true true
+M5#3 false "nil" true
+M5#2 false "nil"
+M5#4 false "string" true n2

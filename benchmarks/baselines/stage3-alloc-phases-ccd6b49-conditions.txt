@@ -1,0 +1,19 @@
+cpu 3
+3,11
+ 19:27:39 up 1 day, 21:57,  1 user,  load average: 6,40, 7,76, 8,69
+scale 1 exit 0
+ 19:27:42 up 1 day, 21:57,  1 user,  load average: 6,40, 7,76, 8,69
+scale 4 exit 0
+ 19:27:44 up 1 day, 21:57,  1 user,  load average: 6,29, 7,71, 8,67
+
+20e3afe7cf7f3a7b25cbc2afc1a0b1ccafafe98c34e2446d4f681129853cff51  bin/oximond-ccd6b49-alloc
+47ed62fa1f71f81e366d32e61f487701183e8ab03d7906bb3d00eead43b89e1a  bin/oximond-ccd6b49-normal
+d2a0c802c3592879f17ae8369e8c3447b97aec04b016333c21896a2faeaff5fd  bin/oximond-ccd6b49-phases
+056c50adee27a7553e93a20e187e98450d8e9b6f28c0ab5b0504d2f6c43040aa  /home/user/Documents/prog/oximond/.claude/worktrees/perf-builds/s12/bin/oximond-0479ad0-normal
+4042f057e7d58b1661524275399d8aada190c5e8eeb7b6e633b7a44c4f8799dc  /home/user/Documents/prog/oximond/.claude/worktrees/perf-builds/s12/bin/oximond-0479ad0-alloc
+
+workspace exit 0
+cli alloc-phases exit 0
+cli alloc-stats exit 0
+runtime alloc-phases exit 0
+measure exit 0

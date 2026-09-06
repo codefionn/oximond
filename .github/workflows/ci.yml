@@ -1,0 +1,103 @@
+# =============================================================================
+# oximond tests for GitHub Actions — the counterpart of the `test` stage in
+# .gitlab-ci.yml: the workspace tests, the WebAssembly smoke test and the
+# pinned conformance suites, each driven by scripts/ci.sh (the same entry
+# point a local run uses).
+#
+# Branches and pull requests run this workflow and check.yml; version tags run
+# only release.yml, which re-checks everything after its version gate.
+#
+# --- Runner requirements -----------------------------------------------------
+# GitHub-hosted ubuntu-latest runners, toolchain pinned through
+# dtolnay/rust-toolchain to the version the GitLab and Forgejo pipelines take
+# from the rust:1.97.1-trixie image. Jobs need:
+#   * internet access — the conformance job downloads the pinned Lua suites
+#     (lua.org tarballs, one pinned GitHub checkout) into .oximond/conformance;
+#     the runner has no shared cache, so every run re-downloads them;
+#   * a C/C++ toolchain (preinstalled on the runner image) — tests compile
+#     native modules and the Lua 5.4/5.5 conformance tests build lib2-v2.so;
+#   * node for tests/wasm-smoke (set up here in the wasm job);
+#   * 4 GiB of memory minimum for test and conformance (each conformance test
+#     process runs under its own 4 GiB address-space cap), 8 GiB is
+#     comfortable — the thin-LTO release build is the peak consumer.
+#
+# The conformance run report goes to the job log and is uploaded as a run
+# artifact (the GitLab pipeline uploads the same report). No secrets are
+# required.
+# =============================================================================
+
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: "0"
+  # Keep each job within its runner's memory budget; parallelism lives at the
+  # workflow level.
+  CARGO_BUILD_JOBS: "2"
+  RUST_BACKTRACE: "1"
+
+# A newer push to the same ref supersedes an in-flight run
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain
+        uses: dtolnay/rust-toolchain@1.97.1
+      - name: Test
+        run: scripts/ci.sh test
+
+  wasm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain
+        uses: dtolnay/rust-toolchain@1.97.1
+        with:
+          targets: wasm32-unknown-unknown
+      - name: Set up node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - name: WebAssembly smoke test
+        run: scripts/ci.sh wasm
+
+  conformance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install the pinned toolchain
+        uses: dtolnay/rust-toolchain@1.97.1
+      - name: Conformance suites
+        env:
+          OXIMOND_CI_REPORT: conformance-report.txt
+        run: scripts/ci.sh conformance
+      - name: Upload the conformance report
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: conformance-report
+          path: conformance-report.txt
+          if-no-files-found: ignore

@@ -1,0 +1,27 @@
+concat	true	len,get1,get2,get3
+concat-ij	true	len,get2,get3
+unpack	true	len,get1,get2,get3
+unpack-ij	true	get2,get3
+insert	true	len,set3=99
+insert-pos	true	len,get2,set3=2,get1,set2=1,set1=99
+remove	true	len,get3,set3=nil
+remove-pos	true	len,get1,get2,set1=2,get3,set2=3,set3=nil
+move	true	get3,set4=3,get2,set3=2,get1,set2=1
+ipairs	nil	get1,1:1,get2,2:2,get3,3:3,get4
+ipairs-index-only	nil	1:2,2:4,3:6
+unpack-index-only	true	
+concat-index-only	true	
+concat-len-only	true	
+unpack-len-only	true	
+insert-len-only	true	
+9	nil
+300	300
+451500	3310
+200	3510
+1600	4710
+100	1,2,3,4,5
+100	200	200	99
+false	wrong number of arguments to 'insert'
+false	wrong number of arguments to 'insert'
+false	invalid value (table) at index 1 in table for 'concat'
+true	1

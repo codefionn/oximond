@@ -1,0 +1,36 @@
+yield0 0 2500 suspended
+yield1 6250002 5000 suspended
+yield3 6257501 10000 suspended
+yield6 18780006 17500 suspended
+yield4 12495008 12500 suspended
+take0 17500 5000 suspended
+take6 3138747 5000 suspended
+nested 1210250 suspended
+tree 1024 2047 dead false cannot resume dead coroutine
+strings 3381349
+meta 9281325 25
+nilarith 2497 attempt to perform arithmetic on a nil value (local 'a')
+nilarith dead false cannot resume dead coroutine
+error 2495 boom 2495 dead
+after error 2495 false cannot resume dead coroutine
+table error table 1501 dead
+finish 2501 true finished 2501
+dead false cannot resume dead coroutine
+dead again false cannot resume dead coroutine
+self 1 false running
+outer true 1
+self 2 false running
+outer true 2
+self 3 false running
+outer true 3
+outer true
+inner sees normal
+outer sees suspended
+suspended
+wrap 32475
+wrap done 3126250 end false cannot resume dead coroutine
+wrap error false wrapped 2000
+pcall yield 3128750
+pcall error 3121250
+writes 12505000 2500 5000 2500
+rare writes 3154462 6 11

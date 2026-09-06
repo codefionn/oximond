@@ -1,0 +1,27 @@
+y1# index: true | field ; suspended true | index | 11 ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y2# newindex: true | 1 ; suspended true | 2 ; suspended true | newindex | 11 | 12 ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y3# arith: true | add ; suspended true | unm ; suspended true | arith | 11 | 12 ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y4# compare: true | lt ; suspended true | le ; suspended true | eq ; suspended true | compare | true | true | true ; dead false | cannot resume dead coroutine
+y5# concat: true | concat ; suspended true | concat | 11 ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y6# call: true | 1 ; suspended true | call | 11 ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y7# iter: true | 1 ; suspended true | 2 ; suspended true | 3 ; suspended true | iter | 6 ; dead false | cannot resume dead coroutine
+y8# pcallmeta: true | key ; suspended true | pcallmeta | 11 ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y9# sort: false | attempt to yield across a C-call boundary ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y10# gsub: false | attempt to yield across a C-call boundary ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y11# tostring: false | attempt to yield across a C-call boundary ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y12# load: true | load | nil ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+y13# len: true | len ; suspended true | len | 11 ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine ; dead false | cannot resume dead coroutine
+s14# gsub_bad_capture: false | case.lua:26: invalid capture index %2
+s15# gsub_bad_escape: false | case.lua:27: invalid use of '%' in replacement string
+s16# format_s_tostring: true | TS|    x
+s17# dofile_missing: false | cannot open /nonexistent/oximond-difftest.lua: No such file or directory
+s18# gmatch_malformed: false | case.lua:30: malformed pattern (missing ']')
+s19# gmatch_caret: true | 0
+s20# find_malformed: false | case.lua:32: malformed pattern (ends with '%')
+s21# rep_negative: true | 
+s22# xpcall_load_reader: true | true | function | 42
+s23# table_concat_meta: true | 10,20,30
+s24# table_unpack_meta: true | 10 | 20 | 30
+s25# table_move_meta: true | 10,20,30
+s26# table_insert_meta: true | 6 | 5 | 2
+s27# table_remove_meta: true | 9 | 7 | 8 | nil

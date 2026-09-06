@@ -1,0 +1,7 @@
+false	cannot open /nonexistent/file.lua: No such file or directory
+nil	cannot open /nonexistent/file.lua: No such file or directory
+true	nil	cannot open /nonexistent/dir/: No such file or directory
+nil	cannot read /tmp
+false	cannot read /tmp
+false	cannot open : No such file or directory
+nil	cannot open : No such file or directory

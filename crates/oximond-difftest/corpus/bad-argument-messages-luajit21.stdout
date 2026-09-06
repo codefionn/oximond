@@ -1,0 +1,3 @@
+o1#	false	case.lua:4: bad argument #1 to 'rep' (number expected, got table)
+o2#	false	case.lua:5: bad argument #1 to 'setmetatable' (table expected, got number)
+o3#	false	case.lua:6: bad argument #1 to 'rep' (string expected, got no value)

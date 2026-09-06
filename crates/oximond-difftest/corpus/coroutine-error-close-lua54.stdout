@@ -1,0 +1,9 @@
+C2#3 true i16 nil
+C2#2 i0 "suspended"
+C2#1 true
+C2#2 "second:nil,first:nil" "dead"
+C2#1 true
+C2#2 false "runtime close error"
+C2#1 i2
+C2#2 false "runtime close error"
+C2#2 "second:nil,first:nil,failed:string" "dead"

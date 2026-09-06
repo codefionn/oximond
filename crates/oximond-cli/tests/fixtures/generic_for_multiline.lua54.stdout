@@ -1,0 +1,2 @@
+err false L13: iter
+err2 false L24: attempt to call a number value (for iterator 'for iterator')

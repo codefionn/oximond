@@ -1,0 +1,81 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/oximond",
+    "crates/oximond-capi",
+    "crates/oximond-cli",
+    "crates/oximond-conformance",
+    "crates/oximond-difftest",
+    "crates/oximond-mir",
+]
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+repository = "https://github.com/codefionn/oximond"
+rust-version = "1.97"
+version = "0.1.0"
+
+# Every dependency lives here once. Crates take them with `workspace = true`
+# (adding at most a feature), so versions and default features are decided in
+# one place. `tests/wasm-smoke` is its own workspace and repeats its one.
+[workspace.dependencies]
+bincode = "1.3"
+cc = "1"
+chrono = { version = "0.4.45", default-features = false, features = ["clock", "std"] }
+cranelift-codegen = "=0.130.2"
+cranelift-frontend = "=0.130.2"
+cranelift-jit = "=0.130.2"
+cranelift-module = "=0.130.2"
+hashbrown = { version = "0.17.1", default-features = false }
+memchr = "2.7.6"
+proptest = { version = "1.12", default-features = false, features = ["std"] }
+rustc-hash = "2"
+rustyline = { version = "19", default-features = false }
+serde = { version = "1", features = ["derive", "rc"] }
+signal-hook = { version = "0.3.18", default-features = false }
+
+# This workspace's own crates. `cargo publish` rewrites the path edge to the
+# version requirement, so the version is spelled out here and must move with
+# the workspace version when a release bumps it.
+oximond = { path = "crates/oximond", version = "0.1.0" }
+oximond-capi = { path = "crates/oximond-capi", version = "0.1.0", default-features = false }
+oximond-mir = { path = "crates/oximond-mir", version = "0.1.0" }
+
+# crates/oximond and crates/oximond-cli keep their own copies of these lints
+# (oximond allows unsafe only in its ffi_native module, and oximond-cli needs
+# it for the alloc-stats allocator); change all three together.
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+# Groups first (lower priority), the specific allows below override them.
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+
+# The families a Lua VM and its FFI legitimately violate everywhere. They are
+# allowed once here instead of silenced in a hundred files; everything else
+# pedantic reports is fixed at the site it reports it.
+#
+# Lua's numbers and bit operations wrap and lose precision by design, so the
+# interpreter, the bit libraries, the string packing and the C FFI convert
+# with `as` on purpose; `checked_conversions` asks for the same casts spelled
+# differently. The VM, the table storage and the JIT mark hot helpers
+# `#[inline(always)]` deliberately. The interpreter's dispatch functions are
+# long and wide because they are one match over opcodes, and internal calls
+# return `RuntimeResult` even where they cannot fail so callers and hot paths
+# share one error model.
+cast_possible_truncation = "allow"
+cast_possible_wrap = "allow"
+cast_precision_loss = "allow"
+cast_sign_loss = "allow"
+cast_ptr_alignment = "allow"
+checked_conversions = "allow"
+inline_always = "allow"
+too_many_lines = "allow"
+too_many_arguments = "allow"
+unnecessary_wraps = "allow"
+
+[profile.release]
+lto = "thin"
+debug = "line-tables-only"

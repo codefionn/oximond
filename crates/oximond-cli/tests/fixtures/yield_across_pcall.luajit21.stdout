@@ -1,0 +1,23 @@
+p1	true	2	y1
+inner	true	r1	r2	done
+p2	true	end	4
+p3	dead	false	cannot resume dead coroutine
+x1	true	xp
+x2	true	true	42
+e1	true	1
+caught	false	boom
+e2	true	2
+caught2	false	table	7
+e3	true	fin
+h1	true	h
+h2	true	false	bad
+pos	true	false	yield_across_pcall.lua:43: positioned
+n1	true	deep
+n2	true	true	true	true	outer
+m1	true	a
+m2	true	b
+m3	true	false	outer-err
+w1	w1
+w2	w2
+w3	false	wrapped
+w4	false	cannot resume dead coroutine

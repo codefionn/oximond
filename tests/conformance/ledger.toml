@@ -1,0 +1,1177 @@
+# Machine-readable compatibility ledger. `reason` is required for every entry.
+format = 1
+
+[[entry]]
+corpus = "lua52"
+path = "all.lua"
+state = "expected-fail"
+milestone = "aggregate-runner"
+reason = "The portable upstream aggregate is executable but does not pass yet."
+[[entry]]
+corpus = "lua52"
+path = "api.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+[[entry]]
+corpus = "lua52"
+path = "attrib.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable package and environment test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "big.lua"
+state = "deferred"
+milestone = "aggregate-helper"
+reason = "The aggregate executes this coroutine helper and checks its yield protocol. Direct execution is not its upstream contract."
+[[entry]]
+corpus = "lua52"
+path = "bitwise.lua"
+state = "required"
+milestone = "bitwise"
+reason = "The portable bit32 and integer-coercion suite passes in this profile."
+[[entry]]
+corpus = "lua52"
+path = "calls.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "Portable function and call-result test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "checktable.lua"
+state = "deferred"
+milestone = "support-module"
+reason = "Helper module loaded by table tests, not a standalone conformance result."
+[[entry]]
+corpus = "lua52"
+path = "closure.lua"
+state = "expected-fail"
+milestone = "closures"
+reason = "Portable closure and upvalue test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "code.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+[[entry]]
+corpus = "lua52"
+path = "constructs.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified portable syntax and control-flow suite passes in this profile."
+[[entry]]
+corpus = "lua52"
+path = "coroutine.lua"
+state = "expected-fail"
+milestone = "coroutines"
+reason = "Portable coroutine test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "db.lua"
+state = "expected-fail"
+milestone = "debug"
+reason = "Portable debug-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "errors.lua"
+state = "expected-fail"
+milestone = "errors"
+reason = "Portable error-handling test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "events.lua"
+state = "expected-fail"
+milestone = "metatables"
+reason = "Portable metamethod test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "files.lua"
+state = "expected-fail"
+milestone = "io"
+reason = "Portable file and OS-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "gc.lua"
+state = "expected-fail"
+milestone = "gc"
+reason = "Executable garbage-collector test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "goto.lua"
+state = "required"
+milestone = "language-core"
+reason = "The upstream goto and label test passes in this profile."
+[[entry]]
+corpus = "lua52"
+path = "literals.lua"
+state = "expected-fail"
+milestone = "scanner"
+reason = "Portable literal and scanner test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "locals.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified local-scope and register-limit suite passes in this profile."
+[[entry]]
+corpus = "lua52"
+path = "main.lua"
+state = "expected-fail"
+milestone = "cli"
+reason = "Standalone interpreter contract test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "math.lua"
+state = "required"
+milestone = "stdlib"
+reason = "The unmodified numeric and math-library suite passes in this profile."
+[[entry]]
+corpus = "lua52"
+path = "nextvar.lua"
+state = "expected-fail"
+milestone = "tables"
+reason = "Portable table traversal test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "pm.lua"
+state = "expected-fail"
+milestone = "patterns"
+reason = "Portable pattern-matching test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "sort.lua"
+state = "expected-fail"
+milestone = "tables"
+reason = "Portable table sorting test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "strings.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable string-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua52"
+path = "vararg.lua"
+state = "required"
+milestone = "varargs"
+reason = "The upstream vararg test passes in this profile."
+[[entry]]
+corpus = "lua52"
+path = "verybig.lua"
+state = "required"
+milestone = "compiler-capacity"
+reason = "The upstream wide-constant stress test passes in this profile."
+
+[[entry]]
+corpus = "lua53"
+path = "all.lua"
+state = "expected-fail"
+milestone = "aggregate-runner"
+reason = "The portable upstream aggregate is executable but does not pass yet."
+[[entry]]
+corpus = "lua53"
+path = "api.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+[[entry]]
+corpus = "lua53"
+path = "attrib.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable package and environment test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "big.lua"
+state = "deferred"
+milestone = "aggregate-helper"
+reason = "The aggregate executes this coroutine helper and checks its yield protocol. Direct execution is not its upstream contract."
+[[entry]]
+corpus = "lua53"
+path = "bitwise.lua"
+state = "required"
+milestone = "bitwise"
+reason = "The patched bitwise, integer-coercion, and string-to-integer conversion suite passes in this profile."
+[[entry]]
+corpus = "lua53"
+path = "calls.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "Portable function and call-result test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "closure.lua"
+state = "expected-fail"
+milestone = "closures"
+reason = "Portable closure and upvalue test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "code.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+[[entry]]
+corpus = "lua53"
+path = "constructs.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "Portable syntax and control-flow test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "coroutine.lua"
+state = "expected-fail"
+milestone = "coroutines"
+reason = "Portable coroutine test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "db.lua"
+state = "expected-fail"
+milestone = "debug"
+reason = "Portable debug-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "errors.lua"
+state = "expected-fail"
+milestone = "errors"
+reason = "Portable error-handling test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "events.lua"
+state = "required"
+milestone = "metatables"
+reason = "The portable metamethod suite passes in this profile."
+[[entry]]
+corpus = "lua53"
+path = "files.lua"
+state = "expected-fail"
+milestone = "io"
+reason = "Portable file and OS-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "gc.lua"
+state = "expected-fail"
+milestone = "gc"
+reason = "Executable garbage-collector test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "goto.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified goto, label, scope, and upvalue identity suite passes in this profile."
+[[entry]]
+corpus = "lua53"
+path = "literals.lua"
+state = "expected-fail"
+milestone = "scanner"
+reason = "Portable literal and scanner test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "locals.lua"
+state = "required"
+milestone = "language-core"
+reason = "Local scope and environment tests pass with the current compiler and runtime."
+[[entry]]
+corpus = "lua53"
+path = "main.lua"
+state = "expected-fail"
+milestone = "cli"
+reason = "Standalone interpreter contract test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "math.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable numeric and math-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "nextvar.lua"
+state = "expected-fail"
+milestone = "tables"
+reason = "Portable table traversal test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "pm.lua"
+state = "expected-fail"
+milestone = "patterns"
+reason = "Portable pattern-matching test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "sort.lua"
+state = "expected-fail"
+milestone = "tables"
+reason = "Portable table sorting test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "strings.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable string-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "tpack.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable string packing test not yet verified against this profile."
+[[entry]]
+corpus = "lua53"
+path = "utf8.lua"
+state = "required"
+milestone = "utf8"
+reason = "The portable UTF-8 suite passes in this profile."
+[[entry]]
+corpus = "lua53"
+path = "vararg.lua"
+state = "required"
+milestone = "varargs"
+reason = "The upstream vararg test passes in this profile."
+[[entry]]
+corpus = "lua53"
+path = "verybig.lua"
+state = "required"
+milestone = "compiler-capacity"
+reason = "The upstream wide-constant stress test passes in this profile."
+
+[[entry]]
+corpus = "lua54"
+path = "all.lua"
+state = "expected-fail"
+milestone = "aggregate-runner"
+reason = "The portable upstream aggregate is executable but does not pass yet."
+[[entry]]
+corpus = "lua54"
+path = "api.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+[[entry]]
+corpus = "lua54"
+path = "attrib.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable package and environment test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "big.lua"
+state = "deferred"
+milestone = "aggregate-helper"
+reason = "The aggregate executes this coroutine helper and checks its yield protocol. Direct execution is not its upstream contract."
+[[entry]]
+corpus = "lua54"
+path = "bitwise.lua"
+state = "required"
+milestone = "bitwise"
+reason = "The patched bitwise, integer-coercion, and string-to-integer conversion suite passes in this profile."
+[[entry]]
+corpus = "lua54"
+path = "bwcoercion.lua"
+state = "deferred"
+milestone = "support-module"
+reason = "Helper module installed by bitwise.lua, not a standalone conformance result."
+[[entry]]
+corpus = "lua54"
+path = "calls.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "Portable function and call-result test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "closure.lua"
+state = "expected-fail"
+milestone = "closures"
+reason = "Portable closure and upvalue test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "code.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+[[entry]]
+corpus = "lua54"
+path = "constructs.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "Portable syntax and control-flow test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "coroutine.lua"
+state = "expected-fail"
+milestone = "coroutines"
+reason = "Portable coroutine test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "cstack.lua"
+state = "expected-fail"
+milestone = "stack-limits"
+reason = "Executable stack-limit test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "db.lua"
+state = "expected-fail"
+milestone = "debug"
+reason = "Portable debug-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "errors.lua"
+state = "expected-fail"
+milestone = "errors"
+reason = "Portable error-handling test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "events.lua"
+state = "expected-fail"
+milestone = "metatables"
+reason = "Portable metamethod test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "files.lua"
+state = "expected-fail"
+milestone = "io"
+reason = "Portable file and OS-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "gc.lua"
+state = "expected-fail"
+milestone = "gc"
+reason = "Executable garbage-collector test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "gengc.lua"
+state = "expected-fail"
+milestone = "gc"
+reason = "Executable generational collector test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "goto.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified goto, label, scope, and to-be-closed suite passes in this profile."
+[[entry]]
+corpus = "lua54"
+path = "heavy.lua"
+state = "expected-fail"
+milestone = "resource-limits"
+reason = "Executable memory-limit stress test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "literals.lua"
+state = "expected-fail"
+milestone = "scanner"
+reason = "Portable literal and scanner test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "locals.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "Portable local-scope test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "main.lua"
+state = "expected-fail"
+milestone = "cli"
+reason = "Standalone interpreter contract test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "math.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable numeric and math-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "nextvar.lua"
+state = "expected-fail"
+milestone = "tables"
+reason = "Portable table traversal test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "pm.lua"
+state = "expected-fail"
+milestone = "patterns"
+reason = "Portable pattern-matching test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "sort.lua"
+state = "expected-fail"
+milestone = "tables"
+reason = "Portable table sorting test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "strings.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable string-library test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "tpack.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "Portable string packing test not yet verified against this profile."
+[[entry]]
+corpus = "lua54"
+path = "tracegc.lua"
+state = "deferred"
+milestone = "support-module"
+reason = "Finalizer-tracking helper module, not a standalone conformance result."
+[[entry]]
+corpus = "lua54"
+path = "utf8.lua"
+state = "required"
+milestone = "utf8"
+reason = "The portable UTF-8 suite passes in this profile."
+[[entry]]
+corpus = "lua54"
+path = "vararg.lua"
+state = "required"
+milestone = "varargs"
+reason = "The upstream vararg test passes in this profile."
+[[entry]]
+corpus = "lua54"
+path = "verybig.lua"
+state = "required"
+milestone = "compiler-capacity"
+reason = "The upstream wide-constant stress test passes in this profile."
+
+[[entry]]
+corpus = "lua55"
+path = "all.lua"
+state = "expected-fail"
+milestone = "aggregate-runner"
+reason = "The portable upstream aggregate is executable but does not pass yet."
+
+[[entry]]
+corpus = "lua55"
+path = "api.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+
+[[entry]]
+corpus = "lua55"
+path = "attrib.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "This portable package, require, environment, and file-stream test has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "big.lua"
+state = "deferred"
+milestone = "aggregate-helper"
+reason = "The upstream aggregate runs this large-table program in a coroutine and checks its yield protocol. Running it directly is not the upstream test contract."
+
+[[entry]]
+corpus = "lua55"
+path = "bitwise.lua"
+state = "required"
+milestone = "bitwise"
+reason = "The patched bitwise, integer-coercion, and string-to-integer conversion suite passes in this profile."
+
+[[entry]]
+corpus = "lua55"
+path = "bwcoercion.lua"
+state = "deferred"
+milestone = "support-module"
+reason = "This module installs string coercion metamethods for bitwise.lua. It is a fixture, not a standalone test result."
+
+[[entry]]
+corpus = "lua55"
+path = "calls.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "This portable function, vararg, loading, and call-result suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "closure.lua"
+state = "expected-fail"
+milestone = "closures"
+reason = "This portable closure, upvalue, to-be-closed variable, and coroutine suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "code.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+
+[[entry]]
+corpus = "lua55"
+path = "constructs.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "This portable parser, operator, control-flow, and loading suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "coroutine.lua"
+state = "expected-fail"
+milestone = "coroutines"
+reason = "This portable coroutine state, resume, yield, error, and close suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "cstack.lua"
+state = "expected-fail"
+milestone = "stack-limits"
+reason = "This executable stack-overflow suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "db.lua"
+state = "expected-fail"
+milestone = "debug"
+reason = "This portable debug hooks, stack inspection, and traceback suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "errors.lua"
+state = "expected-fail"
+milestone = "errors"
+reason = "This portable diagnostics, protected-call, and error-object suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "events.lua"
+state = "expected-fail"
+milestone = "metatables"
+reason = "This portable metamethod, environment, comparison, and arithmetic suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "files.lua"
+state = "expected-fail"
+milestone = "io"
+reason = "This portable file, stream, filesystem, and OS-library suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "gc.lua"
+state = "expected-fail"
+milestone = "gc"
+reason = "This executable incremental and generational garbage-collector suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "gengc.lua"
+state = "expected-fail"
+milestone = "gc"
+reason = "This executable generational garbage-collector suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "goto.lua"
+state = "required"
+milestone = "language-core"
+reason = "The patched goto, label, global-declaration, and scope suite keeps its reserved-global checks without testC mode."
+
+[[entry]]
+corpus = "lua55"
+path = "heavy.lua"
+state = "expected-fail"
+milestone = "resource-limits"
+reason = "This executable memory-limit stress program has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "literals.lua"
+state = "expected-fail"
+milestone = "scanner"
+reason = "This portable literal parsing, escape, line-number, and Unicode-escape suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "locals.lua"
+state = "expected-fail"
+milestone = "language-core"
+reason = "This portable local scope, closure, to-be-closed variable, and generic-for suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "main.lua"
+state = "expected-fail"
+milestone = "cli"
+reason = "This executable standalone-interpreter contract suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "math.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "This portable numeric representation, conversion, and math-library suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "memerr.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+
+[[entry]]
+corpus = "lua55"
+path = "nextvar.lua"
+state = "expected-fail"
+milestone = "tables"
+reason = "This portable table traversal, length, iteration, and mutation suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "pm.lua"
+state = "expected-fail"
+milestone = "patterns"
+reason = "This portable string pattern, capture, substitution, and UTF-8-byte suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "sort.lua"
+state = "expected-fail"
+milestone = "tables"
+reason = "This portable table creation, packing, sorting, and comparator-error suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "strings.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "This portable byte-string, formatting, packing, and string-library suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "tpack.lua"
+state = "expected-fail"
+milestone = "stdlib"
+reason = "This portable string.pack and string.unpack representation suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "tracegc.lua"
+state = "deferred"
+milestone = "support-module"
+reason = "This module tracks finalizer cycles for cstack.lua, locals.lua, and the aggregate runner. It is a fixture, not a standalone test result."
+
+[[entry]]
+corpus = "lua55"
+path = "utf8.lua"
+state = "required"
+milestone = "utf8"
+reason = "The portable UTF-8 suite passes in this profile."
+
+[[entry]]
+corpus = "lua55"
+path = "vararg.lua"
+state = "expected-fail"
+milestone = "varargs"
+reason = "This portable vararg syntax, expansion, forwarding, and close-variable suite has not passed unmodified against the Lua 5.5 profile."
+
+[[entry]]
+corpus = "lua55"
+path = "verybig.lua"
+state = "required"
+milestone = "compiler-capacity"
+reason = "The upstream wide-constant stress test passes in this profile."
+
+[[entry]]
+corpus = "lua51"
+path = "all.lua"
+state = "required"
+milestone = "aggregate-runner"
+reason = "The patched aggregate omits testC-only checks and passes with the portable runner."
+
+[[entry]]
+corpus = "lua51"
+path = "calls.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified calls suite passes, including varargs, large and recursive multiple results, environments, source names, early reader syntax failure, binary dump/reload, and debug.setupvalue."
+
+[[entry]]
+corpus = "lua51"
+path = "strings.lua"
+state = "required"
+milestone = "stdlib"
+reason = "The unmodified ISO-8859-1 string suite passes with byte-oriented source, byte-safe libraries, and an explicit fixed-C-locale policy."
+
+[[entry]]
+corpus = "lua51"
+path = "constructs.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified syntax and control-flow suite passes, including generated expressions, dynamic loading, loop scopes, and active call-site debug names."
+
+[[entry]]
+corpus = "lua51"
+path = "math.lua"
+state = "required"
+milestone = "stdlib"
+reason = "The math suite passes after removing testC table diagnostics, including numeric edge cases, its generated 1,000-entry chunk, byte-safe temporary-file methods, and runtime-local random range checks."
+
+[[entry]]
+corpus = "lua51"
+path = "main.lua"
+state = "required"
+milestone = "cli"
+reason = "The unmodified standalone host-contract test passes, including ordered -e/-l actions, script arg timing and varargs, stdin, interactive prompts and multiline input, binary files after a first-line hash comment, version output, and invalid-option exits."
+
+[[entry]]
+corpus = "lua51"
+path = "api.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+
+[[entry]]
+corpus = "lua51"
+path = "attrib.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified attribute suite passes, including package and require recursion, module environments, default file streams, assignments, constructors, function keys, and large finite numeric table keys."
+
+[[entry]]
+corpus = "lua51"
+path = "big.lua"
+state = "deferred"
+milestone = "coroutines"
+reason = "Upstream does not run this file standalone. all.lua loads it inside coroutine.wrap and expects the first resume to yield 'b' and the second to return 'a'. That wrapper contract currently passes."
+
+[[entry]]
+corpus = "lua51"
+path = "checktable.lua"
+state = "deferred"
+milestone = "support-module"
+reason = "This internal table-inspection helper is excluded from the patched suite. It is not a standalone conformance result."
+
+[[entry]]
+corpus = "lua51"
+path = "closure.lua"
+state = "required"
+milestone = "coroutines"
+reason = "The patched suite omits testC-backed hook checks and the remaining closure and coroutine assertions pass."
+
+[[entry]]
+corpus = "lua51"
+path = "code.lua"
+state = "deferred"
+milestone = "external-api-fixture"
+reason = "Requires Lua's external testC C fixture. The patched aggregate excludes this C-only file."
+
+[[entry]]
+corpus = "lua51"
+path = "db.lua"
+state = "required"
+milestone = "debug"
+reason = "The unmodified debug suite passes, including exact line, count, call, return, and tail-return hooks, live local and upvalue inspection, coroutine debugging, logical tail frames, registry access, and tracebacks."
+
+[[entry]]
+corpus = "lua51"
+path = "errors.lua"
+state = "required"
+milestone = "errors"
+reason = "The unmodified error suite passes, including syntax and operand diagnostics, file-handle errors, source-line attribution, error levels, stack overflow, xpcall, and debug.traceback."
+
+[[entry]]
+corpus = "lua51"
+path = "events.lua"
+state = "required"
+milestone = "metatables"
+reason = "The unmodified metatable suite passes, including environments, protected and scalar metatables, proxy userdata, indexing, calls, arithmetic, concatenation, length, and compatible comparison handlers."
+
+[[entry]]
+corpus = "lua51"
+path = "files.lua"
+state = "required"
+milestone = "io"
+reason = "The unmodified file suite passes, including named and default streams, seeking, line iterators, numeric and counted reads, buffering, flushing, closed handles, temporary paths, filesystem operations, and calendar time functions."
+
+[[entry]]
+corpus = "lua51"
+path = "gc.lua"
+state = "required"
+milestone = "gc"
+reason = "The unmodified collector suite passes, including pacing, weak tables, userdata finalizer ordering, protected finalizer calls, resurrection, deep structures, and coroutine stack collection."
+
+[[entry]]
+corpus = "lua51"
+path = "literals.lua"
+state = "required"
+milestone = "debug"
+reason = "The unmodified literals suite passes, including numeric and string forms, physical line tracking, escaped line endings, debug current lines, and coroutine wrapping."
+
+[[entry]]
+corpus = "lua51"
+path = "locals.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified locals suite passes, including active-frame, closure, and thread environments plus generated arithmetic instruction stress."
+
+[[entry]]
+corpus = "lua51"
+path = "nextvar.lua"
+state = "required"
+milestone = "tables"
+reason = "The patched traversal suite omits testC table-layout checks and passes its next, pairs, table.foreach, table.foreachi, table.maxn, insertion, removal, environment, and generic-loop assertions."
+
+[[entry]]
+corpus = "lua51"
+path = "pm.lua"
+state = "required"
+milestone = "patterns"
+reason = "The unmodified pattern suite passes, including byte classes, captures, backreferences, balanced and frontier patterns, large-input stress, callback and table substitutions, and gmatch/gfind iterators."
+
+[[entry]]
+corpus = "lua51"
+path = "sort.lua"
+state = "required"
+milestone = "tables"
+reason = "The unmodified sort suite passes with resumable heapsort, default and closure comparators, 30,000-element stress, and comparison-error coverage."
+
+[[entry]]
+corpus = "lua51"
+path = "vararg.lua"
+state = "required"
+milestone = "varargs"
+reason = "The unmodified vararg suite passes, including Lua 5.1 compatibility arg tables, pure vararg functions, nil positions, forwarding, and nested environment behavior."
+
+[[entry]]
+corpus = "lua51"
+path = "verybig.lua"
+state = "required"
+milestone = "compiler-capacity"
+reason = "The greater-than-64K program stress suite passes after removing testC table diagnostics. It tests wide constant and global references and resumable dofile execution."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/assignment.lua"
+state = "required"
+milestone = "bootstrap"
+reason = "This is the first upstream language target and exercises multiple assignment, nil adjustment, table construction, and captured indexes."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/self.lua"
+state = "required"
+milestone = "functions"
+reason = "This target exercises Lua closures, method definition and call sugar, parameters, returns, strings, and table fields."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/modulo.lua"
+state = "required"
+milestone = "numeric-for"
+reason = "This target exercises numeric loops, branches, arithmetic, comparisons, Lua modulo, and math.floor."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/length.lua"
+state = "required"
+milestone = "tables"
+reason = "This target covers the table length operator while integer keys are inserted and removed."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/table.lua"
+state = "required"
+milestone = "tables"
+reason = "This target covers table identity, tables as keys, indexed reads and writes, nil lookup, and the base type function."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/compare_nan.lua"
+state = "required"
+milestone = "comparisons"
+reason = "This target checks that every ordered comparison with NaN is false, NaN never equals itself or a number, and inequality remains true."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/tail_recursion.lua"
+state = "required"
+milestone = "tail-calls"
+reason = "This target checks local self and mutual tail recursion through locals captured by the function definitions."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/for.lua"
+state = "required"
+milestone = "numeric-for"
+reason = "This target checks numeric-loop direction, numeric-string coercion at loop entry, and protected errors when a loop bound cannot be coerced."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/andor.lua"
+state = "required"
+milestone = "conditionals"
+reason = "This target checks short-circuit and/or truthiness, pairs and ipairs iteration, dynamic chunks from load or loadstring, and recursive conditionals."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/concat.lua"
+state = "required"
+milestone = "strings"
+reason = "This target checks string and number concatenation, string.sub byte indexes, string.rep, and repeated long-string construction."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/compare.lua"
+state = "required"
+milestone = "comparisons"
+reason = "This target checks numeric and object comparisons, protected type errors, unsigned byte-string ordering, and signed 32-bit bit.tobit conversion."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/constant/table.lua"
+state = "required"
+milestone = "tables"
+reason = "This target checks keyed table constants, boolean and nil keys, table identity, and value-preserving or expressions."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/vararg_jit.lua"
+state = "required"
+milestone = "varargs"
+reason = "Despite its filename, this target does not require the JIT. It checks vararg binding, forwarding, assignment and call expansion, table-constructor expansion, and nil padding."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/gc.lua"
+state = "required"
+milestone = "gc"
+reason = "This narrow target checks explicit full collection with live tables and varargs. It does not cover incremental pacing, weak tables, or finalizers."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/constant/number.lua"
+state = "required"
+milestone = "numbers"
+reason = "This target checks locale-independent hexadecimal floating constants with p/P binary exponents, decimal and hexadecimal token boundaries, and extreme numeric constants."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/upvalue/closure.lua"
+state = "required"
+milestone = "upvalues"
+reason = "Checks that captured numeric-for, while, and repeat locals are closed at each iteration, including nested closure forwarding and recursive local functions."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/index.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks raw-hit precedence plus function and table __index handlers for tables, proxy userdata, and strings."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/newindex.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks raw-hit assignment, function and table __newindex handlers, nil deletion, and chained assignment."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/nomm.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks that adding an __index handler after earlier misses invalidates the no-metamethod assumption."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/arith.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks arithmetic metamethod selection, operands, unary minus, and numeric-string primitive coercion."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/cat.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks primitive and metamethod concatenation, mixed right-associated chains, and table-valued intermediate results."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/comp.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks ordered comparison handlers, reversed operands, __le fallback, and truthy handler results."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/eq.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks raw identity and Lua 5.1's same-handler rule for __eq."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/len.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks raw Lua 5.1 table length plus userdata and shared scalar __len handlers."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/meta/call.lua"
+state = "required"
+milestone = "metatables"
+reason = "Checks __call on tables, userdata, and scalars, callable metamethod values, changing handlers, and protected index/newindex call paths."
+
+[[entry]]
+corpus = "luajit"
+path = "test/computations.lua"
+state = "required"
+milestone = "language-core"
+reason = "The unmodified recursive and numeric computation suite passes, including Ackermann, factorial, fast Fibonacci, sieve, recursive sums, and Tak."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lib/bit.lua"
+state = "required"
+milestone = "stdlib"
+reason = "Checks the LuaJIT BitOp number-mode API: coercion, signed 32-bit results, variadic operations, shifts, rotates, byte swaps, and hexadecimal formatting."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lang/*"
+state = "deferred"
+milestone = "language-core"
+reason = "Run the remaining language files after parser and core runtime semantics are complete."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lib/*"
+state = "deferred"
+milestone = "stdlib"
+reason = "Library tests wait for the matching LuaJIT-compatible standard-library modules."
+
+[[entry]]
+corpus = "luajit"
+path = "test/misc/gc*.lua"
+state = "deferred"
+milestone = "gc"
+reason = "The remaining garbage-collection cases wait for incremental collection, finalizers, and weak-table behavior."
+
+[[entry]]
+corpus = "luajit"
+path = "test/lib/ffi/*"
+state = "deferred"
+milestone = "ffi"
+reason = "FFI tests need the Rust FFI layer and target-specific external fixtures."
+
+[[entry]]
+corpus = "luajit"
+path = "test/trace/*"
+state = "deferred"
+milestone = "jit"
+reason = "Trace compiler tests wait until interpreter behavior is stable and native compilation exists."
+
+[[entry]]
+corpus = "luajit"
+path = "test/opt/*"
+state = "deferred"
+milestone = "jit"
+reason = "Optimizer tests wait until interpreter behavior is stable and native compilation exists."
+
+[[entry]]
+corpus = "luajit"
+path = "bench/*"
+state = "deferred"
+milestone = "benchmark-review"
+reason = "Benchmarks are not a conformance gate and need separate provenance review before use."

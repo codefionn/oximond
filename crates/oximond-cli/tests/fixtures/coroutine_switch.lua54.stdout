@@ -1,0 +1,59 @@
+running running cannot resume non-suspended coroutine
+normal normal
+true 1
+suspended
+true
+dead
+false cannot resume dead coroutine
+error: bad argument #1 to 'coroutine.resume' (thread expected, got number)
+error: bad argument #1 to 'coroutine.resume' (thread expected, got no value)
+error: bad argument #1 to 'coroutine.status' (thread expected, got table)
+error: attempt to yield from outside a coroutine
+2 0
+5 3
+252 true 250 1 250
+31375
+2 0
+2 0
+3
+20
+x y done
+error: cannot resume dead coroutine
+error: coroutine_switch.lua:72: boom
+false table 7
+false nil
+false coroutine_switch.lua:79: attempt to index a nil value (local 'x')
+false coroutine_switch.lua:84: deep failure
+dead
+string true true
+false cannot resume dead coroutine
+msg
+ true
+true parked
+true true
+true in pcall
+true in xpcall
+true false coroutine_switch.lua:109: after A true B
+1:1,2:4,3:9,4:16,5:25
+true 1
+true 11
+true 21
+dead
+true outer saw child 1
+true outer saw child 2
+true outer done
+false true
+alive
+kept
+true kept
+nil
+nil
+held,a
+first one
+second
+true true
+true
+true
+false
+true
+1986400

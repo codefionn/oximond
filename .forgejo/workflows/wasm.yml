@@ -1,0 +1,57 @@
+# =============================================================================
+# oximond WebAssembly smoke test for Forgejo Actions — the `wasm` target of
+# scripts/ci.sh as one quick job. The full pipeline (check.yml, ci.yml and the
+# release gate) lives on GitHub in .github/workflows/; this workflow keeps a
+# wasm build and smoke test on pushes and pull requests here.
+#
+# --- Runner requirements -----------------------------------------------------
+# A forgejo-runner label `docker`, in a rust:1.97.1-trixie container. The job
+# needs node for tests/wasm-smoke and a C/C++ toolchain for the workspace's
+# build scripts (both installed here). scripts/ci.sh adds the
+# wasm32-unknown-unknown target itself when it is missing. Unlike the
+# conformance suite this target downloads no corpora; no internet access
+# beyond crates.io is needed.
+#
+# --- Secrets ---------------------------------------------------------------
+# None.
+# =============================================================================
+
+name: wasm
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: "0"
+  # Keep the job within its container's CPU budget; parallelism lives at the
+  # workflow level.
+  CARGO_BUILD_JOBS: "2"
+  RUST_BACKTRACE: "1"
+
+# A newer push to the same ref supersedes an in-flight run
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  wasm:
+    runs-on: docker
+    timeout-minutes: 30
+    container:
+      image: rust:1.97.1-trixie
+    steps:
+      - name: Install job prerequisites
+        run: |
+          set -euo pipefail
+          apt-get update
+          apt-get install -y --no-install-recommends git nodejs build-essential
+      - name: Check out repository
+        uses: https://code.forgejo.org/actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: WebAssembly smoke test
+        run: scripts/ci.sh wasm

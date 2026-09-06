@@ -1,0 +1,3 @@
+close_yield	suspended:true,table: ADDR ; dead:true,closed
+close_tostring	dead:true,closed
+close_error_yield	suspended:true,table: ADDR,close_gaps_builtin_close.lua:15: boom ; dead:true,falseclose_gaps_builtin_close.lua:15: boom

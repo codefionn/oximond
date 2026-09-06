@@ -1,0 +1,8 @@
+index_yield	suspended:true,table: ADDR,k ; dead:true,r2
+newindex_yield	suspended:true,table: ADDR,k,1 ; dead:true,done
+index_tostring	dead:true,table: ADDR
+index_type	dead:true,table
+index_rawget	dead:true
+newindex_rawset	dead:true,5
+index_select	dead:false,close_gaps_builtin_meta.lua:19: bad argument #1 to '__index' (number expected, got table)
+index_pcall	dead:true,false

@@ -1,0 +1,26 @@
+false	attempt to concatenate upvalue 'n' (a nil value)
+false	attempt to concatenate upvalue 'n' (a nil value)
+false	attempt to concatenate upvalue 't' (a table value)
+false	attempt to concatenate local 'x' (a table value)
+false	attempt to concatenate a boolean value
+false	invalid value (table) at index 3 in table for 'concat'
+false	invalid value (nil) at index 3 in table for 'concat'
+false	invalid value (nil) at index 4 in table for 'concat'
+true	17a72.5
+true	
+true	
+true	b,c
+true	b
+false	invalid value (nil) at index -1 in table for 'concat'
+false	bad argument #1 to '?' (table expected, got number)
+false	bad argument #2 to '?' (string expected, got table)
+false	bad argument #2 to '?' (string expected, got boolean)
+false	bad argument #2 to '?' (number expected, got string)
+true	   ab|ab   |   ab
+false	bad argument #3 to '?' (no value)
+false	bad argument #2 to '?' (string expected, got nil)
+1-2.5-x--3	b, c
+[   ab][ab   ][   ab][zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz]
+4	nil	9	nil	nil	1	3	3
+40	30	32
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1	12	1.52	-1		pppppppppppppppppppppqrs

@@ -1,0 +1,23 @@
+[package]
+name = "oximond-difftest"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Seeded Lua program generator and differential runner against stock Lua"
+repository.workspace = true
+# Repository harness, not a product: the local heavy workload that hunts
+# oximond bugs against stock Lua (docs/ci.md, "Not in CI"), and its tests
+# reach into the checkout. Never published.
+publish = false
+
+[[bin]]
+name = "oximond-difftest"
+path = "src/main.rs"
+
+[dev-dependencies]
+oximond.workspace = true
+proptest.workspace = true
+
+[lints]
+workspace = true

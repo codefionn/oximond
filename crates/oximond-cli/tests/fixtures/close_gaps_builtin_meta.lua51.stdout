@@ -1,0 +1,8 @@
+index_yield	dead:false,attempt to yield across metamethod/C-call boundary
+newindex_yield	dead:false,attempt to yield across metamethod/C-call boundary
+index_tostring	dead:true,table: ADDR
+index_type	dead:true,table
+index_rawget	dead:true
+newindex_rawset	dead:true,5
+index_select	dead:false,close_gaps_builtin_meta.lua:19: bad argument #1 to '?' (number expected, got table)
+index_pcall	dead:true,false

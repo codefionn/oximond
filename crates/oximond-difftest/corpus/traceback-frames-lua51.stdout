@@ -1,0 +1,850 @@
+== tb1: nested calls, handlers, tail calls, coroutines, metamethods
+case.lua:17: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:17: in function 'lvl3'
+	case.lua:18: in function 'lvl2'
+	case.lua:19: in function 'up'
+	case.lua:21: in function 'field'
+	case.lua:22: in function 'meth'
+	case.lua:23: in function <case.lua:23>
+	[C]: in function 'xpcall'
+	case.lua:24: in main chunk
+	[C]: ?
+case.lua:17: boom
+stack traceback:
+	case.lua:25: in function <case.lua:25>
+	[C]: in function 'error'
+	case.lua:17: in function 'lvl3'
+	case.lua:18: in function 'lvl2'
+	case.lua:19: in function 'up'
+	case.lua:21: in function 'field'
+	case.lua:22: in function 'meth'
+	case.lua:23: in function <case.lua:23>
+	[C]: in function 'xpcall'
+	case.lua:25: in main chunk
+	[C]: ?
+msg
+stack traceback:
+	case.lua:26: in main chunk
+	[C]: ?
+msg
+stack traceback:
+	[C]: ?
+case.lua:17: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:17: in function <case.lua:17>
+	(tail call): ?
+	[C]: in function 'xpcall'
+	case.lua:29: in main chunk
+	[C]: ?
+stack traceback:
+	[C]: in function 'error'
+	case.lua:17: in function 'lvl3'
+	case.lua:18: in function 'lvl2'
+	case.lua:30: in function <case.lua:30>
+hi
+stack traceback:
+	[C]: in function 'error'
+	case.lua:17: in function 'lvl3'
+	case.lua:18: in function 'lvl2'
+	case.lua:30: in function <case.lua:30>
+nil
+case.lua:35: idx
+stack traceback:
+	[C]: in function 'error'
+	case.lua:35: in function <case.lua:35>
+	case.lua:36: in function <case.lua:36>
+	[C]: in function 'xpcall'
+	case.lua:36: in main chunk
+	[C]: ?
+case.lua:35: add
+stack traceback:
+	[C]: in function 'error'
+	case.lua:35: in function <case.lua:35>
+	case.lua:37: in function <case.lua:37>
+	[C]: in function 'xpcall'
+	case.lua:37: in main chunk
+	[C]: ?
+case.lua:38: in
+stack traceback:
+	case.lua:38: in function <case.lua:38>
+	[C]: in function 'error'
+	case.lua:38: in function <case.lua:38>
+	[C]: in function 'xpcall'
+	case.lua:38: in function <case.lua:38>
+	[C]: in function 'pcall'
+	case.lua:38: in main chunk
+	[C]: ?
+12
+stack traceback:
+	case.lua:39: in main chunk
+	[C]: ?
+table
+false	bad argument #1 to '?' (string expected, got no value)
+bad argument #1 to '?' (string expected, got no value)
+stack traceback:
+	[C]: ?
+	[C]: in function 'xpcall'
+	case.lua:42: in main chunk
+	[C]: ?
+case.lua:43: bad argument #1 to 'rep' (string expected, got no value)
+stack traceback:
+	[C]: in function 'rep'
+	case.lua:43: in function <case.lua:43>
+	[C]: in function 'xpcall'
+	case.lua:43: in main chunk
+	[C]: ?
+case.lua:44: attempt to call local 'a' (a nil value)
+stack traceback:
+	case.lua:44: in function <case.lua:44>
+	[C]: in function 'xpcall'
+	case.lua:44: in main chunk
+	[C]: ?
+case.lua:45: cmp
+stack traceback:
+	[C]: in function 'error'
+	case.lua:45: in function <case.lua:45>
+	[C]: in function 'sort'
+	case.lua:45: in function <case.lua:45>
+	[C]: in function 'xpcall'
+	case.lua:45: in main chunk
+	[C]: ?
+== tb2: levels, naming, deep stacks
+stack traceback:
+	case.lua:51: in main chunk
+	[C]: ?
+
+stack traceback:
+	case.lua:52: in main chunk
+	[C]: ?
+nil
+m
+stack traceback:
+	[C]: in function 'traceback'
+	case.lua:54: in main chunk
+	[C]: ?
+m
+stack traceback:
+	case.lua:55: in main chunk
+	[C]: ?
+m
+stack traceback:
+m
+stack traceback:
+	(tail call): ?
+	[C]: in function 'traceback'
+	case.lua:57: in main chunk
+	[C]: ?
+stack traceback:
+x
+stack traceback:
+g
+stack traceback:
+	case.lua:60: in function 'g'
+	case.lua:61: in main chunk
+	[C]: ?
+loc
+stack traceback:
+	case.lua:62: in function 'loc'
+	case.lua:63: in main chunk
+	[C]: ?
+fld
+stack traceback:
+	case.lua:64: in function 'f'
+	case.lua:65: in main chunk
+	[C]: ?
+fld
+stack traceback:
+	case.lua:64: in function 'f'
+	case.lua:66: in main chunk
+	[C]: ?
+co
+stack traceback:
+	case.lua:67: in function <case.lua:67>
+stack traceback:
+	[C]: in function 'yield'
+	case.lua:69: in function <case.lua:69>
+m
+stack traceback:
+	case.lua:69: in function <case.lua:69>
+false	case.lua:73: dead
+stack traceback:
+	[C]: in function 'error'
+	case.lua:73: in function <case.lua:73>
+deep
+stack traceback:
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	...
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:76: in function 'rec'
+	case.lua:77: in main chunk
+	[C]: ?
+deep
+stack traceback:
+	case.lua:78: in function 'rec2'
+	case.lua:78: in function 'rec2'
+	case.lua:78: in function 'rec2'
+	case.lua:78: in function 'rec2'
+	case.lua:78: in function 'rec2'
+	case.lua:78: in function 'rec2'
+	case.lua:78: in function 'rec2'
+	case.lua:78: in function 'rec2'
+	case.lua:78: in function 'rec2'
+	case.lua:79: in main chunk
+	[C]: ?
+== tb3: message and level arguments
+stack traceback:|	case.lua:86: in function <case.lua:86>|	[C]: in function 'pcall'|	case.lua:86: in function 'show'|	case.lua:87: in main chunk|	[C]: ?
+|stack traceback:|	case.lua:86: in function <case.lua:86>|	[C]: in function 'pcall'|	case.lua:86: in function 'show'|	case.lua:88: in main chunk|	[C]: ?
+nil
+nil
+m|stack traceback:|	(tail call): ?|	[C]: in function 'traceback'|	case.lua:86: in function <case.lua:86>|	[C]: in function 'pcall'|	case.lua:86: in function 'show'|	case.lua:91: in main chunk|	[C]: ?
+m|stack traceback:
+m|stack traceback:|	[C]: in function 'pcall'|	case.lua:86: in function 'show'|	case.lua:93: in main chunk|	[C]: ?
+m|stack traceback:|	case.lua:86: in function <case.lua:86>|	[C]: in function 'pcall'|	case.lua:86: in function 'show'|	case.lua:94: in main chunk|	[C]: ?
+12|stack traceback:|	case.lua:86: in function <case.lua:86>|	[C]: in function 'pcall'|	case.lua:86: in function 'show'|	case.lua:95: in main chunk|	[C]: ?
+boolean
+table
+function
+stack traceback:
+m|stack traceback:
+nil
+stack traceback:|	[C]: in function 'yield'|	case.lua:99: in function <case.lua:99>
+m|stack traceback:|	case.lua:99: in function <case.lua:99>
+m|stack traceback:
+m|stack traceback:|	(tail call): ?|	[C]: in function 'yield'|	case.lua:99: in function <case.lua:99>
+== tb4: runtime errors, metamethods, iterators, coroutines
+case.lua:115: attempt to index local 'a' (a nil value)
+stack traceback:
+	case.lua:115: in function <case.lua:115>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:115: in main chunk
+	[C]: ?
+case.lua:116: attempt to perform arithmetic on a table value
+stack traceback:
+	case.lua:116: in function <case.lua:116>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:116: in main chunk
+	[C]: ?
+case.lua:119: lvl2
+stack traceback:
+	[C]: in function 'error'
+	case.lua:118: in function 'lv2'
+	case.lua:119: in function <case.lua:119>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:119: in main chunk
+	[C]: ?
+case.lua:121: t3
+stack traceback:
+	[C]: in function 'error'
+	case.lua:121: in function <case.lua:121>
+	(tail call): ?
+	(tail call): ?
+	(tail call): ?
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:124: in main chunk
+	[C]: ?
+case.lua:121: t3
+stack traceback:
+	[C]: in function 'error'
+	case.lua:121: in function <case.lua:121>
+	(tail call): ?
+	(tail call): ?
+	case.lua:125: in function <case.lua:125>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:125: in main chunk
+	[C]: ?
+case.lua:127: gt
+stack traceback:
+	[C]: in function 'error'
+	case.lua:127: in function <case.lua:127>
+	(tail call): ?
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:128: in main chunk
+	[C]: ?
+case.lua:130: inner
+stack traceback:
+	case.lua:130: in function <case.lua:130>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:130: in main chunk
+	[C]: ?
+stack traceback:
+	[C]: in function 'error'
+	case.lua:130: in function <case.lua:130>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:130: in main chunk
+	[C]: ?
+case.lua:133: call
+stack traceback:
+	[C]: in function 'error'
+	case.lua:133: in function 'o'
+	case.lua:146: in function <case.lua:146>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:146: in main chunk
+	[C]: ?
+case.lua:134: idx
+stack traceback:
+	[C]: in function 'error'
+	case.lua:134: in function <case.lua:134>
+	case.lua:147: in function <case.lua:147>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:147: in main chunk
+	[C]: ?
+case.lua:135: nidx
+stack traceback:
+	[C]: in function 'error'
+	case.lua:135: in function <case.lua:135>
+	case.lua:148: in function <case.lua:148>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:148: in main chunk
+	[C]: ?
+case.lua:136: eq
+stack traceback:
+	[C]: in function 'error'
+	case.lua:136: in function <case.lua:136>
+	case.lua:149: in function <case.lua:149>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:149: in main chunk
+	[C]: ?
+case.lua:137: lt
+stack traceback:
+	[C]: in function 'error'
+	case.lua:137: in function <case.lua:137>
+	case.lua:150: in function <case.lua:150>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:150: in main chunk
+	[C]: ?
+case.lua:138: le
+stack traceback:
+	[C]: in function 'error'
+	case.lua:138: in function <case.lua:138>
+	case.lua:151: in function <case.lua:151>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:151: in main chunk
+	[C]: ?
+case.lua:139: cat
+stack traceback:
+	[C]: in function 'error'
+	case.lua:139: in function <case.lua:139>
+	case.lua:152: in function <case.lua:152>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:152: in main chunk
+	[C]: ?
+0
+case.lua:141: unm
+stack traceback:
+	[C]: in function 'error'
+	case.lua:141: in function <case.lua:141>
+	case.lua:154: in function <case.lua:154>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:154: in main chunk
+	[C]: ?
+case.lua:142: mul
+stack traceback:
+	[C]: in function 'error'
+	case.lua:142: in function <case.lua:142>
+	case.lua:155: in function <case.lua:155>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:155: in main chunk
+	[C]: ?
+case.lua:143: ts
+stack traceback:
+	[C]: in function 'error'
+	case.lua:143: in function <case.lua:143>
+	[C]: in function 'tostring'
+	case.lua:156: in function <case.lua:156>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:156: in main chunk
+	[C]: ?
+case.lua:158: iter
+stack traceback:
+	[C]: in function 'error'
+	case.lua:158: in function '(for generator)'
+	case.lua:158: in function <case.lua:158>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:158: in main chunk
+	[C]: ?
+case.lua:160: cmp
+stack traceback:
+	[C]: in function 'error'
+	case.lua:160: in function <case.lua:160>
+	[C]: in function 'sort'
+	case.lua:160: in function <case.lua:160>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:160: in main chunk
+	[C]: ?
+case.lua:161: gs
+stack traceback:
+	[C]: in function 'error'
+	case.lua:161: in function <case.lua:161>
+	[C]: in function 'gsub'
+	case.lua:161: in function <case.lua:161>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:161: in main chunk
+	[C]: ?
+case.lua:164: meth
+stack traceback:
+	[C]: in function 'error'
+	case.lua:164: in function 'm'
+	case.lua:166: in function <case.lua:166>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:166: in main chunk
+	[C]: ?
+case.lua:165: fld
+stack traceback:
+	[C]: in function 'error'
+	case.lua:165: in function 'f'
+	case.lua:167: in function <case.lua:167>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:167: in main chunk
+	[C]: ?
+case.lua:169: in co
+stack traceback:
+	[C]: in function 'error'
+	case.lua:169: in function 'inner'
+	case.lua:169: in function <case.lua:169>
+msg
+stack traceback:
+	[C]: in function 'error'
+	case.lua:169: in function 'inner'
+	case.lua:169: in function <case.lua:169>
+case.lua:176: case.lua:175: wrapped
+stack traceback:
+	[C]: in function 'c'
+	case.lua:176: in function <case.lua:174>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:174: in main chunk
+	[C]: ?
+case.lua:179: xp in co
+stack traceback:
+	[C]: in function 'error'
+	case.lua:179: in function <case.lua:179>
+	[C]: in function 'xpcall'
+	case.lua:179: in function <case.lua:178>
+tb in co
+stack traceback:
+	case.lua:180: in function <case.lua:178>
+case.lua:184: va
+stack traceback:
+	[C]: in function 'error'
+	case.lua:184: in function 'va'
+	case.lua:185: in function <case.lua:185>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:185: in main chunk
+	[C]: ?
+case.lua:187: bad argument #2 to 'format' (string expected, got table)
+stack traceback:
+	[C]: in function 'format'
+	case.lua:187: in function <case.lua:187>
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:187: in main chunk
+	[C]: ?
+mychunk:1: chunk
+stack traceback:
+	[C]: in function 'error'
+	mychunk:1: in main chunk
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:189: in main chunk
+	[C]: ?
+file.lua:1: chunk2
+stack traceback:
+	[C]: in function 'error'
+	file.lua:1: in main chunk
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:190: in main chunk
+	[C]: ?
+[string "error('chunk3')"]:1: chunk3
+stack traceback:
+	[C]: in function 'error'
+	[string "error('chunk3')"]:1: in main chunk
+	[C]: in function 'xpcall'
+	case.lua:113: in function 'show'
+	case.lua:191: in main chunk
+	[C]: ?
+case.lua:193: direct
+stack traceback:
+	[C]: in function 'error'
+	case.lua:193: in function <case.lua:193>
+	[C]: in function 'xpcall'
+	case.lua:193: in main chunk
+	[C]: ?
+false	x
+== tb5: tail calls of natives, nested coroutines, handler failures
+false	case.lua:201: boom
+case.lua:201: boom
+stack traceback:
+	case.lua:207: in function <case.lua:207>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:207: in main chunk
+	[C]: ?
+case.lua:202: ts
+stack traceback:
+	[C]: in function 'error'
+	case.lua:202: in function <case.lua:202>
+	[C]: in function 'tostring'
+	case.lua:208: in function <case.lua:208>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:208: in main chunk
+	[C]: ?
+case.lua:202: ts
+stack traceback:
+	[C]: in function 'error'
+	case.lua:202: in function <case.lua:202>
+	[C]: in function 'tostring'
+	case.lua:209: in function <case.lua:209>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:209: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	(tail call): ?
+	case.lua:210: in function <case.lua:210>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:210: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	(tail call): ?
+	case.lua:211: in function <case.lua:211>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:211: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	(tail call): ?
+	case.lua:212: in function <case.lua:212>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:212: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	(tail call): ?
+	(tail call): ?
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:213: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	(tail call): ?
+	case.lua:214: in function <case.lua:214>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:214: in main chunk
+	[C]: ?
+case.lua:201: boom
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	(tail call): ?
+	[C]: in function 'sort'
+	case.lua:216: in function <case.lua:216>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:216: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	(tail call): ?
+	[C]: in function 'gsub'
+	case.lua:217: in function <case.lua:217>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:217: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	(tail call): ?
+	[C]: in function 'gsub'
+	case.lua:218: in function <case.lua:218>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:218: in main chunk
+	[C]: ?
+case.lua:201: boom
+inco
+stack traceback:
+	case.lua:223: in function <case.lua:220>
+stack traceback:
+	[C]: in function 'yield'
+	case.lua:224: in function 'y'
+	case.lua:225: in function <case.lua:220>
+nested
+stack traceback:
+	case.lua:231: in function <case.lua:231>
+false	error in error handling
+false	h:case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	[C]: in function 'xpcall'
+	case.lua:237: in main chunk
+	[C]: ?
+false	d
+stack traceback:
+	case.lua:238: in function 'deeper'
+	case.lua:238: in function <case.lua:238>
+	[C]: in function 'error'
+	case.lua:201: in function <case.lua:201>
+	[C]: in function 'xpcall'
+	case.lua:238: in main chunk
+	[C]: ?
+a
+stack traceback:
+	case.lua:240: in function 'a'
+	case.lua:241: in function 'b'
+	case.lua:242: in main chunk
+	[C]: ?
+a
+stack traceback:
+	case.lua:240: in function <case.lua:240>
+	(tail call): ?
+	case.lua:243: in main chunk
+	[C]: ?
+a
+stack traceback:
+	case.lua:240: in function 'a'
+	case.lua:245: in main chunk
+	[C]: ?
+a
+stack traceback:
+	case.lua:240: in function 'a'
+	case.lua:246: in main chunk
+	[C]: ?
+s
+stack traceback:
+	case.lua:248: in main chunk
+	[C]: ?
+lv2
+stack traceback:
+	[C]: in function 'xpcall'
+	case.lua:250: in main chunk
+	[C]: ?
+lc:1: li
+stack traceback:
+	[C]: in function 'error'
+	lc:1: in function 'inner'
+	lc:1: in main chunk
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:253: in main chunk
+	[C]: ?
+case.lua:255: bad argument #2 to 'format' (number expected, got string)
+stack traceback:
+	[C]: in function 'format'
+	case.lua:255: in function <case.lua:255>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:255: in main chunk
+	[C]: ?
+case.lua:256: bad argument #2 to 'format' (number expected, got string)
+stack traceback:
+	[C]: in function 'format'
+	case.lua:256: in function <case.lua:256>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:256: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function 'boom'
+	case.lua:258: in function <case.lua:258>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:258: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function 'boom'
+	case.lua:259: in function <case.lua:259>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:259: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function 'boom'
+	case.lua:260: in function <case.lua:260>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:260: in main chunk
+	[C]: ?
+case.lua:201: boom
+stack traceback:
+	[C]: in function 'error'
+	case.lua:201: in function 'boom'
+	case.lua:262: in function <case.lua:262>
+	[C]: in function 'require'
+	case.lua:263: in function <case.lua:263>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:263: in main chunk
+	[C]: ?
+case.lua:265: bad argument #1 to 'select' (index out of range)
+stack traceback:
+	[C]: in function 'select'
+	case.lua:265: in function <case.lua:265>
+	[C]: in function 'xpcall'
+	case.lua:200: in function 'show'
+	case.lua:265: in main chunk
+	[C]: ?
+nil
+== tb-meta: native called directly as a metamethod, native tail-called by a handler
+case.lua:274: bad argument #1 to '?' (string expected, got table)
+stack traceback:
+	[C]: ?
+	case.lua:274: in function <case.lua:274>
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:274: in main chunk
+	[C]: ?
+case.lua:275: bad argument #1 to '?' (string expected, got table)
+stack traceback:
+	[C]: ?
+	case.lua:275: in function <case.lua:275>
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:275: in main chunk
+	[C]: ?
+case.lua:276: bad argument #1 to '?' (string expected, got table)
+stack traceback:
+	[C]: ?
+	case.lua:276: in function <case.lua:276>
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:276: in main chunk
+	[C]: ?
+case.lua:277: bad argument #1 to 'rep' (string expected, got no value)
+stack traceback:
+	[C]: in function 'rep'
+	case.lua:277: in function <case.lua:277>
+	case.lua:277: in function <case.lua:277>
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:277: in main chunk
+	[C]: ?
+case.lua:278: bad argument #1 to 'rep' (string expected, got no value)
+stack traceback:
+	[C]: in function 'rep'
+	case.lua:278: in function <case.lua:278>
+	case.lua:278: in function <case.lua:278>
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:278: in main chunk
+	[C]: ?
+case.lua:279: bad argument #1 to 'rep' (string expected, got no value)
+stack traceback:
+	[C]: in function 'rep'
+	case.lua:279: in function <case.lua:279>
+	case.lua:279: in function <case.lua:279>
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:279: in main chunk
+	[C]: ?
+case.lua:280: bad argument #1 to 'rep' (string expected, got no value)
+stack traceback:
+	[C]: in function 'rep'
+	case.lua:280: in function <case.lua:280>
+	case.lua:280: in function <case.lua:280>
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:280: in main chunk
+	[C]: ?
+case.lua:281: bad argument #1 to 'rep' (string expected, got no value)
+stack traceback:
+	[C]: in function 'rep'
+	case.lua:281: in function <case.lua:281>
+	(tail call): ?
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:281: in main chunk
+	[C]: ?
+case.lua:282: bad argument #1 to 'rep' (string expected, got no value)
+stack traceback:
+	[C]: in function 'rep'
+	case.lua:282: in function <case.lua:282>
+	[C]: in function 'tostring'
+	case.lua:282: in function <case.lua:282>
+	[C]: in function 'xpcall'
+	case.lua:273: in function 'show'
+	case.lua:282: in main chunk
+	[C]: ?
+== tb-direct-native: a builtin that xpcall or pcall calls directly
+stack traceback:
+	[C]: in function 'xpcall'
+	case.lua:286: in main chunk
+	[C]: ?
+m
+stack traceback:
+	[C]: in function 'pcall'
+	case.lua:287: in main chunk
+	[C]: ?

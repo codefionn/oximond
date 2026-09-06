@@ -1,0 +1,148 @@
+# =============================================================================
+# oximond CI — format/lint gate, workspace tests, WebAssembly smoke test and
+# the pinned conformance suites. Every job runs its commands through
+# scripts/ci.sh, the same entry point a local `scripts/ci.sh` run uses, so the
+# pipelines and a developer's machine cannot drift apart. The GitHub
+# counterpart is .github/workflows/ (the same full pipeline, including the
+# release gate), the Forgejo counterpart .forgejo/workflows/ (the wasm smoke
+# test); all run the same script.
+#
+# On version tags (v*.*.*), the `version` job refuses the pipeline unless the
+# tag matches the workspace version in Cargo.toml; the rest of the pipeline is
+# the release gate.
+#
+# --- Runner requirements -----------------------------------------------------
+# Jobs run in containers (Kubernetes executor) and need:
+#   * internet access — the conformance job downloads the pinned Lua suites
+#     (lua.org tarballs, one pinned GitHub checkout) into .oximond/conformance,
+#     kept between runs by the job cache;
+#   * a C/C++ toolchain in the job image (installed here) — tests compile
+#     native modules and the Lua 5.4/5.5 conformance tests build lib2-v2.so;
+#   * node >= 14.8 in the wasm job (installed here) for tests/wasm-smoke;
+#   * 4 GiB of memory minimum for the test and conformance jobs (each
+#     conformance test process runs under its own 4 GiB address-space cap),
+#     8 GiB is comfortable — the thin-LTO release build is the peak consumer.
+#
+# No CI/CD variables or secrets are required.
+# =============================================================================
+
+stages: [version, check, test]
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
+  auto_cancel:
+    on_new_commit: interruptible
+
+variables:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: "0"
+  # Keep each pod within its CPU budget; parallelism lives at the pipeline
+  # level, where jobs can run on separate pods.
+  CARGO_BUILD_JOBS: "2"
+  # Inside the project so the registry cache can keep it.
+  CARGO_HOME: "$CI_PROJECT_DIR/.cargo"
+  RUST_BACKTRACE: "1"
+
+.cargo-job:
+  image: rust:1.97.1-trixie
+  interruptible: true
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y -qq --no-install-recommends build-essential
+  cache:
+    key:
+      files:
+        - Cargo.lock
+    paths:
+      - .cargo/registry
+      - .cargo/git
+    # target/ is intentionally not cached: the workspace builds hundreds of
+    # test binaries, and moving that volume through the cache backend costs
+    # more than rebuilding it.
+
+# The tag gate: a release tag must name the version the workspace declares.
+version:
+  stage: version
+  image: rust:1.97.1-trixie
+  interruptible: true
+  rules:
+    - if: '$CI_COMMIT_TAG'
+  before_script: []
+  script:
+    - |
+      workspace_version="$(sed -n 's/^version = "\(.*\)"$/\1/p' Cargo.toml | head -n 1)"
+      if [ "v${workspace_version}" != "${CI_COMMIT_TAG}" ]; then
+        echo "tag ${CI_COMMIT_TAG} does not match workspace version ${workspace_version}" >&2
+        exit 1
+      fi
+
+fmt:
+  extends: .cargo-job
+  stage: check
+  before_script: []   # rustfmt ships with the image and needs no C toolchain
+  timeout: 10 minutes
+  script:
+    - scripts/ci.sh fmt
+
+# Lints are reported in the log but do not fail the job while the workspace
+# still carries warnings (clippy is configured pedantic); add `-- -D warnings`
+# to scripts/ci.sh's clippy target once they are fixed.
+clippy:
+  extends: .cargo-job
+  stage: check
+  timeout: 45 minutes
+  script:
+    - scripts/ci.sh clippy
+
+ledger:
+  extends: .cargo-job
+  stage: check
+  timeout: 10 minutes
+  before_script: []   # the conformance tool is pure Rust
+  script:
+    - scripts/ci.sh ledger
+
+test:
+  extends: .cargo-job
+  stage: test
+  timeout: 2 hours
+  script:
+    - scripts/ci.sh test
+
+wasm:
+  extends: .cargo-job
+  stage: test
+  timeout: 30 minutes
+  script:
+    - apt-get install -y -qq --no-install-recommends nodejs
+    - scripts/ci.sh wasm
+
+conformance:
+  extends: .cargo-job
+  stage: test
+  timeout: 2 hours
+  variables:
+    OXIMOND_CI_REPORT: "$CI_PROJECT_DIR/conformance-report.txt"
+  cache:
+    # One cache entry feeds both the cargo registry and the corpora, keyed on
+    # the files that decide their contents.
+    key:
+      files:
+        - Cargo.lock
+        - tests/conformance/sources.toml
+    paths:
+      - .cargo/registry
+      - .cargo/git
+      - .oximond/conformance
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - conformance-report.txt
+  script:
+    - scripts/ci.sh conformance

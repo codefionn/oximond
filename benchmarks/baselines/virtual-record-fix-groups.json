@@ -1,0 +1,1935 @@
+{
+  "generated_at": "2026-10-05T20:43:02.131988+00:00",
+  "host": {
+    "platform": "Linux-7.2.7-1-cachyos-gcc-x86_64-with-glibc2.44",
+    "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+    "cpu_affinity": 5,
+    "uptime": "22:42:55 up 1 day,  1:13,  1 user,  load average: 9,16, 13,96, 12,00",
+    "loadavg": [
+      9.16,
+      13.96,
+      12.0
+    ],
+    "sibling_cpu": 13,
+    "pinned_cpu_busy_percent": 7.9999999999999964,
+    "sibling_cpu_busy_percent": 7.692307692307687
+  },
+  "git": {
+    "revision": "b91506a7016b7d6a7469adc3cb802dfeeb4420cb",
+    "dirty": true
+  },
+  "scale": 1,
+  "repeat": 3,
+  "warmed": false,
+  "sync_jit": true,
+  "binaries": {
+    "oximond": {
+      "path": "/home/user/Documents/prog/oximond/.claude/worktrees/trace-alloc-hashload/target/release/oximond",
+      "sha256": "830d2ac50f98d7fb71e0cdf00eda8f7764dcb3ac319e97ec8317e5d0ee6f10fe"
+    },
+    "before": {
+      "path": "/tmp/claude-1000/-home-user-Documents-prog-oximond/9f095a74-e11a-41d2-b33a-9a2e6143e5ea/scratchpad/oximond-412165f",
+      "sha256": "828a65dfff3fb38c5d72a7bd94ee4711ea0d393f51bf1641da6667c4545b9a53"
+    }
+  },
+  "results": [
+    {
+      "benchmark": "table/array_read",
+      "modes": {
+        "interpreter": {
+          "instructions": 327966354,
+          "instructions_samples": [
+            327966354,
+            327966200,
+            327966978
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 60667108,
+          "instructions_samples": [
+            60665523,
+            60667323,
+            60667108
+          ],
+          "counters": {
+            "abort.ShortLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 4,
+            "iterations": 1599263,
+            "native_entries": 21,
+            "recording_starts": 4,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 21,
+            "iterations": 1599263,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 4
+            },
+            "side_exits": {},
+            "aborts": {
+              "ShortLoop": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 327959287,
+          "instructions_samples": [
+            327959063,
+            327959580,
+            327959287
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 65154160,
+          "instructions_samples": [
+            71187840,
+            65154160,
+            64682987
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "79992240"
+    },
+    {
+      "benchmark": "table/array_write",
+      "modes": {
+        "interpreter": {
+          "instructions": 560619842,
+          "instructions_samples": [
+            560619842,
+            560619162,
+            560620447
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 54816372,
+          "instructions_samples": [
+            54816372,
+            54816459,
+            54815500
+          ],
+          "counters": {
+            "abort.ShortLoop": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 3,
+            "iterations": 799934,
+            "native_entries": 4,
+            "recording_starts": 4,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 4,
+            "iterations": 799934,
+            "exits": {
+              "LoopComplete": 1,
+              "Poll": 3
+            },
+            "side_exits": {},
+            "aborts": {
+              "ShortLoop": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 560613389,
+          "instructions_samples": [
+            560614706,
+            560613389,
+            560613007
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 57475717,
+          "instructions_samples": [
+            54800777,
+            57475717,
+            57602681
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "1020765"
+    },
+    {
+      "benchmark": "table/hash_read",
+      "modes": {
+        "interpreter": {
+          "instructions": 224927493,
+          "instructions_samples": [
+            224923803,
+            224927717,
+            224927493
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 141808344,
+          "instructions_samples": [
+            141808344,
+            141808156,
+            141808855
+          ],
+          "counters": {
+            "abort.UnsupportedOpcode": 3,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 2,
+            "iterations": 599705,
+            "native_entries": 19,
+            "recording_starts": 4,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 19,
+            "iterations": 599705,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 2
+            },
+            "side_exits": {},
+            "aborts": {
+              "UnsupportedOpcode": 3
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 224925151,
+          "instructions_samples": [
+            224928960,
+            224925151,
+            224920934
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 223353288,
+          "instructions_samples": [
+            223353288,
+            223353286,
+            223353838
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "31455900"
+    },
+    {
+      "benchmark": "table/field_read",
+      "modes": {
+        "interpreter": {
+          "instructions": 401299488,
+          "instructions_samples": [
+            401300022,
+            401299178,
+            401299488
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 17290738,
+          "instructions_samples": [
+            17286463,
+            17291585,
+            17290738
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "exit.Poll": 1,
+            "iterations": 499934,
+            "native_entries": 2,
+            "recording_starts": 1,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 2,
+            "iterations": 499934,
+            "exits": {
+              "LoopComplete": 1,
+              "Poll": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 401293672,
+          "instructions_samples": [
+            401293013,
+            401294408,
+            401293672
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 23991287,
+          "instructions_samples": [
+            23991287,
+            24767509,
+            21353761
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "13500001"
+    },
+    {
+      "benchmark": "table/metamethod_index",
+      "modes": {
+        "interpreter": {
+          "instructions": 304590536,
+          "instructions_samples": [
+            304588438,
+            304590536,
+            304590804
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 25,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 9441783,
+          "instructions_samples": [
+            9441921,
+            9441783,
+            9439562
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 199934,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 199934,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 304582458,
+          "instructions_samples": [
+            304581813,
+            304583100,
+            304582458
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 17564884,
+          "instructions_samples": [
+            17564884,
+            20301183,
+            16917104
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "2600000"
+    },
+    {
+      "benchmark": "table/iteration",
+      "modes": {
+        "interpreter": {
+          "instructions": 508403905,
+          "instructions_samples": [
+            508403897,
+            508404424,
+            508403905
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 32072174,
+          "instructions_samples": [
+            32071484,
+            32073463,
+            32072174
+          ],
+          "counters": {
+            "abort.ShortLoop": 3,
+            "abort.UnsupportedOperand": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 80,
+            "iterations": 797395,
+            "native_entries": 80,
+            "recording_starts": 5,
+            "side_exit.ArrayBounds": 80,
+            "tables_created": 23,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 80,
+            "iterations": 797395,
+            "exits": {
+              "GuardFail": 80
+            },
+            "side_exits": {
+              "ArrayBounds": 80
+            },
+            "aborts": {
+              "ShortLoop": 3,
+              "UnsupportedOperand": 1
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 508397193,
+          "instructions_samples": [
+            508397075,
+            508397193,
+            508398319
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 42765827,
+          "instructions_samples": [
+            42765827,
+            44318683,
+            36212926
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "44676800"
+    },
+    {
+      "benchmark": "algorithm/sieve",
+      "modes": {
+        "interpreter": {
+          "instructions": 276557071,
+          "instructions_samples": [
+            276557071,
+            276556003,
+            276557210
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 27,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 27,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 126597647,
+          "instructions_samples": [
+            126597481,
+            126598517,
+            126597647
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 224,
+            "exit.LoopComplete": 245,
+            "iterations": 715775,
+            "native_entries": 469,
+            "recording_starts": 2,
+            "side_exit.ArrayBounds": 36,
+            "side_exit.Branch": 188,
+            "tables_created": 27,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 27,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 469,
+            "iterations": 715775,
+            "exits": {
+              "GuardFail": 224,
+              "LoopComplete": 245
+            },
+            "side_exits": {
+              "ArrayBounds": 36,
+              "Branch": 188
+            },
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 276550853,
+          "instructions_samples": [
+            276549771,
+            276551069,
+            276550853
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 136362836,
+          "instructions_samples": [
+            137351717,
+            135945704,
+            136362836
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "25665"
+    },
+    {
+      "benchmark": "algorithm/nbody",
+      "modes": {
+        "interpreter": {
+          "instructions": 76705873,
+          "instructions_samples": [
+            76706117,
+            76705263,
+            76705873
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 28,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 28,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 74289362,
+          "instructions_samples": [
+            74290929,
+            74289362,
+            74288898
+          ],
+          "counters": {
+            "abort.InnerLoop": 6,
+            "abort.LoopNotClosed": 2,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1977,
+            "iterations": 12730,
+            "native_entries": 1977,
+            "recording_starts": 10,
+            "tables_created": 28,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 28,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 1977,
+            "iterations": 12730,
+            "exits": {
+              "LoopComplete": 1977
+            },
+            "side_exits": {},
+            "aborts": {
+              "InnerLoop": 6,
+              "LoopNotClosed": 2
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 76698392,
+          "instructions_samples": [
+            76698105,
+            76698392,
+            76698782
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 109635374,
+          "instructions_samples": [
+            111164952,
+            109635374,
+            109159535
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "16.834996880"
+    },
+    {
+      "benchmark": "algorithm/mandelbrot",
+      "modes": {
+        "interpreter": {
+          "instructions": 798497663,
+          "instructions_samples": [
+            798497663,
+            798497284,
+            798497897
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 22,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 61656925,
+          "instructions_samples": [
+            61656925,
+            61656570,
+            61662910
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 16,
+            "exit.LoopComplete": 46,
+            "exit.Poll": 2,
+            "iterations": 822874,
+            "native_entries": 64,
+            "recording_starts": 1,
+            "side_exit.Branch": 16,
+            "tables_created": 22,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 22,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 64,
+            "iterations": 822874,
+            "exits": {
+              "GuardFail": 16,
+              "LoopComplete": 46,
+              "Poll": 2
+            },
+            "side_exits": {
+              "Branch": 16
+            },
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 798492091,
+          "instructions_samples": [
+            798491658,
+            798492502,
+            798492091
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 94505295,
+          "instructions_samples": [
+            108118277,
+            94505295,
+            84090642
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "790685"
+    },
+    {
+      "benchmark": "algorithm/spectral_norm",
+      "modes": {
+        "interpreter": {
+          "instructions": 763111978,
+          "instructions_samples": [
+            763111978,
+            763112509,
+            763111951
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 44,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 44,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 74843339,
+          "instructions_samples": [
+            74843339,
+            74843940,
+            74842463
+          ],
+          "counters": {
+            "abort.ShortLoop": 4,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 4796,
+            "exit.LoopComplete": 72,
+            "iterations": 571000,
+            "native_entries": 4868,
+            "recording_starts": 6,
+            "side_exit.ArrayBounds": 4796,
+            "tables_created": 44,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 44,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 4868,
+            "iterations": 571000,
+            "exits": {
+              "GuardFail": 4796,
+              "LoopComplete": 72
+            },
+            "side_exits": {
+              "ArrayBounds": 4796
+            },
+            "aborts": {
+              "ShortLoop": 4
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 763104170,
+          "instructions_samples": [
+            763103787,
+            763104984,
+            763104170
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 104483666,
+          "instructions_samples": [
+            104483666,
+            101548849,
+            109457933
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "1.274221700"
+    },
+    {
+      "benchmark": "algorithm/binary_trees",
+      "modes": {
+        "interpreter": {
+          "instructions": 323401572,
+          "instructions_samples": [
+            323403516,
+            323401572,
+            323401232
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 81922,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 81922,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 323276424,
+          "instructions_samples": [
+            323276424,
+            323277427,
+            323276158
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 81922,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 81922,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 323291987,
+          "instructions_samples": [
+            323291987,
+            323290593,
+            323292591
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 323178104,
+          "instructions_samples": [
+            323180750,
+            323178104,
+            323178031
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "190"
+    },
+    {
+      "benchmark": "mineclonia/captured_call",
+      "modes": {
+        "interpreter": {
+          "instructions": 85979856,
+          "instructions_samples": [
+            85980764,
+            85979856,
+            85979291
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 31,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 31,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 26690967,
+          "instructions_samples": [
+            26690967,
+            26692418,
+            26690028
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 4934,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 31,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 31,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 4934,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 85973235,
+          "instructions_samples": [
+            85973235,
+            85972349,
+            85973351
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 48559119,
+          "instructions_samples": [
+            48060541,
+            48559930,
+            48559119
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "496447666\t0\t0"
+    },
+    {
+      "benchmark": "mineclonia/module_calls",
+      "modes": {
+        "interpreter": {
+          "instructions": 268627980,
+          "instructions_samples": [
+            268627606,
+            268627980,
+            268630245
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 25,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 55876695,
+          "instructions_samples": [
+            55877603,
+            55876695,
+            55876642
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 9934,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 25,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 25,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 9934,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 268620177,
+          "instructions_samples": [
+            268619982,
+            268620924,
+            268620177
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 115584557,
+          "instructions_samples": [
+            115587648,
+            115584557,
+            109709337
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "186121621"
+    },
+    {
+      "benchmark": "mineclonia/open_results",
+      "modes": {
+        "interpreter": {
+          "instructions": 179116432,
+          "instructions_samples": [
+            179116432,
+            179117650,
+            179116241
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 23,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 29434103,
+          "instructions_samples": [
+            29436206,
+            29434103,
+            29426600
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.CommittedEffect": 748,
+            "exit.LoopComplete": 744,
+            "iterations": 29877,
+            "native_entries": 1492,
+            "recording_starts": 2,
+            "side_exit.Branch": 748,
+            "tables_created": 23,
+            "traces_compiled": 2,
+            "traces_recorded": 2
+          },
+          "summary": {
+            "tables_created": 23,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 2,
+            "native_entries": 1492,
+            "iterations": 29877,
+            "exits": {
+              "CommittedEffect": 748,
+              "LoopComplete": 744
+            },
+            "side_exits": {
+              "Branch": 748
+            },
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 179109073,
+          "instructions_samples": [
+            179110884,
+            179109073,
+            179104386
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 64252193,
+          "instructions_samples": [
+            64252193,
+            64942689,
+            63726890
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "869523979"
+    },
+    {
+      "benchmark": "mineclonia/ull_kernel",
+      "modes": {
+        "interpreter": {
+          "instructions": 146058929,
+          "instructions_samples": [
+            146059162,
+            146058581,
+            146058929
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 32,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 32,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 60707993,
+          "instructions_samples": [
+            60707993,
+            60706813,
+            60710421
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 3934,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 32,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 32,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 3934,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 146049391,
+          "instructions_samples": [
+            146049577,
+            146049391,
+            146049022
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 152906796,
+          "instructions_samples": [
+            152906796,
+            163001720,
+            150663950
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "305671362"
+    },
+    {
+      "benchmark": "mineclonia/ull_arith",
+      "modes": {
+        "interpreter": {
+          "instructions": 142298475,
+          "instructions_samples": [
+            142298475,
+            142298740,
+            142298145
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 30,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 30,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 14154912,
+          "instructions_samples": [
+            14155392,
+            14154401,
+            14154912
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 49934,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 30,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 30,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 49934,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 142292143,
+          "instructions_samples": [
+            142292143,
+            142292144,
+            142291867
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 46663828,
+          "instructions_samples": [
+            46401661,
+            46842767,
+            46663828
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "760782068"
+    },
+    {
+      "benchmark": "mineclonia/bit_wide",
+      "modes": {
+        "interpreter": {
+          "instructions": 205515736,
+          "instructions_samples": [
+            205515989,
+            205515736,
+            205515098
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 29,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 29,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 12489549,
+          "instructions_samples": [
+            12489549,
+            12488635,
+            12490787
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 49934,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 29,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 29,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 49934,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 205506978,
+          "instructions_samples": [
+            205507006,
+            205506135,
+            205506978
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 50914603,
+          "instructions_samples": [
+            34429111,
+            52222409,
+            50914603
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "1767958516"
+    },
+    {
+      "benchmark": "table/hash_read_small",
+      "modes": {
+        "interpreter": {
+          "instructions": 361173054,
+          "instructions_samples": [
+            361173054,
+            361172312,
+            361174434
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 223485692,
+          "instructions_samples": [
+            223478708,
+            223485692,
+            223486089
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 3,
+            "iterations": 959917,
+            "native_entries": 20,
+            "recording_starts": 1,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 20,
+            "iterations": 959917,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 3
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 361167675,
+          "instructions_samples": [
+            361169029,
+            361167675,
+            361167142
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 358259658,
+          "instructions_samples": [
+            358260595,
+            358259341,
+            358259658
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "19680000"
+    },
+    {
+      "benchmark": "table/hash_read_shaped",
+      "modes": {
+        "interpreter": {
+          "instructions": 366120835,
+          "instructions_samples": [
+            366120835,
+            366122221,
+            366120582
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 213221601,
+          "instructions_samples": [
+            213222091,
+            213221601,
+            213220700
+          ],
+          "counters": {
+            "abort.LoopNotClosed": 1,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 3,
+            "iterations": 959884,
+            "native_entries": 20,
+            "recording_starts": 2,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 20,
+            "iterations": 959884,
+            "exits": {
+              "LoopComplete": 17,
+              "Poll": 3
+            },
+            "side_exits": {},
+            "aborts": {
+              "LoopNotClosed": 1
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 366113064,
+          "instructions_samples": [
+            366112976,
+            366113779,
+            366113064
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 363105669,
+          "instructions_samples": [
+            363105669,
+            363106385,
+            363104511
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "9240000"
+    },
+    {
+      "benchmark": "table/hash_read_indexed",
+      "modes": {
+        "interpreter": {
+          "instructions": 298340100,
+          "instructions_samples": [
+            298339846,
+            298340100,
+            298342476
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 202073874,
+          "instructions_samples": [
+            202074003,
+            202073233,
+            202073874
+          ],
+          "counters": {
+            "abort.UnsupportedOpcode": 6,
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.GuardFail": 16,
+            "exit.LoopComplete": 17,
+            "exit.Poll": 2,
+            "iterations": 653774,
+            "native_entries": 35,
+            "recording_starts": 7,
+            "side_exit.ArrayBounds": 16,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 35,
+            "iterations": 653774,
+            "exits": {
+              "GuardFail": 16,
+              "LoopComplete": 17,
+              "Poll": 2
+            },
+            "side_exits": {
+              "ArrayBounds": 16
+            },
+            "aborts": {
+              "UnsupportedOpcode": 6
+            }
+          }
+        },
+        "before-interpreter": {
+          "instructions": 298308762,
+          "instructions_samples": [
+            298309159,
+            298308762,
+            298307897
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 296672049,
+          "instructions_samples": [
+            296672347,
+            296672049,
+            296671695
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "28476960\t81920"
+    },
+    {
+      "benchmark": "table/heap_redundancy",
+      "modes": {
+        "interpreter": {
+          "instructions": 408027677,
+          "instructions_samples": [
+            408028286,
+            408027677,
+            408027407
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "iterations": 0,
+            "native_entries": 0,
+            "recording_starts": 0,
+            "tables_created": 24,
+            "traces_compiled": 0,
+            "traces_recorded": 0
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 0,
+            "native_entries": 0,
+            "iterations": 0,
+            "exits": {},
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "tiered": {
+          "instructions": 13904892,
+          "instructions_samples": [
+            13904892,
+            13905232,
+            13904436
+          ],
+          "counters": {
+            "elided_table_bytes": 0,
+            "elided_tables": 0,
+            "exit.LoopComplete": 1,
+            "iterations": 149934,
+            "native_entries": 1,
+            "recording_starts": 1,
+            "tables_created": 24,
+            "traces_compiled": 1,
+            "traces_recorded": 1
+          },
+          "summary": {
+            "tables_created": 24,
+            "elided_tables": 0,
+            "elided_table_bytes": 0,
+            "traces_compiled": 1,
+            "native_entries": 1,
+            "iterations": 149934,
+            "exits": {
+              "LoopComplete": 1
+            },
+            "side_exits": {},
+            "aborts": {}
+          }
+        },
+        "before-interpreter": {
+          "instructions": 408021657,
+          "instructions_samples": [
+            408021808,
+            408021657,
+            408020852
+          ],
+          "counters": {},
+          "summary": {}
+        },
+        "before-tiered": {
+          "instructions": 20938658,
+          "instructions_samples": [
+            20938658,
+            20850931,
+            21289603
+          ],
+          "counters": {},
+          "summary": {}
+        }
+      },
+      "checksum": "699934\t150000"
+    }
+  ]
+}

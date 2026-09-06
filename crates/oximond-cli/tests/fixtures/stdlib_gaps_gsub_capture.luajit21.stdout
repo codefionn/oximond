@@ -1,0 +1,9 @@
+false	invalid capture index
+true	abc	1
+false	invalid capture index
+false	invalid capture index
+false	invalid capture index
+true	xbc	1
+true	3	1
+true	aabc	1
+true	%bc	1

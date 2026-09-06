@@ -1,0 +1,161 @@
+--- a/deps/lua/src/Makefile
++++ b/deps/lua/src/Makefile
+@@ -38,6 +38,14 @@
+ 
+ ALL_O= $(CORE_O) $(LIB_O) $(LUA_O) $(LUAC_O)
+ ALL_T= $(LUA_A) $(LUA_T) $(LUAC_T)
++
++# Oximond supplies the VM, standard library, auxiliary API and Rust serializers.
++# Keep Valkey's native BitOp module as a real C API workload.
++ifdef OXIMOND_LIBRARY
++CORE_O=
++LIB_O=lua_bit.o
++ALL_T=$(LUA_A)
++endif
+ ALL_A= $(LUA_A)
+ 
+ default: $(PLAT)
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -138,6 +138,10 @@
+ FINAL_CFLAGS=$(STD) $(WARN) $(OPT) $(DEBUG) $(CFLAGS) $(SERVER_CFLAGS)
+ FINAL_LDFLAGS=$(LDFLAGS) $(OPT) $(SERVER_LDFLAGS) $(DEBUG)
+ FINAL_LIBS=-lm
++ifdef OXIMOND_LIBRARY
++SERVER_CFLAGS+=-DUSE_OXIMOND
++FINAL_LIBS+=$(OXIMOND_LIBRARY) -lffi -ldl -lstdc++ -lpthread
++endif
+ DEBUG=-g -ggdb
+ 
+ # Linux ARM32 needs -latomic at linking time
+--- a/src/lua/engine_lua.c
++++ b/src/lua/engine_lua.c
+@@ -12,6 +12,32 @@
+ #include "../adlist.h"
+ 
+ #define LUA_ENGINE_NAME "LUA"
++#ifdef USE_OXIMOND
++extern lua_State *oximond_newstate_with_options(lua_Alloc, void *, int, int);
++static lua_State *createOximondState(void) {
++    const char *profile = getenv("OXIMOND_VALKEY_PROFILE");
++    const char *execution = getenv("OXIMOND_VALKEY_EXECUTION");
++    int selected = 51;
++    if (profile) {
++        if (!strcmp(profile, "lua51")) selected = 51;
++        else if (!strcmp(profile, "lua52")) selected = 52;
++        else if (!strcmp(profile, "lua53")) selected = 53;
++        else if (!strcmp(profile, "lua54")) selected = 54;
++        else if (!strcmp(profile, "lua55")) selected = 55;
++        else if (!strcmp(profile, "luajit21")) selected = 21;
++        else serverPanic("Unknown Oximond compatibility profile");
++    }
++    int mode = 0;
++    if (execution) {
++        if (!strcmp(execution, "interpreter")) mode = 0;
++        else if (!strcmp(execution, "tracing")) mode = 1;
++        else serverPanic("Unknown Oximond execution mode");
++    }
++    lua_State *state = oximond_newstate_with_options(NULL, NULL, selected, mode);
++    serverAssert(state != NULL);
++    return state;
++}
++#endif
+ #define REGISTRY_ERROR_HANDLER_NAME "__ERROR_HANDLER__"
+ 
+ typedef struct luaFunction {
+@@ -140,7 +166,11 @@
+ 
+ static void initializeLuaState(luaEngineCtx *lua_engine_ctx,
+                                subsystemType type) {
++#ifdef USE_OXIMOND
++    lua_State *lua = createOximondState();
++#else
+     lua_State *lua = lua_open();
++#endif
+ 
+     if (type == VMSE_EVAL) {
+         lua_engine_ctx->eval_lua = lua;
+--- a/src/lua/script_lua.c
++++ b/src/lua/script_lua.c
+@@ -1247,6 +1247,15 @@
+     luaLoadLib(lua, LUA_MATHLIBNAME, luaopen_math);
+     luaLoadLib(lua, LUA_DBLIBNAME, luaopen_debug);
+     luaLoadLib(lua, LUA_OSLIBNAME, luaopen_os);
++#ifdef USE_OXIMOND
++    /* Valkey's patched stock os library exposes only clock. */
++    lua_newtable(lua);
++    lua_getglobal(lua, LUA_OSLIBNAME);
++    lua_getfield(lua, -1, "clock");
++    lua_setfield(lua, -3, "clock");
++    lua_pop(lua, 1);
++    lua_setglobal(lua, LUA_OSLIBNAME);
++#endif
+     luaLoadLib(lua, "cjson", luaopen_cjson);
+     luaLoadLib(lua, "struct", luaopen_struct);
+     luaLoadLib(lua, "cmsgpack", luaopen_cmsgpack);
+@@ -1441,6 +1441,43 @@
+  * This function only handles fields common between Functions and LUA scripting.
+  * scriptingInit() and functionsInit() may add additional fields specific to each.
+  */
++#ifdef USE_OXIMOND
++extern unsigned long long oximond_jit_native_runs(lua_State *);
++static int luaOximondNativeRuns(lua_State *lua) {
++    lua_pushnumber(lua, (lua_Number)oximond_jit_native_runs(lua));
++    return 1;
++}
++
++/* The Rust state begins with a full standard library. Apply the same explicit
++ * global allow lists as stock Valkey before exposing it to scripts. */
++static void luaRestrictOximondGlobals(lua_State *lua) {
++    int count = 0;
++    lua_pushvalue(lua, LUA_GLOBALSINDEX);
++    lua_newtable(lua);
++    lua_pushnil(lua);
++    while (lua_next(lua, -3)) {
++        int allowed = 0;
++        const char *name = lua_tostring(lua, -2);
++        for (char ***list = allow_lists; name && *list && !allowed; ++list) {
++            for (char **entry = *list; *entry; ++entry) {
++                if (!strcmp(name, *entry)) { allowed = 1; break; }
++            }
++        }
++        if (!allowed) {
++            lua_pushvalue(lua, -2);
++            lua_rawseti(lua, -4, ++count);
++        }
++        lua_pop(lua, 1);
++    }
++    for (int i = 1; i <= count; ++i) {
++        lua_rawgeti(lua, -1, i);
++        lua_pushnil(lua);
++        lua_rawset(lua, -4);
++    }
++    lua_pop(lua, 2);
++}
++#endif
++
+ void luaRegisterServerAPI(lua_State *lua) {
+     /* In addition to registering server.call/pcall API, we will throw a custom message when a script accesses
+      * undefined global variable. LUA stores global variables in the global table, accessible to us on stack at virtual
+@@ -1528,6 +1559,11 @@
+     lua_pushcfunction(lua, luaRedisAclCheckCmdPermissionsCommand);
+     lua_settable(lua, -3);
+ 
++#ifdef USE_OXIMOND
++    lua_pushcfunction(lua, luaOximondNativeRuns);
++    lua_setfield(lua, -2, "oximond_native_runs");
++#endif
++
+     /* Finally set the table as 'server' global var.
+      * We will also alias it to 'redis' global var for backwards compatibility. */
+     lua_setglobal(lua, SERVER_API_NAME);
+@@ -1547,6 +1583,9 @@
+     lua_settable(lua, -3);
+     /* overwrite value of global variable 'math' with this modified math table present on top of stack. */
+     lua_setglobal(lua, "math");
++#ifdef USE_OXIMOND
++    luaRestrictOximondGlobals(lua);
++#endif
+ }
+ 
+ /* Set an array of String Objects as a Lua array (table) stored into a

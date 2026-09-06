@@ -1,0 +1,13 @@
+true	fn	3
+true	fn	3
+false	H:bad argument #1 to '?' (function expected, got no value)
+false	H:bad argument #1 to '?' (function expected, got no value)
+true	nil	reader function must return a string
+true	nil	bad argument #1 to '?' (value expected)
+true	nil	bad argument #1 to '?' (value expected)
+true	nil	bad argument #1 to '?' (string expected, got no value)
+true	nil	bad argument #1 to '?' (number expected, got no value)
+true	nil	bad argument #1 to '?' (table expected, got no value)
+true	nil	bad argument #1 to '?' (table expected, got no value)
+true	nil	bad argument #1 to '?' (string expected, got no value)
+false	H:bad argument #1 to '?' (function expected, got no value)

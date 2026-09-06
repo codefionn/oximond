@@ -1,0 +1,27 @@
+ipairs	dead:false,attempt to yield across a C-call boundary
+insert	dead:false,attempt to yield across a C-call boundary
+insert2	dead:false,attempt to yield across a C-call boundary
+concat	dead:false,attempt to yield across a C-call boundary
+unpack	dead:false,attempt to yield across a C-call boundary
+unpack_len	dead:false,attempt to yield across a C-call boundary
+remove	dead:false,attempt to yield across a C-call boundary
+move	dead:false,attempt to yield across a C-call boundary
+sort	dead:false,attempt to yield across a C-call boundary
+gsub_tbl	dead:false,attempt to yield across a C-call boundary
+strarith	dead:false,attempt to yield across a C-call boundary
+strarith2	dead:false,attempt to yield across a C-call boundary
+strconcat	suspended:true,c ; dead:true,r2
+tostring	dead:false,attempt to yield across a C-call boundary
+pcallmeta	suspended:true,p ; dead:true,true,r2
+next_pairs	suspended:true,pairs ; dead:false,close_gaps_c_boundary.lua:30: attempt to call a string value (for iterator 'for iterator')
+select	suspended:true,s ; dead:true,1
+rawequal	dead:true,false
+xpcall	suspended:true,xp ; dead:true,true,r2
+string_rep_tostr	dead:false,attempt to yield across a C-call boundary
+tbl_unpack_idx2	dead:false,attempt to yield across a C-call boundary
+-- sort proxy
+1,3,5,7,9
+9,7,5,3,1
+false	close_gaps_c_boundary.lua:45: lenerr
+false	object length is not an integer
+false	attempt to yield across a C-call boundary

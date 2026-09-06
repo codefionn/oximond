@@ -1,0 +1,23 @@
+diff --git a/init.lua b/init.lua
+index feb5b5f..5bffa4a 100644
+--- a/init.lua
++++ b/init.lua
+@@ -90,7 +90,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
+ -- ============================================================
+ do
+   -- Enable faster startup by caching compiled Lua modules
+-  vim.loader.enable()
++  if vim.env.OXIMOND_NVIM_COMPARE ~= '1' then vim.loader.enable() end
+ 
+   -- Set <space> as the leader key
+   -- See `:help mapleader`
+@@ -319,6 +319,9 @@ do
+   })
+ end
+ 
++-- Keep the same Lua 5.1-compatible kickstart core for each engine.
++if vim.env.OXIMOND_NVIM_COMPARE == '1' then return end
++
+ --- Because most plugins are hosted on GitHub, you can use the helper
+ --- function to have less repetition in the following sections.
+ ---@param repo string

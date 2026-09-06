@@ -1,0 +1,23 @@
+true	OBJ
+true	1
+true	1.5
+true	tbl
+true	nil
+true	true
+true	table
+false	bad argument #1 to '?' (string expected, got table)
+false	bad argument #1 to '?' (number expected, got table)
+false	attempt to call a string value
+false	attempt to call a number value
+false	boom
+OBJ
+1	A	x	7	nil	true
+R
+0
+false	'tostring' must return a string to 'print'
+false	boom
+false	bad argument #1 to '?' (string expected, got table)
+T:1	1
+100	L100
+200	L200
+300	L300
