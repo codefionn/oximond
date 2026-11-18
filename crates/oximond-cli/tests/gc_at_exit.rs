@@ -156,6 +156,7 @@ fn lua51_orders_userdata_by_creation_not_by_when_gc_was_set() {
     }
 }
 
+#[cfg(unix)] // merges the two streams with `sh -c ... 2>&1`
 #[test]
 fn the_error_is_reported_before_the_finalizers_run() {
     let source = "setmetatable({}, {__gc = function() print('gc') end}) error('bad')";

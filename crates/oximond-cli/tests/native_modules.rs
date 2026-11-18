@@ -1,3 +1,7 @@
+//! Native Lua modules built with `cc -shared -fPIC`. Windows builds its
+//! modules with zig instead: see tests/windows-smoke and `scripts/ci.sh windows`.
+#![cfg(unix)]
+
 use std::path::{Path, PathBuf};
 use std::process::Command;
 

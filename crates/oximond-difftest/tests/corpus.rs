@@ -46,6 +46,12 @@ fn run(profile: Profile, mode: ExecutionMode, source: &str) -> Observation {
     }
 }
 
+/// Entries whose recorded stock output depends on the Linux host: glibc's
+/// `pow` (the Windows C runtime differs in the last bit, and stock `luajit`
+/// for Windows prints what oximond prints there) and `/tmp` read as a
+/// directory (which Windows cannot open at all). See docs/windows.md.
+const WINDOWS_HOST_DIFFERENCES: &[&str] = &["float-power-", "loadfile-errors-"];
+
 /// Runs the corpus on a thread with the CLI's stack size: entries that
 /// recurse to stock's C-call limit need more than a test thread's default.
 #[test]
@@ -64,6 +70,13 @@ fn replay_corpus() {
     assert!(!entries.is_empty(), "the corpus is empty");
     let mut problems = Vec::new();
     for entry in &entries {
+        if cfg!(windows)
+            && WINDOWS_HOST_DIFFERENCES
+                .iter()
+                .any(|prefix| entry.name.starts_with(prefix))
+        {
+            continue;
+        }
         let expected = Observation {
             stdout: entry.expected_stdout.clone(),
             end: End::Success,

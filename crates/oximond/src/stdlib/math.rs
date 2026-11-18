@@ -398,7 +398,7 @@ pub(crate) fn io_close(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeRes
         Ok(Some(status)) => Ok(process_close_result(runtime, status)),
         Ok(None) => Ok(vec![Value::Boolean(true)]),
         Err(error @ (RuntimeError::FileIo { .. } | RuntimeError::HostOutputIo { .. })) => {
-            Ok(io_failure(&error))
+            Ok(io_failure(runtime, &error))
         }
         Err(error) => Err(error),
     }
@@ -416,7 +416,14 @@ pub(crate) fn io_open(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeResu
     };
     match runtime.open_file(path_from_lua_string(path), mode) {
         Ok(file) => Ok(vec![Value::File(file)]),
-        Err(error) => Ok(io_failure(&error)),
+        Err(error) => {
+            // `luaL_fileresult(L, 0, filename)` names the file.
+            let mut failure = io_failure(runtime, &error);
+            if let RuntimeError::FileIo { message, .. } = &error {
+                failure[1] = Value::from([path.as_bytes(), b": ", message.as_bytes()].concat());
+            }
+            Ok(failure)
+        }
     }
 }
 
@@ -439,7 +446,7 @@ pub(crate) fn io_popen(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeRes
     };
     match runtime.open_process(path_from_lua_string(command), read) {
         Ok(file) => Ok(vec![Value::File(file)]),
-        Err(error @ RuntimeError::FileIo { .. }) => Ok(io_failure(&error)),
+        Err(error @ RuntimeError::FileIo { .. }) => Ok(io_failure(runtime, &error)),
         Err(error) => Err(error),
     }
 }
@@ -474,7 +481,7 @@ pub(crate) fn io_flush(runtime: &mut Runtime, _: &[Value]) -> RuntimeResult<Vec<
     match runtime.file_flush(file) {
         Ok(()) => Ok(vec![Value::Boolean(true)]),
         Err(error @ (RuntimeError::FileIo { .. } | RuntimeError::HostOutputIo { .. })) => {
-            Ok(io_failure(&error))
+            Ok(io_failure(runtime, &error))
         }
         Err(error) => Err(error),
     }
@@ -545,7 +552,7 @@ pub(crate) fn file_write(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeR
     match runtime.file_write(file, &values[..bad.unwrap_or(values.len())]) {
         Ok(()) => {}
         Err(error @ (RuntimeError::FileIo { .. } | RuntimeError::HostOutputIo { .. })) => {
-            return Ok(io_failure(&error));
+            return Ok(io_failure(runtime, &error));
         }
         Err(error) => return Err(error),
     }
@@ -569,7 +576,7 @@ pub(crate) fn file_seek(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeRe
     match runtime.file_seek(file, &whence, &offset) {
         Ok(position) => Ok(vec![runtime.integral_float_value(position)]),
         Err(error @ (RuntimeError::FileIo { .. } | RuntimeError::HostOutputIo { .. })) => {
-            Ok(io_failure(&error))
+            Ok(io_failure(runtime, &error))
         }
         // The whence is argument 2 and the offset argument 3.
         Err(error @ RuntimeError::TypeError { expected, .. }) => {
@@ -592,7 +599,7 @@ pub(crate) fn file_close(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeR
         Ok(Some(status)) => Ok(process_close_result(runtime, status)),
         Ok(None) => Ok(vec![Value::Boolean(true)]),
         Err(error @ (RuntimeError::FileIo { .. } | RuntimeError::HostOutputIo { .. })) => {
-            Ok(io_failure(&error))
+            Ok(io_failure(runtime, &error))
         }
         Err(error) => Err(error),
     }
@@ -603,7 +610,7 @@ pub(crate) fn file_flush(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeR
     match runtime.file_flush(file) {
         Ok(()) => Ok(vec![Value::Boolean(true)]),
         Err(error @ (RuntimeError::FileIo { .. } | RuntimeError::HostOutputIo { .. })) => {
-            Ok(io_failure(&error))
+            Ok(io_failure(runtime, &error))
         }
         Err(error) => Err(error),
     }
@@ -630,7 +637,9 @@ pub(crate) fn file_lines(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeR
     )?])
 }
 
-pub(crate) fn io_failure(error: &RuntimeError) -> Vec<Value> {
+/// `luaL_fileresult`'s failure: `nil`, the message and the `errno`, an
+/// integer in the profiles that have them.
+pub(crate) fn io_failure(runtime: &Runtime, error: &RuntimeError) -> Vec<Value> {
     let code = match error {
         RuntimeError::FileIo { code, .. } | RuntimeError::HostOutputIo { code, .. } => *code,
         _ => 1,
@@ -638,7 +647,7 @@ pub(crate) fn io_failure(error: &RuntimeError) -> Vec<Value> {
     vec![
         Value::Nil,
         Value::from(error.to_string()),
-        Value::Number(f64::from(code)),
+        runtime.integer_value(i64::from(code)),
     ]
 }
 

@@ -1,5 +1,8 @@
 //! Fixture and workload sources must be valid and deterministic on stock Lua.
 //! New mismatches belong in campaign artifacts rather than generator failures.
+//! The scratch directory comes from `mktemp` and the oracles are the stock
+//! interpreters a Unix host installs.
+#![cfg(unix)]
 
 use std::path::Path;
 

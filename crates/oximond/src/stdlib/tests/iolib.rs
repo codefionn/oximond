@@ -288,8 +288,8 @@ fn os_remove_and_rename_return_lua_results_for_host_files() {
     assert!(
         matches!(
             failure.as_slice(),
-            [Value::Nil, Value::String(message), Value::Number(code)]
-                if message.to_lossy() == expected && *code == 2.0
+            [Value::Nil, Value::String(message), code]
+                if message.to_lossy() == expected && (*code == Value::Integer(2) || *code == Value::Number(2.0))
         ),
         "{failure:?}"
     );

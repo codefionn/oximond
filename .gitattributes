@@ -1,0 +1,3 @@
+# Check out text with LF on every platform. Expected-output fixtures are
+# compared byte for byte, and shell scripts and patches break with CRLF.
+* text=auto eol=lf

@@ -1740,15 +1740,23 @@ mod tests {
         install_base(vm.runtime_mut()).unwrap();
         vm.runtime_mut().set_output_writer(FailedStream);
         vm.runtime_mut().set_error_output_writer(FailedStream);
-        let chunk = super::compile_source(
-            vm.compatibility_profile(),
-            "=host I/O errors".to_owned(),
-            br"
+        // OS error 5 is EIO on Unix. On Windows it is ERROR_ACCESS_DENIED,
+        // which Lua reports as the C runtime's EACCES.
+        let errno = if cfg!(windows) { 13 } else { 5 };
+        let source = format!(
+            "
                 local function check(value, message, code)
                     assert(value == nil)
                     assert(type(message) == 'string')
-                    assert(code == 5)
-                end
+                    assert(code == {errno})
+                end"
+        );
+        let chunk = super::compile_source(
+            vm.compatibility_profile(),
+            "=host I/O errors".to_owned(),
+            &[
+                source.as_bytes(),
+                br"
                 check(io.write('x'))
                 check(io.flush())
                 check(io.stdout:write('x'))
@@ -1756,6 +1764,8 @@ mod tests {
                 check(io.stderr:write('x'))
                 check(io.stderr:flush())
             ",
+            ]
+            .concat(),
         )
         .unwrap();
         vm.execute(&chunk).unwrap();

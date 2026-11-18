@@ -74,6 +74,10 @@ fn pattern_errors_read_as_stock_does() {
     check("pattern_errors", &ALL);
 }
 
+// The fixture reads `/tmp` as a directory. On Windows the C runtime cannot
+// open a directory at all ("cannot open X: Permission denied"), as stock
+// `lua` and `luajit` there report.
+#[cfg(unix)]
 #[test]
 fn loadfile_and_dofile_errors_have_no_os_error_suffix() {
     check("loadfile_errors", &ALL);

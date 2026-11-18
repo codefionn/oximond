@@ -41,6 +41,8 @@ fn the_report_file_names_the_traced_loop() {
     let _ = std::fs::remove_dir_all(dir);
 }
 
+// `/tmp/perf-<pid>.map` is Linux perf's convention.
+#[cfg(target_os = "linux")]
 #[test]
 fn the_perf_map_names_each_trace_by_its_header_line() {
     let child = Command::new(env!("CARGO_BIN_EXE_oximond"))

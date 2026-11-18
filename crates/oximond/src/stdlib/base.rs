@@ -26,7 +26,7 @@ use std::ffi::OsString;
 use std::fs::{self, OpenOptions};
 #[cfg(unix)]
 use std::os::unix::ffi::{OsStrExt, OsStringExt};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::sync::atomic::Ordering;
 
@@ -893,26 +893,25 @@ pub fn os_tmpname(_: &mut Runtime, _: &[Value]) -> RuntimeResult<Vec<Value>> {
 /// # Errors
 ///
 /// Returns a type error if the path is not a Lua string.
-pub fn os_remove(_: &mut Runtime, arguments: &[Value]) -> RuntimeResult<Vec<Value>> {
+pub fn os_remove(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeResult<Vec<Value>> {
     let path = path_argument(arguments.first(), 1)?;
     match fs::remove_file(&path) {
         Ok(()) => Ok(vec![Value::Boolean(true)]),
-        Err(error) => Ok(file_result_failure(arguments.first(), &error)),
+        Err(error) => Ok(file_result_failure(runtime, &path, &error)),
     }
 }
 
-/// `luaL_fileresult`'s failure: `nil`, `"name: message"` and the `errno`.
-fn file_result_failure(name: Option<&Value>, error: &std::io::Error) -> Vec<Value> {
-    let message = crate::runtime::io_error_text(error);
-    let message = match name {
-        Some(Value::String(name)) => format!("{}: {message}", name.to_lossy()),
-        Some(Value::Number(number)) => format!("{number}: {message}"),
-        _ => message,
-    };
+/// `luaL_fileresult`'s failure: `nil`, `"name: message"` and the `errno`,
+/// an integer in the profiles that have them.
+fn file_result_failure(runtime: &Runtime, name: &Path, error: &std::io::Error) -> Vec<Value> {
     vec![
         Value::Nil,
-        Value::from(message),
-        Value::Number(f64::from(crate::runtime::io_error_code(error).unwrap_or(1))),
+        Value::from(format!(
+            "{}: {}",
+            name.to_string_lossy(),
+            crate::runtime::io_error_text(error)
+        )),
+        runtime.integer_value(i64::from(crate::runtime::io_error_code(error).unwrap_or(1))),
     ]
 }
 
@@ -922,12 +921,12 @@ fn file_result_failure(name: Option<&Value>, error: &std::io::Error) -> Vec<Valu
 /// # Errors
 ///
 /// Returns a type error if either path is not a Lua string.
-pub fn os_rename(_: &mut Runtime, arguments: &[Value]) -> RuntimeResult<Vec<Value>> {
+pub fn os_rename(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeResult<Vec<Value>> {
     let from = path_argument(arguments.first(), 1)?;
     let to = path_argument(arguments.get(1), 2)?;
-    match fs::rename(from, to) {
+    match fs::rename(&from, to) {
         Ok(()) => Ok(vec![Value::Boolean(true)]),
-        Err(error) => Ok(file_result_failure(arguments.first(), &error)),
+        Err(error) => Ok(file_result_failure(runtime, &from, &error)),
     }
 }
 
@@ -1073,7 +1072,7 @@ pub fn io_write(runtime: &mut Runtime, arguments: &[Value]) -> RuntimeResult<Vec
         return match runtime.file_write(file, arguments) {
             Ok(()) => Ok(vec![Value::File(file)]),
             Err(error @ (RuntimeError::FileIo { .. } | RuntimeError::HostOutputIo { .. })) => {
-                Ok(io_failure(&error))
+                Ok(io_failure(runtime, &error))
             }
             Err(error) => Err(error),
         };

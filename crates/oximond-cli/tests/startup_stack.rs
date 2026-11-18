@@ -5,6 +5,7 @@
 use std::io::Write;
 use std::process::{Command, Stdio};
 
+#[cfg(unix)]
 const SCRIPT: &str = r#"
 local f; f = function() return coroutine.wrap(f)() end
 local ok, message = pcall(f)
@@ -19,6 +20,7 @@ local chunk, message = load("return " .. string.rep("(", 400) .. "1" .. string.r
 print(chunk, string.find(message, "syntax levels", 1, true) ~= nil)
 "#;
 
+#[cfg(unix)]
 const EXPECTED: &str = "false	true
 false	true	true
 1
@@ -26,6 +28,7 @@ nil	true
 ";
 
 /// Runs the binary under `ulimit` arguments and returns its stdout.
+#[cfg(unix)]
 fn run_under(limits: &str, execution: &str) -> String {
     let binary = env!("CARGO_BIN_EXE_oximond");
     let output = Command::new("sh")
@@ -46,6 +49,7 @@ fn run_under(limits: &str, execution: &str) -> String {
     String::from_utf8(output.stdout).unwrap()
 }
 
+#[cfg(unix)] // runs under `sh -c ulimit ...`
 #[test]
 fn limits_hold_when_the_stack_limit_can_be_raised() {
     // Soft 8 MiB, hard unlimited: the main thread's stack is grown.
@@ -54,12 +58,14 @@ fn limits_hold_when_the_stack_limit_can_be_raised() {
     }
 }
 
+#[cfg(unix)] // runs under `sh -c ulimit ...`
 #[test]
 fn limits_hold_when_the_hard_limit_forbids_raising_it() {
     // Hard 8 MiB: the interpreter falls back to a thread with its own stack.
     assert_eq!(run_under("ulimit -s 8192", "tracing"), EXPECTED);
 }
 
+#[cfg(unix)] // runs under `sh -c ulimit ...`
 #[test]
 fn limits_hold_when_the_stack_is_already_large() {
     assert_eq!(run_under("ulimit -S -s 131072", "tracing"), EXPECTED);
@@ -84,6 +90,7 @@ fn a_closed_pipe_is_an_error_not_a_signal() {
     assert!(status.code().is_some(), "killed by a signal: {status:?}");
 }
 
+#[cfg(unix)] // runs under `sh -c ulimit ...`
 #[test]
 fn shell_children_see_the_stack_limit_the_process_started_with() {
     // The main thread's limit is raised inside the process; os.execute and

@@ -1159,7 +1159,7 @@ fn prepare_git(source: &Source, root: &Path) -> Result<(), String> {
     let directory = root.join(&source.directory).join("source");
     if directory.join(".git").is_dir() {
         run_process(
-            Command::new("git")
+            git_command()
                 .arg("-C")
                 .arg(&directory)
                 .arg("fetch")
@@ -1182,7 +1182,7 @@ fn prepare_git(source: &Source, root: &Path) -> Result<(), String> {
         fs::create_dir_all(parent)
             .map_err(|error| format!("cannot create {}: {error}", parent.display()))?;
         run_process(
-            Command::new("git")
+            git_command()
                 .arg("clone")
                 .arg("--no-checkout")
                 .arg(&source.url)
@@ -1190,7 +1190,7 @@ fn prepare_git(source: &Source, root: &Path) -> Result<(), String> {
             &format!("clone {} test corpus", source.corpus),
         )?;
         run_process(
-            Command::new("git")
+            git_command()
                 .arg("-C")
                 .arg(&directory)
                 .arg("fetch")
@@ -1202,7 +1202,7 @@ fn prepare_git(source: &Source, root: &Path) -> Result<(), String> {
         )?;
     }
     run_process(
-        Command::new("git")
+        git_command()
             .arg("-C")
             .arg(&directory)
             .arg("checkout")
@@ -1285,7 +1285,15 @@ fn rebuild_patched_tree(
 
 fn resolve_patch_path(manifest_directory: &Path, patch_name: &str) -> Result<PathBuf, String> {
     let patch = Path::new(patch_name);
-    if patch.is_absolute() {
+    // `/x` and `C:x` are not absolute on Windows, but join replaces the
+    // manifest directory with them all the same.
+    if patch.is_absolute()
+        || patch.has_root()
+        || matches!(
+            patch.components().next(),
+            Some(std::path::Component::Prefix(_))
+        )
+    {
         return Err(format!(
             "patch path must be relative to the source manifest: {patch_name}"
         ));
@@ -1329,7 +1337,7 @@ fn populate_pristine_tree(source: &Source, root: &Path, destination: &Path) -> R
             let checkout = root.join(&source.directory).join("source");
             let archive = destination.with_extension(format!("{}.tar", std::process::id()));
             let result = run_process(
-                Command::new("git")
+                git_command()
                     .arg("-C")
                     .arg(&checkout)
                     .arg("archive")
@@ -1360,7 +1368,7 @@ fn apply_patch(source: &Source, tree: &Path, patch: &Path) -> Result<(), String>
         .parent()
         .ok_or_else(|| format!("patch tree has no parent: {}", tree.display()))?;
     run_process(
-        Command::new("git")
+        git_command()
             // Git-format diffs can silently skip paths when apply discovers an
             // enclosing repository. --no-index alone does not prevent that.
             .env("GIT_CEILING_DIRECTORIES", parent)
@@ -1396,7 +1404,7 @@ fn git_status(source: &Source, root: &Path) -> SourceStatus {
     if !directory.join(".git").is_dir() {
         return SourceStatus::Missing;
     }
-    match Command::new("git")
+    match git_command()
         .arg("-C")
         .arg(&directory)
         .arg("rev-parse")
@@ -1417,6 +1425,15 @@ fn git_status(source: &Source, root: &Path) -> SourceStatus {
         )),
         Err(error) => SourceStatus::Invalid(format!("cannot run git: {error}")),
     }
+}
+
+/// `git` with the corpora's bytes kept as committed: a Windows install
+/// usually sets `core.autocrlf`, which would check the Lua test files out,
+/// archive and patch them with CRLF line ends.
+fn git_command() -> Command {
+    let mut command = Command::new("git");
+    command.args(["-c", "core.autocrlf=false", "-c", "core.eol=lf"]);
+    command
 }
 
 fn run_process(command: &mut Command, action: &str) -> Result<(), String> {
@@ -1848,6 +1865,8 @@ mod tests {
         fs::remove_dir_all(root).expect("remove test files");
     }
 
+    // Builds the upstream modules as shared objects with `cc -shared`.
+    #[cfg(unix)]
     #[test]
     fn native_cli_fixture_builds_upstream_lua54_and_lua55_modules() {
         for (profile, source) in [
@@ -1880,7 +1899,7 @@ mod tests {
         let root = unique_test_directory("patch-tree");
         fs::create_dir_all(&root).expect("create test repository");
         run_process(
-            Command::new("git").arg("init").arg(&root),
+            git_command().arg("init").arg(&root),
             "initialize test repository",
         )
         .expect("test repository");
@@ -1973,13 +1992,13 @@ mod tests {
         let upstream = root.join("upstream");
         fs::create_dir_all(&upstream).expect("create upstream repository");
         run_process(
-            Command::new("git").arg("init").arg(&upstream),
+            git_command().arg("init").arg(&upstream),
             "initialize upstream",
         )
         .expect("initialize upstream");
         fs::write(upstream.join("test.lua"), "return 'upstream'\n").expect("write upstream test");
         run_process(
-            Command::new("git")
+            git_command()
                 .arg("-C")
                 .arg(&upstream)
                 .arg("add")
@@ -1988,7 +2007,7 @@ mod tests {
         )
         .expect("stage upstream test");
         run_process(
-            Command::new("git")
+            git_command()
                 .arg("-C")
                 .arg(&upstream)
                 .arg("-c")
@@ -2001,7 +2020,7 @@ mod tests {
             "commit upstream test",
         )
         .expect("commit upstream test");
-        let pin = Command::new("git")
+        let pin = git_command()
             .arg("-C")
             .arg(&upstream)
             .arg("rev-parse")
@@ -2328,8 +2347,12 @@ mod tests {
         assert_eq!(launch.working_directory, working_directory);
         assert_eq!(
             launch.lua_path,
+            // Joined with the platform separator after the given root.
             OsString::from(
-                "?;/corpora/lua51/source/test/lang/?.lua;/corpora/lua51/source/test/lang/?/init.lua;/corpora/lua51/source/?.lua;/corpora/lua51/source/?/init.lua",
+                "?;/corpora/lua51/source/test/lang/?.lua;/corpora/lua51/source/test/lang/?/init.lua;/corpora/lua51/source/?.lua;/corpora/lua51/source/?/init.lua"
+                    .replace("source/", &format!("source{}", std::path::MAIN_SEPARATOR))
+                    .replace("test/lang/", &format!("test{0}lang{0}", std::path::MAIN_SEPARATOR))
+                    .replace("?/init", &format!("?{}init", std::path::MAIN_SEPARATOR)),
             )
         );
         assert!(launch.clears_host_lua_path);
