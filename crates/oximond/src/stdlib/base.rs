@@ -895,10 +895,25 @@ pub fn os_tmpname(_: &mut Runtime, _: &[Value]) -> RuntimeResult<Vec<Value>> {
 /// Returns a type error if the path is not a Lua string.
 pub fn os_remove(_: &mut Runtime, arguments: &[Value]) -> RuntimeResult<Vec<Value>> {
     let path = path_argument(arguments.first(), 1)?;
-    match fs::remove_file(path) {
+    match fs::remove_file(&path) {
         Ok(()) => Ok(vec![Value::Boolean(true)]),
-        Err(error) => Ok(vec![Value::Nil, Value::from(error.to_string())]),
+        Err(error) => Ok(file_result_failure(arguments.first(), &error)),
     }
+}
+
+/// `luaL_fileresult`'s failure: `nil`, `"name: message"` and the `errno`.
+fn file_result_failure(name: Option<&Value>, error: &std::io::Error) -> Vec<Value> {
+    let message = crate::runtime::io_error_text(error);
+    let message = match name {
+        Some(Value::String(name)) => format!("{}: {message}", name.to_lossy()),
+        Some(Value::Number(number)) => format!("{number}: {message}"),
+        _ => message,
+    };
+    vec![
+        Value::Nil,
+        Value::from(message),
+        Value::Number(f64::from(crate::runtime::io_error_code(error).unwrap_or(1))),
+    ]
 }
 
 /// Renames one filesystem entry and converts ordinary host failures into the
@@ -912,7 +927,7 @@ pub fn os_rename(_: &mut Runtime, arguments: &[Value]) -> RuntimeResult<Vec<Valu
     let to = path_argument(arguments.get(1), 2)?;
     match fs::rename(from, to) {
         Ok(()) => Ok(vec![Value::Boolean(true)]),
-        Err(error) => Ok(vec![Value::Nil, Value::from(error.to_string())]),
+        Err(error) => Ok(file_result_failure(arguments.first(), &error)),
     }
 }
 

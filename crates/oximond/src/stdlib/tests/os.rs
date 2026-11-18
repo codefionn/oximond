@@ -12,6 +12,9 @@ fn os_getenv_reads_host_values_and_returns_nil_for_absent_names() {
         panic!("os.getenv is native");
     };
     let (name, value) = std::env::vars_os()
+        // Windows lists hidden per-drive directories as `=C:`; `os.getenv`
+        // answers nil for any name holding `=`.
+        .filter(|(name, _)| !name.to_string_lossy().contains('='))
         .find_map(|(name, value)| Some((name.into_string().ok()?, value.into_string().ok()?)))
         .expect("host has a Unicode environment variable");
     assert_eq!(

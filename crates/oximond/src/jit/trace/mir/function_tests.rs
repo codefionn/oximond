@@ -440,7 +440,31 @@ fn float_starts(n: &[f64], caps: &[i64], fuels: &[i64]) -> Vec<Start> {
 
 // ---- cases --------------------------------------------------------------------
 
+/// An activation takes `(left, control, area, fuel, params...)`, more than the
+/// four Win64 argument registers, and MIR has no stack-argument entry yet, so
+/// function traces stay with Cranelift there (backend.md, "Remaining
+/// fallbacks"). When that changes, this fails and the cases below un-ignore.
+#[cfg(windows)]
 #[test]
+fn win64_refuses_function_traces() {
+    let ir = fib(TraceType::Float, true);
+    ir.verify().unwrap();
+    for tier in TIERS {
+        LAST_FALLBACK.with(|fallback| fallback.set(None));
+        let mir = compile(&ir, tier, true);
+        assert!(mir.mir_address().is_none(), "MIR compiled a function trace");
+        assert_eq!(
+            LAST_FALLBACK.with(std::cell::Cell::get),
+            Some("function trace with more arguments than argument registers")
+        );
+    }
+}
+
+#[test]
+#[cfg_attr(
+    windows,
+    ignore = "Win64 activations need stack arguments, which MIR refuses"
+)]
 fn recursion_returns_like_cranelift() {
     let starts = float_starts(&[0.0, 1.0, 2.0, 5.0, 15.0], &[100], &[1 << 40]);
     let runs = same_everywhere("fib", &fib(TraceType::Float, true), &starts);
@@ -464,6 +488,10 @@ fn recursion_returns_like_cranelift() {
 }
 
 #[test]
+#[cfg_attr(
+    windows,
+    ignore = "Win64 activations need stack arguments, which MIR refuses"
+)]
 fn exits_inside_nested_activations_unwind_like_cranelift() {
     // The depth cap leaves at the activation it stops, the fuel at the one
     // that runs out of it; every activation around it unwinds.
@@ -488,6 +516,10 @@ fn exits_inside_nested_activations_unwind_like_cranelift() {
 }
 
 #[test]
+#[cfg_attr(
+    windows,
+    ignore = "Win64 activations need stack arguments, which MIR refuses"
+)]
 fn entry_mismatches_like_cranelift() {
     let starts = vec![
         start(
@@ -507,6 +539,10 @@ fn entry_mismatches_like_cranelift() {
 }
 
 #[test]
+#[cfg_attr(
+    windows,
+    ignore = "Win64 activations need stack arguments, which MIR refuses"
+)]
 fn each_type_of_result_returns_like_cranelift() {
     let values = [
         (Some(TraceType::Float), TraceInputSlot::float(-2.5)),
@@ -535,6 +571,10 @@ fn each_type_of_result_returns_like_cranelift() {
 }
 
 #[test]
+#[cfg_attr(
+    windows,
+    ignore = "Win64 activations need stack arguments, which MIR refuses"
+)]
 fn exits_copy_cells_like_cranelift() {
     let cells = [
         (TraceType::Float, TraceInputSlot::float(0.75)),
@@ -562,6 +602,10 @@ fn exits_copy_cells_like_cranelift() {
 }
 
 #[test]
+#[cfg_attr(
+    windows,
+    ignore = "Win64 activations need stack arguments, which MIR refuses"
+)]
 fn tail_calls_start_over_like_cranelift() {
     let mut starts = Vec::new();
     for (n, count, fuel) in [(0.0, 0, 100), (10.0, 0, 100), (10.0, 4, 100), (30.0, 0, 7)] {

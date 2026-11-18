@@ -214,31 +214,42 @@ fn sampling_runs_every_loop_iteration_once() {
         lua.vm_mut().use_synchronous_jit_compilation();
         lua.vm_mut().set_attribution(Some(collector.clone()));
         let chunk = lua.compile("=loops", LOOPS).unwrap();
-        let results = lua.execute(&chunk).unwrap();
-        let numbers: Vec<f64> = results
-            .iter()
-            .map(|value| match value {
-                oximond::Value::Number(number) => *number,
-                oximond::Value::Integer(number) => *number as f64,
-                other => panic!("{other:?}"),
-            })
-            .collect();
-        let sum = |n: f64| n * (n + 1.0) / 2.0;
-        assert_eq!(
-            numbers,
-            [
-                sum(3_000_000.0),
-                sum(300_000.0),
-                2.0 * sum(300_000.0),
-                900_000.0
-            ],
-            "{mode:?}"
-        );
-        let samples: u64 = collector
-            .snapshot()
-            .values()
-            .map(|t| t.interpreter + t.native)
-            .sum();
+        let samples = || -> u64 {
+            collector
+                .snapshot()
+                .values()
+                .map(|t| t.interpreter + t.native)
+                .sum()
+        };
+        // A compiled run takes milliseconds, and a sleeping timer thread wakes
+        // no sooner than the OS allows (about a millisecond on Windows), so
+        // run until the sampler has landed in it often enough.
+        for _ in 0..200 {
+            let results = lua.execute(&chunk).unwrap();
+            let numbers: Vec<f64> = results
+                .iter()
+                .map(|value| match value {
+                    oximond::Value::Number(number) => *number,
+                    oximond::Value::Integer(number) => *number as f64,
+                    other => panic!("{other:?}"),
+                })
+                .collect();
+            let sum = |n: f64| n * (n + 1.0) / 2.0;
+            assert_eq!(
+                numbers,
+                [
+                    sum(3_000_000.0),
+                    sum(300_000.0),
+                    2.0 * sum(300_000.0),
+                    900_000.0
+                ],
+                "{mode:?}"
+            );
+            if samples() > 10 {
+                break;
+            }
+        }
+        let samples = samples();
         assert!(samples > 10, "{mode:?}: only {samples} samples");
     }
 }

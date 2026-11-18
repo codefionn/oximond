@@ -73,7 +73,8 @@ pub struct Outcome {
 #[must_use]
 pub fn command_line(program: &[OsString], limits: Limits) -> Vec<OsString> {
     let mut line = Vec::new();
-    if limits.memory_mib > 0 {
+    // `prlimit` is util-linux; elsewhere the cap is not applied.
+    if cfg!(target_os = "linux") && limits.memory_mib > 0 {
         line.push(OsString::from("prlimit"));
         line.push(OsString::from(format!("--as={}", limits.memory_mib << 20)));
         line.push(OsString::from("--"));
@@ -101,6 +102,7 @@ pub fn run(
     environment: &[(&str, &str)],
     limits: Limits,
 ) -> Outcome {
+    #[cfg(unix)]
     use std::os::unix::process::{CommandExt, ExitStatusExt};
 
     let line = command_line(program, limits);
@@ -111,8 +113,9 @@ pub fn run(
         .current_dir(directory)
         .stdin(Stdio::null())
         .stdout(Stdio::piped())
-        .stderr(Stdio::piped())
-        .process_group(0);
+        .stderr(Stdio::piped());
+    #[cfg(unix)]
+    command.process_group(0);
     for (key, value) in environment {
         command.env(key, value);
     }
@@ -155,7 +158,11 @@ pub fn run(
     while status.is_none() {
         match child.try_wait() {
             Ok(Some(exit)) => {
-                status = Some(match (exit.code(), exit.signal()) {
+                #[cfg(unix)]
+                let signal = exit.signal();
+                #[cfg(not(unix))]
+                let signal: Option<i32> = None;
+                status = Some(match (exit.code(), signal) {
                     (Some(code), _) => Status::Exited(code),
                     (None, Some(signal)) => Status::Signaled(signal),
                     (None, None) => Status::Exited(-1),
@@ -227,6 +234,7 @@ fn capture(
 
 /// Kills the process group `leader` leads. The group exists because the
 /// child was spawned with `process_group(0)`.
+#[cfg(unix)]
 fn kill_group(leader: u32) {
     let _ = Command::new("kill")
         .args(["-KILL", &format!("-{leader}")])
@@ -235,7 +243,19 @@ fn kill_group(leader: u32) {
         .status();
 }
 
-#[cfg(test)]
+/// Kills the process tree rooted at `leader`; Windows has no process groups
+/// to signal, so `taskkill /T` walks the children instead.
+#[cfg(windows)]
+fn kill_group(leader: u32) {
+    let _ = Command::new("taskkill")
+        .args(["/T", "/F", "/PID", &leader.to_string()])
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .status();
+}
+
+// The fixtures are POSIX shell scripts.
+#[cfg(all(test, unix))]
 mod tests {
     use super::{Limits, Status, run};
     use std::ffi::OsString;

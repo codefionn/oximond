@@ -280,10 +280,19 @@ fn os_remove_and_rename_return_lua_results_for_host_files() {
             .unwrap(),
         vec![Value::Boolean(true)]
     );
-    assert!(matches!(
-        runtime.call_native(remove, &[to]).unwrap().as_slice(),
-        [Value::Nil, Value::String(_)]
-    ));
+    let Value::String(missing) = &to else {
+        unreachable!()
+    };
+    let expected = format!("{}: No such file or directory", missing.to_lossy());
+    let failure = runtime.call_native(remove, &[to]).unwrap();
+    assert!(
+        matches!(
+            failure.as_slice(),
+            [Value::Nil, Value::String(message), Value::Number(code)]
+                if message.to_lossy() == expected && *code == 2.0
+        ),
+        "{failure:?}"
+    );
 }
 
 #[test]

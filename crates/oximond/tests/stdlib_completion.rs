@@ -1,13 +1,21 @@
 use oximond::runtime::Value;
 use oximond::{CompatibilityProfile, ExecutionMode, Lua, StandardLibrary};
 
+/// `app.mod` found through `virtual/?.lua`: the dots become the platform's
+/// directory separator, `\` on Windows as in stock Lua.
+fn app_mod_path() -> Value {
+    Value::from(format!("virtual/app{}mod.lua", std::path::MAIN_SEPARATOR))
+}
+
 fn virtual_lua(profile: CompatibilityProfile, mode: ExecutionMode) -> Lua {
     Lua::builder()
         .profile(profile)
         .execution_mode(mode)
         .package_path("virtual/?.lua")
         .source_reader(|path| match path {
-            Some(b"virtual/app/mod.lua") => Ok(b"return {name=..., answer=42}".to_vec()),
+            Some(b"virtual/app/mod.lua" | b"virtual/app\\mod.lua") => {
+                Ok(b"return {name=..., answer=42}".to_vec())
+            }
             Some(b"virtual/bad.lua") => Ok(b"local =".to_vec()),
             _ => Err(std::io::ErrorKind::NotFound.into()),
         })
@@ -38,7 +46,7 @@ fn searchpath_uses_virtual_files_and_custom_separators() {
                 )
                 .unwrap(),
                 vec![
-                    Value::from("virtual/app/mod.lua"),
+                    app_mod_path(),
                     Value::from("virtual/app/mod.lua"),
                     Value::Nil,
                     Value::from("\n\tno file 'a/missing.lua'\n\tno file 'b/missing.lua'")
@@ -71,7 +79,7 @@ fn source_searcher_is_callable_and_require_passes_loader_data() {
                     if profile.is_lua51_family() {
                         Value::Nil
                     } else {
-                        Value::from("virtual/app/mod.lua")
+                        app_mod_path()
                     },
                     Value::from("direct"),
                     Value::from("app.mod"),

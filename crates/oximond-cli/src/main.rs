@@ -888,27 +888,24 @@ fn parse_plan(arguments: Vec<OsString>) -> Result<Plan, CliError> {
             let value = if let Some(value) = text.strip_prefix("--compat=") {
                 if value.is_empty() {
                     return Err(CliError::Usage(format!(
-                        "`--compat` needs an argument\\n\\n{}",
+                        "`--compat` needs an argument\n\n{}",
                         usage()
                     )));
                 }
                 value.to_owned()
             } else {
                 let value = items.next().ok_or_else(|| {
-                    CliError::Usage(format!("`--compat` needs an argument\\n\\n{}", usage()))
+                    CliError::Usage(format!("`--compat` needs an argument\n\n{}", usage()))
                 })?;
                 let value = value.into_string().map_err(|_| {
-                    CliError::Usage(format!(
-                        "`--compat` needs a UTF-8 argument\\n\\n{}",
-                        usage()
-                    ))
+                    CliError::Usage(format!("`--compat` needs a UTF-8 argument\n\n{}", usage()))
                 })?;
                 argument_prefix.push(value.clone());
                 value
             };
             compatibility = value.parse().map_err(|error| {
                 CliError::Usage(format!(
-                    "{error}; expected one of {}\\n\\n{}",
+                    "{error}; expected one of {}\n\n{}",
                     selectors(),
                     usage()
                 ))
