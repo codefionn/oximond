@@ -39,6 +39,9 @@ enum {
  * result[0] and XMM0 at result[1]. */
 void oximond_win64_invoke(void *function, const uint64_t *slots, size_t count,
                           uint64_t *result);
+/* MSVC has no inline assembly on x64: there the same trampoline is
+ * native_windows_msvc.asm, which build.rs assembles with ml64. */
+#ifndef _MSC_VER
 __asm__(
     ".text\n"
     ".globl oximond_win64_invoke\n"
@@ -100,8 +103,15 @@ __asm__(
     "    popq %rbp\n"
     "    ret\n"
     ".seh_endproc\n");
+#endif
 
-static _Thread_local char last_error[512];
+#ifdef _MSC_VER
+#define THREAD_LOCAL __declspec(thread)
+#else
+#define THREAD_LOCAL _Thread_local
+#endif
+
+static THREAD_LOCAL char last_error[512];
 
 static void remember_error(const char *context) {
     DWORD code = GetLastError();

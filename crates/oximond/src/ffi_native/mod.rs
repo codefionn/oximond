@@ -1218,6 +1218,73 @@ fn is_known_type(input: &str) -> bool {
     )
 }
 
+/// The Windows x64 trampoline: register arguments of both kinds, a floating result, and
+/// arguments past the fourth, which go on the stack.
+#[cfg(all(test, windows, target_arch = "x86_64"))]
+mod windows_tests {
+    use super::{FfiEngine, FfiValue};
+
+    #[test]
+    fn calls_process_symbols_through_the_trampoline() {
+        let mut ffi = FfiEngine::new().unwrap();
+        ffi.cdef(
+            "int abs(int value); size_t strlen(const char *text); \
+             double pow(double x, double y); double ldexp(double x, int exp);",
+        )
+        .unwrap();
+        assert_eq!(
+            ffi.call("abs", &[FfiValue::Integer(-42)]).unwrap(),
+            FfiValue::Integer(42)
+        );
+        assert_eq!(
+            ffi.call("strlen", &[FfiValue::CString("hello".into())])
+                .unwrap(),
+            FfiValue::Unsigned(5)
+        );
+        assert_eq!(
+            ffi.call("pow", &[FfiValue::Double(2.0), FfiValue::Double(10.0)])
+                .unwrap(),
+            FfiValue::Double(1024.0)
+        );
+        // A double in XMM0 and an int in RDX, by position.
+        assert_eq!(
+            ffi.call("ldexp", &[FfiValue::Double(3.0), FfiValue::Integer(4)])
+                .unwrap(),
+            FfiValue::Double(48.0)
+        );
+    }
+
+    #[test]
+    fn arguments_past_the_fourth_reach_the_callee() {
+        let mut ffi = FfiEngine::new().unwrap();
+        ffi.cdef(
+            "int MultiByteToWideChar(unsigned int page, unsigned int flags, \
+             const char *text, int length, void *out, int room);",
+        )
+        .unwrap();
+        let mut out = [0u16; 16];
+        let call = |ffi: &mut FfiEngine, out: &mut [u16], room: i64| {
+            ffi.call(
+                "MultiByteToWideChar",
+                &[
+                    FfiValue::Integer(65001),
+                    FfiValue::Integer(0),
+                    FfiValue::CString("hello".into()),
+                    FfiValue::Integer(-1),
+                    FfiValue::Pointer(out.as_mut_ptr() as usize),
+                    FfiValue::Integer(room),
+                ],
+            )
+            .unwrap()
+        };
+        // The fifth argument is the buffer the text lands in.
+        assert_eq!(call(&mut ffi, &mut out, 16), FfiValue::Integer(6));
+        assert_eq!(String::from_utf16_lossy(&out[..5]), "hello");
+        // The sixth is its room: too small, and the call fails.
+        assert_eq!(call(&mut ffi, &mut out, 2), FfiValue::Integer(0));
+    }
+}
+
 #[cfg(all(
     test,
     any(

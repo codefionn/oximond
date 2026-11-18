@@ -26,9 +26,13 @@ fn main() {
             native.compile("oximond_ffi_native");
         }
         "windows" if std::env::var("CARGO_CFG_TARGET_ARCH").as_deref() == Ok("x86_64") => {
-            cc::Build::new()
-                .file("src/ffi_native/native_windows.c")
-                .compile("oximond_ffi_native");
+            let mut native = cc::Build::new();
+            native.file("src/ffi_native/native_windows.c");
+            // MSVC has no x64 inline assembly, so the trampoline comes from ml64 there.
+            if std::env::var("CARGO_CFG_TARGET_ENV").as_deref() == Ok("msvc") {
+                native.file("src/ffi_native/native_windows_msvc.asm");
+            }
+            native.compile("oximond_ffi_native");
         }
         _ => {
             cc::Build::new()
@@ -38,6 +42,7 @@ fn main() {
     }
     println!("cargo:rerun-if-changed=src/ffi_native/native.c");
     println!("cargo:rerun-if-changed=src/ffi_native/native_windows.c");
+    println!("cargo:rerun-if-changed=src/ffi_native/native_windows_msvc.asm");
     println!("cargo:rerun-if-changed=src/ffi_native/unsupported.c");
 }
 
