@@ -16,7 +16,7 @@ scripts/ci.sh test wasm    # the workspace tests and the wasm smoke test
 | `fmt` | `cargo fmt` over the workspace |
 | `clippy` | `cargo clippy` over every workspace target |
 | `ledger` | validates `tests/conformance` sources and ledger manifests |
-| `test` | `cargo test` over the workspace |
+| `test` | `cargo test` over the workspace, built with the `ci` profile |
 | `wasm` | wasm32 build of the library and `tests/wasm-smoke` under node |
 | `windows` | Windows build of the CLI and `tests/windows-smoke` under wine (not in `all`) |
 | `conformance` | the release CLI and the pinned conformance corpora |
@@ -32,6 +32,12 @@ The `conformance` target downloads the pinned corpora into
 code. `OXIMOND_CI_REPORT=FILE` additionally writes the run report to `FILE`;
 the GitLab and GitHub pipelines upload it as an artifact. See
 [conformance suites](conformance.md) for the ledgers.
+
+The `test` target builds with the `ci` profile from `Cargo.toml`: the dev
+profile at `opt-level = 1` (dependencies at 2) with line tables only. Debug
+assertions and overflow checks stay on. Unoptimized, the trace tests ran
+about 7x slower and kept the GitHub test job busy for over an hour. The
+profile's binaries land in `target/ci`, apart from `target/debug`.
 
 The `package` target packages every workspace member without `publish =
 false` and checks the metadata crates.io requires and the version

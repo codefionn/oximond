@@ -79,3 +79,17 @@ unnecessary_wraps = "allow"
 [profile.release]
 lto = "thin"
 debug = "line-tables-only"
+
+# The profile `scripts/ci.sh test` builds with. The trace tests run Lua through
+# the interpreter and the JIT, and unoptimized code runs them about 7x slower,
+# which made the workspace tests the longest job in every pipeline. Debug
+# assertions and overflow checks stay on, so the tests see the dev profile's
+# checks; line tables keep panic backtraces readable and the 200-odd test
+# binaries quick to link.
+[profile.ci]
+inherits = "dev"
+opt-level = 1
+debug = "line-tables-only"
+
+[profile.ci.package."*"]
+opt-level = 2

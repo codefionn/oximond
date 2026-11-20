@@ -78,7 +78,11 @@ jobs:
   test:
     needs: [version]
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 60
+    env:
+      # The test build has no thin-LTO step, so it fits the runner's 16 GiB
+      # with one job per CPU.
+      CARGO_BUILD_JOBS: "4"
     steps:
       - name: Check out repository
         uses: actions/checkout@v5

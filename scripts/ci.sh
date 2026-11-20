@@ -8,7 +8,8 @@
 #   fmt           cargo fmt over the workspace
 #   clippy        cargo clippy over every workspace target
 #   ledger        validate the conformance sources and ledger manifests
-#   test          cargo test over the workspace
+#   test          cargo test over the workspace, built with the `ci` profile
+#                 (optimized, debug assertions on; see Cargo.toml)
 #   wasm          wasm32 build of the library and tests/wasm-smoke under node
 #   windows       x86_64-pc-windows-gnu build of the CLI (cargo-zigbuild) and
 #                 tests/windows-smoke under wine; not part of `all`
@@ -81,7 +82,7 @@ target_ledger() {
 }
 
 target_test() {
-    heavy cargo test --locked --workspace
+    heavy cargo test --locked --workspace --profile ci
 }
 
 target_wasm() {
