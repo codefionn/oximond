@@ -1,4 +1,6 @@
-#![forbid(unsafe_code)]
+// `unsafe` stays confined to `simd.rs` for bounds-checked SIMD vector loads
+// and `#[target_feature]` dispatch. Every other module in `syntax` stays safe.
+#![deny(unsafe_code)]
 
 use crate::compat::{CompatibilityProfile, ParserCapabilities};
 use crate::string::LuaString;
@@ -682,6 +684,7 @@ pub(crate) use fast::{Tokens, line_starts};
 mod frames;
 mod lexer;
 mod pratt;
+pub(crate) mod simd;
 mod streaming;
 
 // Four independent dialect feature switches; enum states would obscure them.

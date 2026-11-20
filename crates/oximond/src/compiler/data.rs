@@ -65,9 +65,10 @@ pub(super) fn compile(
     config: CompilerConfig,
 ) -> Option<Chunk> {
     // Most code starts otherwise; skip it without lexing.
-    let first = source
-        .iter()
-        .position(|byte| !matches!(*byte, b' ' | b'\t' | b'\r' | b'\n'))?;
+    let first = syntax::simd::skip_whitespace(source);
+    if first == source.len() {
+        return None;
+    }
     if !source[first..].starts_with(b"return") && !source[first..].starts_with(b"local _") {
         return None;
     }

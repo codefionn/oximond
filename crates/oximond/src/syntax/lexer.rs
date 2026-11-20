@@ -3,7 +3,7 @@
 use crate::string::LuaString;
 use crate::syntax::{
     Boundary, IncrementalLexer, LexPoll, Lexer, NumberMode, PendingBoundary, Span, SyntaxError,
-    Token, TokenBoundary, TokenKind, TokenState, TriviaBoundary, TriviaState,
+    Token, TokenBoundary, TokenKind, TokenState, TriviaBoundary, TriviaState, simd,
 };
 
 impl<'a> Lexer<'a> {
@@ -42,9 +42,8 @@ impl<'a> Lexer<'a> {
             // Lua's standalone interpreter ignores the first physical line
             // when it starts with `#!`. Leave its line ending for
             // `skip_trivia`, which already accepts every CR/LF variant.
-            while !matches!(self.byte(), None | Some(b'\n' | b'\r')) {
-                self.position += 1;
-            }
+            self.position = simd::find_line_break(&self.source[2..])
+                .map_or(self.source.len(), |offset| 2 + offset);
         }
         loop {
             self.skip_trivia()?;
@@ -220,11 +219,7 @@ impl<'a> Lexer<'a> {
     }
     pub(crate) fn skip_trivia(&mut self) -> Result<(), SyntaxError> {
         loop {
-            let rest = &self.source[self.position..];
-            self.position += rest
-                .iter()
-                .position(|byte| !matches!(*byte, b' ' | b'\t' | b'\r' | b'\n' | b'\x0b' | b'\x0c'))
-                .unwrap_or(rest.len());
+            self.position += simd::skip_whitespace(&self.source[self.position..]);
             if self.source.get(self.position..self.position + 2) != Some(b"--") {
                 return Ok(());
             }
@@ -239,10 +234,7 @@ impl<'a> Lexer<'a> {
                 )?;
             } else {
                 let rest = &self.source[self.position..];
-                self.position += rest
-                    .iter()
-                    .position(|byte| matches!(*byte, b'\n' | b'\r'))
-                    .unwrap_or(rest.len());
+                self.position += simd::find_line_break(rest).unwrap_or(rest.len());
             }
         }
     }
@@ -255,17 +247,13 @@ impl<'a> Lexer<'a> {
         {
             self.position += 2;
             let digits_start = self.position;
-            while self.byte().and_then(Self::hex_digit).is_some() {
-                self.position += 1;
-            }
+            self.position += simd::scan_hex_digits(&self.source[self.position..]);
             let integer_digits = self.position - digits_start;
             let mut integer_literal = true;
             if self.byte() == Some(b'.') && self.source.get(self.position + 1) != Some(&b'.') {
                 integer_literal = false;
                 self.position += 1;
-                while self.byte().and_then(Self::hex_digit).is_some() {
-                    self.position += 1;
-                }
+                self.position += simd::scan_hex_digits(&self.source[self.position..]);
             }
             let mantissa_end = self.position;
             let mut exponent = 0_i64;
@@ -337,14 +325,10 @@ impl<'a> Lexer<'a> {
         if self.byte() == Some(b'.') {
             self.position += 1;
         }
-        while matches!(self.byte(), Some(b'0'..=b'9')) {
-            self.position += 1;
-        }
+        self.position += simd::scan_digits(&self.source[self.position..]);
         if self.byte() == Some(b'.') && self.source.get(self.position + 1) != Some(&b'.') {
             self.position += 1;
-            while matches!(self.byte(), Some(b'0'..=b'9')) {
-                self.position += 1;
-            }
+            self.position += simd::scan_digits(&self.source[self.position..]);
         }
         if matches!(self.byte(), Some(b'e' | b'E')) {
             let exponent = self.position;
@@ -353,9 +337,7 @@ impl<'a> Lexer<'a> {
                 self.position += 1;
             }
             let digits = self.position;
-            while matches!(self.byte(), Some(b'0'..=b'9')) {
-                self.position += 1;
-            }
+            self.position += simd::scan_digits(&self.source[self.position..]);
             if self.position == digits {
                 return Err(Self::error(
                     Span {
@@ -534,10 +516,7 @@ impl<'a> Lexer<'a> {
     }
     pub(crate) fn identifier(&mut self, start: usize) -> TokenKind {
         self.position += 1;
-        self.position += self.source[self.position..]
-            .iter()
-            .position(|byte| !matches!(*byte, b'a'..=b'z' | b'A'..=b'Z' | b'0'..=b'9' | b'_'))
-            .unwrap_or(self.source.len() - self.position);
+        self.position += simd::scan_ident(&self.source[self.position..]);
         let text = &self.source[start..self.position];
         match text {
             b"and" => TokenKind::And,
@@ -574,19 +553,45 @@ impl<'a> Lexer<'a> {
     pub(crate) fn string(&mut self, quote: u8, start: usize) -> Result<TokenKind, SyntaxError> {
         self.position += 1;
         // Most literals have no escapes: take their bytes straight from the
-        // source. Anything else restarts on the escape-aware path below.
+        // source. Anything else copies the scanned literal prefix and enters
+        // the escape-aware loop below.
         let body = &self.source[self.position..];
-        if let Some(length) = body
-            .iter()
-            .position(|byte| matches!(*byte, b'\\' | b'\n' | b'\r') || *byte == quote)
-            && body[length] == quote
-        {
-            self.position += length + 1;
-            return Ok(TokenKind::String(LuaString::from(&body[..length])));
-        }
-        let mut bytes = Vec::new();
+        let mut bytes = match simd::find_short_string_special(body, quote) {
+            Some(length) if body[length] == quote => {
+                self.position += length + 1;
+                return Ok(TokenKind::String(LuaString::from(&body[..length])));
+            }
+            Some(length) if body[length] == b'\\' => {
+                let mut bytes = Vec::with_capacity(length + 16);
+                bytes.extend_from_slice(&body[..length]);
+                self.position += length;
+                bytes
+            }
+            Some(length) => {
+                self.position += length + 1;
+                return Err(Self::error(
+                    Span {
+                        start,
+                        end: self.position,
+                    },
+                    "newline in string",
+                ));
+            }
+            None => {
+                self.position = self.source.len();
+                return Err(Self::error(
+                    Span {
+                        start,
+                        end: self.position,
+                    },
+                    "unterminated string",
+                ));
+            }
+        };
         loop {
-            let Some(byte) = self.byte() else {
+            let rest = &self.source[self.position..];
+            let Some(chunk) = simd::find_short_string_special(rest, quote) else {
+                self.position = self.source.len();
                 return Err(Self::error(
                     Span {
                         start,
@@ -595,7 +600,9 @@ impl<'a> Lexer<'a> {
                     "unterminated string",
                 ));
             };
-            self.position += 1;
+            bytes.extend_from_slice(&rest[..chunk]);
+            let byte = rest[chunk];
+            self.position += chunk + 1;
             if byte == quote {
                 break;
             }
@@ -607,10 +614,6 @@ impl<'a> Lexer<'a> {
                     },
                     "newline in string",
                 ));
-            }
-            if byte != b'\\' {
-                bytes.push(byte);
-                continue;
             }
             let Some(escaped) = self.byte() else {
                 return Err(Self::error(
@@ -647,12 +650,7 @@ impl<'a> Lexer<'a> {
                             "'\\z' escape requires Lua 5.2 or later",
                         ));
                     }
-                    while matches!(
-                        self.byte(),
-                        Some(b' ' | b'\t' | b'\r' | b'\n' | b'\x0b' | b'\x0c')
-                    ) {
-                        self.position += 1;
-                    }
+                    self.position += simd::skip_whitespace(&self.source[self.position..]);
                 }
                 b'x' => {
                     if !self.lua52_escapes {
@@ -855,21 +853,12 @@ impl<'a> Lexer<'a> {
                 content_start += 1;
             }
         }
-        let mut cursor = content_start;
-        while cursor < self.source.len() {
-            if self.source[cursor] == b']'
-                && self
-                    .source
-                    .get(cursor + 1..cursor + 1 + level)
-                    .is_some_and(|equals| equals.iter().all(|byte| *byte == b'='))
-                && self.source.get(cursor + 1 + level) == Some(&b']')
-            {
-                self.position = cursor + level + 2;
-                return Ok(Self::normalize_long_bracket_content(
-                    &self.source[content_start..cursor],
-                ));
-            }
-            cursor += 1;
+        if let Some(offset) = simd::find_long_bracket_close(&self.source[content_start..], level) {
+            let cursor = content_start + offset;
+            self.position = cursor + level + 2;
+            return Ok(Self::normalize_long_bracket_content(
+                &self.source[content_start..cursor],
+            ));
         }
         Err(Self::error(
             Span {
@@ -880,21 +869,22 @@ impl<'a> Lexer<'a> {
         ))
     }
     pub(crate) fn normalize_long_bracket_content(content: &[u8]) -> Vec<u8> {
-        let mut normalized = Vec::with_capacity(content.len());
-        let mut index = 0;
-        while let Some(byte) = content.get(index) {
-            if matches!(*byte, b'\n' | b'\r') {
-                normalized.push(b'\n');
-                let next = content.get(index + 1);
-                index += usize::from(matches!(
-                    (*byte, next),
-                    (b'\n', Some(b'\r')) | (b'\r', Some(b'\n'))
-                ));
-            } else {
-                normalized.push(*byte);
-            }
-            index += 1;
+        if memchr::memchr(b'\r', content).is_none() {
+            return content.to_vec();
         }
+        let mut normalized = Vec::with_capacity(content.len());
+        let mut cursor = 0;
+        while let Some(offset) = simd::find_line_break(&content[cursor..]) {
+            let break_pos = cursor + offset;
+            normalized.extend_from_slice(&content[cursor..break_pos]);
+            normalized.push(b'\n');
+            let byte = content[break_pos];
+            let pair = content
+                .get(break_pos + 1)
+                .is_some_and(|next| *next != byte && matches!(*next, b'\n' | b'\r'));
+            cursor = break_pos + 1 + usize::from(pair);
+        }
+        normalized.extend_from_slice(&content[cursor..]);
         normalized
     }
     pub(crate) fn byte(&self) -> Option<u8> {
@@ -925,12 +915,7 @@ impl TriviaBoundary {
         loop {
             match self.state {
                 TriviaState::Space => {
-                    while matches!(
-                        bytes.get(self.cursor),
-                        Some(b' ' | b'\t' | b'\r' | b'\n' | b'\x0b' | b'\x0c')
-                    ) {
-                        self.cursor += 1;
-                    }
+                    self.cursor += simd::skip_whitespace(&bytes[self.cursor..]);
                     match &bytes[self.cursor..] {
                         [] | [b'-'] | [b'-', b'-'] => return Boundary::NeedInput,
                         [b'-', b'-', b'[', rest @ ..] => {
@@ -945,15 +930,11 @@ impl TriviaBoundary {
                     }
                 }
                 TriviaState::LineComment => {
-                    while let Some(byte) = bytes.get(self.cursor) {
-                        if matches!(*byte, b'\n' | b'\r') {
-                            self.cursor += 1;
-                            self.state = TriviaState::Space;
-                            break;
-                        }
-                        self.cursor += 1;
-                    }
-                    if !matches!(self.state, TriviaState::Space) {
+                    if let Some(offset) = simd::find_line_break(&bytes[self.cursor..]) {
+                        self.cursor += offset + 1;
+                        self.state = TriviaState::Space;
+                    } else {
+                        self.cursor = bytes.len();
                         return Boundary::NeedInput;
                     }
                 }
@@ -981,8 +962,17 @@ impl TriviaBoundary {
                     }
                 }
                 TriviaState::LongComment { level, mut matched } => {
-                    while let Some(byte) = bytes.get(self.cursor) {
-                        matched = long_close_step(*byte, level, matched);
+                    while self.cursor < bytes.len() {
+                        if matched == 0 {
+                            let Some(offset) = memchr::memchr(b']', &bytes[self.cursor..]) else {
+                                self.cursor = bytes.len();
+                                break;
+                            };
+                            self.cursor += offset + 1;
+                            matched = 1;
+                            continue;
+                        }
+                        matched = long_close_step(bytes[self.cursor], level, matched);
                         self.cursor += 1;
                         if matched == level + 2 {
                             self.state = TriviaState::Space;
@@ -1042,12 +1032,7 @@ impl TokenBoundary {
                     };
                 }
                 TokenState::Identifier { mut cursor } => {
-                    while matches!(
-                        bytes.get(cursor),
-                        Some(b'a'..=b'z' | b'A'..=b'Z' | b'0'..=b'9' | b'_')
-                    ) {
-                        cursor += 1;
-                    }
+                    cursor += simd::scan_ident(&bytes[cursor..]);
                     self.state = TokenState::Identifier { cursor };
                     return if cursor < bytes.len() {
                         Boundary::Complete(self.start)
@@ -1131,34 +1116,42 @@ impl TokenBoundary {
                     mut skip_whitespace,
                     mut escaped_newline,
                 } => {
-                    while let Some(byte) = bytes.get(cursor) {
+                    while cursor < bytes.len() {
                         if let Some(first) = escaped_newline {
                             escaped_newline = None;
-                            if matches!((first, *byte), (b'\n', b'\r') | (b'\r', b'\n')) {
+                            if matches!((first, bytes[cursor]), (b'\n', b'\r') | (b'\r', b'\n')) {
                                 cursor += 1;
-                                continue;
                             }
                             continue;
                         }
                         if skip_whitespace {
-                            if matches!(*byte, b' ' | b'\t' | b'\r' | b'\n' | b'\x0b' | b'\x0c') {
-                                cursor += 1;
-                                continue;
+                            cursor += simd::skip_whitespace(&bytes[cursor..]);
+                            if cursor < bytes.len() {
+                                skip_whitespace = false;
                             }
-                            skip_whitespace = false;
                             continue;
                         }
-                        cursor += 1;
                         if escaped {
+                            let byte = bytes[cursor];
+                            cursor += 1;
                             escaped = false;
-                            if *byte == b'z' {
+                            if byte == b'z' {
                                 skip_whitespace = true;
-                            } else if matches!(*byte, b'\n' | b'\r') {
-                                escaped_newline = Some(*byte);
+                            } else if matches!(byte, b'\n' | b'\r') {
+                                escaped_newline = Some(byte);
                             }
-                        } else if *byte == b'\\' {
+                            continue;
+                        }
+                        let Some(offset) = simd::find_short_string_special(&bytes[cursor..], quote)
+                        else {
+                            cursor = bytes.len();
+                            break;
+                        };
+                        let byte = bytes[cursor + offset];
+                        cursor += offset + 1;
+                        if byte == b'\\' {
                             escaped = true;
-                        } else if *byte == quote || matches!(*byte, b'\n' | b'\r') {
+                        } else {
                             return Boundary::Complete(self.start);
                         }
                     }
@@ -1201,8 +1194,17 @@ impl TokenBoundary {
                     level,
                     mut matched,
                 } => {
-                    while let Some(byte) = bytes.get(cursor) {
-                        matched = long_close_step(*byte, level, matched);
+                    while cursor < bytes.len() {
+                        if matched == 0 {
+                            let Some(offset) = memchr::memchr(b']', &bytes[cursor..]) else {
+                                cursor = bytes.len();
+                                break;
+                            };
+                            cursor += offset + 1;
+                            matched = 1;
+                            continue;
+                        }
+                        matched = long_close_step(bytes[cursor], level, matched);
                         cursor += 1;
                         if matched == level + 2 {
                             return Boundary::Complete(self.start);
@@ -1283,9 +1285,7 @@ impl IncrementalLexer {
                     return Ok(LexPoll::NeedInput);
                 }
                 if bytes.get(1) == Some(&b'!') {
-                    if let Some(end) = bytes[self.shebang_scan..]
-                        .iter()
-                        .position(|byte| matches!(*byte, b'\n' | b'\r'))
+                    if let Some(end) = simd::find_line_break(&bytes[self.shebang_scan..])
                         .map(|end| self.shebang_scan + end)
                     {
                         self.cursor += end;

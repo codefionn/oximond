@@ -860,4 +860,5 @@ mod expr;
 mod fast;
 mod lexer;
 mod misc;
+mod simd;
 mod statements;

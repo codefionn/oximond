@@ -16,7 +16,7 @@ use crate::string::LuaString;
 use crate::syntax::{
     Block, Chunk, ElseIf, Expr, FunctionName, Lexer, LocalAttribute, Name, ParserConfig,
     PrattMachine, PrattOperator, Span, Statement, StreamingParser, SyntaxDepth, TableField, Token,
-    TokenKind, make_unary_expression,
+    TokenKind, make_unary_expression, simd,
 };
 use std::sync::Arc;
 
@@ -112,10 +112,21 @@ enum Stop {
     IfArm,
 }
 
+/// A pre-classified 64-byte slice of `source` for branchless whitespace,
+/// identifier, and decimal-digit boundary lookups.
+#[derive(Clone, Copy, Default)]
+struct SimdWindow {
+    base: usize,
+    end: usize,
+    masks: simd::BlockMasks,
+}
+
 #[allow(clippy::struct_excessive_bools)] // Profile switches checked per token.
 struct FastParser<'a> {
     source: &'a [u8],
     lexer: Lexer<'a>,
+    window: SimdWindow,
+    use_avx2: bool,
     /// The current token.
     token: Token,
     /// A raw token read ahead of `token`.
@@ -155,15 +166,22 @@ impl<'a> FastParser<'a> {
     fn new(source: &'a [u8], config: ParserConfig) -> Self {
         let compatibility = config.compatibility_profile();
         let luajit = compatibility == CompatibilityProfile::LuaJit21;
+        let mut lexer = Lexer::with_escapes(
+            source,
+            !compatibility.is_lua51_family() || luajit,
+            compatibility.is_lua53_or_later() || luajit,
+            compatibility.is_lua53_or_later(),
+            luajit,
+        );
+        if source.starts_with(b"#!") {
+            // The first line of a script may be a `#!` line.
+            lexer.position = find_line_break(source, 2).unwrap_or(source.len());
+        }
         Self {
             source,
-            lexer: Lexer::with_escapes(
-                source,
-                !compatibility.is_lua51_family() || luajit,
-                compatibility.is_lua53_or_later() || luajit,
-                compatibility.is_lua53_or_later(),
-                luajit,
-            ),
+            lexer,
+            window: SimdWindow::default(),
+            use_avx2: simd::has_avx2(),
             token: Token {
                 kind: TokenKind::Eof,
                 span: Span::default(),
@@ -215,6 +233,18 @@ impl<'a> FastParser<'a> {
 
     // ---- Tokens ----
 
+    #[inline]
+    fn ensure_window(&mut self, position: usize) {
+        if position >= self.window.end {
+            let (masks, len) = simd::classify_block64(&self.source[position..], self.use_avx2);
+            self.window = SimdWindow {
+                base: position,
+                end: position + len,
+                masks,
+            };
+        }
+    }
+
     /// Lexes the next token exactly as [`Lexer`] would. Common tokens are
     /// scanned here; everything else goes to the full lexer. Identifiers
     /// carry an empty string: their text is read from the source when a
@@ -226,44 +256,57 @@ impl<'a> FastParser<'a> {
         }
         let source = self.source;
         let mut position = self.lexer.position;
-        if position == 0 && source.starts_with(b"#!") {
-            // The first line of a script may be a `#!` line.
-            position = find_line_break(source, 0).unwrap_or(source.len());
-        }
         loop {
-            match source.get(position) {
-                Some(b' ' | b'\t' | b'\r' | b'\n' | b'\x0b' | b'\x0c') => position += 1,
-                Some(b'-') if source.get(position + 1) == Some(&b'-') => {
-                    if source.get(position + 2) == Some(&b'[') {
-                        // Possibly a long comment.
-                        self.lexer.position = position;
-                        self.lexer.skip_trivia().map_err(|_| GiveUp)?;
-                        position = self.lexer.position;
-                    } else {
-                        position = find_line_break(source, position + 2).unwrap_or(source.len());
-                    }
-                }
-                _ => break,
+            if position >= source.len() {
+                self.lexer.position = position;
+                let end = source.len();
+                return Ok(Token {
+                    kind: TokenKind::Eof,
+                    span: Span { start: end, end },
+                });
             }
+            self.ensure_window(position);
+            let bit = position - self.window.base;
+            let ws_stops = self.window.masks.ws_stops >> bit;
+            if ws_stops != 0 {
+                position += ws_stops.trailing_zeros() as usize;
+                if position >= source.len() {
+                    self.lexer.position = position;
+                    let end = source.len();
+                    return Ok(Token {
+                        kind: TokenKind::Eof,
+                        span: Span { start: end, end },
+                    });
+                }
+            } else {
+                position = self.window.end + simd::skip_whitespace(&source[self.window.end..]);
+                continue;
+            }
+            if source[position] == b'-' && source.get(position + 1) == Some(&b'-') {
+                if source.get(position + 2) == Some(&b'[') {
+                    // Possibly a long comment.
+                    self.lexer.position = position;
+                    self.lexer.skip_trivia().map_err(|_| GiveUp)?;
+                    position = self.lexer.position;
+                } else {
+                    position = find_line_break(source, position + 2).unwrap_or(source.len());
+                }
+                continue;
+            }
+            break;
         }
         let start = position;
-        let Some(&first) = source.get(start) else {
-            self.lexer.position = start;
-            let end = source.len();
-            return Ok(Token {
-                kind: TokenKind::Eof,
-                span: Span { start: end, end },
-            });
-        };
+        let first = source[start];
         let next = source.get(start + 1).copied();
         let (kind, length) = match first {
             b'a'..=b'z' | b'A'..=b'Z' | b'_' => {
-                let length = 1 + source[start + 1..]
-                    .iter()
-                    .position(
-                        |byte| !matches!(*byte, b'a'..=b'z' | b'A'..=b'Z' | b'0'..=b'9' | b'_'),
-                    )
-                    .unwrap_or(source.len() - start - 1);
+                let bit = start - self.window.base;
+                let ident_stops = self.window.masks.ident_stops >> bit;
+                let length = if ident_stops != 0 {
+                    ident_stops.trailing_zeros() as usize
+                } else {
+                    (self.window.end - start) + simd::scan_ident(&source[self.window.end..])
+                };
                 (keyword(&source[start..start + length]), length)
             }
             b'(' => (TokenKind::LParen, 1),
@@ -301,16 +344,22 @@ impl<'a> FastParser<'a> {
             b'.' if !next.is_some_and(|byte| byte.is_ascii_digit()) => (TokenKind::Dot, 1),
             b':' if next == Some(b':') => (TokenKind::DoubleColon, 2),
             b':' => (TokenKind::Colon, 1),
-            b'0'..=b'9' => match self.decimal_integer(start) {
-                Some(token) => token,
-                None => self.lex_slow(start)?,
-            },
+            b'0'..=b'9' => {
+                let bit = start - self.window.base;
+                let digit_stops = self.window.masks.digit_stops >> bit;
+                let digits = if digit_stops != 0 {
+                    digit_stops.trailing_zeros() as usize
+                } else {
+                    (self.window.end - start) + simd::scan_digits(&source[self.window.end..])
+                };
+                match self.decimal_integer(start, digits) {
+                    Some(token) => token,
+                    None => self.lex_slow(start)?,
+                }
+            }
             quote @ (b'"' | b'\'') => {
                 let body = &source[start + 1..];
-                match body
-                    .iter()
-                    .position(|byte| matches!(*byte, b'\\' | b'\n' | b'\r') || *byte == quote)
-                {
+                match simd::find_short_string_special(body, quote) {
                     Some(length) if body[length] == quote => {
                         (TokenKind::String(self.string(&body[..length])), length + 2)
                     }
@@ -336,19 +385,23 @@ impl<'a> FastParser<'a> {
 
     /// A short decimal integer with nothing number-like after it, which
     /// every profile reads without rounding.
-    fn decimal_integer(&self, start: usize) -> Option<(TokenKind, usize)> {
-        let digits = self.source[start..]
-            .iter()
-            .position(|byte| !byte.is_ascii_digit())
-            .unwrap_or(self.source.len() - start);
-        if digits > 15
-            || self.source.get(start + digits).is_some_and(
-                |byte| matches!(*byte, b'.' | b'a'..=b'z' | b'A'..=b'Z' | b'_' | b'0'..=b'9'),
-            )
-        {
+    #[inline]
+    fn decimal_integer(&self, start: usize, digits: usize) -> Option<(TokenKind, usize)> {
+        if digits > 15 {
             return None;
         }
-        let value = self.source[start..start + digits]
+        let end = start + digits;
+        if end < self.window.end {
+            let next_bit = end - self.window.base;
+            if ((self.window.masks.ident_stops >> next_bit) & 1) == 0 || self.source[end] == b'.' {
+                return None;
+            }
+        } else if self.source.get(end).is_some_and(
+            |byte| matches!(*byte, b'.' | b'a'..=b'z' | b'A'..=b'Z' | b'_' | b'0'..=b'9'),
+        ) {
+            return None;
+        }
+        let value = self.source[start..end]
             .iter()
             .fold(0_i64, |value, digit| value * 10 + i64::from(digit - b'0'));
         let kind = if self.lexer.integer_literals {
@@ -1287,17 +1340,7 @@ fn keyword(text: &[u8]) -> TokenKind {
 /// Where each line of `source` starts, as the streaming parser records them:
 /// `\r\n` and `\n\r` end one line, any other `\r` or `\n` ends one each.
 pub(crate) fn line_starts(source: &[u8]) -> Vec<usize> {
-    let mut starts = Vec::with_capacity(source.len() / 32 + 1);
-    starts.push(0);
-    let mut offset = 0;
-    while let Some(found) = find_line_break(source, offset) {
-        let pair = source
-            .get(found + 1)
-            .is_some_and(|next| *next != source[found] && matches!(*next, b'\r' | b'\n'));
-        offset = found + 1 + usize::from(pair);
-        starts.push(offset);
-    }
-    starts
+    simd::collect_line_starts(source)
 }
 
 /// The hash of the parser's own name and string tables. It mixes whole
@@ -1310,5 +1353,5 @@ fn table_hash(bytes: &[u8]) -> u64 {
 /// The index of the first `\n` or `\r` at or after `from`.
 pub(crate) fn find_line_break(bytes: &[u8], from: usize) -> Option<usize> {
     let rest = bytes.get(from..)?;
-    memchr::memchr2(b'\n', b'\r', rest).map(|offset| from + offset)
+    simd::find_line_break(rest).map(|offset| from + offset)
 }
