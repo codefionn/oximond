@@ -633,7 +633,10 @@ mod tests {
                 .send(LoadInput::Bytes(LuaString::from("never parsed")))
                 .is_err()
         );
-        // A disconnected terminal result channel remains a terminal poll.
+        // A disconnected terminal result channel remains a terminal poll. The
+        // compiler drops its result sender only when its thread finishes, so
+        // join it first; polling right after the result races that drop.
+        proxy.compiler.take().unwrap().join().unwrap();
         assert!(proxy.poll().is_some());
     }
 

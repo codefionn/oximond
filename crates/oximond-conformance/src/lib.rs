@@ -2244,7 +2244,10 @@ mod tests {
     fn process_capture_kills_a_test_after_its_deadline() {
         let started = Instant::now();
         let error = capture_output(
-            Command::new("sh").args(["-c", "sleep 2"]),
+            // `exec` keeps sleep the direct child, as memory_limited_command
+            // does for tests. Without it a shell that forks (dash does on
+            // some runners) leaves sleep holding the pipes for two seconds.
+            Command::new("sh").args(["-c", "exec sleep 2"]),
             Duration::from_millis(20),
         )
         .expect_err("sleeping child should exceed its deadline");

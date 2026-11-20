@@ -108,7 +108,11 @@ pub(crate) fn scope(name: &'static str) -> Scope {
     if !super::debug_env::icount() {
         return Scope { open: None };
     }
+    // wasm32-unknown-unknown has no C runtime to register an exit hook with,
+    // and no environment to set the variable from.
+    #[cfg(not(target_family = "wasm"))]
     static REPORT: std::sync::Once = std::sync::Once::new();
+    #[cfg(not(target_family = "wasm"))]
     REPORT.call_once(|| {
         unsafe extern "C" {
             fn atexit(callback: extern "C" fn()) -> std::ffi::c_int;
